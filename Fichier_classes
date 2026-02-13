@@ -1,0 +1,13 @@
+#Importation of all the necessary packages
+import os
+import numpy as np
+from matplotlib import pylab as plt
+import bempp_cl.api as bempp            
+import gmsh
+from IPython import get_ipython
+import matplotlib
+from bempp_cl.core import opencl_kernels
+import bempp_cl.api as bempp
+
+opencl_kernels.show_available_platforms_and_devices()
+opencl_kernels.set_default_cpu_device(1,0)
