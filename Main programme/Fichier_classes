@@ -19,6 +19,8 @@ os.environ['PYOPENCL_COMPILER_OUTPUT']='1'
 #Ctrl + Shift + P
 #Jupyter: Restart Kernel
 
+OUTPUT_DIR = r"C:\Users\zoeno\OneDrive - INSA Toulouse\Documents\INSA\4GP\Projet multi\projet-multi-code\Main programme"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 #Definition of classes to describe the geometry
 class Cylinder:
@@ -149,7 +151,7 @@ class Mesh_Generation:
                 length_cylinder, 
                 radius_axis, 
                 MeshSizeMin, MeshSizeMax, MeshSizeFromCurvature,
-                dimensions):
+                dimensions, output_dir):
         self.dist_shield_apert = dist_shield_apert
         self.dist_apert_quad = dist_apert_quad
 
@@ -169,6 +171,8 @@ class Mesh_Generation:
         self.MeshSizeFromCurvature = MeshSizeFromCurvature
 
         self.dimensions = dimensions
+
+        self.output_dir = output_dir
 
         self.objects = None
 
@@ -247,7 +251,10 @@ class Mesh_Generation:
 
     def Finalize(self):
     #Creates a file .msh
-        gmsh.write("mesh_quadrupole.msh")
+        mesh_path = os.path.join(self.output_dir, "mesh_quadrupole.msh")
+
+        gmsh.write(mesh_path)
+        print("Mesh saved to:", mesh_path)
 
     #Opens a terminal to see the geometry (il faut préalablement installer une extension dans Visual studio code intitulé "STL Viewer")
         gmsh.fltk.run()
@@ -265,7 +272,7 @@ class Potentials:
 
 
 class Calculation_field:
-    def __init__(self, elec_id, pot_apert1, pot_apert2, pot_electrode, pot_shield, pot_acceleration,dimensions):
+    def __init__(self, elec_id, pot_apert1, pot_apert2, pot_electrode, pot_shield, pot_acceleration,dimensions, output_dir):
         self.elec_id = elec_id
         self.pot_apert1 = pot_apert1
         self.pot_apert2 = pot_apert2
@@ -274,9 +281,11 @@ class Calculation_field:
         self.dimensions = dimensions
         self.pot_acceleration = pot_acceleration
         self.mesh_generation = mesh_generation
-        # --- mesh import ---
-        self.grid = bempp.import_grid("mesh_quadrupole.msh")
+        self.output_dir = output_dir
 
+        #Importation of the mesh
+        self.mesh_path = os.path.join(self.output_dir, "mesh_quadrupole.msh")
+        self.grid = bempp.import_grid(self.mesh_path)
         # --- spaces ---
         self.dp0_space = bempp.function_space(self.grid, "DP", 0)
         self.p1_space  = bempp.function_space(self.grid, "P", 1)
@@ -302,11 +311,7 @@ class Calculation_field:
     def Mesh_Importation(self):
         plt.clf()
 
-        #Importation of the mesh
-        grid= bempp.import_grid("mesh_quadrupole.msh")
-
-        return grid
-    
+        
     def Potentials_settings(self):
     #Settings of the potentials
         pot_apert1 = self.pot_apert1
@@ -395,7 +400,7 @@ class Calculation_field:
         except NameError:
             ipython = False
 
-        savefile="potentiel_quadrupole_VF"
+        savefile = os.path.join(self.output_dir, "potentiel_quadrupole_VF.npz")
     
         #Creation of a .npz file with the extracted potential
         if "savefile" is not None:
@@ -431,7 +436,7 @@ class Calculation_field:
         plt.show()
 
 
-mesh_generation=Mesh_Generation(4, 4, 21, 19, 2, 15, 2, 14, 3.49, 2, 10, 12, dimensions)
+mesh_generation=Mesh_Generation(4, 4, 21, 19, 2, 15, 2, 14, 3.49, 2, 10, 12, dimensions, OUTPUT_DIR)
 mesh_generation.Initialisation()
 mesh_generation.Geometry()
 mesh_generation.Creation_mesh()
@@ -443,7 +448,7 @@ mesh_generation.Finalize()
 Va = 2000
 potentials = Potentials(-0.0299087*Va, -0.18808*Va, 0.10918*Va, 0, Va)
 
-calculation_field=Calculation_field(mesh_generation.group_id, potentials.pot_apert1, potentials.pot_apert2, potentials.pot_electrode, potentials.pot_shield, potentials.pot_acceleration, dimensions)
+calculation_field=Calculation_field(mesh_generation.group_id, potentials.pot_apert1, potentials.pot_apert2, potentials.pot_electrode, potentials.pot_shield, potentials.pot_acceleration, dimensions, OUTPUT_DIR)
 calculation_field.Mesh_Importation()
 calculation_field.Potentials_settings()
 calculation_field.Matrix_inversion()
@@ -523,11 +528,11 @@ class Fit_constants:
 
     def fonction_fit(self):
 
-        dist_apert_quad = data.dimension[1]
-        thickness_apert = data.dimension[6]
-        length_cylinder = data.dimension[7]
-        thickness_shield = data.dimension[4]
-        dist_shield_apert = data.dimension[0]
+        dist_apert_quad = self.data.dimension[1]
+        thickness_apert = self.data.dimension[6]
+        length_cylinder = self.data.dimension[7]
+        thickness_shield = self.data.dimension[4]
+        dist_shield_apert = self.data.dimension[0]
 
         fin_shield1 = thickness_shield
         deb_ap1 = fin_shield1 + dist_shield_apert
@@ -596,12 +601,15 @@ class Decomposition:
         self.Phi4_fit = self.Phi4_fit/Phi2_max
 
 class Affichage:
-    def __init__(self, data, dimensions, decomposition):
+    def __init__(self, data, dimensions, decomposition, fit):
         self.data = data
         self.dimensions = dimensions
         self.decomposition = decomposition
+        self.fit = fit
 
-    def trace_geo(self):
+        self.ax = None
+
+    def trace_geo(self, ax):
         start_shield1 = 0
         end_shield1 = start_shield1 + dimensions.thickness_shield
 
@@ -617,15 +625,16 @@ class Affichage:
         start_shield2 = end_apert2 + dimensions.dist_shield_apert
         end_shield2 = start_shield2 + dimensions.thickness_shield
 
-        self.data.axe_z.axvspan(start_shield1, end_shield1, color='red', alpha=0.3, label='Shield')
-        self.data.axe_z.axvspan(start_apert1, end_apert1, color='blue', alpha=0.3, label='Aperture')
-        self.data.axe_z.axvspan(start_cyl, end_cyl, color='green', alpha=0.3, label='Electrodes')
-        self.data.axe_z.axvspan(start_apert2, end_apert2, color='blue', alpha=0.3)
-        self.data.axe_z.axvspan(start_shield2, end_shield2, color='red', alpha=0.3)
+        ax.axvspan(start_shield1, end_shield1, color='red', alpha=0.3, label='Shield')
+        ax.axvspan(start_apert1, end_apert1, color='blue', alpha=0.3, label='Aperture')
+        ax.axvspan(start_cyl, end_cyl, color='green', alpha=0.3, label='Electrodes')
+        ax.axvspan(start_apert2, end_apert2, color='blue', alpha=0.3)
+        ax.axvspan(start_shield2, end_shield2, color='red', alpha=0.3)
 
-    def graphe(self):
+    def graphe_composantes(self):
         fig, ax = plt.subplots(figsize=(9, 5))
-        self.trace_geo(self)
+
+        self.trace_geo(ax)
 
         #Printing of the different composants of the potential
         plt.plot(self.data.axe_z, -self.decomposition.Phi0_maj, label=r'$\Phi_0 $ $[V]$', color='crimson')
@@ -642,6 +651,28 @@ class Affichage:
         plt.tight_layout()
         plt.show()
 
+    def graphe_fit(self):
+        fig, ax = plt.subplots(figsize=(9, 5))
+        self.trace_geo(ax)
+
+        #Printing of the different composants of the potential
+        plt.plot(self.data.axe_z, self.decomposition.Phi0_fit, label=r'$\Phi_0 $ $[V]$', color='crimson')
+        plt.plot(self.data.axe_z, self.decomposition.Phi2_fit, label=r'$\Phi_2$ $[V/mm^2]$', color='green')
+        plt.plot(self.data.axe_z, 10*self.decomposition.Phi4_fit, label=r'$\Phi_4 *10$ $[V/mm^4]$', color='royalblue')
+        plt.plot(self.data.axe_z, self.fit.k0, label=r'k0', color='crimson', linestyle='dashed')
+        #plt.plot(z_axis, k0_2, color='crimson', linestyle='dashed')
+        plt.plot(self.data.axe_z, self.fit.k2, label=r'k2', color='green', linestyle='dashed')
+        plt.plot(self.data.axe_z, 10*self.fit.k4, label=r'k4 *10', color='royalblue', linestyle='dashed')
+        #plt.plot(z_axis, k4_2, color='royalblue', linestyle='dashed')
+        plt.xlabel("z (mm)")
+        plt.ylabel("Potentiel")
+        plt.title("Décomposition multipolaire sur l’axe et fonctions de fit")
+        plt.grid()
+        plt.legend()
+        ax.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), borderaxespad=0.)
+        plt.tight_layout()
+        plt.show()
+
 
 #File importation pour zoe 
 #data = np.load(r"C:\Users\zoeno\OneDrive\Documents\INSA\4GP\Projet multi\Code\Python\Versions récentes\potentiel_quadrupole_VF.npz")
@@ -652,11 +683,11 @@ file_path =r"C:\Users\zoeno\OneDrive - INSA Toulouse\Documents\INSA\4GP\Projet m
 data = potentiel_data(file_path) 
 
 fit_constants = Fit_constants(0.80751, 5.08, 2.54, 0.03891461, 3.113, 2.015, 2.4, 3.493e-3, data)
-fit_constants.fonction_fit
+fit_constants.fonction_fit()
 
 decomposition = Decomposition(potentials, data)
-decomposition.potentials
+decomposition.composantes()
 
-affichage = Affichage(data, dimensions, decomposition)
-affichage.trace_geo
-affichage.graphe
+affichage = Affichage(data, dimensions, decomposition, fit_constants)
+affichage.graphe_composantes()
+affichage.graphe_fit()
