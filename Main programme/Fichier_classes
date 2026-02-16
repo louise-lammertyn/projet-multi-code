@@ -439,14 +439,224 @@ mesh_generation.Surfaces()
 mesh_generation.Mesh()
 mesh_generation.Finalize()
 
-Va=20000
-Vq2=-0.0299087*Va
-Vapert1=-0.18808*Va
-Vapert2=0.10918*Va
-calculation_field=Calculation_field(mesh_generation.group_id, Vapert1, Vapert2, Vq2, 0, 1, dimensions)
+
+Va = 2000
+potentials = Potentials(-0.0299087*Va, -0.18808*Va, 0.10918*Va, 0, Va)
+
+calculation_field=Calculation_field(mesh_generation.group_id, potentials.pot_apert1, potentials.pot_apert2, potentials.pot_electrode, potentials.pot_shield, potentials.pot_acceleration, dimensions)
 calculation_field.Mesh_Importation()
 calculation_field.Potentials_settings()
 calculation_field.Matrix_inversion()
 calculation_field.Derivatives()
 calculation_field.Potential_exportation()
 calculation_field.Potential_axis_printing()
+
+
+#Class to extract all the necessary informations from the files
+class potentiel_data:
+    def __init__(self, file_path):
+
+        # file load 
+        data = np.load(file_path)
+        
+        # axes data
+        self.points = data["points"]
+        self.axe_z = data["points"][2] 
+        
+        # Potential and derivatives 
+        self.potential = data["potential"]    # Le tableau complet [V]
+        self.D0 = data["potential"][0]      # Le potentiel sur l'axe
+        self.D1 = data["E_eval"]               # Champ électrique [V/mm]
+        self.D2 = data["D2_eval"]             # 2ème dérivée [V/mm^2]
+        self.D3 = data["D3_eval"]             # 3ème dérivée [V/mm^3
+        self.D4 = data["D4_eval"]             # 4ème dérivée [V/mm^4
+
+        
+        # Dimensions et géométrie
+        self.dimension = data["dimensions"] #accées au dimension de la géométrie (plus d'info en haut)
+        
+        # Identifiants de groupes (Physical Groups de GMSH)
+        self.group_id_ap1 = data["group_id_ap1"]
+        self.group_id_ap2 = data["group_id_ap2"]
+        self.group_id_cyl1 = data["group_id_cyl1"]
+        self.group_id_cyl2 = data["group_id_cyl2"]
+        self.group_id_cyl3 = data["group_id_cyl3"]
+        self.group_id_cyl4 = data["group_id_cyl4"]
+        self.group_id_shield = data["group_id_shield"]
+        
+        # Valeurs des tensions appliquées
+        self.Va = data["potentials"][4]
+        self.Vq2 = data["potentials"][0]
+        self.Vapert1 = data["potentials"][1]
+        self.Vapert2 = data["potentials"][2]
+        self.Vshield = data["potentials"][3]
+        
+        # Tuple des potentiels (si besoin de la structure originale)
+        self.potentials = data["potentials"]
+
+
+#Creation of a class that describes characteristic values for the fit function
+class Fit_constants:
+    def __init__(self, a0, b0, b2, a4, b41, b42, z0, a, data):
+        # Paramètres pour la composante lentille ronde k0(Z) :
+        # k0(Z) = a0 * exp[-(Z/b0)^2]
+        self.a0 = a0 
+        self.b0 = b0 
+        # Paramètres pour la composante quadripolaire k2(Z) :
+        self.b2 = b2
+
+        # Paramètres pour la composante octupolaire k4(Z) :
+        self.a4 = a4
+        self.b41 = b41
+        self.b42 = b42
+        self.z0 = z0
+        # Paramètre géométrique, rayon elecrtode 
+        self.a = a
+
+        self.data = data
+
+        self.k0 = None
+        self.k2 = None
+        self.k4 = None
+
+
+
+    def fonction_fit(self):
+
+        dist_apert_quad = data.dimension[1]
+        thickness_apert = data.dimension[6]
+        length_cylinder = data.dimension[7]
+        thickness_shield = data.dimension[4]
+        dist_shield_apert = data.dimension[0]
+
+        fin_shield1 = thickness_shield
+        deb_ap1 = fin_shield1 + dist_shield_apert
+        fin_ap1 = deb_ap1 + thickness_apert
+        
+        deb_cyl = fin_ap1 + dist_apert_quad
+        fin_cyl = deb_cyl + length_cylinder
+        milieu_cyl = 0.5 * (deb_cyl + fin_cyl)
+
+    #on translte tout
+        z_ref = data.axe_z - milieu_cyl
+
+        # un axe pour chaque k
+        z_quad_center = 0                          # Milieu du cylindre = 0
+        z_quad_edge   = length_cylinder / 2        # Bord du cylindre
+        z_ap_center   = z_quad_edge + dist_apert_quad + thickness_apert / 2 # Milieu ouverture
+
+        Z_k2 = z_ref - z_quad_center     # pour le quadrupôle
+        Z_k4 = z_ref - z_quad_edge       # pour l'octupôle
+        Z_k0 = z_ref - z_ap_center       # pour la lentille ronde (aperture)
+
+        # k0 (Lentille ronde) 
+        a0, b = 0.80751, 5.08
+        self.k0 = a0 * np.exp(-(Z_k0**2) / b**2)
+
+        # k2 (Quadrupôle)
+        Z0, b2 = 5, 2.54
+        self.k2 = np.where(np.abs(Z_k2) <= Z0, 1, np.exp(-(np.abs(Z_k2) - Z0)**2 / b2**2))
+
+        # k4 (Octupôle)
+        a4, b1, b2_k4 = 0.03891461, 3.113, 2.015
+        self.k4 = np.where(Z_k4 <= 0, a4 / (1 + (Z_k4**2 / b1**2))**2, a4 * np.exp(-(Z_k4**2) / b2_k4**2))
+
+
+class Decomposition:
+    def __init__(self, potentials, data):
+        self.data = data 
+        self.potentials = potentials
+
+        self.Phi0_maj = None
+        self.Phi1_maj = None
+        self.Phi2_maj = None
+        self.Phi3_maj = None
+        self.Phi4_maj = None
+
+        self.Phi0_fit = None
+        self.Phi2_fit = None
+        self.Phi4_fit = None
+
+
+    def composantes(self):
+        self.Phi0_maj = -self.data.D0  # potentiel monopolaire sur l’axe
+        self.Phi1_maj = self.data.D1[0] 
+        self.Phi2_maj = (1/8)*(self.data.D2[0] - self.data.D2[3])
+        self.Phi3_maj = (1/24) * (self.data.D3[0] - 3*self.data.D3[3])
+        self.Phi4_maj = (1/192)* (self.data.D4[0] + self.data.D4[10] - 6*self.data.D4[3])
+
+        self.Phi0_fit = self.Phi0_maj / self.potentials.pot_apert1
+        self.Phi2_fit = self.Phi2_maj *((dimensions.radius_axis**2)/ self.potentials.pot_electrode)
+        self.Phi4_fit = self.Phi4_maj *((dimensions.radius_axis**4)/ self.potentials.pot_apert1)
+        
+        Phi2_max = np.max(np.abs(self.Phi2_fit))
+
+        self.Phi0_fit = self.Phi0_fit/Phi2_max
+        self.Phi2_fit = self.Phi2_fit/Phi2_max
+        self.Phi4_fit = self.Phi4_fit/Phi2_max
+
+class Affichage:
+    def __init__(self, data, dimensions, decomposition):
+        self.data = data
+        self.dimensions = dimensions
+        self.decomposition = decomposition
+
+    def trace_geo(self):
+        start_shield1 = 0
+        end_shield1 = start_shield1 + dimensions.thickness_shield
+
+        start_apert1 = end_shield1 + dimensions.dist_shield_apert
+        end_apert1 = start_apert1 + dimensions.thickness_apert
+
+        start_cyl = end_apert1 + dimensions.dist_apert_quad
+        end_cyl = start_cyl + dimensions.length_cylinder
+
+        start_apert2 = end_cyl + dimensions.dist_apert_quad
+        end_apert2 = start_apert2 + dimensions.thickness_apert
+
+        start_shield2 = end_apert2 + dimensions.dist_shield_apert
+        end_shield2 = start_shield2 + dimensions.thickness_shield
+
+        self.data.axe_z.axvspan(start_shield1, end_shield1, color='red', alpha=0.3, label='Shield')
+        self.data.axe_z.axvspan(start_apert1, end_apert1, color='blue', alpha=0.3, label='Aperture')
+        self.data.axe_z.axvspan(start_cyl, end_cyl, color='green', alpha=0.3, label='Electrodes')
+        self.data.axe_z.axvspan(start_apert2, end_apert2, color='blue', alpha=0.3)
+        self.data.axe_z.axvspan(start_shield2, end_shield2, color='red', alpha=0.3)
+
+    def graphe(self):
+        fig, ax = plt.subplots(figsize=(9, 5))
+        self.trace_geo(self)
+
+        #Printing of the different composants of the potential
+        plt.plot(self.data.axe_z, -self.decomposition.Phi0_maj, label=r'$\Phi_0 $ $[V]$', color='crimson')
+        plt.plot(self.data.axe_z, self.decomposition.Phi1_maj, label=r'$\Phi_1$ $[V/mm^1]$', color='darkviolet')
+        plt.plot(self.data.axe_z, self.decomposition.Phi2_maj, label=r'$\Phi_2$ $[V/mm^2]$', color='green')
+        plt.plot(self.data.axe_z, self.decomposition.Phi3_maj, label=r'$\Phi_3$ $[V/mm^3]$', color='gold')
+        plt.plot(self.data.axe_z, 10*self.decomposition.Phi4_maj, label=r'$\Phi_4 *100$ $[V/mm^4]$', color='royalblue')
+        plt.xlabel("z (mm)")
+        plt.ylabel("Potentiel")
+        plt.title("Décomposition multipolaire sur l’axe")
+        plt.grid()
+        plt.legend()
+        ax.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), borderaxespad=0.)
+        plt.tight_layout()
+        plt.show()
+
+
+#File importation pour zoe 
+#data = np.load(r"C:\Users\zoeno\OneDrive\Documents\INSA\4GP\Projet multi\Code\Python\Versions récentes\potentiel_quadrupole_VF.npz")
+file_path =r"C:\Users\zoeno\OneDrive - INSA Toulouse\Documents\INSA\4GP\Projet multi\projet-multi-code\Main programme\potentiel_quadrupole_VF.npz"
+
+#file importation pour louise
+#file_path =r"potentiel_quadrupole_VF.npz 2"
+data = potentiel_data(file_path) 
+
+fit_constants = Fit_constants(0.80751, 5.08, 2.54, 0.03891461, 3.113, 2.015, 2.4, 3.493e-3, data)
+fit_constants.fonction_fit
+
+decomposition = Decomposition(potentials, data)
+decomposition.potentials
+
+affichage = Affichage(data, dimensions, decomposition)
+affichage.trace_geo
+affichage.graphe
