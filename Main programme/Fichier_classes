@@ -29,14 +29,13 @@ class Cylinder:
         self.coord_y = coord_y
         self.coord_z = coord_z
 
+        self.cyl_tag = None
+        self.cyl_surf = None
+
 
     def ajouter(self):
-        cyl_tag = gmsh.model.occ.addCylinder(self.coord_x, self.coord_y, self.coord_z, 0, 0, self.length, self.radius)
-        cyl_surf = gmsh.model.occ.get_surface_loops(cyl_tag)[1][0]
-        cyl_curv_tag = gmsh.model.geo.add_surface_loop(cyl_surf)
-
-        return cyl_tag, cyl_surf, cyl_curv_tag
-
+        self.cyl_tag = gmsh.model.occ.addCylinder(self.coord_x, self.coord_y, self.coord_z, 0, 0, self.length, self.radius)
+        self.cyl_surf = gmsh.model.occ.get_surface_loops(self.cyl_tag)[1][0]
 
 
 class Aperture: 
@@ -48,16 +47,16 @@ class Aperture:
         self.coord_y = coord_y
         self.coord_z = coord_z
 
+        self.apert_tag = None
+        self.apert_surf = None
+
 
     def ajouter (self):
         aperture_out = gmsh.model.occ.addCylinder(self.coord_x, self.coord_y, self.coord_z, 0, 0, self.thickness, self.radius_ext)
         aperture_in = gmsh.model.occ.addCylinder(self.coord_x, self.coord_y, self.coord_z, 0, 0, self.thickness, self.radius_in)
         apert_vol , _=  gmsh.model.occ.cut([(3,aperture_out)],[(3,aperture_in)])
-        apert_tag=apert_vol[0][1]
-        apert_surf = gmsh.model.occ.get_surface_loops(apert_tag)[1][0]
-
-        return apert_tag, apert_surf
-
+        self.apert_tag=apert_vol[0][1]
+        self.apert_surf = gmsh.model.occ.get_surface_loops(self.apert_tag)[1][0]
 
 class Shield:
     def __init__(self, length, radius_ext, radius_in, radius_hole, thickness, coord_x, coord_y, coord_z):
@@ -70,6 +69,9 @@ class Shield:
         self.coord_y = coord_y
         self.coord_z = coord_z
 
+        self.shield_tag = None
+        self.shield_surf = None
+
 
     def ajouter(self):
         shield_in = gmsh.model.occ.addCylinder(self.coord_x, self.coord_y, self.coord_z + self.thickness, 0, 0, self.length -2*self.thickness, self.radius_in)
@@ -79,13 +81,10 @@ class Shield:
         shield_hole2 = gmsh.model.occ.addCylinder(self.coord_x, self.coord_y, self.coord_z, 0, 0, self.thickness, self.radius_hole)
         shield_vol_1, _=  gmsh.model.occ.cut([(3,shield[0][1])],[(3,shield_hole1)])
         shield_vol_2, _=  gmsh.model.occ.cut([(3,shield_vol_1[0][1])],[(3,shield_hole2)])
-        shield_tag=shield_vol_2[0][1]
-        shield_surf = gmsh.model.occ.get_surface_loops(shield_tag)[1][0]
+        self.shield_tag=shield_vol_2[0][1]
+        self.shield_surf = gmsh.model.occ.get_surface_loops(self.shield_tag)[1][0]
 
-        return shield_tag, shield_surf
     
-
-
 class Dimensions: 
     def __init__(self, 
                 dist_shield_apert, dist_apert_quad,
@@ -107,42 +106,24 @@ class Dimensions:
 
         self.radius_axis = radius_axis
             
-            
-    def total_length(self):
-        return 2*self.dist_shield_apert + 2*self.thickness_shield + 2*self.dist_apert_quad + 2*self.thickness_apert + self.length_cylinder
-    
+        self.total_length = 2*self.dist_shield_apert + 2*self.thickness_shield + 2*self.dist_apert_quad + 2*self.thickness_apert + self.length_cylinder
 
-    def coord_cylinder(self):
-        x_or_y = 2*self.radius_axis
-        z = self.thickness_shield + self.dist_shield_apert + self.thickness_apert + self.dist_apert_quad
+        self.coord_cylinder_x_or_y = 2*self.radius_axis
+        self.coord_cylinder_z = self.thickness_shield + self.dist_shield_apert + self.thickness_apert + self.dist_apert_quad
 
-        return x_or_y, z
-    
+        self.coord_apert_z1 = self.thickness_shield + self.dist_shield_apert
+        self.coord_apert_z2 = self.thickness_shield + self.dist_shield_apert + self.thickness_apert + 2*self.dist_apert_quad + self.length_cylinder
 
-    def coord_apert(self):
-        z1 = self.thickness_shield + self.dist_shield_apert
-        z2 = self.thickness_shield + self.dist_shield_apert + self.thickness_apert + 2*self.dist_apert_quad + self.length_cylinder
-
-        return z1, z2
-
-    def coord_tot(self):
-        start_shield1 = 0
-        end_shield1 = start_shield1 + self.thickness_shield
-
-        start_apert1 = end_shield1 + self.dist_shield_apert
-        end_apert1 = start_apert1 + self.thickness_apert
-
-        start_cyl = end_apert1 + self.dist_apert_quad
-        end_cyl = start_cyl + self.length_cylinder
-
-        start_apert2 = end_cyl + self.dist_apert_quad
-        end_apert2 = start_apert2 + self.thickness_apert
-
-        start_shield2 = end_apert2 + self.dist_shield_apert
-        end_shield2 = start_shield2 + self.thickness_shield
-
-        return start_shield1, end_shield1, start_apert1, start_apert2, start_cyl, end_cyl, start_apert2, end_apert2, start_shield2, end_shield2
-
+        self.start_shield1 = 0
+        self.end_shield1 = self.start_shield1 + self.thickness_shield
+        self.start_apert1 = self.end_shield1 + self.dist_shield_apert
+        self.end_apert1 = self.start_apert1 + self.thickness_apert
+        self.start_cyl = self.end_apert1 + self.dist_apert_quad
+        self.end_cyl = self.start_cyl + self.length_cylinder
+        self.start_apert2 = self.end_cyl + self.dist_apert_quad
+        self.end_apert2 = self.start_apert2 + self.thickness_apert
+        self.start_shield2 = self.end_apert2 + self.dist_shield_apert
+        self.end_shield2 = self.start_shield2 + self.thickness_shield
 
 #Definition of the geometry 
 
@@ -189,6 +170,10 @@ class Mesh_Generation:
 
         self.dimensions = dimensions
 
+        self.objects = None
+
+        self.group_id = None
+
     def Initialisation(self):
 
         gmsh.initialize()
@@ -198,32 +183,31 @@ class Mesh_Generation:
 
     def Geometry(self):
 
-        cylinder1 = Cylinder(self.length_cylinder, self.radius_axis, self.dimensions.coord_cylinder()[0], 0, self.dimensions.coord_cylinder()[1])
-        cylinder1 = Cylinder.ajouter(cylinder1)
+        cylinder1 = Cylinder(self.length_cylinder, self.radius_axis, self.dimensions.coord_cylinder_x_or_y, 0, self.dimensions.coord_cylinder_z)
+        Cylinder.ajouter(cylinder1)
 
-        cylinder2 = Cylinder(self.length_cylinder, self.radius_axis, -self.dimensions.coord_cylinder()[0], 0, self.dimensions.coord_cylinder()[1])
-        cylinder2 = Cylinder.ajouter(cylinder2)
+        cylinder2 = Cylinder(self.length_cylinder, self.radius_axis, -self.dimensions.coord_cylinder_x_or_y, 0, self.dimensions.coord_cylinder_z)
+        Cylinder.ajouter(cylinder2)
 
-        cylinder3 = Cylinder(self.length_cylinder, self.radius_axis, 0, self.dimensions.coord_cylinder()[0], self.dimensions.coord_cylinder()[1])
-        cylinder3 = Cylinder.ajouter(cylinder3)
+        cylinder3 = Cylinder(self.length_cylinder, self.radius_axis, 0, self.dimensions.coord_cylinder_x_or_y, self.dimensions.coord_cylinder_z)
+        Cylinder.ajouter(cylinder3)
 
-        cylinder4 = Cylinder(self.length_cylinder, self.radius_axis, 0, -self.dimensions.coord_cylinder()[0], self.dimensions.coord_cylinder()[1])
-        cylinder4 = Cylinder.ajouter(cylinder4)
-
-
-        aperture1 = Aperture(self.radius_apert, self.radius_axis, self.thickness_apert, 0, 0, self.dimensions.coord_apert()[0])
-        aperture1 = Aperture.ajouter(aperture1)
-
-        aperture2 = Aperture(self.radius_apert, self.radius_axis, self.thickness_apert, 0, 0, self.dimensions.coord_apert()[1])
-        aperture2 = Aperture.ajouter(aperture2)
+        cylinder4 = Cylinder(self.length_cylinder, self.radius_axis, 0, -self.dimensions.coord_cylinder_x_or_y, self.dimensions.coord_cylinder_z)
+        Cylinder.ajouter(cylinder4)
 
 
-        shield = Shield(self.dimensions.total_length(), self.radius_ext_shield, self.radius_in_shield, self.radius_axis, self.thickness_shield, 0, 0, 0)
-        shield = Shield.ajouter(shield)
+        aperture1 = Aperture(self.radius_apert, self.radius_axis, self.thickness_apert, 0, 0, self.dimensions.coord_apert_z1)
+        Aperture.ajouter(aperture1)
+
+        aperture2 = Aperture(self.radius_apert, self.radius_axis, self.thickness_apert, 0, 0, self.dimensions.coord_apert_z2)
+        Aperture.ajouter(aperture2)
+
+
+        shield = Shield(self.dimensions.total_length, self.radius_ext_shield, self.radius_in_shield, self.radius_axis, self.thickness_shield, 0, 0, 0)
+        Shield.ajouter(shield)
 
         self.objects = aperture1, aperture2, cylinder1, cylinder2, cylinder3, cylinder4, shield
 
-        return self.objects
 
     def Creation_mesh(self):
         gmsh.model.occ.synchronize()
@@ -232,24 +216,24 @@ class Mesh_Generation:
         aperture1, aperture2, cylinder1, cylinder2, cylinder3, cylinder4, shield = self.objects
 
     #Outwards orientation of the surfaces' normals
-        gmsh.model.mesh.setOutwardOrientation(aperture1[0])
-        gmsh.model.mesh.setOutwardOrientation(aperture2[0])
-        gmsh.model.mesh.setOutwardOrientation(cylinder1[0])
-        gmsh.model.mesh.setOutwardOrientation(cylinder2[0])
-        gmsh.model.mesh.setOutwardOrientation(cylinder3[0])
-        gmsh.model.mesh.setOutwardOrientation(cylinder4[0])
-        gmsh.model.mesh.setOutwardOrientation(shield[0])
+        gmsh.model.mesh.setOutwardOrientation(aperture1.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(aperture2.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder1.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder2.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder3.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder4.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(shield.shield_tag)
 
         #Adds surfaces on top of the volumes created 
-        group_id_apert1 = gmsh.model.addPhysicalGroup(2, aperture1[1])
-        group_id_apert2 = gmsh.model.addPhysicalGroup(2, aperture2[1])
-        group_id_cyl1 = gmsh.model.addPhysicalGroup(2, cylinder1[1])
-        group_id_cyl2 = gmsh.model.addPhysicalGroup(2, cylinder2[1])
-        group_id_cyl3 = gmsh.model.addPhysicalGroup(2, cylinder3[1])
-        group_id_cyl4 = gmsh.model.addPhysicalGroup(2, cylinder4[1])
-        group_id_shield = gmsh.model.addPhysicalGroup(2, shield[1])
+        group_id_apert1 = gmsh.model.addPhysicalGroup(2, aperture1.apert_surf)
+        group_id_apert2 = gmsh.model.addPhysicalGroup(2, aperture2.apert_surf)
+        group_id_cyl1 = gmsh.model.addPhysicalGroup(2, cylinder1.cyl_surf)
+        group_id_cyl2 = gmsh.model.addPhysicalGroup(2, cylinder2.cyl_surf)
+        group_id_cyl3 = gmsh.model.addPhysicalGroup(2, cylinder3.cyl_surf)
+        group_id_cyl4 = gmsh.model.addPhysicalGroup(2, cylinder4.cyl_surf)
+        group_id_shield = gmsh.model.addPhysicalGroup(2, shield.shield_surf)
 
-        return group_id_apert1, group_id_apert2, group_id_cyl1, group_id_cyl2, group_id_cyl3, group_id_cyl4, group_id_shield
+        self.group_id = group_id_apert1, group_id_apert2, group_id_cyl1, group_id_cyl2, group_id_cyl3, group_id_cyl4, group_id_shield
 
 
     def Mesh(self):
@@ -270,6 +254,7 @@ class Mesh_Generation:
 
         gmsh.finalize()
 
+
 class Potentials:
     def __init__(self, pot_electrode, pot_apert1, pot_apert2, pot_shield, pot_acceleration):
         self.pot_electrode = pot_electrode #quadrupole 
@@ -277,8 +262,6 @@ class Potentials:
         self.pot_apert2 = pot_apert2 #second aperture 
         self.pot_shield = pot_shield #shield (0)
         self.pot_acceleration = pot_acceleration #ion acceleration potential
-
-
 
 
 class Calculation_field:
@@ -290,6 +273,7 @@ class Calculation_field:
         self.pot_shield = pot_shield
         self.dimensions = dimensions
         self.pot_acceleration = pot_acceleration
+        self.mesh_generation = mesh_generation
         # --- mesh import ---
         self.grid = bempp.import_grid("mesh_quadrupole.msh")
 
@@ -303,6 +287,16 @@ class Calculation_field:
         self.dlp = bempp.operators.boundary.laplace.double_layer(self.p1_space, self.p1_space, self.dp0_space)
 
         self.slp = bempp.operators.boundary.laplace.single_layer(self.dp0_space, self.p1_space, self.dp0_space)
+
+        self.dirichlet_fun = None
+        self.neumann_fun = None
+        self.u_evaluated = None
+        self.points = None
+
+        self.E_eval = None
+        self.D2_eval = None
+        self.D3_eval = None
+        self.D4_eval = None
 
 
     def Mesh_Importation(self):
@@ -352,47 +346,42 @@ class Calculation_field:
             elif domain_index == shield: #potential of the shield
                 result[0]=pot_shield
 
-        dirichlet_fun = bempp.GridFunction(self.p1_space, fun=dirichlet_data) 
+        self.dirichlet_fun = bempp.GridFunction(self.p1_space, fun=dirichlet_data) 
 
-        return dirichlet_fun
     
    
     def Matrix_inversion(self):
     #Sum of the right part of the integral 
-        rhs = (-0.5 * self.identity + self.dlp) * self.Potentials_settings()
+        rhs = (-0.5 * self.identity + self.dlp) * self.dirichlet_fun
 
     #Resolution of the linear system
-        neumann_fun, _ = bempp.linalg.cg(self.slp, rhs, tol=1e-8) #1e-5 à tester
+        self.neumann_fun, _ = bempp.linalg.cg(self.slp, rhs, tol=1e-8) #1e-5 à tester
 
         #Creation of the tracing of the solution
         n_grid_points = 100
-        points = np.stack((np.zeros(n_grid_points), np.zeros(n_grid_points), (np.linspace(0, dimensions.total_length(), n_grid_points)))) #x=y=0 and z changes from 0 to elec_id[7][11]=total_length
+        self.points = np.stack((np.zeros(n_grid_points), np.zeros(n_grid_points), (np.linspace(0, dimensions.total_length, n_grid_points)))) #x=y=0 and z changes from 0 to elec_id[7][11]=total_length
 
         #Green's representation
-        slp_pot = bempp.operators.potential.laplace.single_layer(self.dp0_space, points) #total matrix
-        u_evaluated = -slp_pot * neumann_fun 
-
-        return neumann_fun, u_evaluated, points
+        slp_pot = bempp.operators.potential.laplace.single_layer(self.dp0_space, self.points) #total matrix
+        self.u_evaluated = -slp_pot * self.neumann_fun 
 
 
     def Derivatives(self):
         #Field 
-        E = bempp.operators.potential.laplace.single_layer_gradient(self.dp0_space, self.Matrix_inversion()[2], device_interface="opencl")
-        E_eval = -E * self.Matrix_inversion()[0]
+        E = bempp.operators.potential.laplace.single_layer_gradient(self.dp0_space, self.points, device_interface="opencl")
+        self.E_eval = -E * self.neumann_fun
 
         #Field's 2nd derivative
-        D2 = bempp.operators.potential.laplace.single_layer_2nd_deriv(self.dp0_space, self.Matrix_inversion()[2], device_interface="opencl")
-        D2_eval = D2 * self.Matrix_inversion()[0]
+        D2 = bempp.operators.potential.laplace.single_layer_2nd_deriv(self.dp0_space, self.points, device_interface="opencl")
+        self.D2_eval = D2 * self.neumann_fun
     
         #Field's 3rd derivative
-        D3 = bempp.operators.potential.laplace.single_layer_3rd_deriv(self.dp0_space, self.Matrix_inversion()[2], device_interface="opencl")
-        D3_eval = D3 * self.Matrix_inversion()[0]
+        D3 = bempp.operators.potential.laplace.single_layer_3rd_deriv(self.dp0_space, self.points, device_interface="opencl")
+        self.D3_eval = D3 * self.neumann_fun
 
         #Field's 4th derivative
-        D4 = bempp.operators.potential.laplace.single_layer_4th_deriv(self.dp0_space, self.Matrix_inversion()[2], device_interface="opencl")
-        D4_eval = D4 * self.Matrix_inversion()[0]
-
-        return E_eval, D2_eval, D3_eval, D4_eval
+        D4 = bempp.operators.potential.laplace.single_layer_4th_deriv(self.dp0_space, self.points, device_interface="opencl")
+        self.D4_eval = D4 * self.neumann_fun
 
 
     def Potential_exportation(self):
@@ -412,8 +401,8 @@ class Calculation_field:
         if "savefile" is not None:
             np.savez_compressed(
         savefile,
-        points=self.Matrix_inversion()[2],
-        potential=self.Matrix_inversion()[1],
+        points=self.points,
+        potential=self.u_evaluated,
         group_id_ap1=self.elec_id[0],
         group_id_ap2=self.elec_id[1],
         group_id_cyl1=self.elec_id[2],
@@ -422,20 +411,20 @@ class Calculation_field:
         group_id_cyl4=self.elec_id[5],
         group_id_shield=self.elec_id[6],
         dimensions=np.array((self.dimensions.dist_shield_apert, self.dimensions.dist_apert_quad, self.dimensions.radius_ext_shield, self.dimensions.radius_in_shield, self.dimensions.thickness_shield,
-        self.dimensions.radius_apert, self.dimensions.thickness_apert, self.dimensions.length_cylinder, self.dimensions.radius_axis, self.dimensions.total_length(), self.dimensions.coord_cylinder()[0], 
-        self.dimensions.coord_cylinder()[1], self.dimensions.coord_apert()[0], self.dimensions.coord_apert()[1])),
+        self.dimensions.radius_apert, self.dimensions.thickness_apert, self.dimensions.length_cylinder, self.dimensions.radius_axis, self.dimensions.total_length, self.dimensions.coord_cylinder_x_or_y, 
+        self.dimensions.coord_cylinder_z, self.dimensions.coord_apert_z1, self.dimensions.coord_apert_z2)),
         potentials=(self.pot_electrode, self.pot_apert1, self.pot_apert2, self.pot_shield, self.pot_acceleration),
-        E_eval=self.Derivatives()[0],
-        D2_eval=self.Derivatives()[1],
-        D3_eval=self.Derivatives()[2],
-        D4_eval=self.Derivatives()[3],)
+        E_eval=self.E_eval,
+        D2_eval=self.D2_eval,
+        D3_eval=self.D3_eval,
+        D4_eval=self.D4_eval,)
                             
         print(f"Saved potential to {savefile}.npz")
 
 
     def Potential_axis_printing(self):
     #Printing of the solution --> printing of the potential along the z axis ~ 0V
-        plt.plot(self.Matrix_inversion()[2][2], self.Matrix_inversion()[1][0])
+        plt.plot(self.points[2], self.u_evaluated[0])
         plt.title("Potentiel du quadrupole d'Okayama le long de l'axe Z")
         plt.xlabel("Position en z (mm)")
         plt.ylabel("Potentiel (V)")
@@ -446,7 +435,7 @@ mesh_generation=Mesh_Generation(4, 4, 21, 19, 2, 15, 2, 14, 3.49, 2, 10, 12, dim
 mesh_generation.Initialisation()
 mesh_generation.Geometry()
 mesh_generation.Creation_mesh()
-elec_id=mesh_generation.Surfaces()
+mesh_generation.Surfaces()
 mesh_generation.Mesh()
 mesh_generation.Finalize()
 
@@ -454,7 +443,7 @@ Va=20000
 Vq2=-0.0299087*Va
 Vapert1=-0.18808*Va
 Vapert2=0.10918*Va
-calculation_field=Calculation_field(elec_id, Vapert1, Vapert2, Vq2, 0, 1, dimensions)
+calculation_field=Calculation_field(mesh_generation.group_id, Vapert1, Vapert2, Vq2, 0, 1, dimensions)
 calculation_field.Mesh_Importation()
 calculation_field.Potentials_settings()
 calculation_field.Matrix_inversion()
