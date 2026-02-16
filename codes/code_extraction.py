@@ -500,9 +500,9 @@ class abberation(Paraxial):
         d3O= np.gradient(d2O, z)
         d4O = np.gradient(d3O, z)
 
-        Tx4 =(-d4R/32 +d2Q/6 + (d2Q)**2/ 16 - (d2R-Q)/2+Q**2-2*0)*x**3*dx
-        Tx3x = (-d3R/8 + dQ/2 + dR*d2R/ 8 + dR*Q/2)*x**4
-        Tx2x2 = (d2R /4 - Q)*x**2*(d2x)**2
+        Tx4 =(-d4R/32 +d2Q/6 + (d2Q)**2/ 16 - ((d2R-Q)/2)+(Q**2)-2*O)*(x**4)
+        Tx3x = (-d3R/8 + dQ/2 + dR*d2R/ 8 + dR*Q/2)*(x**3)*dx
+        Tx2x2 = (d2R /4 - Q)*(x**2)*(d2x)**2
         Txx3 = (dR/2) *x*(d3x)**3
 
         I = np.sqrt(phiA/data.Va)*(Tx4+Tx3x+Tx2x2+Txx3)
