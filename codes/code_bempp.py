@@ -1,4 +1,4 @@
-
+#%%
 import os
 
 os.environ['PYOPENCL_COMPILER_OUTPUT']='1'
@@ -19,11 +19,24 @@ from scipy.interpolate import interp1d
 
 opencl_kernels.show_available_platforms_and_devices()
 opencl_kernels.set_default_cpu_device(0,1)
+#%%
 
-#Pour redémarrer le kernel
-#Ctrl + Shift + P
-#Jupyter: Restart Kernel
 
+import os
+
+os.environ['PYOPENCL_COMPILER_OUTPUT']='1'
+os.environ['PYOPENCL_NO_CACHE'] = '1'
+
+#Importation of all the necessary packages
+import os
+import numpy as np
+from matplotlib import pylab as plt
+from IPython import get_ipython
+import matplotlib
+from dataclasses import dataclass
+from scipy.interpolate import interp1d
+
+#%%
 @dataclass
 class dimension:
     """
@@ -346,10 +359,9 @@ class QuadrupoleSolver(Quadrupole):
         )
         print(f"Saved potential to {savefile}.npz")
 
-class Extraction(Quadrupole):
-    def __init__(self, file_path, potentials_obj: Potentials, dims_obj: dimension):
+class Extraction():
+    def __init__(self, file_path):
         # On initialise la classe parente
-        super().__init__(potentials_obj, dims_obj)
         
         # Chargement des données
         data = np.load(file_path)
@@ -530,10 +542,9 @@ class Extraction(Quadrupole):
         plt.show()
 
 
-class Paraxial(Quadrupole):
-    def __init__(self, potentials_obj, dims_obj):
+class Paraxial():
+    def __init__(self):
         # On passe les arguments nécessaires au constructeur de Quadrupole
-        super().__init__(potentials_obj, dims_obj)
         self.y_next = None
 
     def RK4_step(self, f, y, t, h, alpha, beta):
@@ -546,7 +557,7 @@ class Paraxial(Quadrupole):
 class Ion(Paraxial): 
     def __init__(self, mass, charge, name, x, vx, y, vy, potentials_obj, dims_obj):
         # Utilisation correcte du super() pour remonter la chaîne d'héritage
-        super().__init__(potentials_obj, dims_obj)
+        super().__init__()
         
         self.mass = mass
         self.charge = charge
@@ -567,16 +578,25 @@ class Ion(Paraxial):
 
 class Trajectoire(Paraxial):
     def __init__(self, potentials_obj, dims_obj):
-        super().__init__(potentials_obj, dims_obj)
+        super().__init__()
+        pass
     
-    def equation(self, y, t, alpha, beta):
+    def equation(self, y, t, alpha, beta) -> None:
+        """
+        forme équation second degrès à résoudre
+        y, t, alpha (coefficient ordre 1), beta coefféficient ordre 2
+        """
         u = y[0] 
         v = y[1] 
         du = v
         dv = -alpha * u - beta * v
         return np.array([du, dv])
     
-    def simulation3(self, ion : Ion, data : Extraction ):
+    def simulation3(self, ion : Ion, data : Extraction )-> None:
+        """
+        class ion
+        class Extraction 
+        """
         V_acc = data.p.pot_acceleration 
         print(V_acc)
         
@@ -603,6 +623,10 @@ class Trajectoire(Paraxial):
             ion.save_step()
 
     def convergence(self, data : Extraction, n : int):
+        """
+        Data (type extraction)
+        d (entier) ordre convergence que l'on veut vérifier 
+        """
         n_points= len(data.axe_z)*n
         self.z_conv = np.linspace(data.axe_z[0], data.axe_z[-1], n_points)
         self.dz_conv = self.z_conv[1]-self.z_conv[0]
@@ -618,7 +642,11 @@ class Trajectoire(Paraxial):
 
 
 
-    def simulationf(self, ion : Ion, data : Extraction):
+    def simulationf(self, ion : Ion, data : Extraction) -> None:
+        """
+        class ion 
+        class extraction 
+        """
         V_acc = data.p.pot_acceleration 
         ion.save_step()
         
@@ -641,7 +669,7 @@ class Trajectoire(Paraxial):
                 
             ion.save_step()
 
-    def plot_discret(self, principal: Ion, marginal: Ion, data: Extraction):
+    def plot_discret(self, principal: Ion, marginal: Ion, data: Extraction)-> None:
         
         fig, axs = plt.subplots(2, 2, figsize=(15, 10))
         fig.suptitle("Résultats Simulation Discrète (Pas BEM)", fontsize=14, fontweight='bold')
@@ -713,3 +741,5 @@ class Trajectoire(Paraxial):
 
             
         
+
+# %%
