@@ -692,3 +692,18 @@ decomposition.composantes()
 affichage = Affichage(data, dimensions, decomposition, fit_constants)
 affichage.graphe_composantes()
 affichage.graphe_fit()
+
+
+"""
+Faire 3 fichiers (user(notebook), extraction, exploitation)
+
+Paramètres entrée (dimensions, potentiels, output_dir)
+
+Doc string (information sur la classe)
+
+Préciser type variables entrées et sorties classes
+
+Fonctions à garder: Générer mesh(mettre en option l'affichage quad), extraction potentiel, affichage potentiel axe, 
+importation données, affichage décomposition avec et sans fonctions de fit 
+
+"""
