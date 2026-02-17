@@ -127,7 +127,21 @@ class Dimensions:
         self.start_shield2 = self.end_apert2 + self.dist_shield_apert
         self.end_shield2 = self.start_shield2 + self.thickness_shield
 
+#Definition of the geometry 
 
+#Settings of the dimensions of the geometry 
+dimensions = Dimensions(4, 4, 21, 19, 2, 15, 2, 14, 3.49)
+''' 
+#1 - Distance between the sield ant the aperture 
+#2 - Distance between the aperture and the cylinders (d in Okayama's paper)
+#3 - Exterior radius of the shield 
+#4 - Inside radius of the shield 
+#5 - Thickness of the shield
+#6 - Radius of the aperture 
+#7 - Thickness of the aperture 
+#8 - Length of the cylinder (l in Okayama's paper)
+#9 - Radius of the elements around the axis (a in Okayama's paper)
+'''
 
 class Mesh_Generation: 
     def __init__(self, 
@@ -422,6 +436,27 @@ class Calculation_field:
         plt.show()
 
 
+mesh_generation=Mesh_Generation(4, 4, 21, 19, 2, 15, 2, 14, 3.49, 2, 10, 12, dimensions, OUTPUT_DIR)
+mesh_generation.Initialisation()
+mesh_generation.Geometry()
+mesh_generation.Creation_mesh()
+mesh_generation.Surfaces()
+mesh_generation.Mesh()
+mesh_generation.Finalize()
+
+
+Va = 2000
+potentials = Potentials(-0.0299087*Va, -0.18808*Va, 0.10918*Va, 0, Va)
+
+calculation_field=Calculation_field(mesh_generation.group_id, potentials.pot_apert1, potentials.pot_apert2, potentials.pot_electrode, potentials.pot_shield, potentials.pot_acceleration, dimensions, OUTPUT_DIR)
+calculation_field.Mesh_Importation()
+calculation_field.Potentials_settings()
+calculation_field.Matrix_inversion()
+calculation_field.Derivatives()
+calculation_field.Potential_exportation()
+calculation_field.Potential_axis_printing()
+
+
 #Class to extract all the necessary informations from the files
 class potentiel_data:
     def __init__(self, file_path):
@@ -551,7 +586,7 @@ class Decomposition:
     def composantes(self):
         self.Phi0_maj = -self.data.D0  # potentiel monopolaire sur l’axe
         self.Phi1_maj = self.data.D1[0] 
-        self.Phi2_maj = (1/4)*(self.data.D2[0] - self.data.D2[3])
+        self.Phi2_maj = (1/8)*(self.data.D2[0] - self.data.D2[3])
         self.Phi3_maj = (1/24) * (self.data.D3[0] - 3*self.data.D3[3])
         self.Phi4_maj = (1/192)* (self.data.D4[0] + self.data.D4[10] - 6*self.data.D4[3])
 
@@ -638,42 +673,6 @@ class Affichage:
         plt.tight_layout()
         plt.show()
 
-#Definition of the geometry 
-
-#Settings of the dimensions of the geometry 
-#dimensions = Dimensions(4, 4, 21, 19, 2, 15, 2, 14, 3.49)
-dimensions = Dimensions(4, 5, 21, 19, 2, 15, 2, 13, 3.4934)
-''' 
-#1 - Distance between the sield ant the aperture 
-#2 - Distance between the aperture and the cylinders (d in Okayama's paper)
-#3 - Exterior radius of the shield 
-#4 - Inside radius of the shield 
-#5 - Thickness of the shield
-#6 - Radius of the aperture 
-#7 - Thickness of the aperture 
-#8 - Length of the cylinder (l in Okayama's paper)
-#9 - Radius of the elements around the axis (a in Okayama's paper)
-'''
-
-mesh_generation=Mesh_Generation(4, 4, 21, 19, 2, 15, 2, 14, 3.49, 0.9, 3, 20, dimensions, OUTPUT_DIR)
-mesh_generation.Initialisation()
-mesh_generation.Geometry()
-mesh_generation.Creation_mesh()
-mesh_generation.Surfaces()
-mesh_generation.Mesh()
-mesh_generation.Finalize()
-
-#self, pot_electrode, pot_apert1, pot_apert2, pot_shield, pot_acceleration
-Va = 20000
-potentials = Potentials(-0.0299087*Va, -0.18808*Va, 0.18808*Va, 0, Va)
-
-calculation_field=Calculation_field(mesh_generation.group_id, potentials.pot_apert1, potentials.pot_apert2, potentials.pot_electrode, potentials.pot_shield, potentials.pot_acceleration, dimensions, OUTPUT_DIR)
-calculation_field.Mesh_Importation()
-calculation_field.Potentials_settings()
-calculation_field.Matrix_inversion()
-calculation_field.Derivatives()
-calculation_field.Potential_exportation()
-calculation_field.Potential_axis_printing()
 
 #File importation pour zoe 
 #data = np.load(r"C:\Users\zoeno\OneDrive\Documents\INSA\4GP\Projet multi\Code\Python\Versions récentes\potentiel_quadrupole_VF.npz")

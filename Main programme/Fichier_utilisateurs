@@ -1,0 +1,90 @@
+#Importation of all the necessary packages
+import os
+import numpy as np
+from matplotlib import pylab as plt
+import bempp_cl.api as bempp            
+import gmsh
+from IPython import get_ipython
+import matplotlib
+from bempp_cl.core import opencl_kernels
+import bempp_cl.api as bempp
+
+opencl_kernels.show_available_platforms_and_devices()
+opencl_kernels.set_default_cpu_device(1,0)
+
+#Function used to empty the RAM
+os.environ['PYOPENCL_COMPILER_OUTPUT']='1'
+
+#Pour redémarrer le kernel
+#Ctrl + Shift + P
+#Jupyter: Restart Kernel
+
+OUTPUT_DIR = r"C:\Users\zoeno\OneDrive - INSA Toulouse\Documents\INSA\4GP\Projet multi\projet-multi-code\Main programme"
+os.makedirs(OUTPUT_DIR, exist_ok=True) 
+
+from Fichier_classes import Cylinder
+from Fichier_classes import Aperture
+from Fichier_classes import Shield
+from Fichier_classes import Dimensions
+from Fichier_classes import Mesh_generation
+from Fichier_classes import Potentials
+from Fichier_classes import Calculation_field
+from Fichier_classes import potential_data
+from Fichier_classes import Fit_constants
+from Fichier_classes import Decomposition
+from Fichier_classes import Affichage 
+
+
+#Definition of the geometry 
+
+#Settings of the dimensions of the geometry 
+dimensions = Dimensions(4, 4, 21, 19, 2, 15, 2, 14, 3.49)
+''' 
+#1 - Distance between the sield ant the aperture 
+#2 - Distance between the aperture and the cylinders (d in Okayama's paper)
+#3 - Exterior radius of the shield 
+#4 - Inside radius of the shield 
+#5 - Thickness of the shield
+#6 - Radius of the aperture 
+#7 - Thickness of the aperture 
+#8 - Length of the cylinder (l in Okayama's paper)
+#9 - Radius of the elements around the axis (a in Okayama's paper)
+'''
+
+mesh_generation=Mesh_Generation(4, 4, 21, 19, 2, 15, 2, 14, 3.49, 2, 10, 12, dimensions, OUTPUT_DIR)
+mesh_generation.Initialisation()
+mesh_generation.Geometry()
+mesh_generation.Creation_mesh()
+mesh_generation.Surfaces()
+mesh_generation.Mesh()
+mesh_generation.Finalize()
+
+
+Va = 2000
+potentials = Potentials(-0.0299087*Va, -0.10918*Va, +0.18808*Va, 0, Va)
+
+calculation_field=Calculation_field(mesh_generation.group_id, potentials.pot_apert1, potentials.pot_apert2, potentials.pot_electrode, potentials.pot_shield, potentials.pot_acceleration, dimensions, OUTPUT_DIR)
+calculation_field.Mesh_Importation()
+calculation_field.Potentials_settings()
+calculation_field.Matrix_inversion()
+calculation_field.Derivatives()
+calculation_field.Potential_exportation()
+calculation_field.Potential_axis_printing()
+
+#File importation pour zoe 
+#data = np.load(r"C:\Users\zoeno\OneDrive\Documents\INSA\4GP\Projet multi\Code\Python\Versions récentes\potentiel_quadrupole_VF.npz")
+file_path =r"C:\Users\zoeno\OneDrive - INSA Toulouse\Documents\INSA\4GP\Projet multi\projet-multi-code\Main programme\potentiel_quadrupole_VF.npz"
+
+#file importation pour louise
+#file_path =r"potentiel_quadrupole_VF.npz 2"
+data = potentiel_data(file_path) 
+
+fit_constants = Fit_constants(0.80751, 5.08, 2.54, 0.03891461, 3.113, 2.015, 2.4, 3.493e-3, data)
+fit_constants.fonction_fit()
+
+decomposition = Decomposition(potentials, data)
+decomposition.composantes()
+
+affichage = Affichage(data, dimensions, decomposition, fit_constants)
+affichage.graphe_composantes()
+affichage.graphe_fit()
