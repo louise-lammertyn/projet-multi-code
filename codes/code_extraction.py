@@ -209,7 +209,7 @@ class Extraction():
         
         fig, ax = plt.subplots(figsize=(10, 6))
         
-        # Tracé des zones géométriques (via les propriétés héritées de Quadrupole)
+        # Tracé quadrupole 
         ax.axvspan(self.start_shield1, self.end_shield1, color='red', alpha=0.2, label='Shield')
         ax.axvspan(self.start_apert1, self.end_apert1, color='blue', alpha=0.1, label='Aperture')
         ax.axvspan(self.start_cyl, self.end_cyl, color='green', alpha=0.3, label='Electrode')
@@ -359,7 +359,7 @@ class Trajectoire(Paraxial):
             alphay = terme_axial + terme_quad
             beta = self.f_D1zphi0(i) / (2 * phi_total)
                 
-            # CORRECTION : Ajout de 'self.' ici aussi
+            #envoie a RK4
             ion.state_x = self.RK4_step(self.equation, ion.state_x, i, self.dz_conv, alphax, beta)
             ion.state_y = self.RK4_step(self.equation, ion.state_y, i, self.dz_conv, alphay, beta)
                 
@@ -372,7 +372,6 @@ class Trajectoire(Paraxial):
         fig, axs = plt.subplots(2, 2, figsize=(15, 10))
         fig.suptitle("Paraxial", fontsize=14, fontweight='bold')
         
-        # On aplatit la liste des axes pour y accéder facilement de 0 à 3
         ax = axs.flatten()
 
         # 1. Trajectoire X (Principal vs Marginal)
@@ -404,6 +403,8 @@ class Trajectoire(Paraxial):
         plt.tight_layout(rect=[0, 0.03, 1, 0.95])
         plt.show()
 
+
+    # plot pout la convergence 
     def plot_continu(self, principal: Ion, marginal: Ion, data: Extraction) -> None:
         fig, axs = plt.subplots(2, 2, figsize=(15, 10))
         fig.suptitle("praxial avec la convergence, ", fontsize=14, fontweight='bold')
@@ -471,13 +472,12 @@ class abberation(Paraxial):
         Q = data.Phi2/phiA
         O = data.Phi4/phiA
 
-        def d_dz(f): return np.gradient(f, z)
 
         x = np.array(ion.history_x)
         dx = np.gradient(x, z)
         d2x = np.gradient(dx, z)
         d3x = np.gradient(d2x,z)
-        d4x = np.gradient(d3x,x)
+        d4x = np.gradient(d3x,z)
 
         #dérive chaque terme plus fois 
 
@@ -500,10 +500,10 @@ class abberation(Paraxial):
         d3O= np.gradient(d2O, z)
         d4O = np.gradient(d3O, z)
 
-        Tx4 =(-d4R/32 +d2Q/6 + (d2Q)**2/ 16 - ((d2R-Q)/2)+(Q**2)-2*O)*(x**4)
-        Tx3x = (-d3R/8 + dQ/2 + dR*d2R/ 8 + dR*Q/2)*(x**3)*dx
-        Tx2x2 = (d2R /4 - Q)*(x**2)*(d2x)**2
-        Txx3 = (dR/2) *x*(d3x)**3
+        Tx4 =(-d4R/32 +d2Q/6 + (d2R)**2/16 - ((d2R-Q)/2)+(Q**2)-2*O)*(x**4)
+        Tx3x = (-d3R/8 + dQ/2 + (dR*d2R)/8 - (dR*Q)/2)*(x**3)*dx
+        Tx2x2 = ((d2R /4) - Q)*(x**2)*(d2x)**2
+        Txx3 = (dR/2) *x*((d3x)**3)
 
         I = np.sqrt(phiA/data.Va)*(Tx4+Tx3x+Tx2x2+Txx3)
 
