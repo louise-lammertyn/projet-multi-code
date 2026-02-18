@@ -216,16 +216,16 @@ class QuadrupoleMesh(Quadrupole):
 
 
    
-    
+    #change à partir de ici pour fichier mesh 
 
-class QuadrupoleSolver(Quadrupole):
+class Solver(Quadrupole):
     def __init__(self, mesh_obj: QuadrupoleMesh, filename: str = "mesh_quadrupole.msh"):
         """
+        docstring for solver -> mesh_obj(par défaut on utilise le quadrupole au quadrupole), ficher en .msh
         """
         # Initialisation du parent avec les objets stockés dans le mesh
         super().__init__(mesh_obj.p, mesh_obj.d)
         self.mesh_obj = mesh_obj
-
         
         # Importation de la grille
         self.grid = bempp.import_grid(filename)
@@ -249,12 +249,12 @@ class QuadrupoleSolver(Quadrupole):
 
     def solve(self, tol=1e-8):
         print("debut calcul")
-        """Résout le système BEM."""
+        
         identity = bempp.operators.boundary.sparse.identity(self.p1_space, self.p1_space, self.dp0_space)
         dlp = bempp.operators.boundary.laplace.double_layer(self.p1_space, self.p1_space, self.dp0_space)
         slp = bempp.operators.boundary.laplace.single_layer(self.dp0_space, self.p1_space, self.dp0_space)
 
-        # --- EXTRACTION DES IDS EN VARIABLES SIMPLES (Crucial pour Numba) ---
+
         id_ap1 = self.mesh_obj.group_id_apert1
         id_ap2 = self.mesh_obj.group_id_apert2
         id_c1 = self.mesh_obj.group_id_cyl1
@@ -267,29 +267,46 @@ class QuadrupoleSolver(Quadrupole):
         v_ap1, v_ap2 = self.p.pot_apert1, self.p.pot_apert2
         v_elec, v_sh = self.p.pot_electrode, self.p.pot_shield
 
-        print("debut calcul2")
         
-
         @bempp.real_callable
+        #Setting of the potential on the different elements of the geometry
         def dirichlet_data(x, n, domain_index, result):
-            if domain_index == id_ap1: result[0] = v_ap1
-            elif domain_index == id_ap2: result[0] = v_ap2
-            elif domain_index == id_c1 or domain_index == id_c2: result[0] = v_elec
-            elif domain_index == id_c3 or domain_index == id_c4: result[0] = -v_elec
-            elif domain_index == id_sh: result[0] = v_sh
+            if domain_index == id_ap1: #potential of the 1st aperture
+                result[0]=v_ap1
+                
+            elif domain_index == id_ap2: #potential of the 2nd aperture
+                result[0]=v_ap2
+
+            elif domain_index == id_c1: #potential of the 1st electrode
+                result[0]=v_elec
+
+            elif domain_index == id_c2: #potential of the 2nd electrode
+                result[0]=v_elec
+
+            elif domain_index == id_c3: #potential of the 3rd electrode
+                result[0]=-v_elec
+
+            elif domain_index == id_c3: #potential of the 4th electrode
+                result[0]=-v_elec
+
+            elif domain_index == id_sh: #potential of the shield
+                result[0]=v_sh
             else: result[0] = 0.0
+
+
 
         os.environ['PYOPENCL_COMPILER_OUTPUT']='1'
         os.environ['PYOPENCL_NO_CACHE'] = '1'
-        print("cachde")
+    
 
         dirichlet_fun = bempp.GridFunction(self.p1_space, fun=dirichlet_data)
         rhs = (-0.5 * identity + dlp) * dirichlet_fun
         self.neumann_fun, _ = bempp.linalg.cg(slp, rhs, tol=tol)
-        print("jkzhl")
+        print("fini")
 
     def evaluate(self, n_points=100):
-        """Calcule le potentiel et toutes les dérivées sur l'axe Z."""
+        
+        #initialsition de notre axe et nos points 
         z_range = np.linspace(0, self.total_length, n_points)
         self.points = np.vstack([np.zeros(n_points), np.zeros(n_points), z_range])
 

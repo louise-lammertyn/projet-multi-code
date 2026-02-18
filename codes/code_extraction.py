@@ -316,7 +316,7 @@ class Trajectoire(Paraxial):
             # on sauve la posistion 
             ion.save_step()
 
-    def convergence(self, data : Extraction, n : int):
+    def convergence(self, data : Extraction, n : int) -> None:
         """
         Data (type extraction)
         n (entier) ordre convergence que l'on veut vérifier (diminue le pas de l'axe)
@@ -377,24 +377,24 @@ class Trajectoire(Paraxial):
         # 1. Trajectoire X (Principal vs Marginal)
         ax[0].plot(data.axe_z, principal.history_x, 'r-', label="Principal (x)")
         ax[0].plot(data.axe_z, marginal.history_x, 'b-', label="Marginal (x)")
-        ax[0].set_title("X-Trajectories ")
+        ax[0].set_title("X Trajectories ")
         ax[0].legend()
         
         # 2. Trajectoire Y (Principal vs Marginal)
         ax[1].plot(data.axe_z, principal.history_y, 'r-', label="Principal (y)")
         ax[1].plot(data.axe_z, marginal.history_y, 'b-', label="Marginal (y)")
-        ax[1].set_title("Y-Trajectories")
+        ax[1].set_title("Y Trajectories")
         ax[1].legend()
         
         # 3. Chief Ray seul (X vs Y)
         ax[2].plot(data.axe_z, principal.history_x, 'r-', label="Chief Ray (x)")
-        ax[2].plot(data.axe_z, principal.history_y, 'b-', label="Chief Ray (y)")
-        ax[2].set_title("Chief Ray: X vs Y")
+        ax[2].plot(data.axe_z, principal.history_y, 'r-', label="Chief Ray (y)")
+        ax[2].set_title("Chief Ray")
         ax[2].legend()
 
         # 4. Marginal Ray seul (X vs Y)
-        ax[3].plot(data.axe_z, marginal.history_x, 'm-', label="Marginal (x)")
-        ax[3].plot(data.axe_z, marginal.history_y, 'c-', label="Marginal (y)")
+        ax[3].plot(data.axe_z, marginal.history_x, 'b-', label="Marginal (x)")
+        ax[3].plot(data.axe_z, marginal.history_y, 'b-', label="Marginal (y)")
         ax[3].set_title("Marginal Ray")
         ax[3].legend()
 
@@ -405,34 +405,34 @@ class Trajectoire(Paraxial):
 
 
     # plot pout la convergence 
-    def plot_continu(self, principal: Ion, marginal: Ion, data: Extraction) -> None:
+    def plot_continu(self, principal: Ion, marginal: Ion, data: Extraction, n) -> None:
         fig, axs = plt.subplots(2, 2, figsize=(15, 10))
-        fig.suptitle("praxial avec la convergence, ", fontsize=14, fontweight='bold')
+        fig.suptitle(f"paraxial avec la convergence, ordre {n}   ", fontsize=14, fontweight='bold')
         
         ax = axs.flatten()
 
         # 1. Trajectoire X (Principal vs Marginal)
-        ax[0].plot(self.z_conv, principal.history_x, 'm-', label="Principal (x)")
-        ax[0].plot(self.z_conv, marginal.history_x, 'c-', label="Marginal (x)")
-        ax[0].set_title("X-Trajectories")
+        ax[0].plot(self.z_conv, principal.history_x, 'r-', label="Principal (x)")
+        ax[0].plot(self.z_conv, marginal.history_x, 'b-', label="Marginal (x)")
+        ax[0].set_title("X Trajectories")
         ax[0].legend()
 
         # 2. Trajectoire Y (Principal vs Marginal)
-        ax[1].plot(self.z_conv, principal.history_y, 'm-', label="Principal (y)")
-        ax[1].plot(self.z_conv, marginal.history_y, 'c-', label="Marginal (y)")
-        ax[1].set_title("Y-Trajectories")
+        ax[1].plot(self.z_conv, principal.history_y, 'r-', label="Principal (y)")
+        ax[1].plot(self.z_conv, marginal.history_y, 'b-', label="Marginal (y)")
+        ax[1].set_title("Y Trajectories")
         ax[1].legend()
 
         # 3. Chief Ray seul (X vs Y)
-        ax[2].plot(self.z_conv, principal.history_x, 'r-', label="Chief (x)")
-        ax[2].plot(self.z_conv, principal.history_y, 'b-', label="Chief (y)")
-        ax[2].set_title("Chief Ray: X vs Y ")
+        ax[2].plot(self.z_conv, principal.history_x, 'r-', label="Principal (x)")
+        ax[2].plot(self.z_conv, principal.history_y, 'r-', label="Principal (y)")
+        ax[2].set_title("Chief Ray ")
         ax[2].legend()
 
         # 4. Marginal Ray seul (X vs Y)
-        ax[3].plot(self.z_conv, marginal.history_x, 'g-', label="Marginal (x)")
-        ax[3].plot(self.z_conv, marginal.history_y, 'y-', label="Marginal (y)")
-        ax[3].set_title("Marginal Ray: X vs Y ")
+        ax[3].plot(self.z_conv, marginal.history_x, 'b-', label="Marginal (x)")
+        ax[3].plot(self.z_conv, marginal.history_y, 'b-', label="Marginal (y)")
+        ax[3].set_title("Marginal Ray")
         ax[3].legend()
 
         

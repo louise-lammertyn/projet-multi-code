@@ -20,7 +20,7 @@ from scipy.interpolate import interp1d
 opencl_kernels.show_available_platforms_and_devices()
 opencl_kernels.set_default_cpu_device(0,1)
 
-
+# output dir, makedir
 @dataclass
 class dimension:
     """
