@@ -24,7 +24,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 #Definition of classes to describe the geometry
 class Cylinder:
-    def __init__(self, length, radius, coord_x, coord_y, coord_z):
+    def __init__(self, length: int, radius: int, coord_x: int, coord_y: int, coord_z:):
         self.length = length
         self.radius = radius
         self.coord_x = coord_x
@@ -705,5 +705,7 @@ Préciser type variables entrées et sorties classes
 
 Fonctions à garder: Générer mesh(mettre en option l'affichage quad), extraction potentiel, affichage potentiel axe, 
 importation données, affichage décomposition avec et sans fonctions de fit 
+
+fonction afficher potentiel sur electrode 
 
 """
