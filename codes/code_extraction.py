@@ -34,6 +34,8 @@ class Potentials:
 
 class Extraction():
     def __init__(self, file_path, ):
+
+        
         
         # Chargement des données
         data = np.load(file_path)
@@ -370,7 +372,7 @@ class Trajectoire(Paraxial):
     def plot_discret(self, principal: Ion, marginal: Ion, data: Extraction)-> None:
         
         fig, axs = plt.subplots(2, 2, figsize=(15, 10))
-        fig.suptitle("Paraxial", fontsize=14, fontweight='bold')
+        fig.suptitle("Trajectoire paraxiale", fontsize=14, fontweight='bold')
         
         ax = axs.flatten()
 
@@ -387,15 +389,15 @@ class Trajectoire(Paraxial):
         ax[1].legend()
         
         # 3. Chief Ray seul (X vs Y)
-        ax[2].plot(data.axe_z, principal.history_x, 'r-', label="Chief Ray (x)")
-        ax[2].plot(data.axe_z, principal.history_y, 'r-', label="Chief Ray (y)")
-        ax[2].set_title("Chief Ray")
+        ax[2].plot(data.axe_z, principal.history_x, 'r-', label=" rayon principal ")
+        ax[2].plot(data.axe_z, principal.history_y, 'b-', label=" rayon principal ")
+        ax[2].set_title("rayon princpal ")
         ax[2].legend()
 
         # 4. Marginal Ray seul (X vs Y)
-        ax[3].plot(data.axe_z, marginal.history_x, 'b-', label="Marginal (x)")
-        ax[3].plot(data.axe_z, marginal.history_y, 'b-', label="Marginal (y)")
-        ax[3].set_title("Marginal Ray")
+        ax[3].plot(data.axe_z, marginal.history_x, 'r-', label="rayon marginal")
+        ax[3].plot(data.axe_z, marginal.history_y, 'b-', label="rayon marginal")
+        ax[3].set_title("rayon marginal")
         ax[3].legend()
 
         
@@ -407,7 +409,7 @@ class Trajectoire(Paraxial):
     # plot pout la convergence 
     def plot_continu(self, principal: Ion, marginal: Ion, data: Extraction, n) -> None:
         fig, axs = plt.subplots(2, 2, figsize=(15, 10))
-        fig.suptitle(f"paraxial avec la convergence, ordre {n}   ", fontsize=14, fontweight='bold')
+        fig.suptitle(f"Trajectoire paraxiale,  convergence ordre {n}   ", fontsize=14, fontweight='bold')
         
         ax = axs.flatten()
 
