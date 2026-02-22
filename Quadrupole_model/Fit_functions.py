@@ -3,23 +3,42 @@ from Extraction_data import Extracted_data
 
 #Creation of a class that describes characteristic values for the fit function
 class Fit_constants:
+    """
+    Defines and calculates the characteristic fitting functions (k0, k2, k4) 
+    for multipolar components based on the Okayama model.
+    """
     def __init__(self, a0: int, b0: int, b2: int, a4: int, b41: int, b42: int, z0: int, a: int, data: Extracted_data) -> None:
-        # Paramètres pour la composante lentille ronde k0(Z) :
+        """
+        Initialize fit parameters for round lens, quadrupole, and octupole components.
+
+        Args:
+            a0, b0:  the round lens component (k0).
+            b2:  the quadrupole component (k2).
+            a4, b41, b42:  the octupole component (k4).
+            z0: Half-length of the plateau for the quadrupole field.
+            a:  electrode radius.
+            data (Extracted_data): Object containing axis and geometry information.
+        """
+        
+        # Round lens (k0) parameters
         # k0(Z) = a0 * exp[-(Z/b0)^2]
         self.a0 = a0 
         self.b0 = b0 
-        # Paramètres pour la composante quadripolaire k2(Z) :
+        # Quadrupole (k2) parameters
         self.b2 = b2
 
-        # Paramètres pour la composante octupolaire k4(Z) :
+        # Octupole (k4) parameters
         self.a4 = a4
         self.b41 = b41
         self.b42 = b42
         self.z0 = z0
-        # Paramètre géométrique, rayon elecrtode 
+
+        # Geometry
         self.a = a
 
         self.data = data
+
+        # Resulting function arrays
 
         self.k0 = None
         self.k2 = None
@@ -28,15 +47,19 @@ class Fit_constants:
 
 
     def fonction_fit(self) -> None:
+        """
+        Calculate the axial distributions for k0, k2, and k4 by shifting the 
+        coordinate system to the relevant geometric centers.
+        """
 
         milieu_cyl = 0.5 * (self.data.start_cyl + self.data.end_cyl)
 
-        #on translte tout
+       # Translate the Z-axis relative to the cylinder center
         z_ref = self.data.axe_z - milieu_cyl
 
-        # un axe pour chaque k
-        z_quad_center = 0                          # Milieu du cylindre = 0
-        z_quad_edge   = self.data.length_cylinder / 2        # Bord du cylindre
+        # Define reference points for each component
+        z_quad_center = 0                         # Center of cylinder
+        z_quad_edge   = self.data.length_cylinder / 2        # Edge of cylinder
         z_ap_center   = z_quad_edge + self.data.dist_apert_quad + self.data.thickness_apert / 2 # Milieu ouverture
 
         Z_k2 = z_ref - z_quad_center     # pour le quadrupôle

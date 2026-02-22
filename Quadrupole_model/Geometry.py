@@ -4,7 +4,18 @@ from Data import Data
 
 #Definition of classes to describe the geometry
 class Cylinder:
+    """
+    Represents a cylindrical electrode in the GMSH geometry.
+    """
     def __init__(self, length: int, radius: int, coord_x: int, coord_y: int, coord_z: int) -> None:
+        """
+        Initialize cylinder parameters.
+
+        Args:
+            length: Length of the cylinder along the Z-axis.
+            radius: Radius of the cylinder.
+            coord_x, coord_y, coord_z: Starting position of the cylinder.
+        """
         self.length = length
         self.radius = radius
         self.coord_x = coord_x
@@ -16,12 +27,24 @@ class Cylinder:
 
 
     def add(self) -> None:
+        """Add the cylinder to the OpenCASCADE model and extract its surface loop."""
         self.cyl_tag = gmsh.model.occ.addCylinder(self.coord_x, self.coord_y, self.coord_z, 0, 0, self.length, self.radius)
         self.cyl_surf = gmsh.model.occ.get_surface_loops(self.cyl_tag)[1][0]
 
 
 class Aperture: 
+    """
+    Represents an  aperture  in the GMSH geometry.
+    """
     def __init__(self, radius_ext: int, radius_in: int, thickness: int, coord_x: int, coord_y: int, coord_z: int) -> None:
+        """
+        Initialize aperture parameters.
+
+        Args:
+            radius_ext: Outer radius of the aperture disc.
+            radius_in: Inner radius (hole) of the aperture.
+            thickness: Thickness of the disc.
+        """
         self.radius_ext = radius_ext
         self.radius_in = radius_in
         self.thickness = thickness
@@ -34,6 +57,7 @@ class Aperture:
 
 
     def add (self) -> None:
+        """Create the aperture """
         aperture_out = gmsh.model.occ.addCylinder(self.coord_x, self.coord_y, self.coord_z, 0, 0, self.thickness, self.radius_ext)
         aperture_in = gmsh.model.occ.addCylinder(self.coord_x, self.coord_y, self.coord_z, 0, 0, self.thickness, self.radius_in)
         apert_vol , _=  gmsh.model.occ.cut([(3,aperture_out)],[(3,aperture_in)])
@@ -41,6 +65,9 @@ class Aperture:
         self.apert_surf = gmsh.model.occ.get_surface_loops(self.apert_tag)[1][0]
 
 class Shield:
+    """
+    Represents the shield to fixe the potential ot 0
+    """
     def __init__(self, length: int, radius_ext: int, radius_in: int, radius_hole: int, thickness: int, coord_x: int, coord_y: int, coord_z: int) -> None:
         self.length = length
         self.radius_ext = radius_ext
@@ -68,13 +95,22 @@ class Shield:
 
 
 class Mesh_Generation: 
+    """
+    Manages the full GMSH workflow: initialization, geometry construction, 
+    physical grouping, and mesh generation.
+    """
     def __init__(self, data: Data, visual: bool) -> None:
+        """
+        data (Data): Object containing all geometric dimensions and mesh settings.
+            visual (bool): If True, launches the GMSH GUI after generation.
+        """
         self.data = data
         self.visual = visual
 
         self.objects = None
 
     def initialisation(self) -> None:
+        """Initialize GMSH and create a new model."""
 
         gmsh.initialize()
         gmsh.clear()
@@ -82,6 +118,7 @@ class Mesh_Generation:
 
 
     def geometry(self) -> None:
+        """Instantiate and add all geometric components (electrodes, apertures, shield)."""
 
         cylinder1 = Cylinder(self.data.length_cylinder, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.coord_cylinder_z)
         Cylinder.add(cylinder1)
@@ -110,9 +147,13 @@ class Mesh_Generation:
 
 
     def creation_mesh(self) -> None:
+        """Synchronize the OpenCASCADE internal CAD representation with the GMSH model."""
         gmsh.model.occ.synchronize()
     
     def surfaces(self) -> None:
+        """
+        Define physical groups for the surfaces. 
+        """
         aperture1, aperture2, cylinder1, cylinder2, cylinder3, cylinder4, shield = self.objects
 
     #Outwards orientation of the surfaces' normals
@@ -137,6 +178,7 @@ class Mesh_Generation:
 
 
     def mesh(self) -> None:
+        """Configure mesh size  and generate the  surface mesh."""
     #Size of the mesh
     #ATTENTION, MeshSizeMin and MeshSizeMax need to be equal
         gmsh.option.set_number('Mesh.MeshSizeMin', self.data.MeshSizeMin)

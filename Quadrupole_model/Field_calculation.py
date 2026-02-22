@@ -5,13 +5,26 @@ from matplotlib import pylab as plt
 from Data import Data
 
 class Calculation_field:
+    """
+    Handles the electrostatic field calculation using the Boundary Element Method (BEM).
+    It manages mesh importation, potential settings, matrix inversion, and 
+    derivative calculations for a quadrupole geometry.
+    """
     def __init__(self, data: Data) -> None:
+
+        """
+        Initialize the calculation field with geometry data and BEM spaces.
+
+        Args:
+            data (Data): Object containing physical dimensions, potentials, and mesh paths.
+        """
         self.data =  data
 
         #Importation of the mesh
         self.mesh_path = os.path.join(self.data.output_dir, "mesh_quadrupole.msh")
         self.grid = bempp.import_grid(self.mesh_path)
-        # --- spaces ---
+        
+        # Functions spaces 
         self.dp0_space = bempp.function_space(self.grid, "DP", 0)
         self.p1_space  = bempp.function_space(self.grid, "P", 1)
 
@@ -22,10 +35,14 @@ class Calculation_field:
 
         self.slp = bempp.operators.boundary.laplace.single_layer(self.dp0_space, self.p1_space, self.dp0_space)
 
+        #Initial our variable to store the results 
+
         self.dirichlet_fun = None
         self.neumann_fun = None
         self.u_evaluated = None
         self.points = None
+
+        #Potenital derivative 
 
         self.E_eval = None
         self.D2_eval = None
@@ -38,7 +55,12 @@ class Calculation_field:
 
         
     def potentials_settings(self) -> None:
-    #Settings of the potentials
+        """
+        Map physical potentials to the corresponding geometric domain indices.
+        Defines the Dirichlet boundary conditions for the BEM problem.
+        """
+
+        #Settings of the potentials
         pot_apert1 = self.data.pot_apert1
         pot_apert2 = self.data.pot_apert2
         pot_electrode = self.data.pot_electrode
@@ -75,11 +97,12 @@ class Calculation_field:
 
             elif domain_index == shield: #potential of the shield
                 result[0]=pot_shield
-
+            
+        # Create the GridFunction representing the boundary potential
         self.dirichlet_fun = bempp.GridFunction(self.p1_space, fun=dirichlet_data) 
 
     def visualisation(self) -> None:
-        #Prints the potential associated to the geometry 
+        """Visualize the Dirichlet potential mapped onto the 3D geometry."""
         self.dirichlet_fun.plot()
    
     def matrix_inversion(self) -> None:
@@ -99,6 +122,10 @@ class Calculation_field:
 
 
     def derivatives(self) -> None:
+        """
+        Calculate the 1st to 4th order derivatives of the potential at the evaluation points.
+        Uses OpenCL for hardware acceleration.
+        """
         #Field 
         E = bempp.operators.potential.laplace.single_layer_gradient(self.dp0_space, self.points, device_interface="opencl")
         self.E_eval = -E * self.neumann_fun
@@ -117,6 +144,10 @@ class Calculation_field:
 
 
     def potential_exportation(self) -> None: 
+        """
+        Export all calculated potentials, derivatives, and geometric parameters 
+        to a compressed .npz file for post-processing.
+        """
         try:
             from IPython import get_ipython
             ipython = get_ipython()
@@ -201,7 +232,7 @@ class Calculation_field:
 
 
     def potential_axis_printing(self) -> None:
-    #Printing of the solution --> printing of the potential along the z axis ~ 0V
+        """Plot the calculated potential along the Z-axis."""
         plt.plot(self.points[2], self.u_evaluated[0])
         plt.title("Potentiel du quadrupole d'Okayama le long de l'axe Z")
         plt.xlabel("Position en z (mm)")
