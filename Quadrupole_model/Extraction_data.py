@@ -73,3 +73,12 @@ class Extracted_data:
         self.D3 = data["D3_eval"]             # 3ème dérivée [V/mm^3
         self.D4 = data["D4_eval"]             # 4ème dérivée [V/mm^4
         
+
+    def derivative(self)-> None:
+        """
+        Computation of the derivatives of phi0 to use in paraxial equation
+        """  
+        self.D2zphi0 = self.D2[5]  #phi_0'' pour la trajectoire
+        self.D1zphi0 = self.D1[2]   #phi_0' pour la trajectoire
+    
+

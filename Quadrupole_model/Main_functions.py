@@ -5,6 +5,7 @@ from Extraction_data import Extracted_data
 from Fit_functions import Fit_constants
 from Graphs import Graphs
 from Multipolar_decomposition import Decomposition
+from paraxial import Paraxial, Ion, Trajectoire
 
 class Potential_extraction:
     def __init__(self, data: Data, mesh_visual: bool):
@@ -56,3 +57,56 @@ class Data_exploitation:
     
     def fit_graph(self):
         self.graphs.graphe_fit()
+
+
+class SimulationParaxiale:
+
+    def __init__(self, extracted: Extracted_data, decomp: Decomposition):
+        
+    
+        self.extracted = extracted
+        self.decomp = decomp
+        
+        self.traj = Trajectoire()
+
+    def run_discret(self, ion_principal: Ion, ion_marginal: Ion):
+        """
+        
+        """
+        #trajectoire
+        self.traj.simulation3(ion_principal, self.extracted, self.decomp)
+        self.traj.simulation3(ion_marginal, self.extracted, self.decomp)
+
+        # plot
+        self.traj.plot_discret(ion_principal, ion_marginal, self.extracted)
+
+
+    def run_convergence(self, ion_principal: Ion, ion_marginal: Ion, n: int):
+        """
+        
+        """
+
+        # calcul convergence
+        self.traj.convergence(self.extracted, self.decomp, n)
+
+        # simulation contnue
+        self.traj.simulationf(ion_principal, self.extracted)
+        self.traj.simulationf(ion_marginal, self.extracted)
+
+        # plot
+        self.traj.plot_continu(ion_principal, ion_marginal, self.extracted, n)
+
+
+    def run_faisceau(self, liste_ions: list):
+        """
+        Simulation pour un faisceau d'ions
+        """
+
+        for ion in liste_ions:
+            ion.history_x = []
+            ion.history_y = []
+            self.traj.simulation3(ion, self.extracted, self.decomp)
+
+        self.traj.plot_faisceau(liste_ions, self.extracted)
+
+        

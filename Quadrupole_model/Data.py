@@ -66,3 +66,4 @@ class Data:
         self.start_shield2 = self.end_apert2 + self.dist_shield_apert
         self.end_shield2 = self.start_shield2 + self.thickness_shield
 
+        
