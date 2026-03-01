@@ -47,7 +47,7 @@ class Graphs:
         self.trace_geo(ax)
         # Plot Calculated decomposition data and Okayam'a model 
 
-        ax.plot(self.data.axe_z, -self.decomposition.Phi0_maj, label=r'$\Phi_0 $ $[V]$', color='crimson')
+        ax.plot(self.data.axe_z, self.decomposition.Phi0_maj, label=r'$\Phi_0 $ $[V]$', color='crimson')
         ax.plot(self.data.axe_z, self.decomposition.Phi1_maj, label=r'$\Phi_1$ $[V/mm^1]$', color='darkviolet')
         ax.plot(self.data.axe_z, self.decomposition.Phi2_maj, label=r'$\Phi_2$ $[V/mm^2]$', color='green')
         ax.plot(self.data.axe_z, self.decomposition.Phi3_maj, label=r'$\Phi_3$ $[V/mm^3]$', color='gold')

@@ -1,5 +1,5 @@
 from Geometry import Mesh_Generation
-from Field_calculation import Calculation_field
+#from Field_calculation import Calculation_field
 from Data import Data
 from Extraction_data import Extracted_data
 from Fit_functions import Fit_constants

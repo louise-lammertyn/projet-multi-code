@@ -18,7 +18,7 @@ class Decomposition:
 
     def composantes(self) -> None:
         self.Phi0_maj = -self.data.D0  # potentiel monopolaire sur l’axe
-        self.Phi1_maj = self.data.D1[0] 
+        self.Phi1_maj = self.data.D1[0] # D1 correspond au champs electrostique -> on met un moins
         self.Phi2_maj = (1/4)*(self.data.D2[0] - self.data.D2[3])
         self.Phi3_maj = (1/24) * (self.data.D3[0] - 3*self.data.D3[3])
         self.Phi4_maj = (1/192)* (self.data.D4[0] + self.data.D4[10] - 6*self.data.D4[3])
