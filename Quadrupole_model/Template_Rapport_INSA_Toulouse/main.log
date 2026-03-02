@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.3.2)  2 MAR 2026 11:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.3.2)  2 MAR 2026 11:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -910,31 +910,26 @@ File: images/tescan_logo.png Graphic file (type png)
 <use images/tescan_logo.png>
 Package pdftex.def Info: images/tescan_logo.png  used on input line 85.
 (pdftex.def)             Requested size: 113.81102pt x 45.86473pt.
-<images/plume.png, id=62, 285.065pt x 301.125pt>
-File: images/plume.png Graphic file (type png)
-<use images/plume.png>
-Package pdftex.def Info: images/plume.png  used on input line 99.
-(pdftex.def)             Requested size: 227.62206pt x 240.44543pt.
 
 
-<images/pattern.png, id=63, 74.52844pt x 73.77562pt>
+<images/pattern.png, id=62, 74.52844pt x 73.77562pt>
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 106.
+Package pdftex.def Info: images/pattern.png  used on input line 123.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [1
 
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./images/pattern.png> <./images/logo_INSA.png> <./images/tescan_logo.png> <./images/plume.png>]
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./images/pattern.png> <./images/logo_INSA.png> <./images/tescan_logo.png>]
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.111 \end{abstract}
+l.128 \end{abstract}
                     
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 111.
+Package pdftex.def Info: images/pattern.png  used on input line 128.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
  [1] (./main.toc)
 \tf@toc=\write6
@@ -946,11 +941,11 @@ Package pdftex.def Info: images/pattern.png  used on input line 111.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.117 \chapter
+l.134 \chapter
               {Introduction}
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 117.
+Package pdftex.def Info: images/pattern.png  used on input line 134.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
  [1]
 Chapitre 1.
@@ -958,54 +953,54 @@ Chapitre 1.
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 141.
+Package pdftex.def Info: images/pattern.png  used on input line 158.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [2
 
 ]
 Chapitre 2.
-<images/chat_soupis.png, id=106, 224.84pt x 225.84375pt>
+<images/chat_soupis.png, id=110, 224.84pt x 225.84375pt>
 File: images/chat_soupis.png Graphic file (type png)
 <use images/chat_soupis.png>
-Package pdftex.def Info: images/chat_soupis.png  used on input line 147.
+Package pdftex.def Info: images/chat_soupis.png  used on input line 164.
 (pdftex.def)             Requested size: 182.09486pt x 182.91519pt.
 
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 159.
+Package pdftex.def Info: images/pattern.png  used on input line 176.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [3
 
  <./images/chat_soupis.png>]
-<images/cute_cat.png, id=121, 481.8pt x 533.995pt>
+<images/cute_cat.png, id=125, 481.8pt x 533.995pt>
 File: images/cute_cat.png Graphic file (type png)
 <use images/cute_cat.png>
-Package pdftex.def Info: images/cute_cat.png  used on input line 166.
+Package pdftex.def Info: images/cute_cat.png  used on input line 183.
 (pdftex.def)             Requested size: 218.51521pt x 242.18588pt.
 
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 192.
+Package pdftex.def Info: images/pattern.png  used on input line 209.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [4 <./images/cute_cat.png>]
-<images/chat_pardeur.png, id=127, 523.9575pt x 610.28pt>
+<images/chat_pardeur.png, id=131, 523.9575pt x 610.28pt>
 File: images/chat_pardeur.png Graphic file (type png)
 <use images/chat_pardeur.png>
-Package pdftex.def Info: images/chat_pardeur.png  used on input line 208.
+Package pdftex.def Info: images/chat_pardeur.png  used on input line 225.
 (pdftex.def)             Requested size: 227.62206pt x 265.11578pt.
 
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 215.
+Package pdftex.def Info: images/pattern.png  used on input line 232.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [5 <./images/chat_pardeur.png>]
 Chapitre 3.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 227.
+(mdframed)              on input line 244.
 (./main.bbl
 
 File: images/pattern.png Graphic file (type png)
@@ -1018,12 +1013,12 @@ Package pdftex.def Info: images/pattern.png  used on input line 1.
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 260.
+Package pdftex.def Info: images/pattern.png  used on input line 277.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [7
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260302113358 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
+runsystem(latexminted cleantemp  --timestamp 20260302114557 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
  (./main.aux)
  ***********
@@ -1038,18 +1033,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 75AAD3732C95F9BA6C8E601F351092A2;1844.
  ) 
 Here is how much of TeX's memory you used:
- 29338 strings out of 473190
- 581447 string characters out of 5715801
+ 29368 strings out of 473190
+ 581713 string characters out of 5715801
  1172810 words of memory out of 5000000
- 52068 multiletter control sequences out of 15000+600000
- 570314 words of font info for 57 fonts, out of 8000000 for 9000
+ 52085 multiletter control sequences out of 15000+600000
+ 577854 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 97i,16n,105p,746b,1282s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on main.pdf (9 pages, 1243077 bytes).
+ 97i,16n,105p,746b,1245s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfxc1440.pfb>
+Output written on main.pdf (9 pages, 1240757 bytes).
 PDF statistics:
- 245 PDF objects out of 1000 (max. 8388607)
- 185 compressed objects within 2 object streams
+ 264 PDF objects out of 1000 (max. 8388607)
+ 197 compressed objects within 2 object streams
  35 named destinations out of 1000 (max. 500000)
- 152 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 147 words of extra memory for PDF output out of 10000 (max. 10000000)
 
