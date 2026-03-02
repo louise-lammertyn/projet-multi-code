@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.22)  2 MAR 2026 12:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.22)  2 MAR 2026 12:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -270,60 +270,367 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
 \Hy@SectionHShift=\skip87
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/minted\minted.sty
+Package: minted 2025/05/14 v3.7.0 Yet another Pygments shim for LaTeX
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/catchfile\catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/fvextra\fvextra.sty
+Package: fvextra 2025/05/29 v1.13.2 fvextra - extensions and patches for fancyvrb
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvrb.sty
+Package: fancyvrb 2025/07/28 4.6 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count312
+\FV@InFile=\read3
+\FV@TabBox=\box56
+\c@FancyVerbLine=\count313
+\FV@StepNumber=\count314
+\FV@OutFile=\write3
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.sty
+Package: lineno 2026/02/16 line numbers on paragraphs v5.7
+\linenopenalty=\count315
+\output=\toks24
+\linenoprevgraf=\count316
+\linenumbersep=\dimen170
+\linenumberwidth=\dimen171
+\c@linenumber=\count317
+\c@pagewiselinenumber=\count318
+\c@LN@truepage=\count319
+\c@internallinenumber=\count320
+\c@internallinenumbers=\count321
+\quotelinenumbersep=\dimen172
+\bframerule=\dimen173
+\bframesep=\dimen174
+\bframebox=\box57
+)
+\c@FancyVerbWriteLine=\count322
+\c@FancyVerbBufferLine=\count323
+\c@FV@TrueTabGroupLevel=\count324
+\c@FV@TrueTabCounter=\count325
+\FV@TabBox@Group=\box58
+\FV@bgcolorstructbox=\box59
+\FV@TmpLength=\skip88
+\c@FV@HighlightLinesStart=\count326
+\c@FV@HighlightLinesStop=\count327
+\FV@LoopCount=\count328
+\FV@NCharsBox=\box60
+\FV@BreakIndent=\dimen175
+\FV@BreakIndentNChars=\count329
+\FV@BreakSymbolSepLeft=\dimen176
+\FV@BreakSymbolSepLeftNChars=\count330
+\FV@BreakSymbolSepRight=\dimen177
+\FV@BreakSymbolSepRightNChars=\count331
+\FV@BreakSymbolIndentLeft=\dimen178
+\FV@BreakSymbolIndentLeftNChars=\count332
+\FV@BreakSymbolIndentRight=\dimen179
+\FV@BreakSymbolIndentRightNChars=\count333
+\c@FancyVerbLineBreakLast=\count334
+\FV@LineBox=\box61
+\FV@LineIndentBox=\box62
+\c@FV@BreakBufferDepth=\count335
+\FV@LineWidth=\dimen180
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/latex2pydata\latex2pydata.sty
+Package: latex2pydata 2025/03/26 v0.6.0 latex2pydata - write data to file in Python literal format
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.sty (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks25
+\pgfkeys@temptoks=\toks26
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks27
+))) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgfopts\pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks28
+\pgfopts@list@add@b@toks=\toks29
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+)
+\c@minted@FancyVerbLineTemp=\count336
+\@float@every@listing=\toks30
+\c@listing=\count337
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
-\wrapoverhang=\dimen170
-\WF@size=\dimen171
-\c@WF@wrappedlines=\count312
-\WF@box=\box56
-\WF@everypar=\toks24
+\wrapoverhang=\dimen181
+\WF@size=\dimen182
+\c@WF@wrappedlines=\count338
+\WF@box=\box63
+\WF@everypar=\toks31
 Package: wrapfig 2003/01/31  v 3.6
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
-\col@sep=\dimen172
-\ar@mcellbox=\box57
-\extrarowheight=\dimen173
-\NC@list=\toks25
-\extratabsurround=\skip88
-\backup@length=\skip89
-\ar@cellbox=\box58
-) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
-\pgfutil@everybye=\toks26
-\pgfutil@tempdima=\dimen174
-\pgfutil@tempdimb=\dimen175
+\col@sep=\dimen183
+\ar@mcellbox=\box64
+\extrarowheight=\dimen184
+\NC@list=\toks32
+\extratabsurround=\skip89
+\backup@length=\skip90
+\ar@cellbox=\box65
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip91
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks33
+\ex@=\dimen185
+)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen186
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count339
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count340
+\leftroot@=\count341
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count342
+\DOTSCASE@=\count343
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box66
+\strutbox@=\box67
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen187
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count344
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count345
+\dotsspace@=\muskip18
+\c@parentequation=\count346
+\dspbrk@lvl=\count347
+\tag@help=\toks34
+\row@=\count348
+\column@=\count349
+\maxfields@=\count350
+\andhelp@=\toks35
+\eqnshift@=\dimen188
+\alignsep@=\dimen189
+\tagshift@=\dimen190
+\tagwidth@=\dimen191
+\totwidth@=\dimen192
+\lineht@=\dimen193
+\@envbody=\toks36
+\multlinegap=\skip92
+\multlinetaggap=\skip93
+\mathdisplay@stack=\toks37
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+)
+\@LN@amsmath@ams@eqpen=\count351
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks38
+\thm@bodyfont=\toks39
+\thm@headfont=\toks40
+\thm@notefont=\toks41
+\thm@headpunct=\toks42
+\thm@preskip=\skip94
+\thm@postskip=\skip95
+\thm@headsep=\skip96
+\dth@everypar=\toks43
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/mdframed\mdframed.sty
+Package: mdframed 2013/07/01 1.9b: mdframed
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
+Package: xparse 2025-10-09 L3 Experimental document command parser
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/zref\zref-abspage.sty
+Package: zref-abspage 2025-06-08 v2.36 Module abspage for zref (HO)
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/zref\zref-base.sty
+Package: zref-base 2025-06-08 v2.36 Module base for zref (HO)
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+Package zref Info: New property list: main on input line 767.
+Package zref Info: New property: default on input line 768.
+Package zref Info: New property: page on input line 769.
+)
+\c@abspage=\count352
+Package zref Info: New property: abspage on input line 67.
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/needspace\needspace.sty
+Package: needspace 2025/03/13 v1.3e reserve vertical space
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+\mdf@templength=\skip97
+\c@mdf@globalstyle@cnt=\count353
+\mdf@skipabove@length=\skip98
+\mdf@skipbelow@length=\skip99
+\mdf@leftmargin@length=\skip100
+\mdf@rightmargin@length=\skip101
+\mdf@innerleftmargin@length=\skip102
+\mdf@innerrightmargin@length=\skip103
+\mdf@innertopmargin@length=\skip104
+\mdf@innerbottommargin@length=\skip105
+\mdf@splittopskip@length=\skip106
+\mdf@splitbottomskip@length=\skip107
+\mdf@outermargin@length=\skip108
+\mdf@innermargin@length=\skip109
+\mdf@linewidth@length=\skip110
+\mdf@innerlinewidth@length=\skip111
+\mdf@middlelinewidth@length=\skip112
+\mdf@outerlinewidth@length=\skip113
+\mdf@roundcorner@length=\skip114
+\mdf@footenotedistance@length=\skip115
+\mdf@userdefinedwidth@length=\skip116
+\mdf@needspace@length=\skip117
+\mdf@frametitleaboveskip@length=\skip118
+\mdf@frametitlebelowskip@length=\skip119
+\mdf@frametitlerulewidth@length=\skip120
+\mdf@frametitleleftmargin@length=\skip121
+\mdf@frametitlerightmargin@length=\skip122
+\mdf@shadowsize@length=\skip123
+\mdf@extratopheight@length=\skip124
+\mdf@subtitleabovelinewidth@length=\skip125
+\mdf@subtitlebelowlinewidth@length=\skip126
+\mdf@subtitleaboveskip@length=\skip127
+\mdf@subtitlebelowskip@length=\skip128
+\mdf@subtitleinneraboveskip@length=\skip129
+\mdf@subtitleinnerbelowskip@length=\skip130
+\mdf@subsubtitleabovelinewidth@length=\skip131
+\mdf@subsubtitlebelowlinewidth@length=\skip132
+\mdf@subsubtitleaboveskip@length=\skip133
+\mdf@subsubtitlebelowskip@length=\skip134
+\mdf@subsubtitleinneraboveskip@length=\skip135
+\mdf@subsubtitleinnerbelowskip@length=\skip136
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/mdframed\md-frame-0.mdf
+File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
+)
+\mdf@frametitlebox=\box68
+\mdf@footnotebox=\box69
+\mdf@splitbox@one=\box70
+\mdf@splitbox@two=\box71
+\mdf@splitbox@save=\box72
+\mdfsplitboxwidth=\skip137
+\mdfsplitboxtotalwidth=\skip138
+\mdfsplitboxheight=\skip139
+\mdfsplitboxdepth=\skip140
+\mdfsplitboxtotalheight=\skip141
+\mdfframetitleboxwidth=\skip142
+\mdfframetitleboxtotalwidth=\skip143
+\mdfframetitleboxheight=\skip144
+\mdfframetitleboxdepth=\skip145
+\mdfframetitleboxtotalheight=\skip146
+\mdffootnoteboxwidth=\skip147
+\mdffootnoteboxtotalwidth=\skip148
+\mdffootnoteboxheight=\skip149
+\mdffootnoteboxdepth=\skip150
+\mdffootnoteboxtotalheight=\skip151
+\mdftotallinewidth=\skip152
+\mdfboundingboxwidth=\skip153
+\mdfboundingboxtotalwidth=\skip154
+\mdfboundingboxheight=\skip155
+\mdfboundingboxdepth=\skip156
+\mdfboundingboxtotalheight=\skip157
+\mdf@freevspace@length=\skip158
+\mdf@horizontalwidthofbox@length=\skip159
+\mdf@verticalmarginwhole@length=\skip160
+\mdf@horizontalspaceofbox=\skip161
+\mdfsubtitleheight=\skip162
+\mdfsubsubtitleheight=\skip163
+\c@mdfcountframes=\count354
+
+****** mdframed patching \endmdf@trivlist
+
+****** -- success******
+
+\mdf@envdepth=\count355
+\c@mdf@env@i=\count356
+\c@mdf@env@ii=\count357
+\c@mdf@zref@counter=\count358
+Package zref Info: New property: mdf@pagevalue on input line 895.
+)
+\c@theorem=\count359
+\c@definition=\count360
+\c@example=\count361
+\c@property=\count362
+\c@boxedproperty=\count363
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count364
+\Gm@cntv=\count365
+\c@Gm@tempcnt=\count366
+\Gm@bindingoffset=\dimen194
+\Gm@wd@mp=\dimen195
+\Gm@odd@mp=\dimen196
+\Gm@even@mp=\dimen197
+\Gm@layoutwidth=\dimen198
+\Gm@layoutheight=\dimen199
+\Gm@layouthoffset=\dimen256
+\Gm@layoutvoffset=\dimen257
+\Gm@dimlist=\toks44
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/background\background.sty
+Package: background 2014/03/04 v2.1 background material
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+\XKV@toks=\toks45
+\XKV@tempa@toks=\toks46
+)
+\XKV@depth=\count367
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
+\pgfutil@everybye=\toks47
+\pgfutil@tempdima=\dimen258
+\pgfutil@tempdimb=\dimen259
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-latex.def
-\pgfutil@abb=\box59
+\pgfutil@abb=\box73
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.code.tex (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
 Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
 ))
 Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.sty (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.sty (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys.code.tex
 Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
- (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks27
-\pgfkeys@temptoks=\toks28
- (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks29
-))
-\pgf@x=\dimen176
-\pgf@y=\dimen177
-\pgf@xa=\dimen178
-\pgf@ya=\dimen179
-\pgf@xb=\dimen180
-\pgf@yb=\dimen181
-\pgf@xc=\dimen182
-\pgf@yc=\dimen183
-\pgf@xd=\dimen184
-\pgf@yd=\dimen185
-\w@pgf@writea=\write3
-\r@pgf@reada=\read3
-\c@pgf@counta=\count313
-\c@pgf@countb=\count314
-\c@pgf@countc=\count315
-\c@pgf@countd=\count316
-\t@pgf@toka=\toks30
-\t@pgf@tokb=\toks31
-\t@pgf@tokc=\toks32
-\pgf@sys@id@count=\count317
+\pgf@x=\dimen260
+\pgf@y=\dimen261
+\pgf@xa=\dimen262
+\pgf@ya=\dimen263
+\pgf@xb=\dimen264
+\pgf@yb=\dimen265
+\pgf@xc=\dimen266
+\pgf@yc=\dimen267
+\pgf@xd=\dimen268
+\pgf@yd=\dimen269
+\w@pgf@writea=\write4
+\r@pgf@reada=\read4
+\c@pgf@counta=\count368
+\c@pgf@countb=\count369
+\c@pgf@countc=\count370
+\c@pgf@countd=\count371
+\t@pgf@toka=\toks48
+\t@pgf@tokb=\toks49
+\t@pgf@tokc=\toks50
+\pgf@sys@id@count=\count372
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cfg
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
@@ -334,8 +641,8 @@ File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
 File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
 ))) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfsyssoftpath@smallbuffer@items=\count318
-\pgfsyssoftpath@bigbuffer@items=\count319
+\pgfsyssoftpath@smallbuffer@items=\count373
+\pgfsyssoftpath@bigbuffer@items=\count374
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
@@ -344,6 +651,7 @@ Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
+LaTeX Info: Redefining \color on input line 762.
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
@@ -357,52 +665,52 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore.code.tex
 Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser.code.tex
-\pgfmath@dimen=\dimen186
-\pgfmath@count=\count320
-\pgfmath@box=\box60
-\pgfmath@toks=\toks33
-\pgfmath@stack@operand=\toks34
-\pgfmath@stack@operation=\toks35
+\pgfmath@dimen=\dimen270
+\pgfmath@count=\count375
+\pgfmath@box=\box74
+\pgfmath@toks=\toks51
+\pgfmath@stack@operand=\toks52
+\pgfmath@stack@operation=\toks53
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.trigonometric.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.random.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.comparison.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.base.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.round.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmetics.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count321
+\c@pgfmathroundto@lastzeros=\count376
 )) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@picminx=\dimen187
-\pgf@picmaxx=\dimen188
-\pgf@picminy=\dimen189
-\pgf@picmaxy=\dimen190
-\pgf@pathminx=\dimen191
-\pgf@pathmaxx=\dimen192
-\pgf@pathminy=\dimen193
-\pgf@pathmaxy=\dimen194
-\pgf@xx=\dimen195
-\pgf@xy=\dimen196
-\pgf@yx=\dimen197
-\pgf@yy=\dimen198
-\pgf@zx=\dimen199
-\pgf@zy=\dimen256
+\pgf@picminx=\dimen271
+\pgf@picmaxx=\dimen272
+\pgf@picminy=\dimen273
+\pgf@picmaxy=\dimen274
+\pgf@pathminx=\dimen275
+\pgf@pathmaxx=\dimen276
+\pgf@pathminy=\dimen277
+\pgf@pathmaxy=\dimen278
+\pgf@xx=\dimen279
+\pgf@xy=\dimen280
+\pgf@yx=\dimen281
+\pgf@yy=\dimen282
+\pgf@zx=\dimen283
+\pgf@zy=\dimen284
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@path@lastx=\dimen257
-\pgf@path@lasty=\dimen258
+\pgf@path@lastx=\dimen285
+\pgf@path@lasty=\dimen286
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@shorten@end@additional=\dimen259
-\pgf@shorten@start@additional=\dimen260
+\pgf@shorten@end@additional=\dimen287
+\pgf@shorten@start@additional=\dimen288
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfpic=\box61
-\pgf@hbox=\box62
-\pgf@layerbox@main=\box63
-\pgf@picture@serial@count=\count322
+\pgfpic=\box75
+\pgf@hbox=\box76
+\pgf@layerbox@main=\box77
+\pgf@picture@serial@count=\count377
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgflinewidth=\dimen261
+\pgflinewidth=\dimen289
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@pt@x=\dimen262
-\pgf@pt@y=\dimen263
-\pgf@pt@temp=\dimen264
+\pgf@pt@x=\dimen290
+\pgf@pt@y=\dimen291
+\pgf@pt@temp=\dimen292
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreobjects.code.tex
@@ -411,17 +719,17 @@ File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowsep=\dimen265
+\pgfarrowsep=\dimen293
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@max=\dimen266
-\pgf@sys@shading@range@num=\count323
-\pgf@shadingcount=\count324
+\pgf@max=\dimen294
+\pgf@sys@shading@range@num=\count378
+\pgf@shadingcount=\count379
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfexternal@startupbox=\box64
+\pgfexternal@startupbox=\box78
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransparency.code.tex
@@ -432,321 +740,124 @@ File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfnodeparttextbox=\box65
+\pgfnodeparttextbox=\box79
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@nodesepstart=\dimen267
-\pgf@nodesepend=\dimen268
+\pgf@nodesepstart=\dimen295
+\pgf@nodesepend=\dimen296
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
-)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.sty (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.sty (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.code.tex
+)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.sty (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.code.tex
 Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
-\pgffor@iter=\dimen269
-\pgffor@skip=\dimen270
-\pgffor@stack=\toks36
-\pgffor@toks=\toks37
+\pgffor@iter=\dimen297
+\pgffor@skip=\dimen298
+\pgffor@stack=\toks54
+\pgffor@toks=\toks55
 )) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex
 Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@plot@mark@count=\count325
-\pgfplotmarksize=\dimen271
+\pgf@plot@mark@count=\count380
+\pgfplotmarksize=\dimen299
 )
-\tikz@lastx=\dimen272
-\tikz@lasty=\dimen273
-\tikz@lastxsaved=\dimen274
-\tikz@lastysaved=\dimen275
-\tikz@lastmovetox=\dimen276
-\tikz@lastmovetoy=\dimen277
-\tikzleveldistance=\dimen278
-\tikzsiblingdistance=\dimen279
-\tikz@figbox=\box66
-\tikz@figbox@bg=\box67
-\tikz@tempbox=\box68
-\tikz@tempbox@bg=\box69
-\tikztreelevel=\count326
-\tikznumberofchildren=\count327
-\tikznumberofcurrentchild=\count328
-\tikz@fig@count=\count329
+\tikz@lastx=\dimen300
+\tikz@lasty=\dimen301
+\tikz@lastxsaved=\dimen302
+\tikz@lastysaved=\dimen303
+\tikz@lastmovetox=\dimen304
+\tikz@lastmovetoy=\dimen305
+\tikzleveldistance=\dimen306
+\tikzsiblingdistance=\dimen307
+\tikz@figbox=\box80
+\tikz@figbox@bg=\box81
+\tikz@tempbox=\box82
+\tikz@tempbox@bg=\box83
+\tikztreelevel=\count381
+\tikznumberofchildren=\count382
+\tikznumberofcurrentchild=\count383
+\tikz@fig@count=\count384
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfmatrixcurrentrow=\count330
-\pgfmatrixcurrentcolumn=\count331
-\pgf@matrix@numberofcolumns=\count332
+\pgfmatrixcurrentrow=\count385
+\pgfmatrixcurrentcolumn=\count386
+\pgf@matrix@numberofcolumns=\count387
 )
-\tikz@expandcount=\count333
+\tikz@expandcount=\count388
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-))) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2025/07/09 v2.17z AMS math features
-\@mathmargin=\skip90
+))) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/everypage\everypage.sty
+Package: everypage 2020/10/17 R2.0b Hooks to run on every page
 
-For additional information on amsmath, use the `?' option.
-(C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
-Package: amstext 2024/11/17 v2.01 AMS text
- (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks38
-\ex@=\dimen280
-)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen281
-) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
-Package: amsopn 2022/04/08 v2.04 operator names
-)
-\inf@bad=\count334
-LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count335
-\leftroot@=\count336
-LaTeX Info: Redefining \overline on input line 398.
-LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count337
-\DOTSCASE@=\count338
-LaTeX Info: Redefining \ldots on input line 495.
-LaTeX Info: Redefining \dots on input line 498.
-LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box70
-\strutbox@=\box71
-LaTeX Info: Redefining \big on input line 721.
-LaTeX Info: Redefining \Big on input line 722.
-LaTeX Info: Redefining \bigg on input line 723.
-LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen282
-LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count339
-LaTeX Info: Redefining \bmod on input line 904.
-LaTeX Info: Redefining \pmod on input line 909.
-LaTeX Info: Redefining \smash on input line 939.
-LaTeX Info: Redefining \relbar on input line 969.
-LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count340
-\dotsspace@=\muskip18
-\c@parentequation=\count341
-\dspbrk@lvl=\count342
-\tag@help=\toks39
-\row@=\count343
-\column@=\count344
-\maxfields@=\count345
-\andhelp@=\toks40
-\eqnshift@=\dimen283
-\alignsep@=\dimen284
-\tagshift@=\dimen285
-\tagwidth@=\dimen286
-\totwidth@=\dimen287
-\lineht@=\dimen288
-\@envbody=\toks41
-\multlinegap=\skip91
-\multlinetaggap=\skip92
-\mathdisplay@stack=\toks42
-LaTeX Info: Redefining \[ on input line 2950.
-LaTeX Info: Redefining \] on input line 2951.
-) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
-Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks43
-\thm@bodyfont=\toks44
-\thm@headfont=\toks45
-\thm@notefont=\toks46
-\thm@headpunct=\toks47
-\thm@preskip=\skip93
-\thm@postskip=\skip94
-\thm@headsep=\skip95
-\dth@everypar=\toks48
-) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/mdframed\mdframed.sty
-Package: mdframed 2013/07/01 1.9b: mdframed
- (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
-Package: xparse 2025-10-09 L3 Experimental document command parser
-) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/zref\zref-abspage.sty
-Package: zref-abspage 2025-06-08 v2.36 Module abspage for zref (HO)
- (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/zref\zref-base.sty
-Package: zref-base 2025-06-08 v2.36 Module base for zref (HO)
- (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
-Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
-) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
-Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-)
-Package zref Info: New property list: main on input line 767.
-Package zref Info: New property: default on input line 768.
-Package zref Info: New property: page on input line 769.
-)
-\c@abspage=\count346
-Package zref Info: New property: abspage on input line 67.
-) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/needspace\needspace.sty
-Package: needspace 2025/03/13 v1.3e reserve vertical space
-)
-\mdf@templength=\skip96
-\c@mdf@globalstyle@cnt=\count347
-\mdf@skipabove@length=\skip97
-\mdf@skipbelow@length=\skip98
-\mdf@leftmargin@length=\skip99
-\mdf@rightmargin@length=\skip100
-\mdf@innerleftmargin@length=\skip101
-\mdf@innerrightmargin@length=\skip102
-\mdf@innertopmargin@length=\skip103
-\mdf@innerbottommargin@length=\skip104
-\mdf@splittopskip@length=\skip105
-\mdf@splitbottomskip@length=\skip106
-\mdf@outermargin@length=\skip107
-\mdf@innermargin@length=\skip108
-\mdf@linewidth@length=\skip109
-\mdf@innerlinewidth@length=\skip110
-\mdf@middlelinewidth@length=\skip111
-\mdf@outerlinewidth@length=\skip112
-\mdf@roundcorner@length=\skip113
-\mdf@footenotedistance@length=\skip114
-\mdf@userdefinedwidth@length=\skip115
-\mdf@needspace@length=\skip116
-\mdf@frametitleaboveskip@length=\skip117
-\mdf@frametitlebelowskip@length=\skip118
-\mdf@frametitlerulewidth@length=\skip119
-\mdf@frametitleleftmargin@length=\skip120
-\mdf@frametitlerightmargin@length=\skip121
-\mdf@shadowsize@length=\skip122
-\mdf@extratopheight@length=\skip123
-\mdf@subtitleabovelinewidth@length=\skip124
-\mdf@subtitlebelowlinewidth@length=\skip125
-\mdf@subtitleaboveskip@length=\skip126
-\mdf@subtitlebelowskip@length=\skip127
-\mdf@subtitleinneraboveskip@length=\skip128
-\mdf@subtitleinnerbelowskip@length=\skip129
-\mdf@subsubtitleabovelinewidth@length=\skip130
-\mdf@subsubtitlebelowlinewidth@length=\skip131
-\mdf@subsubtitleaboveskip@length=\skip132
-\mdf@subsubtitlebelowskip@length=\skip133
-\mdf@subsubtitleinneraboveskip@length=\skip134
-\mdf@subsubtitleinnerbelowskip@length=\skip135
- (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/mdframed\md-frame-0.mdf
-File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
-)
-\mdf@frametitlebox=\box72
-\mdf@footnotebox=\box73
-\mdf@splitbox@one=\box74
-\mdf@splitbox@two=\box75
-\mdf@splitbox@save=\box76
-\mdfsplitboxwidth=\skip136
-\mdfsplitboxtotalwidth=\skip137
-\mdfsplitboxheight=\skip138
-\mdfsplitboxdepth=\skip139
-\mdfsplitboxtotalheight=\skip140
-\mdfframetitleboxwidth=\skip141
-\mdfframetitleboxtotalwidth=\skip142
-\mdfframetitleboxheight=\skip143
-\mdfframetitleboxdepth=\skip144
-\mdfframetitleboxtotalheight=\skip145
-\mdffootnoteboxwidth=\skip146
-\mdffootnoteboxtotalwidth=\skip147
-\mdffootnoteboxheight=\skip148
-\mdffootnoteboxdepth=\skip149
-\mdffootnoteboxtotalheight=\skip150
-\mdftotallinewidth=\skip151
-\mdfboundingboxwidth=\skip152
-\mdfboundingboxtotalwidth=\skip153
-\mdfboundingboxheight=\skip154
-\mdfboundingboxdepth=\skip155
-\mdfboundingboxtotalheight=\skip156
-\mdf@freevspace@length=\skip157
-\mdf@horizontalwidthofbox@length=\skip158
-\mdf@verticalmarginwhole@length=\skip159
-\mdf@horizontalspaceofbox=\skip160
-\mdfsubtitleheight=\skip161
-\mdfsubsubtitleheight=\skip162
-\c@mdfcountframes=\count348
 
-****** mdframed patching \endmdf@trivlist
+Package everypage Warning: Functionality similar to this package has recently
+(everypage)                been implemented in LaTeX. This package is now in
+(everypage)                legacy status.
+(everypage)                Please, don't use it in new documents and packages.
 
-****** -- success******
 
-\mdf@envdepth=\count349
-\c@mdf@env@i=\count350
-\c@mdf@env@ii=\count351
-\c@mdf@zref@counter=\count352
-Package zref Info: New property: mdf@pagevalue on input line 895.
-)
-\c@theorem=\count353
-\c@definition=\count354
-\c@example=\count355
-\c@property=\count356
-\c@boxedproperty=\count357
- (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
- (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
-Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
-)
-\Gm@cnth=\count358
-\Gm@cntv=\count359
-\c@Gm@tempcnt=\count360
-\Gm@bindingoffset=\dimen289
-\Gm@wd@mp=\dimen290
-\Gm@odd@mp=\dimen291
-\Gm@even@mp=\dimen292
-\Gm@layoutwidth=\dimen293
-\Gm@layoutheight=\dimen294
-\Gm@layouthoffset=\dimen295
-\Gm@layoutvoffset=\dimen296
-\Gm@dimlist=\toks49
- (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
-Package: eso-pic 2025/12/10 v3.0d eso-pic (RN)
-\ESO@tempdima=\dimen297
-\ESO@tempdimb=\dimen298
-) (Rapport_final.aux
+Package everypage Warning: You appear to be running a version of LaTeX
+(everypage)                providing the new functionality.
+(everypage)                Doing the best to deliver the original `everypage`
+(everypage)                interface on top of it. Strict equivalence is
+(everypage)                not possible, breakage may occur.
+(everypage)                If truly needed, Use `everypage-1x` to force the
+(everypage)                loading of an older code base.
+
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/tools\afterpage.sty
+Package: afterpage 2023/07/04 v1.08 After-Page Package (DPC)
+\AP@output=\toks56
+\AP@partial=\box84
+\AP@footins=\box85
+)) (Rapport_final.aux
 Package babel Info: 'french' activates 'french' shorthands.
-(babel)             Reported on input line 13.
+(babel)             Reported on input line 14.
 )
 \openout1 = `Rapport_final.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Info: Redefining \degres on input line 67.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Info: Redefining \degres on input line 70.
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count361
-\scratchdimen=\dimen299
-\scratchbox=\box77
-\nofMPsegments=\count362
-\nofMParguments=\count363
-\everyMPshowfont=\toks50
-\MPscratchCnt=\count364
-\MPscratchDim=\dimen300
-\MPnumerator=\count365
-\makeMPintoPDFobject=\count366
-\everyMPtoPDFconversion=\toks51
+\scratchcounter=\count389
+\scratchdimen=\dimen308
+\scratchbox=\box86
+\nofMPsegments=\count390
+\nofMParguments=\count391
+\everyMPshowfont=\toks57
+\MPscratchCnt=\count392
+\MPscratchDim=\dimen309
+\MPnumerator=\count393
+\makeMPintoPDFobject=\count394
+\everyMPtoPDFconversion=\toks58
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 67.
+Package hyperref Info: Link coloring ON on input line 70.
  (Rapport_final.out) (Rapport_final.out)
-\@outlinefile=\write4
-\openout4 = `Rapport_final.out'.
+\@outlinefile=\write5
+\openout5 = `Rapport_final.out'.
 
 
 *geometry* driver: auto-detecting
@@ -783,59 +894,135 @@ Package hyperref Info: Link coloring ON on input line 67.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<images/logo_INSA.png, id=6, 2546.51375pt x 552.0625pt>
+<images/logo_INSA.png, id=58, 2546.51375pt x 552.0625pt>
 File: images/logo_INSA.png Graphic file (type png)
 <use images/logo_INSA.png>
-Package pdftex.def Info: images/logo_INSA.png  used on input line 77.
+Package pdftex.def Info: images/logo_INSA.png  used on input line 80.
 (pdftex.def)             Requested size: 113.81102pt x 24.67326pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 78.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
 (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<images/tescan_logo.png, id=8, 336.25626pt x 135.50626pt>
+<images/tescan_logo.png, id=60, 336.25626pt x 135.50626pt>
 File: images/tescan_logo.png Graphic file (type png)
 <use images/tescan_logo.png>
-Package pdftex.def Info: images/tescan_logo.png  used on input line 82.
+Package pdftex.def Info: images/tescan_logo.png  used on input line 85.
 (pdftex.def)             Requested size: 113.81102pt x 45.86473pt.
-<images/plume.png, id=9, 285.065pt x 301.125pt>
-File: images/plume.png Graphic file (type png)
-<use images/plume.png>
-Package pdftex.def Info: images/plume.png  used on input line 96.
-(pdftex.def)             Requested size: 227.62206pt x 240.44543pt.
-<images/pattern.png, id=10, 74.52844pt x 73.77562pt>
+<images/pattern.png, id=61, 74.52844pt x 73.77562pt>
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 103.
+Package pdftex.def Info: images/pattern.png  used on input line 101.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
  [1
 
-{C:/Users/zoeno/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./images/pattern.png> <./images/logo_INSA.png> <./images/tescan_logo.png> <./images/plume.png>]
+{C:/Users/zoeno/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./images/pattern.png> <./images/logo_INSA.png> <./images/tescan_logo.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.108 \end{abstract}
+l.106 \end{abstract}
                     
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 108.
+Package pdftex.def Info: images/pattern.png  used on input line 106.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
- [1])
-! Emergency stop.
-<*> ...multi-code/Documentation/Rapport_final.tex"
-                                                  
-*** (job aborted, no legal \end found)
+ [1] (Rapport_final.toc)
+\tf@toc=\write6
+\openout6 = `Rapport_final.toc'.
 
- 
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.112 \chapter
+              {Introduction}
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 112.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [1]
+Chapitre 1.
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 136.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+[2
+
+]
+Chapitre 2.
+
+LaTeX Warning: Citation `smith2023' on page 3 undefined on input line 146.
+
+
+LaTeX Warning: Citation `johnson2024' on page 3 undefined on input line 146.
+
+
+LaTeX Warning: Citation `doe2025' on page 3 undefined on input line 146.
+
+
+LaTeX Warning: Citation `johnson2024' on page 3 undefined on input line 146.
+
+
+LaTeX Warning: Citation `doe2025' on page 3 undefined on input line 146.
+
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 148.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+[3
+
+]
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 174.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [4]
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 191.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [5]
+Chapitre 3.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 203.
+No file Rapport_final.bbl.
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 236.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+[6
+
+]
+runsystem(latexminted cleantemp  --timestamp 20260302125838 374BB7A748EB396E615CED6737271BF3)...disabled (restricted).
+
+ (Rapport_final.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-06>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `Rapport_final.out' has not changed.
+(rerunfilecheck)             Checksum: 75AAD3732C95F9BA6C8E601F351092A2;1844.
+ ) 
 Here is how much of TeX's memory you used:
- 25067 strings out of 467871
- 468263 string characters out of 5418376
- 957393 words of memory out of 5000000
- 53526 multiletter control sequences out of 15000+600000
- 635584 words of font info for 56 fonts, out of 8000000 for 9000
+ 29341 strings out of 467871
+ 586450 string characters out of 5418376
+ 1184239 words of memory out of 5000000
+ 57705 multiletter control sequences out of 15000+600000
+ 638525 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,104p,656b,754s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 97i,16n,118p,753b,1253s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Rapport_final.pdf (8 pages, 268529 bytes).
+PDF statistics:
+ 499 PDF objects out of 1000 (max. 8388607)
+ 27 named destinations out of 1000 (max. 500000)
+ 132 words of extra memory for PDF output out of 10000 (max. 10000000)
+
