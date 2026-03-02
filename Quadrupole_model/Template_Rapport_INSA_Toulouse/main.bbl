@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+
+\bibitem{doe2025}
+Jane Doe.
+\newblock Comment faire des liens dans latex.
+\newblock Online, 2025.
+\newblock Disponible sur Overleaf.
+
+\bibitem{johnson2024}
+John Johnson.
+\newblock {\em Tout sur rien}.
+\newblock Editeur XYZ, 2024.
+
+\bibitem{smith2023}
+Jane Smith.
+\newblock Une étude sur quelque chose.
+\newblock {\em Journal of Something}, 29(1):10--20, 2023.
+
+\end{thebibliography}
