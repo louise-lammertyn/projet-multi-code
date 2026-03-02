@@ -11,6 +11,7 @@ class Paraxial():
         self.y_next = None
 
     def RK4_step(self, f, y, t, h, alpha, beta):
+        ######Qui sont alpha et beta ? 
         f1 = f(y, t, alpha, beta)
         f2 = f(y + h*f1/2, t + h/2, alpha, beta)
         f3 = f(y + h*f2/2, t + h/2, alpha, beta)
