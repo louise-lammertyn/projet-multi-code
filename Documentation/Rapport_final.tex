@@ -70,33 +70,49 @@ contents={\begin{tikzpicture}[remember picture,overlay]
 \begin{document}
 
 
-% Page de titre
+% --- PAGE DE TITRE ---
 \begin{titlepage}
     \centering
-
-    % Minipages pour les logos
-    \noindent % Assure qu'il n'y a pas d'indentation au début de la ligne
-    \begin{minipage}{0.5\textwidth}
-        \includegraphics[width=0.5\linewidth]{images/logo_INSA.png} % Ajustez le chemin et la taille
+    \noindent 
+    \begin{minipage}{0.45\textwidth}
+        \includegraphics[width=0.8\linewidth]{images/logo_INSA.png} 
     \end{minipage}%
-    \hfill % Assure que les deux minipages seront poussés à l'extrême gauche et droite
-    \begin{minipage}{0.5\textwidth}
-        \flushright % Alignement à droite dans la minipage
-        \includegraphics[width=0.5\linewidth]{images/tescan_logo.png} % Ajustez le chemin et la taille
+    \hfill 
+    \begin{minipage}{0.45\textwidth}
+        \flushright 
+        \includegraphics[width=0.8\linewidth]{images/tescan_logo.png} 
     \end{minipage}
 
-
-    \vspace*{2cm} % Espace vertical de 2 cm
-    {\Huge\bfseries Rapport final \par}
+    \vspace*{2cm} 
+    {\Huge\bfseries Rapport de Projet Multidisciplinaire \par}
     \vspace{1cm}
-    {\huge Modélisation d'une lentille électrostatique quadrupolaire par Boundary Element Method\par}
-    \vspace{0.5cm}
-    {\large {Louise Lammertyn, Zoé Nonon} \par}
+    {\huge Modélisation du Quadrupôle d'Okayama par BEM \par}
+    \vspace{0.4cm}
+    {\large (\textit{Boundary Element Method}) \par}
     \vspace{2cm}
+
+    {\Large \textbf{Zoé \textsc{Nonon} --- Louise \textsc{Lammertyn}} \par}
+    \vspace{0.2cm}
+    {\large $4^{\text{ème}}$ année Génie Physique \par}
     
-    \vfill
-    {\Large \textbf{Institut National des Sciences Appliquées de Toulouse, département de Génie Physique} \par}
-    \vspace{1cm}
+    \vspace{2.5cm}
+
+    {\large \textbf{Tuteurs :}} \par
+    \vspace{0.5cm}
+    {\large
+    \begin{tabular}{l}
+        Florent \textsc{Houdellier} \\
+        Lucile \textsc{Berdoux Durieux} \\
+        Jean-Baptiste \textsc{Mellier} \\
+        Pier-Francesco \textsc{Fazzini}
+    \end{tabular}
+    } \par
+    
+    \vfill 
+    {\large Année universitaire 2025-2026 \par}
+    \vspace{0.8cm}
+    {\Large \textbf{Institut National des Sciences Appliquées de Toulouse} \par}
+    \vspace{0.5cm}
     {\large \today \par}
 \end{titlepage}
 
