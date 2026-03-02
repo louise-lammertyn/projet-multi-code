@@ -1,0 +1,108 @@
+\documentclass{report}
+
+% Packages nécessaires
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{lipsum} % Package de remplissage de texte (à retirer dans le rapport final)
+\usepackage{graphicx}
+\usepackage{float} % pour l'option de placement [H]
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=green]{hyperref}
+%\usepackage{minted} % pour la coloration syntaxique
+\usepackage{lipsum}
+\usepackage{wrapfig}   % Pour l'enroulement du texte autour des images
+\usepackage{array}
+\usepackage{tikz}
+
+% Mathématiques
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{mdframed}  % Package pour les cadres
+
+% Environnements pour les théorèmes, définitions et preuves
+\newtheorem{theorem}{Théorème}
+\newtheorem{definition}{Définition}
+\newtheorem{example}{Exemple}
+\newtheorem{property}{Propriété}
+
+\newmdtheoremenv{boxedproperty}{Propriété}[section]  % Crée un environnement encadré pour les propriétés
+
+
+% Configuration de la page
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\usepackage{eso-pic}
+\usepackage{tikz}
+
+\AddToShipoutPictureBG{
+\begin{tikzpicture}[remember picture,overlay]
+\node at ([xshift=-0.8in,yshift=0.8in] current page.south east)
+{\includegraphics[scale=0.8]{images/pattern.png}};
+\end{tikzpicture}
+}
+
+% Configuration des titres des sections et sous-sections
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% Configuration de la table des matières
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\bfseries}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\renewcommand{\cftsubsecpagefont}{\normalfont}
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{10pt}
+\renewcommand{\contentsname}{Table des matières}
+
+
+
+\begin{document}
+
+
+% Page de titre
+\begin{titlepage}
+    \centering
+
+    % Minipages pour les logos
+    \noindent % Assure qu'il n'y a pas d'indentation au début de la ligne
+    \begin{minipage}{0.5\textwidth}
+        \includegraphics[width=0.5\linewidth]{images/logo_INSA.png} % Ajustez le chemin et la taille
+    \end{minipage}%
+    \hfill % Assure que les deux minipages seront poussés à l'extrême gauche et droite
+    \begin{minipage}{0.5\textwidth}
+        \flushright % Alignement à droite dans la minipage
+        \includegraphics[width=0.5\linewidth]{images/tescan_logo.png} % Ajustez le chemin et la taille
+    \end{minipage}
+
+
+    \vspace*{2cm} % Espace vertical de 2 cm
+    {\Huge\bfseries Exemple Rapport \par}
+    \vspace{1cm}
+    {\huge Sous titre du rapport\par}
+    \vspace{2cm}
+    {\Large \textbf{Berlioz le Chat} \par}
+    \vspace{2cm}
+    
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/plume.png}
+    \end{figure}
+    
+    \vfill
+    {\Large \textbf{Institut National des Sciences Appliquées de Toulouse} \par}
+    \vspace{1cm}
+    {\large \today \par}
+\end{titlepage}
+
+% Résumé concis, souvent utilisé pour donner un aperçu rapide du contenu d'une recherche ou d'un article académique.
+\begin{abstract}
+    \lipsum[1] % Lorem Ipsum
+\end{abstract}
