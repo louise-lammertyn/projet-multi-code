@@ -61,7 +61,8 @@ class Extracted_data:
         
         # Valeurs des tensions appliquées
         self.Vacceleration = data["pot_acceleration"]
-        self.Velectrode = data["pot_electrode"]
+        self.Velectrode13 = data["pot_electrode13"]
+        self.Velectrode24 = data["pot_electrode24"]
         self.Vapert1 = data["pot_apert1"]
         self.Vapert2 = data["pot_apert2"]
         self.Vshield = data["pot_shield"]

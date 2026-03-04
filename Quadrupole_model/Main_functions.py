@@ -1,18 +1,20 @@
 from Geometry import Mesh_Generation
-#from Field_calculation import Calculation_field
+from Field_calculation import Calculation_field
 from Data import Data
 from Extraction_data import Extracted_data
 from Fit_functions import Fit_constants
 from Graphs import Graphs
 from Multipolar_decomposition import Decomposition
 from paraxial import Paraxial, Ion, Trajectoire
+from Field_calculation import Calculation_field
+from reconstruction import Reconstruction
 
 class Potential_extraction:
     """
     Orchestrates the first stage of the workflow: 
     Quadrupole generation, meshing, and solving the electrostatic BEM problem.
     """
-    def __init__(self, data: Data, mesh_visual: bool):
+    def __init__(self, data: Data, mesh_visual: bool, file_name : str):
 
         """
             data (Data): Configuration object containing geometry and mesh parameters.
@@ -20,9 +22,10 @@ class Potential_extraction:
         """
         self.data = data
         self.mesh_visual = mesh_visual
+        self.file_name = file_name
 
         self.mesh_generation=Mesh_Generation(self.data, self.mesh_visual)
-        self.calculation_field=Calculation_field(self.data)
+        self.calculation_field=Calculation_field(self.data, self.file_name)
 
     def mesh(self):
         """Execute ull GMSH """
@@ -48,6 +51,15 @@ class Potential_extraction:
     def graph_potential_axis(self):
         """Plot the calculated potential along the central Z-axis."""
         self.calculation_field.potential_axis_printing()
+
+    def generation_quad(self, tension_dico, file_name = "quad_reconstuire.npz"):
+        reconstr = Reconstruction(self,self.data.output_dir, tension_dico )
+        reconstr.derivative()
+        reconstr.save(file_name)
+        
+
+
+
 
 
 class Data_exploitation:
@@ -138,7 +150,7 @@ class SimulationParaxiale:
 
     def run_faisceau(self, liste_ions: list):
         """
-        Simulate a full beam (bundle) of ions.
+        Simulate a full beam  of ions.
 
         Args:
             liste_ions (list[Ion]): A list of Ion objects with varying initial conditions.
