@@ -1,6 +1,6 @@
 \babel@toc {french}{}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Comportements Spécifiques des Chats}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.1}Contexte}{2}{section.1.1}%
 \contentsline {chapter}{\numberline {2}Contenu du rapport}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Les chat-soupis}{3}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Les chats mignons}{4}{section.2.2}%
