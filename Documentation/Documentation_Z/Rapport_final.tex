@@ -991,7 +991,7 @@ Le deuxième code permet d'importer les données extraites par le premier code e
 \subsection{Extraction du potentiel}
 Ce code permet de créer la géométrie du quadrupole que l'on cherche à modéliser, le mailler et exporter le maillage. Ensuite, le code permet d'extraire le 
 potentiel en utilisant le maillage et la méthode des éléments de frontière (BEM) puis exporte ces données dans un fichier.
-\lstinputlisting[language=python]{../Quadrupole_model/Potential_extraction}
+\lstinputlisting[language=python]{../../Quadrupole_model/Potential_extraction}
 
 \subsection{Exploitation des données}
 Ce code permet d'importer les données extraites du codes précédents. Il permet ensuite de les traiter notamment en effectuant la décomposition du potentiel, 
@@ -1004,13 +1004,13 @@ ce sont les foncdements de notre code.
 \subsection{Data}
 Ce code permet de définir toutes les variables que l'on utilise à travers ce programme, on peut notamment citer les dimensions du quadrupole, 
 les tensions appliquées aux différents éléments du quadrupole et la taille du maillage.
-\lstinputlisting[language=python]{../Quadrupole_model/Data.py}
+\lstinputlisting[language=python]{../../Quadrupole_model/Data.py}
 
 \subsection{Geometry}
 Ce code définit plusieurs classes qui permettent de modéliser les différents éléments qui composent un quadrupole (aperture, électrodes, shield). Une autre classe permet de 
 générer un maillage sur la surface du quadrupole. Ce maillage est ensuite exporté et utilisé afin d'appliquer la méthode des éléments de frontière (BEM).
 La génération du maillage se fait à l'aide de la bibliothèque Python intitulée gmsh.
-\lstinputlisting[language=python]{../Quadrupole_model/Geometry.py}
+\lstinputlisting[language=python]{../../Quadrupole_model/Geometry.py}
 
 Voici une représentation du maillage crée par le code précédent:
 \
@@ -1037,31 +1037,47 @@ Voici une représentation du maillage crée par le code précédent:
 \subsection{Field calculation} 
 Ce code permet d'importer le maillage et d'extraire le potentiel électrostatique en tout point du volume en utilisant la méthode des éléments de frontière (BEM).
 L'application de cette méthode se fait à l'aide de la bibliothèque Python nommée BEMPP (Boundary Element Method Python Package).
-\lstinputlisting[language=python]{../Quadrupole_model/Field_calculation.py}
+\lstinputlisting[language=python]{../../Quadrupole_model/Field_calculation.py}
 
 \subsection{Extraction data}
 Ce code permet de récupérer toutes les variables créees dans le code Data.py et les données exportées lors de l'extraction du potentiel.
-\lstinputlisting[language=python]{../Quadrupole_model/Extraction_data.py}
+\lstinputlisting[language=python]{../../Quadrupole_model/Extraction_data.py}
 
 \subsection{Multipolar decomposition}
 Ce code permet de calculer les différentes composantes de la décomposition du potentiel.
-\lstinputlisting[language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true]{../Quadrupole_model/Multipolar_decomposition.py}
+\lstinputlisting[language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true]{../../Quadrupole_model/Multipolar_decomposition.py}
+Voici un graphique représentant les différentes composantes multipolaires le long de l'axe z: 
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{images/décomposition_multipolaire.png} 
+\caption{Graphique de la décomposition multipolaire}
+\label{fig:decomposition}
+\end{figure}
+
 
 
 \subsection{Fit functions}
 Ce code permet d'implémenter les fonctions de fit présentent dans le papier d'Okayama (Okayama et Kawakatsu, 1978) afin de vérifier si nos codes 
 fonctionnent correctement.
-\lstinputlisting[language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true]{../Quadrupole_model/Fit_functions.py}
+\lstinputlisting[language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true]{../../Quadrupole_model/Fit_functions.py}
+Voici un graphique représentant les différentes composantes multipolaires normées ainsi que les fonctions de fit d'Okayam, le long de l'axe z: 
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{images/fonction_fit.png} 
+\caption{Graphique de la décomposition multipolaire et des fonctions de fit}
+\label{fig:fitfunction}
+\end{figure}
+
 
 
 \subsection{Graphs}
 Ce code permet d'afficher différents graphiques tels que la valeur des différentes composantes du potentiels le long de l'axe z.
-\lstinputlisting[language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true]{../Quadrupole_model/Graphs.py}
+\lstinputlisting[language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true]{../../Quadrupole_model/Graphs.py}
 
 
 \subsection{Paraxial}
 Ce code permet de résoudre les équations de la trajectoire et donc d'obtenir le comportement des rayons d'électrons à travers le quadrupole.
-\lstinputlisting[language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true]{../Quadrupole_model/paraxial.py}
+\lstinputlisting[language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true]{../../Quadrupole_model/paraxial.py}
 
 
 \end{document}
