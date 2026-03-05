@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.22)  5 MAR 2026 16:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.22)  5 MAR 2026 16:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -997,7 +997,7 @@ Package pdftex.def Info: images/pattern.png  used on input line 252.
 [6
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260305160442 374BB7A748EB396E615CED6737271BF3)...disabled (restricted).
+runsystem(latexminted cleantemp  --timestamp 20260305161108 374BB7A748EB396E615CED6737271BF3)...disabled (restricted).
 
  (Rapport_final.aux)
  ***********
@@ -1008,14 +1008,8 @@ L3 programming layer <2025-11-06>
 
 LaTeX Warning: There were undefined references.
 
-
-Package rerunfilecheck Warning: File `Rapport_final.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Rapport_final.out':
-(rerunfilecheck)             Before: BE40F43EFB268F872BFA9589645DFF4E;1710
-(rerunfilecheck)             After:  E3826938D5F96FFB06ACB5256FCDF607;1697.
+Package rerunfilecheck Info: File `Rapport_final.out' has not changed.
+(rerunfilecheck)             Checksum: E3826938D5F96FFB06ACB5256FCDF607;1697.
  ) 
 Here is how much of TeX's memory you used:
  29381 strings out of 467871
