@@ -1,0 +1,21 @@
+\babel@toc {french}{}\relax 
+\contentsline {chapter}{Remerciements}{1}{chapter*.1}%
+\contentsline {chapter}{\numberline {1}Objectifs du projet}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Introduction OPC}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Projet précédents}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Objectifs}{3}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Travail réalisé}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Formation OPC}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Prise en main GMSH}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Extraction potentiel bibliothèque BEMPP}{4}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Cas du Quadrupôle}{4}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Décomposition multipolaire}{4}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Calcul des trajectoires paraxiales}{4}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}reconstruction quadrupoles Okayama}{4}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Calcul des aberrations de Seidel}{4}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Récapitulatif et perspectives}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Récapitulatif}{5}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Perspectives}{5}{section.3.2}%
+\contentsline {chapter}{Conclusion}{6}{chapter*.2}%
+\contentsline {chapter}{Table des figures}{7}{chapter*.2}%
+\contentsline {chapter}{Table des tableaux}{7}{chapter*.2}%
