@@ -24,7 +24,7 @@ class Decomposition:
         self.Phi4_maj = (1/192)* (self.data.D4[0] + self.data.D4[10] - 6*self.data.D4[3])
 
         self.Phi0_fit = self.Phi0_maj / self.data.Vapert1
-        self.Phi2_fit = self.Phi2_maj *((self.data.radius_axis**2)/ self.data.Velectrode)
+        self.Phi2_fit = self.Phi2_maj *((self.data.radius_axis**2)/ self.data.Velectrode13)
         self.Phi4_fit = self.Phi4_maj *((self.data.radius_axis**4)/ self.data.Vapert1)
         
         Phi2_max = np.max(np.abs(self.Phi2_fit))

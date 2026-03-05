@@ -52,11 +52,24 @@ class Potential_extraction:
         """Plot the calculated potential along the central Z-axis."""
         self.calculation_field.potential_axis_printing()
 
-    def generation_quad(self, tension_dico, file_name = "quad_reconstuire.npz"):
-        reconstr = Reconstruction(self,self.data.output_dir, tension_dico )
-        reconstr.derivative()
-        reconstr.save(file_name)
-        
+
+class Generation_quad():
+    """
+    class qui fait la reconstruction du potentiel total à partir des pot unitaires et 
+    des tensiosn voulues
+    return le chemin du fichier reconstitué 
+    """
+    def __init__(self, tension_dico : dict,output_dir : str) -> None:
+        self.tension_dico = tension_dico
+        self.output_dir = output_dir
+
+    def reconstr(self, file_name = "quad_reconstuit.npz") ->  str:
+        self.reconstr = Reconstruction(self.output_dir, self.tension_dico )
+        self.reconstr.derivative()
+        file_path = self.reconstr.save(file_name)
+        return file_path
+
+                        
 
 
 
