@@ -16,12 +16,37 @@
 \usepackage{tikz}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{background}
+\usepackage{amsmath}
+\usepackage{verbatim} %permet de commenter des codes entiers
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage[T1]{fontenc} % Aide à la gestion des caractères européens
 
+\lstset{
+  language=Python,
+  inputencoding=utf8,       % On essaie l'utf8
+  extendedchars=true,
+  % Cette ligne ci-dessous est MAGIQUE : elle remplace les caractères problématiques 
+  % par leur version LaTeX sans faire planter le moteur
+  literate={é}{{\'e}}1 {è}{{\`e}}1 {à}{{\`a}}1 {ç}{{\c{c}}}1 {œ}{{\oe}}1 {ù}{{\`u}}1 {É}{{\'E}}1 {È}{{\`E}}1 {À}{{\`A}}1 {°}{{$^\circ$}}1,
+  breaklines=true,
+  breakatwhitespace=true,
+  basicstyle=\small\ttfamily,
+  columns=fullflexible,
+  keepspaces=true
+}
+
+%Permet de définir les codes en couleur
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
+%Pour que les codes soient en couleur
 \lstdefinestyle{pythonstyle}{
     backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
@@ -40,39 +65,11 @@
     tabsize=2,
     language=Python
 }
-
+%Indique que la coloration des codes doit suivre celle d'un code Python
 \lstset{style=pythonstyle}
-
-% Mathématiques
-\usepackage{amsmath, amssymb}
-\usepackage{amsthm}
-\usepackage{mdframed}  % Package pour les cadres
-
-% Environnements pour les théorèmes, définitions et preuves
-\newtheorem{theorem}{Théorème}
-\newtheorem{definition}{Définition}
-\newtheorem{example}{Exemple}
-\newtheorem{property}{Propriété}
-
-\newmdtheoremenv{boxedproperty}{Propriété}[section]  % Crée un environnement encadré pour les propriétés
-
 
 % Configuration de la page
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
-
-% Pour avoir le petit dessin de l'INSA en bas à droite de chaque page
-\usepackage{background}
-\backgroundsetup{
-scale=1,
-angle=0,
-opacity=1,
-color=black,
-contents={\begin{tikzpicture}[remember picture,overlay]
-\node at ([xshift=-0.8in,yshift=0.8in] current page.south east) % Adjust the position of the logo.
-{\includegraphics[scale=0.8]{images/pattern.png}}; % logo goes here
-\end{tikzpicture}}
-}
-
 
 % Configuration des titres des sections et sous-sections
 \titleformat{\chapter}[display]
@@ -93,9 +90,28 @@ contents={\begin{tikzpicture}[remember picture,overlay]
 \setlength{\cftaftertoctitleskip}{10pt}
 \renewcommand{\contentsname}{Table des matières}
 
-
-
 \begin{document}
+
+% Désactiver le fond
+\backgroundsetup{contents={}}
+
+% Insérer le PDF
+\includepdf[pages=-, fitpaper=true]{Template.pdf}
+
+% Réactiver le fond
+% Pour avoir le petit dessin de l'INSA en bas à droite de chaque page
+\backgroundsetup{
+scale=1,
+angle=0,
+opacity=1,
+color=black,
+contents={\begin{tikzpicture}[remember picture,overlay]
+\node at ([xshift=-0.8in,yshift=0.8in] current page.south east)
+{\includegraphics[scale=0.8]{images/pattern.png}};
+\end{tikzpicture}}
+}
+
+\begin{comment}
 % --- PAGE DE TITRE ---
 \begin{titlepage}
     \centering
@@ -141,12 +157,34 @@ contents={\begin{tikzpicture}[remember picture,overlay]
     \vspace{0.5cm}
     {\large \today \par}
 \end{titlepage}
+\end{comment}
+
+%Pour les remerciements
+\begin{center}
+    \thispagestyle{empty} % Pas de numéro de page sur cette page
+    \vspace*{\fill}
+    \section*{Remerciements}
+    \addcontentsline{toc}{chapter}{Remerciements}
+    
+    Ce projet multidisciplinaire n'aurait pu voir le jour sans l'aide de...
+    
+    \vspace*{\fill}
+\end{center}
+\clearpage
 
 % Résumé concis, souvent utilisé pour donner un aperçu rapide du contenu d'une recherche ou d'un article académique.
-\begin{abstract}
+\begin{center}
+    \thispagestyle{empty} % Pas de numéro de page sur cette page
+    \vspace*{\fill}
+    \section*{Abstract}
+    \addcontentsline{toc}{chapter}{Remerciements}
+    
     Ce document est le rapport final du projet multidisciplinaire de 4ème année en Génie Physique de l'INSA Toulouse. Il a pour but d'expliquer en détail la démarche que nous avons suivit 
     afin de mener à bien ce projet. Ce document retrace donc le contexte, l'organisation mais aussi toutes les équations que nous avons dû étudier. 
-\end{abstract}
+    
+    \vspace*{\fill}
+\end{center}
+\clearpage
 
 % Table des matières
 \tableofcontents
@@ -935,38 +973,95 @@ y_p(z) = \cosh\!\left(\omega_0 (z - z_0)\right)
 \chapter{Notre production}
 
 \section{Structure globale du code}
+Comme évoqué dans l'introduction, le rendu final de ce projet est un code Python permettant la modélisation du quadrupole d'Okayama et du comportement des rayons d'électrons 
+à l'intérieur de celui-ci. Ce code étant assez long, nous avons décidé de le fragmenter en plusieurs codes en utilisant la programmation orientée objet. La programmation orientée objet
+tend à représenter un système en utilisant différents objets qui représentent chaque aspect du système. 
+\
+Le code est structuré en trois étage. Le premier étage est composé des objets qui vont définir toutes les variables et les fonctions que nous utilisons dans le code. Il regroupe les codes 
+suivants: $Data.py$, $Geometry.py$, $Field_calculation.py$, $Extraction_data.py$, $Multipolar_decomposition.py$, $Fit_functions.py$, $Graphs.py$ et $paraxial.py$.
+Le deuxième étage est composé d'un unique programme intitulé $Main_functions.py$ qui crée des objets qui regroupent toutes les objets de l'étage précédent et 
+permet de les appeler dans l'ordre. 
+Le troisième étage, quant à lui, est l'étage utilisateur. Il appelle les objets crées dans l'étage précédent et permet de les exécuter. 
 
 \section{Codes utilisateur}
+Cette partie correspond aux deux codes composant le troisième étage. C'est l'interface utilisateur du programme.
+Nous avons décidé de séparer ce code en deux codes. Le premier code permet d'extraire le potentiel et de l'exporter dans un fichier, étape assez chronophage. 
+Le deuxième code permet d'importer les données extraites par le premier code et de les traiter. 
+
 \subsection{Extraction du potentiel}
+Ce code permet de créer la géométrie du quadrupole que l'on cherche à modéliser, le mailler et exporter le maillage. Ensuite, le code permet d'extraire le 
+potentiel en utilisant le maillage et la méthode des éléments de frontière (BEM) puis exporte ces données dans un fichier.
 \lstinputlisting[language=python]{../Quadrupole_model/Potential_extraction}
 
 \subsection{Exploitation des données}
-%\lstinputlisting[language=python]{../Quadrupole_model/Data_exploitation.ipynb}
+Ce code permet d'importer les données extraites du codes précédents. Il permet ensuite de les traiter notamment en effectuant la décomposition du potentiel, 
+en créant des fonctions de fit et en retrouvant les équations paraxiales.
+%LaTeX ne comprend pas les notebooks, il faudra rajouter le code dans un fichier .py pour l'exporter en LaTeX
 
 \section{Programe principal}
+Ce programme comporte les codes du premier étage, soit les codes permettant la définition de toutes les variables et l'appel de toutes les fonctions nécessaires;
+ce sont les foncdements de notre code.
 \subsection{Data}
+Ce code permet de définir toutes les variables que l'on utilise à travers ce programme, on peut notamment citer les dimensions du quadrupole, 
+les tensions appliquées aux différents éléments du quadrupole et la taille du maillage.
 \lstinputlisting[language=python]{../Quadrupole_model/Data.py}
 
 \subsection{Geometry}
+Ce code définit plusieurs classes qui permettent de modéliser les différents éléments qui composent un quadrupole (aperture, électrodes, shield). Une autre classe permet de 
+générer un maillage sur la surface du quadrupole. Ce maillage est ensuite exporté et utilisé afin d'appliquer la méthode des éléments de frontière (BEM).
+La génération du maillage se fait à l'aide de la bibliothèque Python intitulée gmsh.
 \lstinputlisting[language=python]{../Quadrupole_model/Geometry.py}
 
+Voici une représentation du maillage crée par le code précédent:
+\
+\\
+\begin{figure}[H]
+\centering
+
+\begin{minipage}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/Coupe_quadrupole.png}
+    \caption{Vue en coupe du maillage du quadrupole}
+    \label{fig:coupe_quad}
+\end{minipage}
+\hspace{2cm}
+\begin{minipage}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/Quadrupole_shield.png}
+    \caption{Vue du maillage du quadrupole}
+    \label{fig:shield_quad}
+\end{minipage}
+
+\end{figure}
+
 \subsection{Field calculation} 
-%\lstinputlisting[language=python]{../Quadrupole_model/Field_calculation.py}
+Ce code permet d'importer le maillage et d'extraire le potentiel électrostatique en tout point du volume en utilisant la méthode des éléments de frontière (BEM).
+L'application de cette méthode se fait à l'aide de la bibliothèque Python nommée BEMPP (Boundary Element Method Python Package).
+\lstinputlisting[language=python]{../Quadrupole_model/Field_calculation.py}
 
 \subsection{Extraction data}
-%\lstinputlisting[language=python]{../Quadrupole_model/Extraction_data.py}
-
-\subsection{Fit functions}
-%\lstinputlisting[language=python]{../Quadrupole_model/Fit_functions.py}
-
-\subsection{Graphs}
-%\lstinputlisting[language=python]{../Quadrupole_model/Graphs.py}
+Ce code permet de récupérer toutes les variables créees dans le code Data.py et les données exportées lors de l'extraction du potentiel.
+\lstinputlisting[language=python]{../Quadrupole_model/Extraction_data.py}
 
 \subsection{Multipolar decomposition}
-%\lstinputlisting[language=python]{../Quadrupole_model/Multipolar_decomposition.py}
+Ce code permet de calculer les différentes composantes de la décomposition du potentiel.
+\lstinputlisting[language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true]{../Quadrupole_model/Multipolar_decomposition.py}
+
+
+\subsection{Fit functions}
+Ce code permet d'implémenter les fonctions de fit présentent dans le papier d'Okayama (Okayama et Kawakatsu, 1978) afin de vérifier si nos codes 
+fonctionnent correctement.
+\lstinputlisting[language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true]{../Quadrupole_model/Fit_functions.py}
+
+
+\subsection{Graphs}
+Ce code permet d'afficher différents graphiques tels que la valeur des différentes composantes du potentiels le long de l'axe z.
+\lstinputlisting[language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true]{../Quadrupole_model/Graphs.py}
+
 
 \subsection{Paraxial}
-%\lstinputlisting[language=python]{../Quadrupole_model/paraxial.py}
+Ce code permet de résoudre les équations de la trajectoire et donc d'obtenir le comportement des rayons d'électrons à travers le quadrupole.
+\lstinputlisting[language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true]{../Quadrupole_model/paraxial.py}
 
 
 \end{document}
