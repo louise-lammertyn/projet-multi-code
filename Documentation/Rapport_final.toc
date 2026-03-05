@@ -1,0 +1,29 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {0.1}Contexte}{1}{section.0.1}%
+\contentsline {section}{\numberline {0.2}Démarche générale}{1}{section.0.2}%
+\contentsline {subsection}{\numberline {0.2.1}Principe de moindre action}{1}{subsection.0.2.1}%
+\contentsline {subsection}{\numberline {0.2.2}Equations d'Euler-Lagrange}{1}{subsection.0.2.2}%
+\contentsline {subsection}{\numberline {0.2.3}Décomposition du potentiel}{2}{subsection.0.2.3}%
+\contentsline {subsection}{\numberline {0.2.4}Décomposition des différentes contributions}{3}{subsection.0.2.4}%
+\contentsline {section}{\numberline {0.3}Reconstruction de la décomposition du potentiel}{3}{section.0.3}%
+\contentsline {subsection}{\numberline {0.3.1}Extraction du potentiel}{3}{subsection.0.3.1}%
+\contentsline {subsection}{\numberline {0.3.2}Composantes multipolaires}{4}{subsection.0.3.2}%
+\contentsline {subsubsection}{Equations}{4}{subsubsection*.1}%
+\contentsline {paragraph}{Cas \(\nu = 0\) (monopôle)}{4}{paragraph*.2}%
+\contentsline {paragraph}{Cas \(\nu = 1\) (dipôle)}{4}{paragraph*.3}%
+\contentsline {paragraph}{Cas \(\nu = 2\) (quadrupôle)}{4}{paragraph*.4}%
+\contentsline {paragraph}{Cas \(\nu = 3\) (hexapôle)}{4}{paragraph*.5}%
+\contentsline {paragraph}{Cas \(\nu = 4\) (octopôle)}{4}{paragraph*.6}%
+\contentsline {paragraph}{Cas général}{4}{paragraph*.7}%
+\contentsline {subsubsection}{Applications dans BEMPP}{5}{subsubsection*.8}%
+\contentsline {subsubsection}{Résultats attendus}{6}{subsubsection*.9}%
+\contentsline {subsubsection}{Fonctions de fit}{6}{subsubsection*.10}%
+\contentsline {section}{\numberline {0.4}Trajectoire}{7}{section.0.4}%
+\contentsline {subsection}{\numberline {0.4.1}Principe de fermat}{7}{subsection.0.4.1}%
+\contentsline {subsection}{\numberline {0.4.2}Cas $\nu $ = 2, quadrupole}{7}{subsection.0.4.2}%
+\contentsline {subsection}{\numberline {0.4.3}Equation d'euler lagrange }{8}{subsection.0.4.3}%
+\contentsline {subsection}{\numberline {0.4.4}Résolution equa diff(cas sans polariser les apertures)}{8}{subsection.0.4.4}%
+\contentsline {subsection}{\numberline {0.4.5}Vérification des résultats}{9}{subsection.0.4.5}%
+\contentsline {subsubsection}{Cas $\omega _0 > 0$}{9}{subsubsection*.11}%
+\contentsline {subsubsection}{Cas $\omega _0 <0$}{9}{subsubsection*.12}%
+\contentsline {section}{\numberline {0.5}Document Okayama}{10}{section.0.5}%
