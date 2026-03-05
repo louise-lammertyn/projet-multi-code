@@ -14,6 +14,34 @@
 \usepackage{wrapfig}   % Pour l'enroulement du texte autour des images
 \usepackage{array}
 \usepackage{tikz}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    language=Python
+}
+
+\lstset{style=pythonstyle}
 
 % Mathématiques
 \usepackage{amsmath, amssymb}
@@ -116,11 +144,15 @@ contents={\begin{tikzpicture}[remember picture,overlay]
 
 % Résumé concis, souvent utilisé pour donner un aperçu rapide du contenu d'une recherche ou d'un article académique.
 \begin{abstract}
-    balblabalba % Lorem Ipsum
+    Ce document est le rapport final du projet multidisciplinaire de 4ème année en Génie Physique de l'INSA Toulouse. Il a pour but d'expliquer en détail la démarche que nous avons suivit 
+    afin de mener à bien ce projet. Ce document retrace donc le contexte, l'organisation mais aussi toutes les équations que nous avons dû étudier. 
 \end{abstract}
 
 % Table des matières
 \tableofcontents
+
+\chapter{Introduction}
+
 
 \section{Contexte}
 Dans le cadre du projet multidisciplinaire de 4ème du Génie physique de l'INSA Toulouse, nous devons modéliser les lentilles électrostatiques quadrupolaires 
@@ -128,8 +160,109 @@ d'un FIB (Focused Ion Beam) en utilisant une méthode mathématique appelée la 
 en utilisant notamment la bibliothèque BEMPP. Afin de pouvoir réaliser cette entreprise, il est nécessaire de comprendre l'optique des particules chargées dans le contexte
 de lentilles quadrupolaires. 
 
-\section{Démarche générale}
-\subsection{Principe de moindre action}
+\section{Présentation du projet}
+L’optique des particules chargées est une science qui sert à comprendre et à maîtriser la 
+trajectoire de faisceaux électroniques ou ioniques. Cette discipline a permis de créer de 
+nombreux instruments comme notamment les SEM (Scanning electron microscop = 
+microscope électronique à balayage) et les FIB (focused ion beam = faisceau d’ions focalisé) 
+utilisés dans de nombreuses disciplines comme la médecine ou la microélectronique.  
+Plus spécifiquement, un FIB est composé de plusieurs éléments dont notamment des 
+lentilles. En effet, celles-ci permettent de guider la trajectoire du faisceau ionique au sein de 
+l’instrument et de corriger les différentes aberrations de celui-ci. Il est donc primordial de 
+comprendre et maîtriser ces objets afin de rendre le FIB le plus performant possible.  
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\linewidth]{images/Schema_Colonne_FIB_OP.png} 
+\caption{Schéma d’un FIB}
+\label{fig:fib}
+\end{figure}
+
+
+Cependant, la fabrication de ces instruments peut parfois être longue et coûteuse. Pour 
+pallier ce problème, l’utilisation de modèles s’avère utile. C’est dans ce cadre que notre 
+projet multidisciplinaire s’inscrit et est intitulé: “Modélisation de lentilles multipolaires 
+électrostatiques par Boundary Element Method”.  
+Comme évoqué précédemment, les lentilles permettent de guider la trajectoire du faisceau 
+ionique. Il existe plusieurs types de lentilles: les lentilles électrostatiques et les lentilles 
+magnétiques. Dans le cas que nous étudions, le FIB est composé de lentilles 
+électrostatiques.  
+Ces lentilles électrostatiques peuvent présenter différentes configurations. On parle en effet 
+de lentilles rondes/monopolaires (un seul potentiel), de lentilles dipolaires (deux potentiels), 
+de lentilles quadrupolaires (quatres potentiels), etc. Notre étude portera plus particulièrement 
+sur les lentilles quadrupolaires.  
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\linewidth]{images/Quadrupole_CEOS.png} 
+\caption{Modélisation d’une lentille quadrupolaire électrostatique}
+\label{fig:quad}
+\end{figure}
+
+Le principe de ce projet multidisciplinaire est de créer un code OpenSource permettant de 
+modéliser des lentilles quadrupolaires électrostatiques.  
+Cette étude s’inscrit dans la continuité de deux projets multidisciplinaires précédents. Le 
+premier projet consistait à prendre en main un code déjà existant permettant de modéliser un 
+cas simple de lentilles électrostatiques (les lentilles de Einzel). Le second avait pour but de 
+créer un algorithme permettant d’optimiser ces lentilles.  
+Notre objectif est donc de continuer ce projet en l’adaptant aux lentilles quadrupolaires.  
+Ce code OpenSource a pour vocation de devenir une ressource utilisable dans le monde de 
+l’optique des particules chargées. Ce projet permettrait notamment à l’entreprise avec 
+laquelle nous travaillons, Tescan, de disposer d’un code facilitant la modélisation de lentilles 
+multipolaires électrostatiques.  
+
+\section{Objectifs du projet}
+\subsection{Objectif 1 - Prise en main de BEMPP}
+Le premier objectif de ce projet est de se familiariser avec BEMPP, “Boundary element 
+method Python package”, une bibliothèque open-source de calcul par éléments de frontière. 
+Celle-ci permet de résoudre des problèmes électrostatiques, acoustiques et 
+électromagnétiques à l’aide d’une formulation intégrale. 
+Dans notre cas, BEMPP nous permettra de mailler les électrodes des lentilles 
+électrostatiques et de calculer le potentiel en chaque point du volume. 
+Dans un premier temps, nous appliquerons BEMPP dans des cas simples tels que des 
+lentilles rondes. Nous connaissons en effet les résultats attendus car cela a déjà fait l’objet 
+d’un projet multidisciplinaire.  
+
+\subsection{Objectif 2 - Algorithme de la décomposition multipolaire}
+Le deuxième objectif est de comprendre la méthode de calcul mathématiques qui va nous 
+permettre de décomposer le potentiel donné par BEMPP.  
+Cette étude est essentielle pour retrouver le potentiel électrostatique en n’importe quel point 
+du volume du système. En effet, la décomposition du potentiel est primordiale pour résoudre 
+les équations de la trajectoire, donc connaître le potentiel électrostatique en n’importe quel 
+point du volume, et connaître les aberrations d’un tel système.  
+
+\subsection{Objectif 3 - EXtraction du potentiel}
+Une fois les outils précédents maîtrisés, nous pourrons les appliquer au cas spécifique des 
+lentilles quadrupolaires électrostatiques. Il sera alors nécessaire de mailler les électrodes du 
+quadrupole et d’appliquer le code Python développé afin d’obtenir le potentiel électrostatique 
+à l’intérieur du système optique. 
+Pour vérifier la justesse de nos calculs, nous pourrons comparer nos résultats à ceux du 
+quadrupole d’Okayama qui a été développé par une équipe de l’université d’Okayama au 
+Japon.  
+
+\subsection{Objectif 4 - Décomposition des différentes contributions}
+Une fois le potentiel total obtenu, il sera possible d’analyser les trajectoires des particules. 
+Pour cela, nous nous aiderons de l'algorithme de calcul évoqué dans l’objectif 2. Cette 
+approche permettra d’effectuer la décomposition du potentiel $\Phi$, d’en déduire celle de l’indice 
+optique µ, et ainsi d’accéder aux aberrations optiques du système et à la résolution des 
+équations du mouvement.  
+Les équations du mouvement seront résolues à l’aide de méthodes d’intégration numérique 
+de type Runge–Kutta d’ordre 4. 
+
+\section{Livrables}
+Le premier livrable sera un algorithme de décomposition du potentiel. 
+Le livrable suivant sera un code fonctionnel de modélisation de lentilles quadrupolaires 
+électrostatiques, accompagné d’un manuel d’explication, détaillant le fonctionnement de 
+chaque fonction, des classes et leur utilisation. 
+Dans un dernier temps, nous fournirons une comparaison des résultats de notre code avec 
+ceux du quadrupôle d’Okayama, dont nous connaissons déjà les résultats. 
+De plus, notre code étant open-source, nous fournirons un dépôt GitHub regroupant le code 
+et toute la documentation associée pour qu’il puisse être utilisé. 
+
+
+\chapter{Démarche générale}
+\section{Principe de moindre action}
 Le commencement de ce raisonnement est le principe de moindre action qui s'exprime comme 
 \[
 \delta S = \int_{S0}^{S1} \vec{p}\,\frac{\vec{r}}{dS} \, \mathrm{d}s = 0
@@ -147,7 +280,7 @@ Comme le quadrupole que nous utilisons est composé UNIQUEMENT de lentilles éle
 avec $\mu$ l'indice optique, $\phi$ le potentiel électrostatique et x' et y' les dérivées de x et y par
 rapport à z.
 
-\subsection{Equations d'Euler-Lagrange}
+\section{Equations d'Euler-Lagrange}
 Les équations d'Euler-Lagrange sont des équations équivalentes au principe de moindre action, sous forme 
 différentielle. On peut ainsi noter 
 \[
@@ -157,7 +290,7 @@ différentielle. On peut ainsi noter
 \frac{\partial \mu }{\partial y}-\frac{d}{dz}\left(\frac{\partial \mu }{\partial y'}\right)=0
 \]
 
-\subsection{Décomposition du potentiel}
+\section{Décomposition du potentiel}
 Une fois les équations d'Euler-Lagrange exprimées, il est utile de décomposer le potentiel $\phi$ afin de 
 séparer les solutions de ces équations en fonction de leur dépendance aux différents ordres de x et y. 
 \\
@@ -264,7 +397,7 @@ l'axe optique comme coefficients des polynômes. On a alors
 \times {\color{red}r}^{\nu +2\lambda} \times \left(\Phi_{\nu {\color{red}r}}^{[2\lambda]}({\color{green}z})\times cos(\nu{\color{blue}\theta}) + 
 \Phi_{\nu i}^{[2\lambda]}({\color{green}z})\times sin(\nu{\color{blue}\theta}) \right)
 \]
-\subsection{Décomposition des différentes contributions}
+\section{Décomposition des différentes contributions}
 Une fois le potentiel  $\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})$ décomposé, on peut l'injecter dans l'équation 
 \[
 \mu = \sqrt{\phi \, (1+x'^2+y'2)}=\sqrt{\phi} \, \sqrt{1+x'^2+y'2}
@@ -798,6 +931,42 @@ y_p(z) = \cosh\!\left(\omega_0 (z - z_0)\right)
 \]
 
 \section{Document Okayama}
+
+\chapter{Notre production}
+
+\section{Structure globale du code}
+
+\section{Codes utilisateur}
+\subsection{Extraction du potentiel}
+\lstinputlisting[language=python]{../Quadrupole_model/Potential_extraction}
+
+\subsection{Exploitation des données}
+%\lstinputlisting[language=python]{../Quadrupole_model/Data_exploitation.ipynb}
+
+\section{Programe principal}
+\subsection{Data}
+\lstinputlisting[language=python]{../Quadrupole_model/Data.py}
+
+\subsection{Geometry}
+\lstinputlisting[language=python]{../Quadrupole_model/Geometry.py}
+
+\subsection{Field calculation} 
+%\lstinputlisting[language=python]{../Quadrupole_model/Field_calculation.py}
+
+\subsection{Extraction data}
+%\lstinputlisting[language=python]{../Quadrupole_model/Extraction_data.py}
+
+\subsection{Fit functions}
+%\lstinputlisting[language=python]{../Quadrupole_model/Fit_functions.py}
+
+\subsection{Graphs}
+%\lstinputlisting[language=python]{../Quadrupole_model/Graphs.py}
+
+\subsection{Multipolar decomposition}
+%\lstinputlisting[language=python]{../Quadrupole_model/Multipolar_decomposition.py}
+
+\subsection{Paraxial}
+%\lstinputlisting[language=python]{../Quadrupole_model/paraxial.py}
 
 
 \end{document}

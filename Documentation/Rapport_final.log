@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.22)  5 MAR 2026 11:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.22)  5 MAR 2026 13:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -479,7 +479,41 @@ File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \tikz@expandcount=\count333
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-))) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+))) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count334
+\lst@gtempboxa=\box70
+\lst@token=\toks38
+\lst@length=\count335
+\lst@currlwidth=\dimen280
+\lst@column=\count336
+\lst@pos=\count337
+\lst@lostspace=\dimen281
+\lst@width=\dimen282
+\lst@newlines=\count338
+\lst@lineno=\count339
+\lst@maxwidth=\dimen283
+
+(C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+\c@lstnumber=\count340
+\lst@skipnumbers=\count341
+\lst@framebox=\box71
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
+))
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+(C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip90
 
@@ -488,59 +522,59 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2024/11/17 v2.01 AMS text
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks38
-\ex@=\dimen280
+\@emptytoks=\toks39
+\ex@=\dimen284
 )) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen281
+\pmbraise@=\dimen285
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count334
+\inf@bad=\count342
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count335
-\leftroot@=\count336
+\uproot@=\count343
+\leftroot@=\count344
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count337
-\DOTSCASE@=\count338
+\classnum@=\count345
+\DOTSCASE@=\count346
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box70
-\strutbox@=\box71
+\Mathstrutbox@=\box72
+\strutbox@=\box73
 LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen282
+\big@size=\dimen286
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count339
+\macc@depth=\count347
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count340
+\c@MaxMatrixCols=\count348
 \dotsspace@=\muskip18
-\c@parentequation=\count341
-\dspbrk@lvl=\count342
-\tag@help=\toks39
-\row@=\count343
-\column@=\count344
-\maxfields@=\count345
-\andhelp@=\toks40
-\eqnshift@=\dimen283
-\alignsep@=\dimen284
-\tagshift@=\dimen285
-\tagwidth@=\dimen286
-\totwidth@=\dimen287
-\lineht@=\dimen288
-\@envbody=\toks41
+\c@parentequation=\count349
+\dspbrk@lvl=\count350
+\tag@help=\toks40
+\row@=\count351
+\column@=\count352
+\maxfields@=\count353
+\andhelp@=\toks41
+\eqnshift@=\dimen287
+\alignsep@=\dimen288
+\tagshift@=\dimen289
+\tagwidth@=\dimen290
+\totwidth@=\dimen291
+\lineht@=\dimen292
+\@envbody=\toks42
 \multlinegap=\skip91
 \multlinetaggap=\skip92
-\mathdisplay@stack=\toks42
+\mathdisplay@stack=\toks43
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
@@ -554,15 +588,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks43
-\thm@bodyfont=\toks44
-\thm@headfont=\toks45
-\thm@notefont=\toks46
-\thm@headpunct=\toks47
+\thm@style=\toks44
+\thm@bodyfont=\toks45
+\thm@headfont=\toks46
+\thm@notefont=\toks47
+\thm@headpunct=\toks48
 \thm@preskip=\skip93
 \thm@postskip=\skip94
 \thm@headsep=\skip95
-\dth@everypar=\toks48
+\dth@everypar=\toks49
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/mdframed\mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
@@ -580,13 +614,13 @@ Package zref Info: New property list: main on input line 767.
 Package zref Info: New property: default on input line 768.
 Package zref Info: New property: page on input line 769.
 )
-\c@abspage=\count346
+\c@abspage=\count354
 Package zref Info: New property: abspage on input line 67.
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/needspace\needspace.sty
 Package: needspace 2025/03/13 v1.3e reserve vertical space
 )
 \mdf@templength=\skip96
-\c@mdf@globalstyle@cnt=\count347
+\c@mdf@globalstyle@cnt=\count355
 \mdf@skipabove@length=\skip97
 \mdf@skipbelow@length=\skip98
 \mdf@leftmargin@length=\skip99
@@ -629,11 +663,11 @@ Package: needspace 2025/03/13 v1.3e reserve vertical space
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/mdframed\md-frame-0.mdf
 File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 )
-\mdf@frametitlebox=\box72
-\mdf@footnotebox=\box73
-\mdf@splitbox@one=\box74
-\mdf@splitbox@two=\box75
-\mdf@splitbox@save=\box76
+\mdf@frametitlebox=\box74
+\mdf@footnotebox=\box75
+\mdf@splitbox@one=\box76
+\mdf@splitbox@two=\box77
+\mdf@splitbox@save=\box78
 \mdfsplitboxwidth=\skip136
 \mdfsplitboxtotalwidth=\skip137
 \mdfsplitboxheight=\skip138
@@ -661,49 +695,49 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \mdf@horizontalspaceofbox=\skip160
 \mdfsubtitleheight=\skip161
 \mdfsubsubtitleheight=\skip162
-\c@mdfcountframes=\count348
+\c@mdfcountframes=\count356
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count349
-\c@mdf@env@i=\count350
-\c@mdf@env@ii=\count351
-\c@mdf@zref@counter=\count352
+\mdf@envdepth=\count357
+\c@mdf@env@i=\count358
+\c@mdf@env@ii=\count359
+\c@mdf@zref@counter=\count360
 Package zref Info: New property: mdf@pagevalue on input line 895.
 )
-\c@theorem=\count353
-\c@definition=\count354
-\c@example=\count355
-\c@property=\count356
-\c@boxedproperty=\count357
+\c@theorem=\count361
+\c@definition=\count362
+\c@example=\count363
+\c@property=\count364
+\c@boxedproperty=\count365
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count358
-\Gm@cntv=\count359
-\c@Gm@tempcnt=\count360
-\Gm@bindingoffset=\dimen289
-\Gm@wd@mp=\dimen290
-\Gm@odd@mp=\dimen291
-\Gm@even@mp=\dimen292
-\Gm@layoutwidth=\dimen293
-\Gm@layoutheight=\dimen294
-\Gm@layouthoffset=\dimen295
-\Gm@layoutvoffset=\dimen296
-\Gm@dimlist=\toks49
+\Gm@cnth=\count366
+\Gm@cntv=\count367
+\c@Gm@tempcnt=\count368
+\Gm@bindingoffset=\dimen293
+\Gm@wd@mp=\dimen294
+\Gm@odd@mp=\dimen295
+\Gm@even@mp=\dimen296
+\Gm@layoutwidth=\dimen297
+\Gm@layoutheight=\dimen298
+\Gm@layouthoffset=\dimen299
+\Gm@layoutvoffset=\dimen300
+\Gm@dimlist=\toks50
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/background\background.sty
 Package: background 2014/03/04 v2.1 background material
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
-\XKV@toks=\toks50
-\XKV@tempa@toks=\toks51
+\XKV@toks=\toks51
+\XKV@tempa@toks=\toks52
 )
-\XKV@depth=\count361
+\XKV@depth=\count369
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/everypage\everypage.sty
 Package: everypage 2020/10/17 R2.0b Hooks to run on every page
@@ -725,58 +759,59 @@ Package everypage Warning: You appear to be running a version of LaTeX
 
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/tools\afterpage.sty
 Package: afterpage 2023/07/04 v1.08 After-Page Package (DPC)
-\AP@output=\toks52
-\AP@partial=\box77
-\AP@footins=\box78
+\AP@output=\toks53
+\AP@partial=\box79
+\AP@footins=\box80
 )) (Rapport_final.aux
 Package babel Info: 'french' activates 'french' shorthands.
 (babel)             Reported on input line 14.
 )
 \openout1 = `Rapport_final.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Info: Redefining \degres on input line 70.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Info: Redefining \degres on input line 98.
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count362
-\scratchdimen=\dimen297
-\scratchbox=\box79
-\nofMPsegments=\count363
-\nofMParguments=\count364
-\everyMPshowfont=\toks53
-\MPscratchCnt=\count365
-\MPscratchDim=\dimen298
-\MPnumerator=\count366
-\makeMPintoPDFobject=\count367
-\everyMPtoPDFconversion=\toks54
+\scratchcounter=\count370
+\scratchdimen=\dimen301
+\scratchbox=\box81
+\nofMPsegments=\count371
+\nofMParguments=\count372
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count373
+\MPscratchDim=\dimen302
+\MPnumerator=\count374
+\makeMPintoPDFobject=\count375
+\everyMPtoPDFconversion=\toks55
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 70.
+Package hyperref Info: Link coloring ON on input line 98.
  (Rapport_final.out) (Rapport_final.out)
 \@outlinefile=\write4
 \openout4 = `Rapport_final.out'.
 
+\c@lstlisting=\count376
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -812,348 +847,269 @@ Package hyperref Info: Link coloring ON on input line 70.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-
-LaTeX Warning: File `images/logo_INSA.png' not found on input line 76.
-
-
-c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final.tex:76: Package pdftex.def Error: File `images/logo_INSA.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.76 ...width=0.8\linewidth]{images/logo_INSA.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Trying to load font information for U+msa on input line 77.
+<images/logo_INSA.png, id=158, 2546.51375pt x 552.0625pt>
+File: images/logo_INSA.png Graphic file (type png)
+<use images/logo_INSA.png>
+Package pdftex.def Info: images/logo_INSA.png  used on input line 104.
+(pdftex.def)             Requested size: 163.88739pt x 35.52309pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 105.
 (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 77.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 105.
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+<images/tescan_logo.png, id=160, 336.25626pt x 135.50626pt>
+File: images/tescan_logo.png Graphic file (type png)
+<use images/tescan_logo.png>
+Package pdftex.def Info: images/tescan_logo.png  used on input line 109.
+(pdftex.def)             Requested size: 163.88739pt x 66.04506pt.
+<images/pattern.png, id=161, 74.52844pt x 73.77562pt>
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 143.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [1
 
-LaTeX Warning: File `images/tescan_logo.png' not found on input line 81.
-
-
-c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final.tex:81: Package pdftex.def Error: File `images/tescan_logo.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.81 ...dth=0.8\linewidth]{images/tescan_logo.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `images/pattern.png' not found on input line 115.
-
-
-c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final.tex:115: Package pdftex.def Error: File `images/pattern.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.115 \end{titlepage}
-                     
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[1{C:/Users/zoeno/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-
-]
+{C:/Users/zoeno/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./images/pattern.png> <./images/logo_INSA.png> <./images/tescan_logo.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.120 \end{abstract}
+l.149 \end{abstract}
                     
-
-LaTeX Warning: File `images/pattern.png' not found on input line 120.
-
-
-c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final.tex:120: Package pdftex.def Error: File `images/pattern.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.120 \end{abstract}
-                    
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[1] (Rapport_final.toc)
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 149.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [1] (Rapport_final.toc)
 \tf@toc=\write5
 \openout5 = `Rapport_final.toc'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--172
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 161--172
-
- []
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.172 
-      
+l.154 \chapter
+              {Introduction}
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 154.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [1]
+Chapitre 1.
+<images/Schema_Colonne_FIB_OP.png, id=227, 348.867pt x 487.494pt>
+File: images/Schema_Colonne_FIB_OP.png Graphic file (type png)
+<use images/Schema_Colonne_FIB_OP.png>
+Package pdftex.def Info: images/Schema_Colonne_FIB_OP.png  used on input line 176.
+(pdftex.def)             Requested size: 136.57462pt x 190.84343pt.
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 194.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+[2
 
-LaTeX Warning: File `images/pattern.png' not found on input line 172.
+ <./images/Schema_Colonne_FIB_OP.png>]
+<images/Quadrupole_CEOS.png, id=236, 313.17pt x 245.41687pt>
+File: images/Quadrupole_CEOS.png Graphic file (type png)
+<use images/Quadrupole_CEOS.png>
+Package pdftex.def Info: images/Quadrupole_CEOS.png  used on input line 198.
+(pdftex.def)             Requested size: 182.09486pt x 142.70511pt.
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 244.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [3 <./images/Quadrupole_CEOS.png>]
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 264.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [4]
+Chapitre 2.
 
-
-c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final.tex:172: Package pdftex.def Error: File `images/pattern.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.172 
-      
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[1]
-
-LaTeX Warning: File `images/pattern.png' not found on input line 254.
-
-
-c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final.tex:254: Package pdftex.def Error: File `images/pattern.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.254 \]
-        
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 279--307
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 279--307
+Underfull \hbox (badness 10000) in paragraph at lines 294--305
 
  []
 
 
-LaTeX Warning: File `images/pattern.png' not found on input line 320.
+Underfull \hbox (badness 10000) in paragraph at lines 294--305
 
+ []
 
-c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final.tex:320: Package pdftex.def Error: File `images/pattern.png' not found: using draft setting.
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 319.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+[5
 
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.320 \]
-        
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 326--331
+]
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 404.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [6]
+Underfull \hbox (badness 10000) in paragraph at lines 412--440
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 387--392
+Underfull \hbox (badness 10000) in paragraph at lines 412--440
 
  []
 
 
-LaTeX Warning: File `images/pattern.png' not found on input line 392.
-
-
-c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final.tex:392: Package pdftex.def Error: File `images/pattern.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.392 \[
-        
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 409--413
+Underfull \hbox (badness 10000) in paragraph at lines 459--464
 
  []
 
-
-LaTeX Warning: File `images/pattern.png' not found on input line 445.
-
-
-c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final.tex:445: Package pdftex.def Error: File `images/pattern.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.445 \end{align*}
-                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 455--458
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 459--461
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 462--472
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 480--489
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 492--495
-
- []
-
-
-LaTeX Warning: File `images/pattern.png' not found on input line 504.
-
-
-c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final.tex:504: Package pdftex.def Error: File `images/pattern.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.504 \]
-        
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 504--507
-
- []
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 536.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\nu' on input line 536.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 536.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 541--543
-
- []
-
-
-LaTeX Warning: File `images/pattern.png' not found on input line 587.
-
-
-c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final.tex:587: Package pdftex.def Error: File `images/pattern.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.587 \[
-        
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 478.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [7]
+Underfull \hbox (badness 10000) in paragraph at lines 520--525
 
-LaTeX Warning: File `images/pattern.png' not found on input line 674.
+ []
 
-
-c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final.tex:674: Package pdftex.def Error: File `images/pattern.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.674 \]
-        
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 542.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [8]
+Underfull \hbox (badness 10000) in paragraph at lines 542--546
 
-LaTeX Warning: File `images/pattern.png' not found on input line 778.
+ []
 
-
-c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final.tex:778: Package pdftex.def Error: File `images/pattern.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.778 \]
-        
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 588.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [9]
+Underfull \hbox (badness 10000) in paragraph at lines 588--591
 
-LaTeX Warning: File `images/pattern.png' not found on input line 803.
+ []
 
 
-c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final.tex:803: Package pdftex.def Error: File `images/pattern.png' not found: using draft setting.
+Underfull \hbox (badness 10000) in paragraph at lines 592--594
 
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.803 \end{document}
-                    
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+ []
 
-[10] (Rapport_final.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 595--605
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--622
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 625--628
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 637--640
+
+ []
+
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 657.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+[10]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 669.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\nu' on input line 669.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 669.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 674--676
+
+ []
+
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 736.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+[11]
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 829.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [12]
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 935.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [13]
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 935.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [14]
+Chapitre 3.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 941.
+(../Quadrupole_model/Potential_extraction) (../Quadrupole_model/Data.py
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 15.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [15
+
+]) (../Quadrupole_model/Geometry.py
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 14.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [16]
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 81.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [17]
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 143.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [18])
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 972.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [19]
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 972.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [20] (Rapport_final.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `Rapport_final.out' has not changed.
-(rerunfilecheck)             Checksum: 671FD236D0A46378F746F4A0C8F0BE34;3107.
+(rerunfilecheck)             Checksum: 0A6FDB9D6465EB9F124E34EA44518B93;6858.
  ) 
 Here is how much of TeX's memory you used:
- 25556 strings out of 467871
- 478122 string characters out of 5418376
- 983125 words of memory out of 5000000
- 53937 multiletter control sequences out of 15000+600000
- 647117 words of font info for 84 fonts, out of 8000000 for 9000
+ 27818 strings out of 467871
+ 509151 string characters out of 5418376
+ 1657172 words of memory out of 5000000
+ 55841 multiletter control sequences out of 15000+600000
+ 649216 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,16n,104p,656b,1278s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1200.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecxc1440.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Rapport_final.pdf (12 pages, 329715 bytes).
+ 84i,17n,104p,656b,2971s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0800.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0500.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1200.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecxc1440.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on Rapport_final.pdf (22 pages, 1571876 bytes).
 PDF statistics:
- 661 PDF objects out of 1000 (max. 8388607)
- 39 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1339 PDF objects out of 1440 (max. 8388607)
+ 366 named destinations out of 1000 (max. 500000)
+ 342 words of extra memory for PDF output out of 10000 (max. 10000000)
 
