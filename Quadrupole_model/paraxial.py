@@ -9,6 +9,7 @@ class Paraxial():
     def __init__(self):
         # On passe les arguments nécessaires au constructeur de Quadrupole
         self.y_next = None
+        self.result_paraxial = None
 
     def RK4_step(self, f, y, t, h, alpha, beta):
         ######Qui sont alpha et beta ? 
@@ -16,7 +17,10 @@ class Paraxial():
         f2 = f(y + h*f1/2, t + h/2, alpha, beta)
         f3 = f(y + h*f2/2, t + h/2, alpha, beta)
         f4 = f(y + h*f3, t + h, alpha, beta)
-        return y + (h/6)*(f1 + 2*f2 + 2*f3 + f4)
+        #return y + (h/6)*(f1 + 2*f2 + 2*f3 + f4)
+        self.result_paraxial = y + (h/6)*(f1 + 2*f2 + 2*f3 + f4)
+
+    ## C4est lieux de faire sans return 
 
 class Ion(Paraxial): 
     def __init__(self, mass, charge, name, x, vx, y, vy):
@@ -43,6 +47,7 @@ class Ion(Paraxial):
 class Trajectoire(Paraxial):
     def __init__(self):
         super().__init__()
+        self.result_trajectoire = None
         pass
     
     def equation(self, y, t, alpha, beta) -> None:
@@ -54,24 +59,30 @@ class Trajectoire(Paraxial):
         v = y[1] 
         du = v
         dv = -alpha * u - beta * v
-        return np.array([du, dv])
+        #return np.array([du, dv])
+        self.result_trajectoire = np.array([du, dv])
+        #Pareil, ce serait mieux sans return 
     
     def simulation3(self, ion : Ion,  data : Extracted_data, decomp : Decomposition )-> None:
         """
         class ion
         class Data 
+        class Decomposition
         """
+        #Prints the acceleration speed
         V_acc = data.Vacceleration
         print(V_acc)
         
+        #Calculates the steps of the z axis 
+        #dz = z1 - z0
         dz_mm = data.axe_z[1] - data.axe_z[0] 
-        ion.save_step()
+        ion.save_step() #à quoi sert cette fonction?
         
         for i in range(len(data.axe_z) - 1):
             phi_total = V_acc + decomp.Phi0_maj[i]
             
             if abs(phi_total) < 0.1:
-                phi_total = 0.1 if phi_total >= 0 else -0.1
+                phi_total = 0.1 if phi_total >= 0 else -0.1 #pourquoi la condition n'est pas à la ligne ? 
 
             terme_axial = data.D2zphi0[i] / (4 * phi_total)
             terme_quad = decomp.Phi2_maj[i] / phi_total
@@ -81,7 +92,7 @@ class Trajectoire(Paraxial):
             beta = data.D1zphi0[i] / (2 * phi_total)
             
             #on envoie a RK4 pour résoudre equa diff 
-            ion.state_x = self.RK4_step(self.equation, ion.state_x, data.axe_z[i], dz_mm, alphax, beta)
+            ion.state_x = self.RK4_step(self.equation, ion.state_x, data.axe_z[i], dz_mm, alphax, beta) ##d'où sort self.equation? 
             ion.state_y = self.RK4_step(self.equation, ion.state_y, data.axe_z[i], dz_mm, alphay, beta)
             
             # on sauve la posistion 
@@ -131,7 +142,7 @@ class Trajectoire(Paraxial):
             beta = self.f_D1zphi0(i) / (2 * phi_total)
                 
             #envoie a RK4
-            ion.state_x = self.RK4_step(self.equation, ion.state_x, i, self.dz_conv, alphax, beta)
+            ion.state_x = self.RK4_step(self.equation, ion.state_x, i, self.dz_conv, alphax, beta) #d'où sort self.equation? 
             ion.state_y = self.RK4_step(self.equation, ion.state_y, i, self.dz_conv, alphay, beta)
                 
             ion.save_step()
