@@ -9,7 +9,7 @@ class Graphs:
     A class to handle the visualization of multipolar decomposition data 
     and the quadrupole geometry.
     """
-    def __init__(self, data: Extracted_data, decomposition: Decomposition, fit: Fit_constants) -> None:
+    def __init__(self, data: Extracted_data, decomposition: Decomposition, fit : Fit_constants = None) -> None:
         """
         data (Extracted_data): Object containing axis coordinates and geometry boundaries.
         decomposition (Decomposition): Object containing multipolar component values.
@@ -65,7 +65,7 @@ class Graphs:
         plt.show()
     
     #same but with fitting potential componant  
-    def graphe_fit(self) -> None:
+    def graphe_fit(self, bool_fit = True ) -> None:
         fig, ax = plt.subplots(figsize=(9, 5))
         self.trace_geo(ax)
 
@@ -74,9 +74,12 @@ class Graphs:
         plt.plot(self.data.axe_z, self.decomposition.Phi0_fit, label=r'$\Phi_0 $ $[V]$', color='crimson')
         plt.plot(self.data.axe_z, self.decomposition.Phi2_fit, label=r'$\Phi_2$ $[V/mm^2]$', color='green')
         plt.plot(self.data.axe_z, 10*self.decomposition.Phi4_fit, label=r'$\Phi_4 *10$ $[V/mm^4]$', color='royalblue')
-        plt.plot(self.data.axe_z, self.fit.k0, label=r'k0', color='crimson', linestyle='dashed')
-        plt.plot(self.data.axe_z, self.fit.k2, label=r'k2', color='green', linestyle='dashed')
-        plt.plot(self.data.axe_z, 10*self.fit.k4, label=r'k4 *10', color='royalblue', linestyle='dashed')
+        
+        if (bool_fit == True ):
+            plt.plot(self.data.axe_z, self.fit.k0, label=r'k0', color='crimson', linestyle='dashed')
+            plt.plot(self.data.axe_z, self.fit.k2, label=r'k2', color='green', linestyle='dashed')
+            plt.plot(self.data.axe_z, 10*self.fit.k4, label=r'k4 *10', color='royalblue', linestyle='dashed')
+
         plt.xlabel("z (mm)")
         plt.ylabel("Potentiel")
         plt.title("Décomposition multipolaire sur l’axe et fonctions de fit")
@@ -85,3 +88,4 @@ class Graphs:
         ax.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), borderaxespad=0.)
         plt.tight_layout()
         plt.show()
+

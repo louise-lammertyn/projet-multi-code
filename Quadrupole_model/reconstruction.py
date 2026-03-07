@@ -5,7 +5,7 @@ from Extraction_data import Extracted_data
 class Reconstruction:
     def __init__(self, output_dir, tensions_reelles: dict):
         """
-        Reconstitue le potentiel complet 
+        Reconstitue le potentiel complet à partir des potentiels unitaire de chaque élément du quadrupole 
         tensions_reelles : dict {'va1':int, 'va2':int, 'vq13':int, 'vq24':int , vaAc:int}
         """
         self.v = tensions_reelles
@@ -125,6 +125,7 @@ class Reconstruction:
 
             radius_axis=self.radius_axis,
             total_length=self.total_length,
+            
             output_dir=self.output_dir,
             group_id_ap1=self.group_id_ap1,
             group_id_ap2=self.group_id_ap2,

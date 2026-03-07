@@ -108,6 +108,34 @@ class Data_exploitation:
         """Compare the BEM decomposition with the theoretical fitting functions."""
         self.graphs.graphe_fit()
 
+class Data_exploitation_whitoutfit:
+    """
+    the second stage: 
+    Decomposing the BEM results into multipolar components and comparing with okayama' models.
+    """
+    def __init__(self, extracted_data: Extracted_data):
+        """
+            extracted_data (Extracted_data): Data loaded from the .npz solver output.
+            fit_constants (Fit_constants): The Okayama model parameters for comparison.
+        """
+        self.extracted_data = extracted_data
+        self.decomposition=Decomposition(self.extracted_data)
+
+        self.graphs=Graphs(self.extracted_data, self.decomposition)
+
+    def decomposition_calculation(self):
+        """Compute the multipolar expansion (Phi0, Phi2, Phi4) ."""
+        self.decomposition.composantes()
+
+    def decomposition_graph(self):
+        """Visualize the calculated multipolar components overlaid with geometry."""
+        self.graphs.graphe_composantes()
+
+    
+    def fit_graph(self):
+        """Compare the BEM decomposition with the theoretical fitting functions."""
+        self.graphs.graphe_fit(False)
+
 
 class SimulationParaxiale:
     """
