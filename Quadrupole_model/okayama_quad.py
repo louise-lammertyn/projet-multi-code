@@ -10,21 +10,21 @@ class Okayama_quad():
         Liste tensions des n quads
         """
         self.output_dir = output_dir
-        self.liste_tension = liste_tension
-        self.zquad = zquad
+        self.liste_tension = liste_tension 
+        self.zquad = zquad #offset 
 
        
 
 
-        self.quad1 = Reconstruction(output_dir, liste_tension[0])
-
+        self.quad1 = Reconstruction(output_dir, liste_tension[0]) #pour avoir acces au paramètre 
+        self.zquad = [z - self.quad1.start_apert1 for z in zquad]
         #creation axe z total 
         dz = self.quad1.axe_z[1] - self.quad1.axe_z[0]
         # On définit une fin de ligne assez longue
         z_max = max(zquad) + self.quad1.total_length + 20 
         self.axe_zt = np.arange(0, z_max, dz)
         lenz = len(self.axe_zt)
-        lenz = len(self.axe_zt)
+
 
         #creation des tableaux pour y mettre la somme des potentiel 
 
@@ -64,7 +64,6 @@ class Okayama_quad():
         save_path = os.path.join(self.output_dir, filename)
         m = self.quad1
         
-        # Création du tableau points (3, N) attendu par Extracted_data
         pts = np.zeros((3, len(self.axe_zt)))
         pts[2] = self.axe_zt
 
@@ -87,6 +86,7 @@ class Okayama_quad():
             pot_shield=0.0,
             
             # --- Géométrie & Mesh ---
+            z_offsets = np.array(self.zquad),
             output_dir=self.output_dir,
             total_length=float(self.axe_zt[-1]),
             radius_axis=m.radius_axis,
@@ -119,7 +119,7 @@ class Okayama_quad():
             MeshSizeMin=m.MeshSizeMin, MeshSizeMax=m.MeshSizeMax,
             MeshSizeFromCurvature=m.MeshSizeFromCurvature
         )
-        print(f"✅ Fichier sauvegardé pour Extracted_data : {save_path}")
+        print(f" Fichier sauvegardé pour Extracted_data : {save_path}")
         return save_path
 
 

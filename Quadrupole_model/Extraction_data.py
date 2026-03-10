@@ -91,7 +91,7 @@ class Extracted_data:
     #fonction à appeler unquement si ya plusieurs quad 
     def position_quad(self) :
         if self.z_off is None:
-            print("Usage : z_off n'est pas défini pour cet objet.")
+            print("1 seul quad")
             return
           
         self.pos_ap1 = [z + self.coord_apert_z1 for z in self.z_off]
