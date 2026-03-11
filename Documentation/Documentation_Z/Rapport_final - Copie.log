@@ -1,25 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.3.2)  6 MAR 2026 10:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.3.2)  6 MAR 2026 10:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/louise/Documents/insa/insa4/projet/projet-multi-code/Documentation/Rapport_final.tex
-(/Users/louise/Documents/insa/insa4/projet/projet-multi-code/Documentation/Rapport_final.tex
+**"/Users/louise/Documents/insa/insa4/projet/projet-multi-code/Documentation/Documentation_Z/Rapport_final - Copie.tex"
+(/Users/louise/Documents/insa/insa4/projet/projet-multi-code/Documentation/Documentation_Z/Rapport_final - Copie.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
-
-/Users/louise/Documents/insa/insa4/projet/projet-multi-code/Documentation/Rapport_final.tex:1: LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1 s
-     \documentclass{report}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Missing character: There is no s in font nullfont!
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2024/06/29 v1.4n Standard LaTeX document class
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/size10.clo
@@ -32,19 +19,12 @@ File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 \c@subsubsection=\count266
 \c@paragraph=\count267
 \c@subparagraph=\count268
-
-Overfull \hbox (20.0pt too wide) in paragraph at lines 1--293
-[]
- []
-
 \c@figure=\count269
 \c@table=\count270
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen141
-
-
-[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
@@ -826,9 +806,8 @@ Package: afterpage 2023/07/04 v1.08 After-Page Package (DPC)
 \AP@output=\toks56
 \AP@partial=\box84
 \AP@footins=\box85
-))
-No file Rapport_final.aux.
-\openout1 = `Rapport_final.aux'.
+)) (./Rapport_final - Copie.aux)
+\openout1 = `"Rapport_final - Copie.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
 LaTeX Font Info:    ... okay on input line 70.
@@ -850,7 +829,7 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
 LaTeX Font Info:    ... okay on input line 70.
 LaTeX Info: Redefining \degres on input line 70.
 LaTeX Info: Redefining \up on input line 70.
-(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count376
 \scratchdimen=\dimen301
@@ -870,8 +849,9 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring ON on input line 70.
+ (./Rapport_final - Copie.out) (./Rapport_final - Copie.out)
 \@outlinefile=\write5
-\openout5 = `Rapport_final.out'.
+\openout5 = `"Rapport_final - Copie.out"'.
 
 
 *geometry* driver: auto-detecting
@@ -908,7 +888,7 @@ Package hyperref Info: Link coloring ON on input line 70.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<images/logo_INSA.png, id=11, 2546.51375pt x 552.0625pt>
+<images/logo_INSA.png, id=59, 2546.51375pt x 552.0625pt>
 File: images/logo_INSA.png Graphic file (type png)
 <use images/logo_INSA.png>
 Package pdftex.def Info: images/logo_INSA.png  used on input line 78.
@@ -921,21 +901,21 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<images/tescan_logo.png, id=13, 336.25626pt x 135.50626pt>
+<images/tescan_logo.png, id=61, 336.25626pt x 135.50626pt>
 File: images/tescan_logo.png Graphic file (type png)
 <use images/tescan_logo.png>
 Package pdftex.def Info: images/tescan_logo.png  used on input line 83.
 (pdftex.def)             Requested size: 163.88739pt x 66.04506pt.
 
 
-<images/pattern.png, id=14, 74.52844pt x 73.77562pt>
+<images/pattern.png, id=62, 74.52844pt x 73.77562pt>
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 117.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [1
 
-{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./images/pattern.png> <./images/logo_INSA.png> <./images/tescan_logo.png>]
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./images/pattern.png> <./images/logo_INSA.png> <./images/tescan_logo.png>]
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
@@ -947,117 +927,111 @@ File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 122.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
- [1]
+ [1] (./Rapport_final - Copie.toc)
+\tf@toc=\write6
+\openout6 = `"Rapport_final - Copie.toc"'.
+
+
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.127 \newpage
-              
+l.128 \chapter
+              {Introduction}
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 127.
+Package pdftex.def Info: images/pattern.png  used on input line 128.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
- [1
-
-]
-No file Rapport_final.toc.
-\tf@toc=\write6
-\openout6 = `Rapport_final.toc'.
-
-
-
-File: images/pattern.png Graphic file (type png)
-<use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 131.
-(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[2]
+ [1]
 Chapitre 1.
 
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 141.
+Package pdftex.def Info: images/pattern.png  used on input line 152.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[3
+[2
 
 ]
 Chapitre 2.
 
+LaTeX Warning: Citation `smith2023' on page 3 undefined on input line 162.
+
+
+LaTeX Warning: Citation `johnson2024' on page 3 undefined on input line 162.
+
+
+LaTeX Warning: Citation `doe2025' on page 3 undefined on input line 162.
+
+
+LaTeX Warning: Citation `johnson2024' on page 3 undefined on input line 162.
+
+
+LaTeX Warning: Citation `doe2025' on page 3 undefined on input line 162.
+
+
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 156.
+Package pdftex.def Info: images/pattern.png  used on input line 164.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[4
+[3
 
 ]
+
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 190.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+[4]
+
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 207.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+[5]
 Chapitre 3.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 219.
+No file "Rapport_final - Copie".bbl.
 
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 160.
-(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[5
-
-]
-
-File: images/pattern.png Graphic file (type png)
-<use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 165.
+Package pdftex.def Info: images/pattern.png  used on input line 252.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [6
 
 ]
-No file Rapport_final.lof.
-\tf@lof=\write7
-\openout7 = `Rapport_final.lof'.
+runsystem(latexminted cleantemp  --timestamp 20260306103710 5AA6FEB92AC7BB184B514C6C36EF9CB9)...executed safely (allowed).
 
-No file Rapport_final.lot.
-\tf@lot=\write8
-\openout8 = `Rapport_final.lot'.
-
-
-
-File: images/pattern.png Graphic file (type png)
-<use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 172.
-(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[7]
-No file Rapport_final.bbl.
-(./Rapport_final.aux)
+ (./Rapport_final - Copie.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were undefined references.
 
-
-Package rerunfilecheck Warning: File `Rapport_final.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Rapport_final.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  DDE10954814FD65A169788239247CF87;3154.
+Package rerunfilecheck Info: File `"Rapport_final - Copie".out' has not changed.
+(rerunfilecheck)             Checksum: E3826938D5F96FFB06ACB5256FCDF607;1697.
  ) 
 Here is how much of TeX's memory you used:
- 29269 strings out of 473190
- 579569 string characters out of 5715801
- 1165473 words of memory out of 5000000
- 52006 multiletter control sequences out of 15000+600000
- 576478 words of font info for 77 fonts, out of 8000000 for 9000
+ 29322 strings out of 473190
+ 581170 string characters out of 5715801
+ 1171848 words of memory out of 5000000
+ 52050 multiletter control sequences out of 15000+600000
+ 577865 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 97i,16n,105p,624b,1243s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfxc1440.pfb>
-Output written on Rapport_final.pdf (10 pages, 260168 bytes).
+ 97i,16n,105p,747b,1245s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfxc1440.pfb>
+Output written on "Rapport_final - Copie.pdf" (8 pages, 376391 bytes).
 PDF statistics:
- 153 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 243 PDF objects out of 1000 (max. 8388607)
+ 181 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 132 words of extra memory for PDF output out of 10000 (max. 10000000)
 
