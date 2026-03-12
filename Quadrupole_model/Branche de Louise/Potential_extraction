@@ -5,14 +5,14 @@ from bempp_cl.core import opencl_kernels
 from Field_calculation import Calculation_field
 import gc
 
-opencl_kernels.show_available_platforms_and_devices()
-opencl_kernels.set_default_cpu_device(0,1)
+#opencl_kernels.show_available_platforms_and_devices()
+#opencl_kernels.set_default_cpu_device(0,1)
 
 os.environ['PYOPENCL_COMPILER_OUTPUT']='1'
 os.environ['PYOPENCL_NO_CACHE'] = '1'
 
-#OUTPUT_DIR = r"C:\Users\zoeno\OneDrive - INSA Toulouse\Documents\INSA\4GP\Projet multi\projet-multi-code\Quadrupole_model\Files"
-OUTPUT_DIR = r"C:\Users\llamm\OneDrive\Documents\Projet\BEMPP\okayama\projet_multi\projet-multi-code\Quadrupole_model\Files"
+OUTPUT_DIR = r"C:\Users\zoeno\OneDrive - INSA Toulouse\Documents\INSA\4GP\Projet multi\projet-multi-code\Quadrupole_model\Files"
+#OUTPUT_DIR = r"C:\Users\llamm\OneDrive\Documents\Projet\BEMPP\okayama\projet_multi\projet-multi-code\Quadrupole_model\Files"
 "-0.0299087*Va, -0.18808*Va, +0.18808*Va" #tension qui fit
 
 # Dico pour faire étape par étape
