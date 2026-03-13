@@ -9,7 +9,7 @@ class Cylinder:
     """
     def __init__(self, length: int, radius: int, coord_x: int, coord_y: int, coord_z: int) -> None:
         """
-        Initialize cylinder parameters.
+        Initializes cylinder parameters.
 
         Args:
             length: Length of the cylinder along the Z-axis.
@@ -38,12 +38,13 @@ class Aperture:
     """
     def __init__(self, radius_ext: int, radius_in: int, thickness: int, coord_x: int, coord_y: int, coord_z: int) -> None:
         """
-        Initialize aperture parameters.
+        Initializes aperture parameters.
 
         Args:
             radius_ext: Outer radius of the aperture disc.
             radius_in: Inner radius (hole) of the aperture.
             thickness: Thickness of the disc.
+            coord_x, coord_y, coord_z: Starting position of the aperture.
         """
         self.radius_ext = radius_ext
         self.radius_in = radius_in
@@ -57,16 +58,25 @@ class Aperture:
 
 
     def add (self) -> None:
-        """Create the aperture """
+        """Add the aperture to the OpenCASCADE model and extract its surface loop."""
         aperture_out = gmsh.model.occ.addCylinder(self.coord_x, self.coord_y, self.coord_z, 0, 0, self.thickness, self.radius_ext)
         aperture_in = gmsh.model.occ.addCylinder(self.coord_x, self.coord_y, self.coord_z, 0, 0, self.thickness, self.radius_in)
         apert_vol , _=  gmsh.model.occ.cut([(3,aperture_out)],[(3,aperture_in)])
         self.apert_tag=apert_vol[0][1]
         self.apert_surf = gmsh.model.occ.get_surface_loops(self.apert_tag)[1][0]
 
+
 class Shield:
     """
-    Represents the shield to fixe the potential ot 0
+    Represents the shield to fix the potential at 0V
+
+    Args:
+            length: Length of the shield.
+            radius_ext: Outer radius of the shield.
+            radius_in: Inner radius of the shield.
+            radius_hole: Inner radius of the hole of the shield.
+            thickness: Thickness of the shield.
+            coord_x, coord_y, coord_z: Starting position of the shield.
     """
     def __init__(self, length: int, radius_ext: int, radius_in: int, radius_hole: int, thickness: int, coord_x: int, coord_y: int, coord_z: int) -> None:
         self.length = length
@@ -83,6 +93,7 @@ class Shield:
 
 
     def add(self) -> None:
+        """Add the shield to the OpenCASCADE model and extract its surface loop."""
         shield_in = gmsh.model.occ.addCylinder(self.coord_x, self.coord_y, self.coord_z + self.thickness, 0, 0, self.length -2*self.thickness, self.radius_in)
         shield_out = gmsh.model.occ.addCylinder(self.coord_x, self.coord_y, self.coord_z, 0, 0, self.length, self.radius_ext)
         shield , _=  gmsh.model.occ.cut([(3,shield_out)],[(3,shield_in)])
@@ -102,7 +113,7 @@ class Mesh_Generation:
     def __init__(self, data: Data, visual: bool) -> None:
         """
         data (Data): Object containing all geometric dimensions and mesh settings.
-            visual (bool): If True, launches the GMSH GUI after generation.
+        visual (bool): If True, launches the GMSH GUI after generation to visualize the geometry.
         """
         self.data = data
         self.visual = visual
@@ -110,7 +121,7 @@ class Mesh_Generation:
         self.objects = None
 
     def initialisation(self) -> None:
-        """Initialize GMSH and create a new model."""
+        """Initializes GMSH and create a new model."""
 
         gmsh.initialize()
         gmsh.clear()
@@ -118,7 +129,7 @@ class Mesh_Generation:
 
 
     def geometry(self) -> None:
-        """Instantiate and add all geometric components (electrodes, apertures, shield)."""
+        """Instantiates and adds all geometric components (electrodes, apertures, shield)."""
 
         cylinder1 = Cylinder(self.data.length_cylinder, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.coord_cylinder_z)
         Cylinder.add(cylinder1)
@@ -147,16 +158,16 @@ class Mesh_Generation:
 
 
     def creation_mesh(self) -> None:
-        """Synchronize the OpenCASCADE internal CAD representation with the GMSH model."""
+        """Synchronizes the OpenCASCADE internal CAD representation with the GMSH model."""
         gmsh.model.occ.synchronize()
     
     def surfaces(self) -> None:
         """
-        Define physical groups for the surfaces. 
+        Defines physical groups for the surfaces. 
         """
         aperture1, aperture2, cylinder1, cylinder2, cylinder3, cylinder4, shield = self.objects
 
-    #Outwards orientation of the surfaces' normals
+        #Sets an outward orientation of the surfaces' normals
         gmsh.model.mesh.setOutwardOrientation(aperture1.apert_tag)
         gmsh.model.mesh.setOutwardOrientation(aperture2.apert_tag)
         gmsh.model.mesh.setOutwardOrientation(cylinder1.cyl_tag)
@@ -178,9 +189,11 @@ class Mesh_Generation:
 
 
     def mesh(self) -> None:
-        """Configure mesh size  and generate the  surface mesh."""
-    #Size of the mesh
-    #ATTENTION, MeshSizeMin and MeshSizeMax need to be equal
+        """Configures mesh size  and generates the surface mesh.
+        In order to have the same mesh size on every surface, set
+        MeshSizeMax and MeshSizeMin to an equal value."""
+
+        #Size of the mesh
         gmsh.option.set_number('Mesh.MeshSizeMin', self.data.MeshSizeMin)
         gmsh.option.set_number('Mesh.MeshSizeMax', self.data.MeshSizeMax)
         gmsh.option.set_number('Mesh.MeshSizeFromCurvature', self.data.MeshSizeFromCurvature)
@@ -188,7 +201,9 @@ class Mesh_Generation:
         gmsh.model.mesh.generate(2)
 
     def finalize(self) -> None:
-    #Creates a file .msh
+        """Closes correctly Gmsh and exports a file with all the datas."""
+
+        #Creates a file .msh
         mesh_path = os.path.join(self.data.output_dir, "mesh_quadrupole.msh")
 
         gmsh.write(mesh_path)
