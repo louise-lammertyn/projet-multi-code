@@ -5,7 +5,7 @@ from Extraction_data import Extracted_data
 from Multipolar_decomposition import Decomposition
 from scipy.interpolate import interp1d
 
-class Paraxial():
+class Paraxial_trajectories():
     def __init__(self):
         # On passe les arguments nécessaires au constructeur de Quadrupole
         self.y_next = None

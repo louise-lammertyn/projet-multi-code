@@ -5,7 +5,7 @@ from Extraction_data import Extracted_data
 from Fit_functions import Fit_constants
 from Graphs import Graphs
 from Multipolar_decomposition import Decomposition
-from paraxial import Paraxial, Ion, Trajectoire
+from Paraxial import Paraxial_trajectories, Ion, Trajectoire
 from Field_calculation import Calculation_field
 from reconstruction import Reconstruction
 
