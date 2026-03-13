@@ -69,7 +69,7 @@ class Reconstruction:
         self.start_shield2 = d_ap1.start_shield2
         self.end_shield2 = d_ap1.end_shield2
 
-        #somme pot unitaire / Vrelle que l'on veut appliquer
+        #somme pot unitaire 
         v = self.v
         
         self.potential = (v["va1"] * d_ap1.potential + v["va2"] * d_ap2.potential + 
