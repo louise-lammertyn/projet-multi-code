@@ -6,13 +6,15 @@ from Fit_functions import Fit_constants
 from Graphs import Graphs
 from Multipolar_decomposition import Decomposition
 from paraxial import Paraxial, Ion, Trajectoire
+from Field_calculation import Calculation_field
+from reconstruction import Reconstruction
 
 class Potential_extraction:
     """
     Orchestrates the first stage of the workflow: 
     Quadrupole generation, meshing, and solving the electrostatic BEM problem.
     """
-    def __init__(self, data: Data, mesh_visual: bool):
+    def __init__(self, data: Data, mesh_visual: bool, file_name : str):
 
         """
             data (Data): Configuration object containing geometry and mesh parameters.
@@ -20,9 +22,10 @@ class Potential_extraction:
         """
         self.data = data
         self.mesh_visual = mesh_visual
+        self.file_name = file_name
 
         self.mesh_generation=Mesh_Generation(self.data, self.mesh_visual)
-        self.calculation_field=Calculation_field(self.data)
+        self.calculation_field=Calculation_field(self.data, self.file_name)
 
     def mesh(self):
         """Execute ull GMSH """
@@ -48,6 +51,28 @@ class Potential_extraction:
     def graph_potential_axis(self):
         """Plot the calculated potential along the central Z-axis."""
         self.calculation_field.potential_axis_printing()
+
+
+class Generation_quad():
+    """
+    class qui fait la reconstruction du potentiel total à partir des pot unitaires et 
+    des tensiosn voulues
+    return le chemin du fichier reconstitué 
+    """
+    def __init__(self, tension_dico : dict,output_dir : str) -> None:
+        self.tension_dico = tension_dico
+        self.output_dir = output_dir
+
+    def reconstr(self, file_name = "quad_reconstuit.npz") ->  str:
+        self.reconstr = Reconstruction(self.output_dir, self.tension_dico )
+        self.reconstr.derivative()
+        file_path = self.reconstr.save(file_name)
+        return file_path
+
+                        
+
+
+
 
 
 class Data_exploitation:
@@ -82,6 +107,34 @@ class Data_exploitation:
     def fit_graph(self):
         """Compare the BEM decomposition with the theoretical fitting functions."""
         self.graphs.graphe_fit()
+
+class Data_exploitation_whitoutfit:
+    """
+    the second stage: 
+    Decomposing the BEM results into multipolar components and comparing with okayama' models.
+    """
+    def __init__(self, extracted_data: Extracted_data):
+        """
+            extracted_data (Extracted_data): Data loaded from the .npz solver output.
+            fit_constants (Fit_constants): The Okayama model parameters for comparison.
+        """
+        self.extracted_data = extracted_data
+        self.decomposition=Decomposition(self.extracted_data)
+
+        self.graphs=Graphs(self.extracted_data, self.decomposition)
+
+    def decomposition_calculation(self):
+        """Compute the multipolar expansion (Phi0, Phi2, Phi4) ."""
+        self.decomposition.composantes()
+
+    def decomposition_graph(self):
+        """Visualize the calculated multipolar components overlaid with geometry."""
+        self.graphs.graphe_composantes()
+
+    
+    def fit_graph(self):
+        """Compare the BEM decomposition with the theoretical fitting functions."""
+        self.graphs.graphe_fit(False)
 
 
 class SimulationParaxiale:
@@ -138,7 +191,7 @@ class SimulationParaxiale:
 
     def run_faisceau(self, liste_ions: list):
         """
-        Simulate a full beam (bundle) of ions.
+        Simulate a full beam  of ions.
 
         Args:
             liste_ions (list[Ion]): A list of Ion objects with varying initial conditions.

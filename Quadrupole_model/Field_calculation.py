@@ -10,7 +10,7 @@ class Calculation_field:
     It manages mesh importation, potential settings, matrix inversion, and 
     derivative calculations for a quadrupole geometry.
     """
-    def __init__(self, data: Data) -> None:
+    def __init__(self, data: Data , file_name : str) -> None:
 
         """
         Initialize the calculation field with geometry data and BEM spaces.
@@ -19,6 +19,7 @@ class Calculation_field:
             data (Data): Object containing physical dimensions, potentials, and mesh paths.
         """
         self.data =  data
+        self.file_name = file_name
 
         #Importation of the mesh
         self.mesh_path = os.path.join(self.data.output_dir, "mesh_quadrupole.msh")
@@ -63,7 +64,8 @@ class Calculation_field:
         #Settings of the potentials
         pot_apert1 = self.data.pot_apert1
         pot_apert2 = self.data.pot_apert2
-        pot_electrode = self.data.pot_electrode
+        pot_electrode13 = self.data.pot_electrode13
+        pot_electrode24 = self.data.pot_electrode24
         pot_shield = self.data.pot_shield  
 
         apert1=self.data.group_id[0]
@@ -76,6 +78,7 @@ class Calculation_field:
 
         @bempp.real_callable
     #Setting of the potential on the different elements of the geometry
+    #electrode 1 and 2 are coupled and 3 and 4 are coupled
         def dirichlet_data(x, n, domain_index, result):
             if domain_index == apert1: #potential of the 1st aperture
                 result[0]=pot_apert1
@@ -84,22 +87,27 @@ class Calculation_field:
                 result[0]=pot_apert2
             
             elif domain_index == elec1: #potential of the 1st electrode
-                result[0]=pot_electrode
+                result[0]=pot_electrode13
 
             elif domain_index == elec2: #potential of the 2nd electrode
-                result[0]=pot_electrode
+                result[0]=pot_electrode13
 
             elif domain_index == elec3: #potential of the 3rd electrode
-                result[0]=-pot_electrode
+                result[0]=pot_electrode24
 
             elif domain_index == elec4: #potential of the 4th electrode
-                result[0]=-pot_electrode
+                result[0]=pot_electrode24
 
             elif domain_index == shield: #potential of the shield
                 result[0]=pot_shield
             
         # Create the GridFunction representing the boundary potential
         self.dirichlet_fun = bempp.GridFunction(self.p1_space, fun=dirichlet_data) 
+        # Après avoir créé self.dirichlet_fun
+        v_max = np.max(self.dirichlet_fun.coefficients)
+        v_min = np.min(self.dirichlet_fun.coefficients)
+        print(f"Potentiel Max sur le maillage : {v_max} V")
+        print(f"Potentiel Min sur le maillage : {v_min} V")
 
     def visualisation(self) -> None:
         """Visualize the Dirichlet potential mapped onto the 3D geometry."""
@@ -158,7 +166,7 @@ class Calculation_field:
         except NameError:
             ipython = False
 
-        savefile = os.path.join(self.data.output_dir, "potentiel_quadrupole_VF.npz")
+        savefile = os.path.join(self.data.output_dir, self.file_name)
     
         #Creation of a .npz file with the extracted potential
         if "savefile" is not None:
@@ -216,7 +224,8 @@ class Calculation_field:
         end_shield2 = self.data.end_shield2,
 
         #Potentials
-        pot_electrode = self.data.pot_electrode,
+        pot_electrode13 = self.data.pot_electrode13,
+        pot_electrode24 = self.data.pot_electrode24,
         pot_apert1 = self.data.pot_apert1,
         pot_apert2 = self.data.pot_apert2,
         pot_shield = self.data.pot_shield, 
