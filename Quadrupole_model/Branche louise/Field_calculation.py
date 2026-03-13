@@ -7,17 +7,17 @@ from Data import Data
 class Calculation_field:
     """
     Handles the electrostatic field calculation using the Boundary Element Method (BEM).
-    It manages mesh importation, potential settings, matrix inversion, and 
+    It manages mesh importation, potential settings, matrix inversion and 
     derivative calculations for a quadrupole geometry.
     """
     def __init__(self, data: Data , file_name : str) -> None:
-
         """
-        Initialize the calculation field with geometry data and BEM spaces.
+        Initializes the calculation of the field with geometry data and BEM spaces.
 
         Args:
             data (Data): Object containing physical dimensions, potentials, and mesh paths.
         """
+
         self.data =  data
         self.file_name = file_name
 
@@ -25,39 +25,39 @@ class Calculation_field:
         self.mesh_path = os.path.join(self.data.output_dir, "mesh_quadrupole.msh")
         self.grid = bempp.import_grid(self.mesh_path)
         
-        # Functions spaces 
+        # Function spaces 
         self.dp0_space = bempp.function_space(self.grid, "DP", 0)
         self.p1_space  = bempp.function_space(self.grid, "P", 1)
 
-        # --- operators ---
+        # Operators
         self.identity = bempp.operators.boundary.sparse.identity(self.p1_space, self.p1_space, self.dp0_space)
 
         self.dlp = bempp.operators.boundary.laplace.double_layer(self.p1_space, self.p1_space, self.dp0_space)
 
         self.slp = bempp.operators.boundary.laplace.single_layer(self.dp0_space, self.p1_space, self.dp0_space)
 
-        #Initial our variable to store the results 
 
+        #Initialization of variables to store the results 
         self.dirichlet_fun = None
         self.neumann_fun = None
         self.u_evaluated = None
         self.points = None
 
-        #Potenital derivative 
-
+        #Initialization of variables to store potential derivatives
         self.E_eval = None
         self.D2_eval = None
         self.D3_eval = None
         self.D4_eval = None
 
 
-    def mesh_Importation(self) -> None:
+    def mesh_importation(self) -> None:
+        """Importation of the mesh generated through Gmsh."""
         plt.clf()
 
         
     def potentials_settings(self) -> None:
         """
-        Map physical potentials to the corresponding geometric domain indices.
+        Maps physical potentials to the corresponding geometric domain indices.
         Defines the Dirichlet boundary conditions for the BEM problem.
         """
 
@@ -77,8 +77,8 @@ class Calculation_field:
         shield=self.data.group_id[6]
 
         @bempp.real_callable
-    #Setting of the potential on the different elements of the geometry
-    #electrode 1 and 2 are coupled and 3 and 4 are coupled
+        #Setting of the potential on the different elements of the geometry.
+        #Electrodes 1 and 2 are coupled and 3 and 4 are coupled.
         def dirichlet_data(x, n, domain_index, result):
             if domain_index == apert1: #potential of the 1st aperture
                 result[0]=pot_apert1
@@ -101,23 +101,26 @@ class Calculation_field:
             elif domain_index == shield: #potential of the shield
                 result[0]=pot_shield
             
-        # Create the GridFunction representing the boundary potential
-        self.dirichlet_fun = bempp.GridFunction(self.p1_space, fun=dirichlet_data) 
-        # Après avoir créé self.dirichlet_fun
+        # Creates the GridFunction representing the boundary potential
+        self.dirichlet_fun = bempp.GridFunction(self.p1_space, fun=dirichlet_data)
+
+        #Prints the maximum and minimum potentials of the geometry
         v_max = np.max(self.dirichlet_fun.coefficients)
         v_min = np.min(self.dirichlet_fun.coefficients)
-        print(f"Potentiel Max sur le maillage : {v_max} V")
-        print(f"Potentiel Min sur le maillage : {v_min} V")
+        print(f"Maximum potential: {v_max} V")
+        print(f"Minimum potential: {v_min} V")
 
     def visualisation(self) -> None:
-        """Visualize the Dirichlet potential mapped onto the 3D geometry."""
+        """Visualizes the Dirichlet potential mapped onto the 3D geometry."""
         self.dirichlet_fun.plot()
    
     def matrix_inversion(self) -> None:
-    #Sum of the right part of the integral 
+        """Calculates the matrix inversion."""
+
+        #Sum of the right part of the integral 
         rhs = (-0.5 * self.identity + self.dlp) * self.dirichlet_fun
 
-    #Resolution of the linear system
+        #Resolution of the linear system
         self.neumann_fun, _ = bempp.linalg.cg(self.slp, rhs, tol=1e-8) #1e-5 à tester
 
         #Creation of the tracing of the solution
@@ -131,7 +134,7 @@ class Calculation_field:
 
     def derivatives(self) -> None:
         """
-        Calculate the 1st to 4th order derivatives of the potential at the evaluation points.
+        Calculates the 1st to 4th order derivatives of the potential at the evaluation points.
         Uses OpenCL for hardware acceleration.
         """
         #Field 
@@ -153,7 +156,7 @@ class Calculation_field:
 
     def potential_exportation(self) -> None: 
         """
-        Export all calculated potentials, derivatives, and geometric parameters 
+        Exports all calculated potentials, derivatives, and geometric parameters 
         to a compressed .npz file for post-processing.
         """
         try:
@@ -241,7 +244,8 @@ class Calculation_field:
 
 
     def potential_axis_printing(self) -> None:
-        """Plot the calculated potential along the Z-axis."""
+        """Plots the calculated potential along the Z-axis."""
+
         plt.plot(self.points[2], self.u_evaluated[0])
         plt.title("Potentiel du quadrupole d'Okayama le long de l'axe Z")
         plt.xlabel("Position en z (mm)")

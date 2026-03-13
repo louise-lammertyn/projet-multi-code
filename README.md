@@ -1,16 +1,12 @@
-"# projet-multi-code" 
-salut louise
-salut zoe
-
-Lorsqu'on veut revenir à une version antérieure, il faut aller dans l'arborescence et faire un clic droit et indiquer "checkout"
+***Bloc note**
 
 Je suis en train de corriger les fichiers pour tout traduire et commenter. 
 Data.py --> Check 
 Geometry --> Check
-Field_calculation --> 
-Extraction_data --> 
-Multipolar_decomposition --> 
-Fit_functions --> 
+Field_calculation --> Check
+Extraction_data --> Check
+Multipolar_decomposition --> Check
+Fit_functions --> Check
 Graphs --> 
 Paraxial --> 
 okayama_quad --> 
@@ -20,4 +16,3 @@ Main_functions -->
 
 Potential_extraction --> 
 Data_exploitation --> 
-

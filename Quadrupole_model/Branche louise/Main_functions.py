@@ -38,7 +38,7 @@ class Potential_extraction:
 
     def potential_extraction(self):
         """Solve the Laplace equation on the mesh and extract axial potential/derivatives."""
-        self.calculation_field.mesh_Importation()
+        self.calculation_field.mesh_importation()
         self.calculation_field.potentials_settings()
         self.calculation_field.matrix_inversion()
         self.calculation_field.derivatives()
@@ -94,7 +94,7 @@ class Data_exploitation:
 
     def decomposition_calculation(self):
         """Compute the multipolar expansion (Phi0, Phi2, Phi4) ."""
-        self.decomposition.composantes()
+        self.decomposition.components()
 
     def decomposition_graph(self):
         """Visualize the calculated multipolar components overlaid with geometry."""
@@ -102,7 +102,7 @@ class Data_exploitation:
 
     def fit_calculation(self):
         """Generate the theoretical Okayama fit curves."""
-        self.fit_constants.fonction_fit()
+        self.fit_constants.fit_function()
     
     def fit_graph(self):
         """Compare the BEM decomposition with the theoretical fitting functions."""

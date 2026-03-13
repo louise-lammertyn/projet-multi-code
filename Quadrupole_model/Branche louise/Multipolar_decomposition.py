@@ -2,6 +2,8 @@ import numpy as np
 from Extraction_data import Extracted_data
 
 class Decomposition:
+    """Class that defines the multipolar decomposition of the potential."""
+
     def __init__(self, data: Extracted_data) -> None:
         self.data = data 
 
@@ -16,9 +18,11 @@ class Decomposition:
         self.Phi4_fit = None
 
 
-    def composantes(self) -> None:
-        self.Phi0_maj = -self.data.D0  # potentiel monopolaire sur l’axe
-        self.Phi1_maj = self.data.D1[0] # D1 correspond au champs electrostique -> on met un moins
+    def components(self) -> None:
+        """Calculates the components of the multipolar decomposition."""
+
+        self.Phi0_maj = -self.data.D0  #Monopolar potential along the axis
+        self.Phi1_maj = self.data.D1[0] #D1 represents the electrostatic field --> we put a minus sign 
         self.Phi2_maj = (1/4)*(self.data.D2[0] - self.data.D2[3])
         self.Phi3_maj = (1/24) * (self.data.D3[0] - 3*self.data.D3[3])
         self.Phi4_maj = (1/192)* (self.data.D4[0] + self.data.D4[10] - 6*self.data.D4[3])

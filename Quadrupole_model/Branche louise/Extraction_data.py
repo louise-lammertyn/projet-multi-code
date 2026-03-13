@@ -2,25 +2,26 @@ import numpy as np
 
 #Class to extract all the necessary informations from the files
 class Extracted_data:
+    """
+        Class to extract the data of the files.
+        Z_off is used only if we use more than one quadrupole, it represents the offset of space between quadrupoles.
+        """
+    
     def __init__(self, file_path: str, z_off = None) -> None:
-        """
-        Class to extracte the data of our files
-        Z_off is used only if we use more than one quadrupole
-        """
 
-        # file load 
+        #Files load 
         data = np.load(file_path)
 
         
-        # axes data
+        #Axes data
         self.points = data["points"]
         self.axe_z = data["points"][2] 
         self.z_off = z_off
         
-        # Potential 
-        self.potential = data["potential"]    # Le tableau complet [V]
+        #Potential data
+        self.potential = data["potential"] #Full matrix [V]
 
-        # Identifiants de groupes (Physical Groups de GMSH)
+        #Identifiers of each groups (Physical Groups from GMSH)
         self.group_id_ap1 = data["group_id_ap1"]
         self.group_id_ap2 = data["group_id_ap2"]
         self.group_id_cyl1 = data["group_id_cyl1"]
@@ -37,7 +38,7 @@ class Extracted_data:
         #Output directory
         self.output_dir = data["output_dir"]
 
-        # Dimensions et géométrie
+        #Dimensions and geometry
         self.dist_shield_apert = data["dist_shield_apert"]
         self.dist_apert_quad = data["dist_apert_quad"]
         self.radius_ext_shield = data["radius_ext_shield"]
@@ -65,7 +66,7 @@ class Extracted_data:
         self.start_shield2 = data["start_shield2"]
         self.end_shield2 = data["end_shield2"]
         
-        # Valeurs des tensions appliquées
+        # Values of applied potentials
         self.Vacceleration = data["pot_acceleration"]
         self.Velectrode13 = data["pot_electrode13"]
         self.Velectrode24 = data["pot_electrode24"]
@@ -74,29 +75,28 @@ class Extracted_data:
         self.Vshield = data["pot_shield"]
 
         #Derivatives
-        self.D0 = data["potential"][0]      # Le potentiel sur l'axe
-        self.D1 = data["E_eval"]               # Champ électrique [V/mm]
-        self.D2 = data["D2_eval"]             # 2ème dérivée [V/mm^2]
-        self.D3 = data["D3_eval"]             # 3ème dérivée [V/mm^3
-        self.D4 = data["D4_eval"]             # 4ème dérivée [V/mm^4
+        self.D0 = data["potential"][0] #Potential along the axis
+        self.D1 = data["E_eval"] #Electric field [V/mm]
+        self.D2 = data["D2_eval"] #Second derivative [V/mm^2]
+        self.D3 = data["D3_eval"] #Third derivative [V/mm^3
+        self.D4 = data["D4_eval"] #Fourth derivative [V/mm^4
         
 
     def derivative(self)-> None:
         """
         Computation of the derivatives of phi0 to use in paraxial equation
         """  
-        self.D2zphi0 = self.D2[5]  #phi_0'' pour la trajectoire
-        self.D1zphi0 = self.D1[2]   #phi_0' pour la trajectoire
+        self.D2zphi0 = self.D2[5] #phi_0'' for trajectory
+        self.D1zphi0 = self.D1[2] #phi_0' for trajectory
 
-    #fonction à appeler unquement si ya plusieurs quad 
+    
     def position_quad(self) :
+        """Function useful if simulation of multiple quadrupoles."""
         if self.z_off is None:
-            print("1 seul quad")
+            print("Only one quadrupole")
             return
           
         self.pos_ap1 = [z + self.coord_apert_z1 for z in self.z_off]
         self.pos_ap2 = [z + self.coord_apert_z2 for z in self.z_off]
         self.pos_cyl_start = [z + self.start_cyl for z in self.z_off]
         self.pos_cyl_end = [z + self.end_cyl for z in self.z_off]
-
-   
