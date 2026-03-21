@@ -5,11 +5,14 @@ from Extraction_data import Extracted_data
 from Multipolar_decomposition import Decomposition
 from scipy.interpolate import interp1d
 
+
+#Definition of a class to calculate ion's trajectories using RK4
 class Paraxial_trajectories():
     def __init__(self):
-        # On passe les arguments nécessaires au constructeur de Quadrupole
+
         self.y_next = None
 
+    #Runge-Kutta 4 function
     def RK4_step(self, f, y, t, h, alpha, beta):
         f1 = f(y, t, alpha, beta)
         f2 = f(y + h*f1/2, t + h/2, alpha, beta)
@@ -17,9 +20,11 @@ class Paraxial_trajectories():
         f4 = f(y + h*f3, t + h, alpha, beta)
         return y + (h/6)*(f1 + 2*f2 + 2*f3 + f4)
 
+
+#Definition of a class to determine ion's properties
 class Ion(Paraxial): 
     def __init__(self, mass, charge, name, x, vx, y, vy):
-        # Utilisation correcte du super() pour remonter la chaîne d'héritage
+        #Use of super() function to give access methods and properties of a parent or sibling class
         super().__init__()
         
         self.mass = mass
@@ -29,31 +34,40 @@ class Ion(Paraxial):
         self.state_x = np.array([x, vx], dtype=float)
         self.state_y = np.array([y, vy], dtype=float)
         
+        #Variable to memorize past states
         self.history_x = []
         self.history_y = []
 
-    def afficher_detail(self):
+    #Definition of a printing function
+    def print_details(self):
         print(f"Ion: {self.name}, Masse: {self.mass}, Charge: {self.charge}")
     
+    #Function to memorizo past states
     def save_step(self): 
         self.history_x.append(self.state_x[0])
         self.history_y.append(self.state_y[0])
 
+
+#Definition of a class to simulate trajectories
 class Trajectoire(Paraxial):
     def __init__(self):
+        #Use of super() function to give access methods and properties of a parent or sibling class
         super().__init__()
         pass
+
+        self.result_equation = None
     
+    #Function of a second degree equation
     def equation(self, y, t, alpha, beta) -> None:
         """
-        forme équation second degrès à résoudre
-        y, t, alpha (coefficient ordre 1), beta coefféficient ordre 2
+        Second order equation to solve
+        y, t, alpha (first order coefficient), beta (second order coefficient)
         """
         u = y[0] 
         v = y[1] 
         du = v
         dv = -alpha * u - beta * v
-        return np.array([du, dv])
+        self.result_equation = np.array([du, dv])
     
     def simulation3(self, ion : Ion,  data : Extracted_data, decomp : Decomposition )-> None:
         """
