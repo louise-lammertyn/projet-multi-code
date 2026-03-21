@@ -69,14 +69,17 @@ class Trajectoire(Paraxial):
         dv = -alpha * u - beta * v
         self.result_equation = np.array([du, dv])
     
-    def simulation3(self, ion : Ion,  data : Extracted_data, decomp : Decomposition )-> None:
+    #Function that simulates ions' trajectories
+    def simulation(self, ion : Ion,  data : Extracted_data, decomp : Decomposition )-> None:
         """
-        class ion
+        class Ion
         class Data 
+        class Decomposition
         """
         V_acc = data.Vacceleration
         print(V_acc)
         
+
         dz_mm = data.axe_z[1] - data.axe_z[0] 
         ion.save_step()
         
