@@ -1,0 +1,695 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage[a4paper, left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+
+
+\title{\textbf{\LARGE Modélisation de lentilles électrostatiques quadrupolaires à l'aide de la méthode des éléments de frontière}
+\\[0.5em]\LARGE Développement des équations nécessaires et de la stratégie de calcul}
+\author{Zoé Nonon, Louise Lammertyn}
+\date{\textit{Année 2025-2026}}
+
+\begin{document}
+\maketitle
+\section{Contexte}
+Dans le cadre du projet multidisciplinaire de 4ème du Génie physique de l'INSA Toulouse, nous devons modéliser les lentilles électrostatiques quadrupolaires 
+d'un FIB (Focused Ion Beam) en utilisant une méthode mathématique appelée la méthode des éléments de frontière. Pour ce faire, nous devons écrire un code Python 
+en utilisant notamment la bibliothèque BEMPP. Afin de pouvoir réaliser cette entreprise, il est nécessaire de comprendre l'optique des particules chargées dans le contexte
+de lentilles quadrupolaires. 
+
+\section{Démarche générale}
+\subsection{Principe de moindre action}
+Le commencement de ce raisonnement est le principe de moindre action qui s'exprime comme 
+\[
+\delta S = \int_{S0}^{S1} \vec{p}\,\frac{\vec{r}}{dS} \, \mathrm{d}s = 0
+\]
+\\
+On peut alors montrer que 
+\[
+\delta S = \int_{S0}^{S1} \mu\,\mathrm{d}z = 0
+\]
+\\
+Comme le quadrupole que nous utilisons est composé UNIQUEMENT de lentilles électrostatiques, on peut écrire
+\[
+\mu = \sqrt{\phi \, (1+x'^2+y'2)}
+\]
+avec $\mu$ l'indice optique, $\phi$ le potentiel électrostatique et x' et y' les dérivées de x et y par
+rapport à z.
+
+\subsection{Equations d'Euler-Lagrange}
+Les équations d'Euler-Lagrange sont des équations équivalentes au principe de moindre action, sous forme 
+différentielle. On peut ainsi noter 
+\[
+\frac{\partial \mu }{\partial x}-\frac{d}{dz}\left(\frac{\partial \mu }{\partial x'}\right)=0
+\]
+\[
+\frac{\partial \mu }{\partial y}-\frac{d}{dz}\left(\frac{\partial \mu }{\partial y'}\right)=0
+\]
+
+\subsection{Décomposition du potentiel}
+Une fois les équations d'Euler-Lagrange exprimées, il est utile de décomposer le potentiel $\phi$ afin de 
+séparer les solutions de ces équations en fonction de leur dépendance aux différents ordres de x et y. 
+\\
+\\
+On peut ainsi décomposer ce potentiel en série de Fourrier et en série de Taylor. 
+\\
+\\
+Dans le cadre de notre étude, c'est-à-dire dans le cadre d'un quadrupole, on observe une 2$\pi$ périodicité 
+du potentiel selon $\theta$.
+On peut donc décomposer le potentiel comme une série de Fourrier. Celle-ci, de part sa périodicité, représente 
+donc les symétries du système. On obtient alors 
+
+\[
+\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})=\sum\limits_{\nu =0}^{\infty} \phi_\nu ({\color{red}r},{\color{blue}\theta},{\color{green}z})
+\]
+
+avec 
+
+\[
+\phi_\nu ({\color{red}r},{\color{blue}\theta},{\color{green}z})=a_\nu cos(\nu{\color{blue}\theta})+b_\nu sin(\nu {\color{blue}\theta})
+\]
+\\ 
+Ainsi, le potentiel $\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})$ est composé d'une somme de fonctions dépendantes de 
+${\color{red}r}$, ${\color{blue}\theta}$ et ${\color{green}z}$. On remarque alors que les variables 
+({\color{red}r}, {\color{green}z}) et ${\color{blue}\theta}$ sont séparées sous la forme suivante: 
+\[
+\phi_\nu ({\color{red}r},{\color{blue}\theta},{\color{green}z})=f({\color{red}r},{\color{green}z})\times g({\color{blue}\theta})
+\]
+Il est nécessaire que le potentiel électrostatique satisfasse l'équation de Laplace $\Delta \phi(\vec{r})=0$. On peut
+exprimer cette même équation en coordonnées cylindriques comme  
+\[
+\frac{1}{r} \frac{\partial}{\partial r} \left(r \frac{\partial \phi}{\partial r} \right) + \frac{1}{r^2} \frac{\partial^{2}}{\partial \theta ^2}
++ \frac{1}{r^2} \frac{\partial^{2}}{\partial z ^2}=0
+\]
+En injectant $\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})=\sum\limits_{\nu =0}^{\infty} \phi_\nu ({\color{red}r},{\color{blue}\theta},{\color{green}z})$
+dans l'équation précédente, on obtient l'équation suivante
+
+\[
+\sum\limits_{\nu =0}^{\infty} \left(cos(\nu {\color{blue}\theta}) \left(\frac{\partial^{2} a_\nu}{\partial {\color{red}r}^2} + \frac{1}{{\color{red}r}} 
+\frac{\partial a_\nu}{\partial {\color{red}r}} + \frac{\partial^{2} a_\nu}{\partial {\color{green}z}^2} - a_\nu \frac{\nu ^2}{{\color{red}r}^2}\right) 
++ sin(\nu {\color{blue}\theta}) \left(\frac{\partial^{2} b_\nu}{\partial {\color{red}r}^2} + \frac{1}{{\color{red}r}} \frac{\partial b_\nu}{\partial {\color{red}r}} 
++ \frac{\partial^{2} b_\nu}{\partial {\color{green}z}^2}- b_\nu \frac{\nu ^2}{{\color{red}r}^2}\right)\right) = 0
+\]
+
+\
+\\
+On peut alors montrer que cette équation peut être résolue $\forall {\color{red}r}$, si on vérifie
+\[
+\frac{\partial^{2} a_\nu}{\partial {\color{red}r}^2} + \frac{1}{{\color{red}r}} 
+\frac{\partial a_\nu}{\partial {\color{red}r}} + \frac{\partial^{2} a_\nu}{\partial {\color{green}z}^2} - a_\nu \frac{\nu ^2}{{\color{red}r}^2}=0
+\]
+
+et 
+\[
+\frac{\partial^{2} b_\nu}{\partial {\color{red}r}^2} + \frac{1}{{\color{red}r}} \frac{\partial b_\nu}{\partial {\color{red}r}} 
++ \frac{\partial^{2} b_\nu}{\partial {\color{green}z}^2}- b_\nu \frac{\nu ^2}{{\color{red}r}^2}=0 
+\]
+
+\
+\\
+Il est maintenant utile de développer les fonctions $a_\nu ({\color{red}r},{\color{green}z})$ et $b_\nu ({\color{red}r},{\color{green}z})$
+en série de Taylor, dans le but de séparer la dépendance des variables ${\color{red}r}$ et ${\color{green}z}$. 
+Dans le cadre de notre étude, on considère des conditions paraxiales, c'est-à-dire des conditions où les rayons sont proches de l'axe optique. On effectue
+donc le développement en série de Taylor pour ${\color{red}r}=0$.
+\
+\\
+{\textit{
+{\underline{Rappel:}} 
+Une série de Taylor $f(x)$ en $x=b$ s'exprime comme $f(x)=\sum\limits_{n=0}^{\infty} a_n(x-b)^n$. 
+}}
+\
+\\
+On peut ainsi écrire 
+\[
+A_\nu ({\color{red}r},{\color{green}z})=\sum\limits_{i=0}^{\infty} a_{i\nu} ({\color{green}z}) \times ({\color{red}r})^{\nu + i}
+\]
+et 
+\[
+B_\nu ({\color{red}r},{\color{green}z})=\sum\limits_{i=0}^{\infty} b_{i\nu} ({\color{green}z}) \times ({\color{red}r})^{\nu + i}
+\]
+\
+\\ 
+On pose alors $A_{\nu 0} ({\color{green}z})=\Phi_{\nu {\color{red}r}}$ et $B_{\nu 0} ({\color{green}z})=\Phi_{\nu i}$, les composantes 
+de Fourrier du potentiel sur l'axe. On peut alors insérer les coefficients de la série de Taylor dans les composantes de la série de 
+Fourrier. On obtient alors 
+\[
+A_\nu ({\color{red}r},{\color{green}z})=\sum\limits_{\lambda=0}^{\infty} \frac{(-1)^{\lambda}\times (\nu !)}{4^{\lambda}\times \lambda !\times (\lambda +\nu)!}
+\times {\color{red}r}^{\nu +2\lambda} \times \Phi_{\nu {\color{red}r}}^{[2\lambda]}({\color{green}z}) 
+\]
+et 
+\[
+B_\nu ({\color{red}r},{\color{green}z})=\sum\limits_{\lambda=0}^{\infty} \frac{(-1)^{\lambda}\times (\nu !)}{4^{\lambda}\times \lambda !\times (\lambda +\nu)!}
+\times {\color{red}r}^{\nu +2\lambda} \times \Phi_{\nu i}^{[2\lambda]}({\color{green}z}) 
+\]
+% dans les deux expression précédentes, quelles sont les bornes des sommes: i ou lambda? 
+\
+\\
+On peut alors écrire le potentiel $\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})$ comme une somme polynomiale avec les dérivées du potentiel pris sur 
+l'axe optique comme coefficients des polynômes. On a alors 
+
+\[
+\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})= \sum\limits_{\nu =0}^{\infty}
+\sum\limits_{\lambda=0}^{\infty} \frac{(-1)^{\lambda}\times (\nu !)}{4^{\lambda}\times \lambda !\times (\lambda +\nu)!}
+\times {\color{red}r}^{\nu +2\lambda} \times \left(\Phi_{\nu {\color{red}r}}^{[2\lambda]}({\color{green}z})\times cos(\nu{\color{blue}\theta}) + 
+\Phi_{\nu i}^{[2\lambda]}({\color{green}z})\times sin(\nu{\color{blue}\theta}) \right)
+\]
+\subsection{Décomposition des différentes contributions}
+Une fois le potentiel  $\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})$ décomposé, on peut l'injecter dans l'équation 
+\[
+\mu = \sqrt{\phi \, (1+x'^2+y'2)}=\sqrt{\phi} \, \sqrt{1+x'^2+y'2}
+\]
+afin de déterminer les différentes contributions qui composent l'indice optique. 
+\
+\\
+Cependant, on remarque que l'indice optique $\nu$ dépend à l'ordre 2 des dérivées de x et y. 
+Dans la démarche de décomposer les différentes contributions de l'indice optique, il est nécessaire d'effectuer un développement limité de 
+\[
+\sqrt{1+x'^2+y'2}
+\] 
+\
+On pose X=$x'^2$ +$y'^2$ afin d'effectuer un changement de variable. 
+\
+\\
+\\
+{\textit{
+{\underline{Rappel:}} 
+Le développement limité d'une racine carrée est $\sqrt{1+X}=1+\frac{x}{2}-\frac{x^2}{8}+...$. 
+}}
+\
+\\
+\\
+On obtient ainsi les différentes contributions de l'indice optique $\mu=\mu_0+\mu_1+\mu_2+\mu_3+\mu_4+\mu_5+...$. 
+\
+\\
+Les composantes $\mu_0$, $\mu_1$ et $\mu_2$ composent la partie paraxiale de l'équation tandis que les 
+termes d'ordres supérieurs correspondent aux aberrations. $\mu_0$ correspond à l'axe optique du système. 
+$\mu_2$ correspond au paraxial du système optique.  
+\
+\\
+On note que la paraxialité a une dépendance à l'ordre 2 des variable x et y car en optique, le front d'onde est sphérique. Le front d'onde est une surface 
+d'égale phase d'une onde, c'est-à-dire que les points qui composent cette sphère ont mis le même temps de parcours depuis la source. Ainsi, dans des conditions parfaites, où les aberrations 
+de front d'onde n'existent pas, le front d'onde est parfaitement sphérique, ce qui explique la dépendance d'ordre 2 des variables x et y. 
+\\
+Lorsque le front d'onde n'est plus parfaitement sphérique, autrement dit quand le système connait une perturbation, tous les points du front d'onde ne vont plus focaliser au même endroit. 
+On obtient ainsi des aberrations. Ces dernières correspondent à tous les termes d'ordres supérieurs à 2 de la somme infini de $\nu$. b
+\
+\section{Reconstruction de la décomposition du potentiel}
+\subsection{Extraction du potentiel}
+A l'aide de la bibliothèque Python BEMPP $(Boundary Element Method Python Package)$, on peut extraire le potentiel $\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})$ 
+en tout point de l'espace. Comme vu dans la partie précédente, il est important de décomposer le potentiel afin de pouvoir séparer la contribution des différents ordres. Une fois le potentiel extrait,
+il faut donc trouver les différentes composantes de la décomposition du potentiel.
+
+\subsection{Composantes multipolaires}
+\subsubsection{Equations}
+On peut retouver les composantes multipolaires à l'aide de la formule 
+\[
+\Phi_{\nu}= \frac{2-\delta_{0\nu}}{\nu!}\left.
+(\frac{\partial^{\nu} \phi}{\partial \bar w^{\nu}})
+\right|_{ w=0}.
+\]
+où $\nu$ est l'ordre du terme multipolaire et $\delta_{0\nu}$ le symbole de Kronecker.
+\\
+Pour un développement limité à l'ordre $N$ en ${\color{red}r}$, les valeurs admissibles de $\lambda$ sont déterminées par la condition
+\[
+2\lambda + \nu \le N
+\]
+Dans le cadre de ce travail, on se limite à $N=4$ et $\nu \le 2$, ce qui conduit aux valeurs suivantes : $\lambda = 0,1,2$ pour $\nu=0$ et $\lambda = 0,1$ pour $\nu=1,2$.
+\\
+\\
+On peut alors calculer les différents ordres des composantes multipolaires: 
+\paragraph{Cas \(\nu = 0\) (monopôle)}
+\
+\\
+On a \(\delta_{00} = 1\), d'où
+\[
+\Phi_0(z) = \frac{2 - \delta_{00}}{0!} \left. \frac{\partial^{0} \phi}{\partial \bar{w}^{0}} \right|_{w=0} = \phi(x, y, z)\big|_{w=0}.
+\]
+
+\paragraph{Cas \(\nu = 1\) (dipôle)}
+\
+\\
+On a \(\delta_{01} = 0\), d'où
+\[
+\Phi_1(z) = \frac{2 - \delta_{01}}{1!} \left. \left( \frac{\partial \phi}{\partial \bar{w}} \right) \right|_{w=0} = 2 \left. \frac{\partial \phi}{\partial \bar{w}} \right|_{w=0}.
+\]
+
+\paragraph{Cas \(\nu = 2\) (quadrupôle)}
+\
+\\
+On a \(\delta_{02} = 0\), d'où
+\[
+\Phi_2(z) = \frac{2 - \delta_{02}}{2!} \left. \frac{\partial^{2} \phi}{\partial \bar{w}^{2}} \right|_{w=0} = \frac{1}{2} \left. \frac{\partial^{2} \phi}{\partial \bar{w}^{2}} \right|_{w=0}.
+\]
+
+\paragraph{Cas \(\nu = 3\) (hexapôle)}
+\
+\\
+On a \(\delta_{03} = 0\), d'où
+\[
+\Phi_3(z) = \frac{2 - \delta_{03}}{3!} \left. \frac{\partial^{3} \phi}{\partial \bar{w}^{3}} \right|_{w=0} = \frac{1}{3} \left. \frac{\partial^{3} \phi}{\partial \bar{w}^{3}} \right|_{w=0}.
+\]
+
+\paragraph{Cas \(\nu = 4\) (octopôle)}
+\
+\\
+On a \(\delta_{04} = 0\), d'où
+\[
+\Phi_4(z) = \frac{2 - \delta_{04}}{4!} \left. \frac{\partial^{4} \phi}{\partial \bar{w}^{4}} \right|_{w=0} = \frac{1}{12} \left. \frac{\partial^{4} \phi}{\partial \bar{w}^{4}} \right|_{w=0}.
+\]
+
+\paragraph{Cas général}
+\
+\\
+On obtient finalement avec \(\bar{w} = x - iy\) et \(\frac{\partial}{\partial \bar{w}} = \frac{1}{2}\left(\frac{\partial}{\partial x} + i\frac{\partial}{\partial y}\right)\) que
+
+\[
+\begin{aligned}
+\Phi_0(z) &= \phi(x, y, z)\big|_{x=y=0}, \\[0.4em]
+\Phi_1(z) &= \left. \left( \frac{\partial \phi}{\partial x} + i \frac{\partial \phi}{\partial y} \right) \right|_{x=y=0}, \\[0.6em]
+\Phi_2(z) &= \left. \frac{1}{8} \left( \frac{\partial^{2} \phi}{\partial x^{2}} - \frac{\partial^{2} \phi}{\partial y^{2}} - 2i \frac{\partial^{2} \phi}{\partial x \partial y} \right) \right|_{x=y=0}, \\[0.6em]
+\Phi_3(z) &= \left. \frac{1}{24} \left( \frac{\partial^{3} \phi}{\partial x^{3}} - 3 \frac{\partial^{3} \phi}{\partial x \partial y^{2}} - 3i \frac{\partial^{3} \phi}{\partial x^{2} \partial y} + i \frac{\partial^{3} \phi}{\partial y^{3}} \right) \right|_{x=y=0}, \\[0.6em]
+\Phi_4(z) &= \left. \frac{1}{192} \left( \frac{\partial^{4} \phi}{\partial x^{4}} - 6 \frac{\partial^{4} \phi}{\partial x^{2} \partial y^{2}} + \frac{\partial^{4} \phi}{\partial y^{4}} - 4i \frac{\partial^{4} \phi}{\partial x^{3} \partial y} + 4i \frac{\partial^{4} \phi}{\partial x \partial y^{3}} \right) \right|_{x=y=0}.
+\end{aligned}
+\]
+
+
+Ici, $\frac{\partial^{\nu} \phi}{\partial \bar w^{\nu}}$ représente la dérivée d'ordre $\nu$ du potentiel par rapport à la coordonnée transverse $w$ évaluée sur l'axe central $w=0$.  
+\
+\\
+Comme dans le cas de notre code, on choisit le référentiel (x,y) tel qu'un cosinus décrit le quadrupole. On peut donc écrire:
+\\
+\[
+\begin{aligned}
+\Phi_0(z) &= \phi(x,y,z)\big|_{x=y=0} \\[1em]
+\Phi_1(z) &=\left.\left(\frac{\partial \phi}{\partial x}\right)\right|_{x=y=0} \\[1em]
+\Phi_2(z) &=\left.\frac{1}{8}\left(\frac{\partial^{2} \phi}{\partial x^{2}}-\frac{\partial^{2} \phi}{\partial y^{2}}\right)\right|_{x=y=0} \\[1em]
+\Phi_3(z) &=\left.\frac{1}{24}\left(\frac{\partial^{3} \phi}{\partial x^{3}}-3 \frac{\partial^{3} \phi}{\partial x \partial y^{2}}\right)\right|_{x=y=0} \\[1em]
+\Phi_4(z) &=\left.\frac{1}{192}\left(\frac{\partial^{4} \phi}{\partial x^{4}}-6 \frac{\partial^{4} \phi}{\partial x^{2} \partial y^{2}}+\frac{\partial^{4} \phi}{\partial y^{4}}\right)\right|_{x=y=0}
+\end{aligned}
+\]
+\subsubsection{Applications dans BEMPP}
+\
+\\
+Les dérivées d’ordre supérieur du potentiel par rapport à la coordonnée transverse $w$, à savoir
+\[
+\frac{\partial \phi}{\partial \bar w}
+\quad \text{et} \quad
+\frac{\partial^2 \phi}{\partial \bar w^2},
+\]
+sont obtenues directement à l’aide des dérivées de BEMPP.
+\
+\\
+\begin{itemize}
+  \item le gradient du potentiel via \texttt{single\_layer\_gradient}, correspondant à $\nabla \phi$ 
+  \item la dérivée seconde via \texttt{single\_layer\_2nd\_deriv}.
+\end{itemize}
+\
+\\
+On a pour le terme dipolaire 
+
+\begin{align*}
+E\_eval[0, :]  &= -\frac{\partial \phi}{\partial x} \\
+E\_eval[1, :]  &= -\frac{\partial \phi}{\partial y }\\
+E\_eval[2, :]  &= -\frac{\partial \phi}{\partial x }\\
+\end{align*}
+
+\
+\\
+On a pour le terme quadripolaire:
+\begin{align*}
+D2\_eval[0, :] &= \frac{\partial^{2} \phi}{\partial x^{2}} \\
+D2\_eval[3, :] &= \frac{\partial^{2} \phi}{\partial y^{2}} \\
+D2\_eval[1, :] &= \frac{\partial^{2} \phi}{\partial x \partial y}\\
+D2\_eval[5, :] &= \frac{\partial^{2} \phi}{\partial z^2}\\
+\end{align*}
+\
+\\
+On a pour le terme hexapolaire  : 
+
+\begin{align*}
+D3\_eval[0, :] &= \frac{\partial^{3} \phi}{\partial x^{3}} \\
+D3\_eval[4, :] &= \frac{\partial^{3} \phi}{\partial x\partial y^{2}} \\
+D3\_eval[1, :] &= \frac{\partial^{3} \phi}{\partial x^{2} \partial y}\\
+D3\_eval[6, :] &= \frac{\partial^{3} \phi}{\partial y^{3}} \\
+\end{align*}
+\
+\\
+On a pour le terme octopolaire 
+\begin{align*}
+D4\_eval[0, :] &= \frac{\partial^{4} \phi}{\partial x^{4}} \\
+D4\_eval[4, :] &= \frac{\partial^{4} \phi}{\partial x^{2}\partial y^{2}} \\
+D4\_eval[10, :] &= \frac{\partial^{4} \phi}{\partial y^{4}}\\
+D4\_eval[1, :] &= \frac{\partial^{4} \phi}{\partial x^{3}\partial y }\\
+D4\_eval[7, :] &= \frac{\partial^{4} \phi}{\partial x\partial y^{3}}\\
+\end{align*}
+\
+\\
+\subsubsection{Résultats attendus}
+\
+\\
+\subsubsection{Fonctions de fit}
+Afin de vérifier résultats que nous obtenons, il est utile de comparer ces derniers aux résultats publiés par S.Okayama dans son papier;
+\textit{[S. Okayama et H. Kawakatsu, «Potential distribution and focal properties of electrostatic quadrupole lenses », 
+Journal of Physics E: Scientific Instruments, vol. 11, no 3, p. 211, 1978]}. Dans cet article, des fonctions de 
+fit sont utilisées. Il est donc intéressant d'exprimer ces mêmes fonctions dans le cadre de notre étude 
+afin de pouvoir s'assurer de la fiabilité des résultats. 
+\
+\\
+Dans le papier d'Okayama, les fonctions de fit sont exprimmées comme:
+\
+\\
+\[
+\Phi_0(Z)=V_A k_0 (Z) 
+\]
+\[ 
+\Phi_2(Z)=\frac{V_Q}{a^2} k_2 (Z) 
+\]
+\[
+\Phi_4(Z)=\frac{V_A}{a^4} k_4 (Z)
+\]
+\
+\\
+avec $\Phi_0(Z)$, $\Phi_2(Z)$ et $\Phi_4(Z)$ les composantes du potentiel sur l'axe, $k_0(z)$, $k_2(z)$ et $k_4(z)$
+les fonctions de fit, $V_A$ le potentiel des apertures et $V_Q$ la valeur absolue du potentiel des quadrupoles. 
+\\
+De plus, les fonctions de fit sont définies comme 
+\
+\\
+
+\[
+k_0 (Z)=a_0 \exp{\left(- \frac{Z^2}{b^2}\right)}
+\]
+\
+\\
+\[
+\left\{
+  \begin{array} {ll}
+    k_2 (Z)=1 \quad & \mbox{pour } (-Z_0\leq Z\leq Z_0)
+    \
+    \\
+    k_2 (Z)=\exp{\left(- \frac{(Z-Z_0)^2}{b^2}\right)} \quad & \mbox{pour } (Z<-Z_0, Z>Z_0)
+  \end{array}
+\right.
+\]
+\
+\\
+\[
+\left\{
+  \begin{array} {ll}
+    k_4 (Z)=\frac{a_4}{\left(1+\frac{Z^2}{b_1 ^2}\right)^2} \quad & \mbox{pour } (Z\leq 0)
+    \
+    \\
+    k_4 (Z)=a_4 \exp{\left(- \frac{Z^2}{b_2 ^2}\right)} \quad & \mbox{pour } (Z < 0)
+  \end{array}
+\right.
+\]
+
+\section{Trajectoire}
+
+\subsection{Principe de fermat}
+Pour obtenir l'équation de la trajectoire on peut partir du principe de fermat 
+\[
+\delta \int \mu ds = 0
+\]
+Dans le cas de l'optique des particules chargés l'indice optique s'écrit comme 
+\[
+\mu = \sqrt{\phi(1+x'^2 + y'2}
+\]
+On a donc notre Lagrangian de notre systeme 
+\[
+L(x,y,x',y',z)= \sqrt{{\phi(1+x'^2 + y'2}}
+\]
+
+
+
+\subsection{Cas $\nu$ = 2, quadrupole}
+Si on prend le cas $\nu$ = 2, notre potentiel devient : 
+\[
+\phi_2(r,\theta,z) = r^{2}\times(\phi_2(z)\times \cos(2\theta))
++ \frac{r^{4}}{12} \times (\phi_2''(z)\times \cos(4\theta))
+\]
+avec $r^2\cos(2\theta)=x^2-y^2$\\
+
+On a donc dans l'approximation paraxiale $\phi_2(r, \theta, z) =\phi_2(z)(x^2 -y^2)$ et donc
+dans la cas paraxiale : 
+
+\[
+\phi(x,y,z) = \phi_0(z) - \frac{1}{4}\phi_0''(z)(x^2+y^2) + \phi_2(z)(x^2 - y^2)
+\]
+
+
+On peut ensuite injecter ce potentiel dans notre indice optique $\mu = \sqrt{\phi(1+x'^2+ y'2}$, aprés développement on retrouve les equations d'euler lagrange dans le cas d'un quadrupole)
+
+On peut écrire notre indice optique comme $\mu = \sqrt{\phi(1+\epsilon}$ avec $\epsilon : x'^2 +y'^2$. 
+d'après Taylor on a $\sqrt{1+\epsilon} = 1 +\frac{\epsilon}{2}$ \\
+En remplacant $\epsilon$ on peut donc développer l'indice optique comme 
+\[
+\mu = \sqrt{\phi}\times \sqrt{1+x'^2+y'^2} = \sqrt{\phi}\times(1+\frac{1}{2}(x'^2
++ y'^2)  = \sqrt{\phi} + \frac{\sqrt{\phi}}{2}(x'^2+y'2)
+\]
+
+En remplacant $\phi$ par son approximation paraxiale on a :
+
+\[
+\mu \approx \sqrt{\phi_0 - \frac{1}{4}\phi_0''(x^2+y^2) + \phi_2(x^2-y^2)} + \frac{\sqrt{\phi_0 + \dots}}{2}(x'^2+y'^2)
+\]
+
+avec 
+
+\[
+\sqrt{\phi_0 - \frac{1}{4}\phi_0'' (x^2+y^2) + \phi_2(x^2-y^2)} = \sqrt{\phi_0} \sqrt{1 -\frac{\phi_0''}{4\phi_0}(x^2+y^2) + \frac{\phi_2}{\phi_0}(x^2-y^2)}
+\]
+
+En utilisant $\sqrt{1+\epsilon} \approx 1 + \frac{\epsilon}{2}$, on obtient :
+ \[
+\sqrt{\phi_0} \left( 1 - \frac{\phi_0''}{8\phi_0}(x^2+y^2) + \frac{\phi_2}{2\phi_0}(x^2-y^2) \right) = \sqrt{\phi_0} - \frac{\phi_0''}{8\sqrt{\phi_0}}(x^2+y^2) + \frac{\phi_2}{2\sqrt{\phi_0}}(x^2-y^2)
+\]
+ 
+
+\[
+\mu = \sqrt{\phi_0}- \frac{\phi_0''}{8\sqrt{\phi_0}}(x^2+y^2) + \frac{\phi_2}{2\sqrt{\phi_0}}(x^2-y^2) + \frac{\sqrt{\phi_0}}{2}(x'^2+y'^2)
+\]
+
+
+On peut injecter $\mu$ dans les equations d'euler lagrange pour retrouver l
+
+\[
+\frac{\partial \mu }{\partial x}-\frac{d}{dz}\left(\frac{\partial \mu }{\partial x'}\right)=0
+\]
+\[
+\frac{\partial \mu }{\partial y}-\frac{d}{dz}\left(\frac{\partial \mu }{\partial y'}\right)=0
+\]
+
+Avec :
+\[
+\frac{\partial \mu }{\partial x} = -\frac{\phi_0''}{4\sqrt{\phi_0}}x + \frac{\phi_2}{\sqrt{\phi_0}}x = \left(- \frac{\phi_0''}{4\sqrt{\phi_0}} + \frac{\phi_2}{\sqrt{\phi_0}} \right) x
+\]
+\[
+\frac{\partial \mu }{\partial x'} = \sqrt{\phi_0}x'
+\]
+\[
+\frac{d}{dz} \left( \frac{\partial \mu}{\partial x'} \right) = \sqrt{\phi_0}x'' + \frac{\phi_0'}{2\sqrt{\phi_0}}x'
+\]
+
+On obtient finalement l'équation :
+
+\[
+\left( -\frac{\phi_0''}{4\sqrt{\phi_0}} + \frac{\phi_2}{\sqrt{\phi_0}} \right) x - \left( \sqrt{\phi_0}x'' + \frac{\phi_0'}{2\sqrt{\phi_0}}x' \right) = 0
+\]
+En multipliant par $-\frac{1}{\sqrt{\phi_0}}$, on retrouve la forme :
+\[
+x'' + \frac{\phi_0'}{2\phi_0}x' + \left( \frac{\phi_0''}{4\phi_0} - \frac{\phi_2}{\phi_0} \right)x = 0
+\]
+
+
+
+
+
+
+\subsection{Equation d'euler lagrange }
+Il nous reste donc à resoudre les equations différentiels suivante à l'aide de la méthode Runge 
+kutta 4 afin d'obtenir les trajectoires
+
+\[
+x''(z) + \frac{\phi'_0(z)}{2\phi_0}x'(z) + \left( \frac{\phi_0''(z)}{4\phi_0(z)} -
+\frac{\phi_2(z)}{\phi_0(z)}\right) x(z) = 0
+\]
+
+\[
+y''(z) + \frac{\phi'_0(z)}{2\phi_0}y'(z) + \left(\frac{\phi_0''(z)}{4\phi_0(z)} +
+\frac{\phi_2(z)}{\phi_0(z)}\right) y(z) = 0
+\]
+
+
+On peut trouver les solutions tq :
+\\
+ rayon principal : $x(z_0) = 1, x'(z_0) = 0$
+\\
+ rayon marginal : $ x(z_0) = 0, x'(z_0) = 1$
+
+
+
+\subsection{Résolution equa diff(cas sans polariser les apertures)}
+Dans les deux cas à é résoudre une équation différentiel de type 
+\[
+x''(z) + \omega_0^2 x = 0
+\]
+On résout cette équation avec la methode Runge Kutta 4 avec les condtions initales :\\
+Pour le rayon principal :
+
+$x(z_0) = 1$ et $x'(z_0) = 0$
+
+
+Pour le rayon marginal : 
+
+$x(z_0) = 0$ et  $x'(z_0) = 1$ 
+
+On peut verifier le résultat analtyqiuement 
+
+\subsection{Vérification des résultats}
+\subsubsection{Cas $\omega_0 > 0$}
+
+On verifie les résultats analatiquement
+
+Dans le cas où $\omega_0^2 > 0$, on a (focalisation direction x):
+\[
+x''(z) + \omega_0^2 x(z) = 0 .
+\]
+
+La solution générale est alors :
+\[
+x_m(z) = A \cos\!\left(\omega_0 (z - z_0)\right)
++ B \sin\!\left(\omega_0 (z - z_0)\right).
+\]
+
+On considère le cas du rayon marginal :
+\[
+x(z_0) = 0, \qquad x'(z_0) = 1 .
+\]
+
+\[
+x(z_0) = A = 0 .
+\]
+
+\[
+x'(z) =
+- \omega_0 A \sin\!\left(\omega_0 (z - z_0)\right)
++ \omega_0 B \cos\!\left(\omega_0 (z - z_0)\right).
+\]
+
+Ainsi :
+\[
+x'(z_0) = \omega_0 B = 1 ,
+\qquad \Rightarrow \qquad
+B = \frac{1}{\omega_0}.
+\]
+
+On obtient finalement la solution analytique du rayon marginal :
+\[
+\boxed{
+x_m(z) = \frac{1}{\omega_0}
+\sin\!\left(\omega_0 (z - z_0)\right)
+}
+\]
+
+On considère  le cas du rayon principal:
+\[
+x(z_0) = 1, \qquad x'(z_0) = 0 .
+\]
+
+\[
+x(z_0) = A = 1 .
+\]
+\[
+x'(z) =
+- \omega_0 A \sin\!\left(\omega_0 (z - z_0)\right)
++ \omega_0 B \cos\!\left(\omega_0 (z - z_0)\right).
+\]
+
+\[
+x'(z_0) = \omega_0 B = 0 , \qquad \Rightarrow \qquad B = 0 .
+\]
+
+On obtient finalement la solution  du rayon principal :
+\[
+\boxed{
+x_p(z) = \cos\!\left(\omega_0 (z - z_0)\right)
+}
+\]
+
+
+\subsubsection{Cas $\omega_0 <0$}
+Dans le cas ou $\omega_0$ est inférieur à 0 (dans la direction y) on obtient la trajectoire de défocalisation
+on a 
+\[
+y''(z) + \omega_0^2 y(z) = 0 .
+\]
+
+La solution générale est alors :
+\[
+y_m(z) = A \cosh\!\left(\omega_0 (z - z_0)\right)
++ B \sinh\!\left(\omega_0 (z - z_0)\right).
+\]
+
+On considère le cas du rayon marginal :
+\[
+y(z_0) = 0, \qquad y'(z_0) = 1 .
+\]
+
+\[
+y(z_0) = A = 0 .
+\]
+
+\[
+y'(z) =
+- \omega_0 A \sinh\!\left(\omega_0 (z - z_0)\right)
++ \omega_0 B \cosh\!\left(\omega_0 (z - z_0)\right).
+\]
+
+Ainsi :
+\[
+y'(z_0) = \omega_0 B = 1 ,
+\qquad \Rightarrow \qquad
+B = \frac{1}{\omega_0}.
+\]
+
+On obtient finalement la solution analytique du rayon marginal :
+\[
+\boxed{
+y_m(z) = \frac{1}{\omega_0}
+\sinh\!\left(\omega_0 (z - z_0)\right)
+}
+\]
+
+On considère  le cas du rayon principal:
+\[
+y(z_0) = 1, \qquad y'(z_0) = 0 .
+\]
+
+\[
+y(z_0) = A = 1 .
+\]
+\[
+y'(z) =
+- \omega_0 A \sinh\!\left(\omega_0 (z - z_0)\right)
++ \omega_0 B \cosh\!\left(\omega_0 (z - z_0)\right).
+\]
+
+\[
+y'(z_0) = \omega_0 B = 0 , \qquad \Rightarrow \qquad B = 0 .
+\]
+
+On obtient finalement la solution  du rayon principal :
+\[
+\boxed{
+y_p(z) = \cosh\!\left(\omega_0 (z - z_0)\right)
+}
+\]
+
+\section{Document Okayama}
+
+
+\end{document}
