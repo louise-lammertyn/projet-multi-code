@@ -22,7 +22,7 @@ class Paraxial_trajectories():
 
 
 #Definition of a class to determine ion's properties
-class Ion(Paraxial): 
+class Ion(Paraxial_trajectories): 
     def __init__(self, mass, charge, name, x, vx, y, vy):
         #Use of super() function to give access methods and properties of a parent or sibling class
         super().__init__()
@@ -49,7 +49,7 @@ class Ion(Paraxial):
 
 
 #Definition of a class to simulate trajectories
-class Trajectoire(Paraxial):
+class Trajectoire(Paraxial_trajectories):
     def __init__(self):
         #Use of super() function to give access methods and properties of a parent or sibling class
         super().__init__()
@@ -83,18 +83,20 @@ class Trajectoire(Paraxial):
         dz_mm = data.axe_z[1] - data.axe_z[0] 
         ion.save_step()
         
+        #x''+(phi0'/2phi0)x'+((phi0''/4phi0)-(phi2/phi0))x=0
+
         for i in range(len(data.axe_z) - 1):
-            phi_total = V_acc + decomp.Phi0_maj[i]
+            phi_total = V_acc + decomp.Phi0_maj[i] #je comprends ce que c'est cette ligne
             
             if abs(phi_total) < 0.1:
                 phi_total = 0.1 if phi_total >= 0 else -0.1
 
-            terme_axial = data.D2zphi0[i] / (4 * phi_total)
-            terme_quad = decomp.Phi2_maj[i] / phi_total
+            terme_axial = data.D2zphi0[i] / (4 * phi_total) #(phi0''/4phi0)
+            terme_quad = decomp.Phi2_maj[i] / phi_total #(phi2/phi0)
             
-            alphax = terme_axial - terme_quad
-            alphay = terme_axial + terme_quad
-            beta = data.D1zphi0[i] / (2 * phi_total)
+            alphax = terme_axial - terme_quad #(phi0''/4phi0)-(phi2/phi0)
+            alphay = terme_axial + terme_quad #(phi0''/4phi0)+(phi2/phi0) d'où sort ce terme?
+            beta = data.D1zphi0[i] / (2 * phi_total) #(phi0'/2phi0)
             
             #on envoie a RK4 pour résoudre equa diff 
             ion.state_x = self.RK4_step(self.equation, ion.state_x, data.axe_z[i], dz_mm, alphax, beta)
@@ -113,8 +115,6 @@ class Trajectoire(Paraxial):
         n_points= len(data.axe_z)*n
         self.z_conv = np.linspace(data.axe_z[0], data.axe_z[-1], n_points)
         self.dz_conv = self.z_conv[1]-self.z_conv[0]
-    
-
 
         # création de fonctions continues comme ca on peut réduire le pas 
         self.f_phi0 = interp1d(data.axe_z, decomp.Phi0_maj, kind = 'cubic')

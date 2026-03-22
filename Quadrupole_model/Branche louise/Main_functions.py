@@ -69,11 +69,6 @@ class Generation_quad():
         file_path = self.reconstr.save(file_name)
         return file_path
 
-                        
-
-
-
-
 
 class Data_exploitation:
     """
@@ -200,8 +195,6 @@ class SimulationParaxiale:
         for ion in liste_ions:
             ion.history_x = []
             ion.history_y = []
-            self.traj.simulation3(ion, self.extracted, self.decomp)
+            self.traj.simulation(ion, self.extracted, self.decomp)
 
         self.traj.plot_faisceau(liste_ions, self.extracted)
-
-        
