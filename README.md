@@ -9,10 +9,10 @@ Extraction_data --> Check \
 Multipolar_decomposition --> Check \
 Fit_functions --> Check \
 Graphs --> Check\
-Paraxial --> \
-Je ne comprends pas ce que font les fonctions: equations, simulation, convergence
-Quelle est la différence entre les deux fonctions de simulation? 
-Est-ce possible de simplifier le plot?
+Paraxial --> A revoir \
+Je ne comprends pas ce que font les fonctions: equations, simulation, convergence\
+Quelle est la différence entre les deux fonctions de simulation? \
+Est-ce possible de simplifier le plot?\
 okayama_quad --> \
 reconstruction --> \
 
