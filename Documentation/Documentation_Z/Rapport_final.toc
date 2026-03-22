@@ -45,9 +45,9 @@
 \contentsline {section}{\numberline {3.3}Programe principal}{20}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Data}{20}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Geometry}{21}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Field calculation}{24}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.3}Field calculation}{25}{subsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.3.4}Extraction data}{28}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}Multipolar decomposition}{29}{subsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.3.6}Fit functions}{30}{subsection.3.3.6}%
-\contentsline {subsection}{\numberline {3.3.7}Graphs}{32}{subsection.3.3.7}%
-\contentsline {subsection}{\numberline {3.3.8}Paraxial}{34}{subsection.3.3.8}%
+\contentsline {subsection}{\numberline {3.3.5}Multipolar decomposition}{30}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Fit functions}{31}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}Graphs}{33}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}Paraxial}{35}{subsection.3.3.8}%
