@@ -168,9 +168,16 @@ class Trajectoire(Paraxial):
         ax[3].set_title("rayon marginal")
         ax[3].legend()
 
-        
+     
+
         
         plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+        plt.show()
+
+        plt.figure(2)
+        plt.plot(data.axe_z, marginal.history_x, 'r-', label="rayon marginal")
+        plt.plot(data.axe_z, marginal.history_y, 'b-', label="rayon marginal")
+        plt.xlabel('mm')
         plt.show()
 
 
@@ -217,5 +224,5 @@ class Trajectoire(Paraxial):
             plt.plot(data.axe_z, element.history_x,label=f"x0 = {element.history_x[0]:.2f} mm" )
             plt.legend()
         plt.x_axis =("z en mm")
-        plt.axis_y = ("axe x en mm")
+        plt.y_axis = ("axe x en mm")
         plt.show()
