@@ -3,32 +3,33 @@ import os
 from Extraction_data import Extracted_data
 
 class Reconstruction:
-    def __init__(self, output_dir, tensions_reelles: dict):
+    def __init__(self, output_dir, real_tension: dict):
         """
-        Reconstitue le potentiel complet à partir des potentiels unitaire de chaque élément du quadrupole 
-        tensions_reelles : dict {'va1':int, 'va2':int, 'vq13':int, 'vq24':int , vaAc:int}
+        Reconstruction of the complete potential through unitary potential of every quadrupole's element
+        real_tension : dict {'va1':int, 'va2':int, 'vq13':int, 'vq24':int , vaAc:int}
         """
-        self.v = tensions_reelles
+        self.v = real_tension
         self.output_dir = output_dir
 
-        # 1. Chemins des fichiers de base (unitaires)
+        #1. Files' paths (unitary components)
         ap1_path = os.path.join(output_dir, "aperture1.npz")
         ap2_path = os.path.join(output_dir, "aperture2.npz")
         quad13_path = os.path.join(output_dir, "quad13.npz")
         quad24_path = os.path.join(output_dir, "quad24.npz")
 
-        # 2. Chargement des données via la classe Extracted_data
+        #2. Download of data via Extracted_data class
         d_ap1 = Extracted_data(ap1_path)
         d_ap2 = Extracted_data(ap2_path)
         d_q13 = Extracted_data(quad13_path)
         d_q24 = Extracted_data(quad24_path)
 
-        # 3. Paramètres géométriques et fixes (extraits de la base 1)
+        #3. Paramètres géométriques et fixes (extraits de la base 1) --> ça veut dire quoi? 
+        #3. Geometrical parameters 
         self.points = d_ap1.points
         self.axe_z = d_ap1.axe_z
         self.radius_axis = d_ap1.radius_axis
         
-        # Identifiants de groupes
+        #Group identifiers
         self.group_id_ap1 = d_ap1.group_id_ap1
         self.group_id_ap2 = d_ap1.group_id_ap2
         self.group_id_cyl1 = d_ap1.group_id_cyl1
@@ -37,12 +38,12 @@ class Reconstruction:
         self.group_id_cyl4 = d_ap1.group_id_cyl4
         self.group_id_shield = d_ap1.group_id_shield
 
-        # Paramètres de maillage
+        #Mesh parameters
         self.MeshSizeMin = d_ap1.MeshSizeMin
         self.MeshSizeMax = d_ap1.MeshSizeMax
         self.MeshSizeFromCurvature = d_ap1.MeshSizeFromCurvature
 
-        # Dimensions
+        #Dimensions
         self.dist_shield_apert = d_ap1.dist_shield_apert
         self.dist_apert_quad = d_ap1.dist_apert_quad
         self.radius_ext_shield = d_ap1.radius_ext_shield
@@ -53,7 +54,7 @@ class Reconstruction:
         self.length_cylinder = d_ap1.length_cylinder
         self.total_length = d_ap1.total_length
 
-        # Coordonnées
+        #Coordinates
         self.coord_cylinder_x_or_y = d_ap1.coord_cylinder_x_or_y
         self.coord_cylinder_z = d_ap1.coord_cylinder_z
         self.coord_apert_z1 = d_ap1.coord_apert_z1
@@ -69,28 +70,18 @@ class Reconstruction:
         self.start_shield2 = d_ap1.start_shield2
         self.end_shield2 = d_ap1.end_shield2
 
-        #somme pot unitaire / Vrelle que l'on veut appliquer
+        #Sum of unitary potential --> real tensions
         v = self.v
-        
-        self.potential = (v["va1"] * d_ap1.potential + v["va2"] * d_ap2.potential + 
-                          v["vq13"] * d_q13.potential + v["vq24"] * d_q24.potential)
+        self.potential = (v["va1"] * d_ap1.potential + v["va2"] * d_ap2.potential + v["vq13"] * d_q13.potential + v["vq24"] * d_q24.potential)
+        self.D1 = (v["va1"] * d_ap1.D1 + v["va2"] * d_ap2.D1 + v["vq13"] * d_q13.D1 + v["vq24"] * d_q24.D1)        
+        self.D2 = (v["va1"] * d_ap1.D2 + v["va2"] * d_ap2.D2 + v["vq13"] * d_q13.D2 + v["vq24"] * d_q24.D2)
+        self.D3 = (v["va1"] * d_ap1.D3 + v["va2"] * d_ap2.D3 + v["vq13"] * d_q13.D3 + v["vq24"] * d_q24.D3)        
+        self.D4 = (v["va1"] * d_ap1.D4 + v["va2"] * d_ap2.D4 + v["vq13"] * d_q13.D4 + v["vq24"] * d_q24.D4)
 
-        self.D1 = (v["va1"] * d_ap1.D1 + v["va2"] * d_ap2.D1 + 
-                   v["vq13"] * d_q13.D1 + v["vq24"] * d_q24.D1)
-        
-        self.D2 = (v["va1"] * d_ap1.D2 + v["va2"] * d_ap2.D2 + 
-                   v["vq13"] * d_q13.D2 + v["vq24"] * d_q24.D2)
-
-        self.D3 = (v["va1"] * d_ap1.D3 + v["va2"] * d_ap2.D3 + 
-                   v["vq13"] * d_q13.D3 + v["vq24"] * d_q24.D3)
-        
-        self.D4 = (v["va1"] * d_ap1.D4 + v["va2"] * d_ap2.D4 + 
-                   v["vq13"] * d_q13.D4 + v["vq24"] * d_q24.D4)
-
-        # Potentiel sur l'axe (D0)
+        #Axis potential (D0)
         self.D0 = self.potential[0]
 
-        # Tensions finales
+        #Final tensions
         self.Vapert1 = v["va1"]
         self.Vapert2 = v["va2"]
         self.Velectrode13 = v["vq13"]
@@ -98,12 +89,12 @@ class Reconstruction:
         self.Vacceleration = v['vaAc']
 
     def derivative(self) -> None:
-        """ Calcul des dérivées spécifiques pour les trajectoires paraxiales """
+        """ Calculation of specific derivatives for paraxial trajectories """ #--> pourquoi on n'utilise pas les dérivées classiques?
         self.D2zphi0 = self.D2[5]  # phi_0''
         self.D1zphi0 = self.D1[2]  # phi_0'
 
+    #Function to save data
     def save(self, filename="quad_reconstuire.npz"):
-        
         save_path = os.path.join(self.output_dir, filename)
         np.savez_compressed(
             save_path,
@@ -163,4 +154,3 @@ class Reconstruction:
         print(f"Fichier reconstruit sauvegardé : {save_path}")
 
         return save_path
-

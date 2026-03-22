@@ -13,10 +13,10 @@ Paraxial --> A revoir \
 Je ne comprends pas ce que font les fonctions: equations, simulation, convergence\
 Quelle est la différence entre les deux fonctions de simulation? \
 Est-ce possible de simplifier le plot?\
-okayama_quad --> \
-reconstruction --> \
+Okayama_quad --> besoin de plus d'explications
+Reconstruction --> il reste un commentaire en français
 
-Main_functions --> \
+Main_functions --> après explications
 
 Potential_extraction --> \
 Data_exploitation --> \

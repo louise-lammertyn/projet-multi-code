@@ -1,63 +1,50 @@
-from reconstruction import Reconstruction
+from Reconstruction import Reconstruction
 from Main_functions import Generation_quad
 import os
 import numpy as np 
 
 class Okayama_quad():
-    def __init__(self, output_dir, zquad : list, liste_tension : list):
+    def __init__(self, output_dir, zquad : list, tension_list : list):
         """
-        zquad = liste des offsets des quads
-        Liste tensions des n quads
+        zquad = list of quadrupoles' offsets 
+        List of the tensions of n quadrupoles
         """
         self.output_dir = output_dir
-        self.liste_tension = liste_tension 
-        self.zquad = zquad #offset 
+        self.tension_list = tension_list
+        self.zquad = zquad #offset --> à quoi ils servent? 
 
-       
-
-
-        self.quad1 = Reconstruction(output_dir, liste_tension[0]) #pour avoir acces au paramètre 
+        self.quad1 = Reconstruction(output_dir, tension_list[0]) #to access parameters
         self.zquad = [z - self.quad1.start_apert1 for z in zquad]
-        #creation axe z total 
+
+        #Creation of total Z axis
         dz = self.quad1.axe_z[1] - self.quad1.axe_z[0]
-        # On définit une fin de ligne assez longue
+
+        #Definition of a long end of line
         z_max = max(zquad) + self.quad1.total_length + 20 
         self.axe_zt = np.arange(0, z_max, dz)
         lenz = len(self.axe_zt)
 
 
-        #creation des tableaux pour y mettre la somme des potentiel 
-
-        self.potentiel_total = np.zeros((self.quad1.potential.shape[0],lenz))
+        #Matrix to store sum of potentials
+        self.potential_total = np.zeros((self.quad1.potential.shape[0],lenz))
         self.D1_total = np.zeros((self.quad1.D1.shape[0],lenz))
         self.D2_total = np.zeros((self.quad1.D2.shape[0],lenz))
         self.D3_total = np.zeros((self.quad1.D3.shape[0],lenz))
         self.D4_total = np.zeros((self.quad1.D4.shape[0],lenz))
-
-        #ajout au tableau global  pour chaque quad 
-
         
-        #somme des quads 
-
+        #Sum of quads
         for i, z_off in enumerate(zquad):
-            quad_i = self.quad1 = Reconstruction(output_dir, liste_tension[i])
-            self.ajout_tab(self.potentiel_total, quad_i.potential,quad_i.axe_z, z_off)
-            self.ajout_tab(self.D1_total, quad_i.D1,quad_i.axe_z, z_off)
-            self.ajout_tab(self.D2_total, quad_i.D2,quad_i.axe_z, z_off)
-            self.ajout_tab(self.D3_total, quad_i.D3,quad_i.axe_z, z_off)
-            self.ajout_tab(self.D4_total, quad_i.D4,quad_i.axe_z, z_off)
+            quad_i = self.quad1 = Reconstruction(output_dir, tension_list[i])
+            self.add_matrix(self.potential_total, quad_i.potential,quad_i.axe_z, z_off)
+            self.add_matrix(self.D1_total, quad_i.D1,quad_i.axe_z, z_off)
+            self.add_matrix(self.D2_total, quad_i.D2,quad_i.axe_z, z_off)
+            self.add_matrix(self.D3_total, quad_i.D3,quad_i.axe_z, z_off)
+            self.add_matrix(self.D4_total, quad_i.D4,quad_i.axe_z, z_off)
 
-
-
-    def ajout_tab(self, total_array, local_array, local_z, offset):
+    #je ne comprends pas ce que fait cette
+    def add_matrix(self, total_array, local_array, local_z, offset):
         for j in range(total_array.shape[0]):
-            valeurs_interpolees = np.interp(
-                self.axe_zt, 
-                local_z + offset, 
-                local_array[j, :], 
-                left=0, 
-                right=0
-            )
+            valeurs_interpolees = np.interp(self.axe_zt, local_z + offset, local_array[j, :], left=0, right=0)
             total_array[j, :] += valeurs_interpolees
 
     def save(self, filename="okayama_quad_total.npz"):
@@ -71,7 +58,7 @@ class Okayama_quad():
             save_path,
             # --- Indispensables pour Extracted_data ---
             points=pts,
-            potential=self.potentiel_total,
+            potential=self.potential_total,
             E_eval=self.D1_total,
             D2_eval=self.D2_total,
             D3_eval=self.D3_total,
@@ -121,12 +108,3 @@ class Okayama_quad():
         )
         print(f" Fichier sauvegardé pour Extracted_data : {save_path}")
         return save_path
-
-
-
-
-
-
-
-
-
