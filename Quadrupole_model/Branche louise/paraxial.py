@@ -18,7 +18,7 @@ class Paraxial_trajectories():
         f2 = f(y + h*f1/2, t + h/2, alpha, beta)
         f3 = f(y + h*f2/2, t + h/2, alpha, beta)
         f4 = f(y + h*f3, t + h, alpha, beta)
-        return y + (h/6)*(f1 + 2*f2 + 2*f3 + f4)
+        return y + (h/6)*(f1 + 2*f2 + 2*f3 + f4) #est ce possible de faire sans return?
 
 
 #Definition of a class to determine ion's properties
@@ -55,7 +55,6 @@ class Trajectoire(Paraxial_trajectories):
         super().__init__()
         pass
 
-        self.result_equation = None
     
     #Function of a second degree equation
     def equation(self, y, t, alpha, beta) -> None:
@@ -67,7 +66,7 @@ class Trajectoire(Paraxial_trajectories):
         v = y[1] 
         du = v
         dv = -alpha * u - beta * v
-        self.result_equation = np.array([du, dv])
+        return np.array([du, dv])
     
     #Function that simulates ions' trajectories
     def simulation(self, ion : Ion,  data : Extracted_data, decomp : Decomposition )-> None:

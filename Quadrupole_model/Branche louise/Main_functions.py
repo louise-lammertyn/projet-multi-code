@@ -120,16 +120,16 @@ class Data_exploitation_whitoutfit:
 
     def decomposition_calculation(self):
         """Compute the multipolar expansion (Phi0, Phi2, Phi4) ."""
-        self.decomposition.composantes()
+        self.decomposition.components()
 
     def decomposition_graph(self):
         """Visualize the calculated multipolar components overlaid with geometry."""
-        self.graphs.graphe_composantes()
+        self.graphs.graph_components()
 
     
     def fit_graph(self):
         """Compare the BEM decomposition with the theoretical fitting functions."""
-        self.graphs.graphe_fit(False)
+        self.graphs.graph_fit(False)
 
 
 class SimulationParaxiale:
@@ -158,8 +158,8 @@ class SimulationParaxiale:
             ion_marginal (Ion)
         """
         ## Run RK4 integration
-        self.traj.simulation3(ion_principal, self.extracted, self.decomp)
-        self.traj.simulation3(ion_marginal, self.extracted, self.decomp)
+        self.traj.simulation(ion_principal, self.extracted, self.decomp)
+        self.traj.simulation(ion_marginal, self.extracted, self.decomp)
 
         # plot
         self.traj.plot_discret(ion_principal, ion_marginal, self.extracted)

@@ -114,14 +114,12 @@ class Reconstruction:
             D3_eval=self.D3,
             D4_eval=self.D4,
 
-
             pot_apert1=self.Vapert1,
             pot_apert2=self.Vapert2,
             pot_electrode13=self.Velectrode13,
             pot_electrode24=self.Velectrode24,
             pot_acceleration=self.Vacceleration,
             pot_shield=0,
-
 
             radius_axis=self.radius_axis,
             total_length=self.total_length,
@@ -135,12 +133,10 @@ class Reconstruction:
             group_id_cyl4=self.group_id_cyl4,
             group_id_shield=self.group_id_shield,
 
-
             MeshSizeMin=self.MeshSizeMin,
             MeshSizeMax=self.MeshSizeMax,
             MeshSizeFromCurvature=self.MeshSizeFromCurvature,
 
-            
             dist_shield_apert=self.dist_shield_apert,
             dist_apert_quad=self.dist_apert_quad,
             radius_ext_shield=self.radius_ext_shield,
