@@ -193,3 +193,6 @@ class ParaxialSimulation:
             self.traj.simulation_discrete(ion, self.extracted, self.decomp)
 
         self.traj.plot_ray(ion_list, self.extracted)
+
+    def plot_analytical_solution(self, data: Extracted_data):
+        self.traj.analytical_solution(data)

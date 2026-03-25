@@ -58,6 +58,10 @@ class Trajectory(Paraxial_trajectories):
         super().__init__()
         pass
 
+        self.x_marginal = []
+        self.x_chief = []
+        self.y_marginal = []
+        self.y_chief = []
     
     #Function of a second degree equation
     def equation(self, y, t, alpha, beta) -> None:
@@ -238,7 +242,7 @@ class Trajectory(Paraxial_trajectories):
         plt.tight_layout(rect=[0, 0.03, 1, 0.95])
         plt.show()
 
-    def plot_ray(self , ion_list,  data : Extracted_data, ):
+    def plot_ray(self , ion_list,  data : Extracted_data):
         plt.figure(1)
         plt.title("Ion beam")
         for element in ion_list :
@@ -246,4 +250,18 @@ class Trajectory(Paraxial_trajectories):
             plt.legend()
         plt.x_axis =("z (mm)")
         plt.y_axis = ("x axis (mm)")
+        plt.show()
+
+    def analytical_solution (self, data : Extracted_data):
+        w0_x=self.state_x[1]
+        w0_y=self.state_y[1]
+        z0=0
+
+        for z in data.axe_z: 
+            self.x_marginal.append((1/w0_x)*(np.sin(w0_x*(z-z0))))
+            self.x_chief.append(np.cos(w0_x*(z-z0)))
+            self.y_marginal.append((1/w0_y)*(np.sinh(w0_y*(z-z0))))
+            self.y_chief.append(np.cosh(w0_y*(z-z0)))
+
+        plt.plot(data.axe_z, self.x_marginal)
         plt.show()
