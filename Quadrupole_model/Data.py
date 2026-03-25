@@ -16,7 +16,7 @@ class Data:
                 radius_apert: int, thickness_apert: int, 
                 length_cylinder: int, 
                 radius_axis: int,
-                pot_electrode: int, pot_apert1: int, pot_apert2: int, pot_shield: int, pot_acceleration: int,
+                pot_electrode13: int,pot_electrode24 :int,  pot_apert1: int, pot_apert2: int, pot_shield: int, pot_acceleration: int,
                 MeshSizeMin: int, MeshSizeMax: int, MeshSizeFromCurvature: int, 
                 output_dir: str) -> None:
         self.dist_shield_apert = dist_shield_apert
@@ -33,7 +33,8 @@ class Data:
 
         self.radius_axis = radius_axis
 
-        self.pot_electrode = pot_electrode #quadrupole 
+        self.pot_electrode13 = pot_electrode13 #quadrupole barreaux  1 et 3
+        self.pot_electrode24 = pot_electrode24 #quadrupole barreaux 2 et 4
         self.pot_apert1 = pot_apert1 #first aperture (pour le champs rond)
         self.pot_apert2 = pot_apert2 #second aperture 
         self.pot_shield = pot_shield #shield (0)

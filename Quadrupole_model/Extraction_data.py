@@ -2,14 +2,20 @@ import numpy as np
 
 #Class to extract all the necessary informations from the files
 class Extracted_data:
-    def __init__(self, file_path: str) -> None:
+    def __init__(self, file_path: str, z_off = None) -> None:
+        """
+        Class to extracte the data of our files
+        Z_off is used only if we use more than one quadrupole
+        """
 
         # file load 
         data = np.load(file_path)
+
         
         # axes data
         self.points = data["points"]
         self.axe_z = data["points"][2] 
+        self.z_off = z_off
         
         # Potential 
         self.potential = data["potential"]    # Le tableau complet [V]
@@ -61,7 +67,8 @@ class Extracted_data:
         
         # Valeurs des tensions appliquées
         self.Vacceleration = data["pot_acceleration"]
-        self.Velectrode = data["pot_electrode"]
+        self.Velectrode13 = data["pot_electrode13"]
+        self.Velectrode24 = data["pot_electrode24"]
         self.Vapert1 = data["pot_apert1"]
         self.Vapert2 = data["pot_apert2"]
         self.Vshield = data["pot_shield"]
@@ -80,5 +87,16 @@ class Extracted_data:
         """  
         self.D2zphi0 = self.D2[5]  #phi_0'' pour la trajectoire
         self.D1zphi0 = self.D1[2]   #phi_0' pour la trajectoire
-    
 
+    #fonction à appeler unquement si ya plusieurs quad 
+    def position_quad(self) :
+        if self.z_off is None:
+            print("1 seul quad")
+            return
+          
+        self.pos_ap1 = [z + self.coord_apert_z1 for z in self.z_off]
+        self.pos_ap2 = [z + self.coord_apert_z2 for z in self.z_off]
+        self.pos_cyl_start = [z + self.start_cyl for z in self.z_off]
+        self.pos_cyl_end = [z + self.end_cyl for z in self.z_off]
+
+   
