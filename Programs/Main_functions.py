@@ -157,7 +157,7 @@ class ParaxialSimulation:
         self.traj.simulation_discrete(ion_marginal, self.extracted, self.decomp)
 
         #Plot
-        self.traj.plot_discret(ion_chief, ion_marginal, self.extracted)
+        self.traj.plot_discrete(ion_chief, ion_marginal, self.extracted)
 
 
     def run_convergence(self, ion_chief: Ion, ion_marginal: Ion, n: int):

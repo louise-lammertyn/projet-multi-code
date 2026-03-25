@@ -163,10 +163,10 @@ class Trajectory(Paraxial_trajectories):
 
 
     #Trajectory plot of the functions 
-    def plot_discret(self, chief_ray: Ion, marginal: Ion, data : Extracted_data)-> None:
+    def plot_discrete(self, chief_ray: Ion, marginal: Ion, data : Extracted_data)-> None:
         
         fig, axs = plt.subplots(2, 2, figsize=(15, 10))
-        fig.suptitle("Trajectoire paraxiale", fontsize=14, fontweight='bold')
+        fig.suptitle("Paraxial trajectory", fontsize=14, fontweight='bold')
         
         ax = axs.flatten()
 
@@ -185,21 +185,21 @@ class Trajectory(Paraxial_trajectories):
         # 3. Chief Ray only (X vs Y)
         ax[2].plot(data.axe_z, chief_ray.history_x, 'r-', label=" rayon chief_ray ")
         ax[2].plot(data.axe_z, chief_ray.history_y, 'b-', label=" rayon chief_ray ")
-        ax[2].set_title("rayon princpal ")
+        ax[2].set_title("chief ray")
         ax[2].legend()
 
         # 4. Marginal Ray only (X vs Y)
         ax[3].plot(data.axe_z, marginal.history_x, 'r-', label="rayon marginal")
         ax[3].plot(data.axe_z, marginal.history_y, 'b-', label="rayon marginal")
-        ax[3].set_title("rayon marginal")
+        ax[3].set_title("marginal ray")
         ax[3].legend()
         
         plt.tight_layout(rect=[0, 0.03, 1, 0.95])
         plt.show()
 
         plt.figure(2)
-        plt.plot(data.axe_z, marginal.history_x, 'r-', label="rayon marginal")
-        plt.plot(data.axe_z, marginal.history_y, 'b-', label="rayon marginal")
+        plt.plot(data.axe_z, marginal.history_x, 'r-', label="marginal ray")
+        plt.plot(data.axe_z, marginal.history_y, 'b-', label="marginal ray")
         plt.xlabel('mm')
         plt.show()
 

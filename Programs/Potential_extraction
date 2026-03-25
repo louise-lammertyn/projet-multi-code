@@ -11,7 +11,7 @@ import gc
 os.environ['PYOPENCL_COMPILER_OUTPUT']='1'
 os.environ['PYOPENCL_NO_CACHE'] = '1'
 
-OUTPUT_DIR = r"C:\Users\zoeno\OneDrive - INSA Toulouse\Documents\INSA\4GP\Projet multi\projet-multi-code\Quadrupole_model\Branche louise\Files"
+OUTPUT_DIR = r"C:\Users\zoeno\OneDrive - INSA Toulouse\Documents\INSA\4GP\Projet multi\projet-multi-code\Programs\Files"
 #OUTPUT_DIR = r"C:\Users\llamm\OneDrive\Documents\Projet\BEMPP\okayama\projet_multi\projet-multi-code\Quadrupole_model\Files"
 "-0.0299087*Va, -0.18808*Va, +0.18808*Va" #tension qui fit
 
