@@ -2,6 +2,7 @@ import numpy as np
 import os
 from Extraction_data import Extracted_data
 
+#Sums unitary potential to recreate one quadrupole
 class Reconstruction:
     def __init__(self, output_dir, real_tension: dict):
         """
@@ -23,8 +24,7 @@ class Reconstruction:
         d_q13 = Extracted_data(quad13_path)
         d_q24 = Extracted_data(quad24_path)
 
-        #3. Paramètres géométriques et fixes (extraits de la base 1) --> ça veut dire quoi? 
-        #3. Geometrical parameters 
+        #3. Geometrical parameters (based on aperture 1)
         self.points = d_ap1.points
         self.axe_z = d_ap1.axe_z
         self.radius_axis = d_ap1.radius_axis
@@ -89,7 +89,7 @@ class Reconstruction:
         self.Vacceleration = v['vaAc']
 
     def derivative(self) -> None:
-        """ Calculation of specific derivatives for paraxial trajectories """ #--> pourquoi on n'utilise pas les dérivées classiques?
+        """ Calculation of specific derivatives for paraxial trajectories """ 
         self.D2zphi0 = self.D2[5]  # phi_0''
         self.D1zphi0 = self.D1[2]  # phi_0'
 
@@ -151,6 +151,6 @@ class Reconstruction:
             start_shield2=self.start_shield2,
             end_shield2=self.end_shield2
         )
-        print(f"Fichier reconstruit sauvegardé : {save_path}")
+        print(f"Reconstructed file saved : {save_path}")
 
         return save_path

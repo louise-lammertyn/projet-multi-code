@@ -9,12 +9,9 @@ Extraction_data --> Check \
 Multipolar_decomposition --> Check \
 Fit_functions --> Check \
 Graphs --> Check\
-Paraxial --> A revoir \
-Je ne comprends pas ce que font les fonctions: equations, simulation, convergence\
-Quelle est la différence entre les deux fonctions de simulation? \
-Est-ce possible de simplifier le plot?\
-Okayama_quad --> besoin de plus d'explications
-Reconstruction --> il reste un commentaire en français
+Paraxial --> Check\
+Okayama_quad --> Check\
+Reconstruction --> Check\
 
 Main_functions --> après explications
 

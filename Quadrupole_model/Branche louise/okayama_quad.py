@@ -3,6 +3,7 @@ from Main_functions import Generation_quad
 import os
 import numpy as np 
 
+#This code creates a serie of n quadrupoles
 class Okayama_quad():
     def __init__(self, output_dir, zquad : list, tension_list : list):
         """
@@ -11,7 +12,7 @@ class Okayama_quad():
         """
         self.output_dir = output_dir
         self.tension_list = tension_list
-        self.zquad = zquad #offset --> à quoi ils servent? 
+        self.zquad = zquad #position of the different quadrupoles
 
         self.quad1 = Reconstruction(output_dir, tension_list[0]) #to access parameters
         self.zquad = [z - self.quad1.start_apert1 for z in zquad]
@@ -41,11 +42,12 @@ class Okayama_quad():
             self.add_matrix(self.D3_total, quad_i.D3,quad_i.axe_z, z_off)
             self.add_matrix(self.D4_total, quad_i.D4,quad_i.axe_z, z_off)
 
-    #je ne comprends pas ce que fait cette
+    #Interpolation of every quadrupole's potential to obtain the global potential because 
+    #we cannot sum discrte functions because the steps need to be aligned
     def add_matrix(self, total_array, local_array, local_z, offset):
         for j in range(total_array.shape[0]):
-            valeurs_interpolees = np.interp(self.axe_zt, local_z + offset, local_array[j, :], left=0, right=0)
-            total_array[j, :] += valeurs_interpolees
+            interpolation = np.interp(self.axe_zt, local_z + offset, local_array[j, :], left=0, right=0)
+            total_array[j, :] += interpolation
 
     def save(self, filename="okayama_quad_total.npz"):
         save_path = os.path.join(self.output_dir, filename)
@@ -56,7 +58,7 @@ class Okayama_quad():
 
         np.savez_compressed(
             save_path,
-            # --- Indispensables pour Extracted_data ---
+            # --- Necessity for Extracted_data ---
             points=pts,
             potential=self.potential_total,
             E_eval=self.D1_total,
@@ -72,7 +74,7 @@ class Okayama_quad():
             pot_apert2=m.Vapert2,
             pot_shield=0.0,
             
-            # --- Géométrie & Mesh ---
+            # --- Geometry & Mesh ---
             z_offsets = np.array(self.zquad),
             output_dir=self.output_dir,
             total_length=float(self.axe_zt[-1]),
@@ -86,7 +88,7 @@ class Okayama_quad():
             thickness_apert=m.thickness_apert,
             length_cylinder=m.length_cylinder,
             
-            # --- Coordonnées pour les fonctions de position ---
+            # --- Coordinates ---
             coord_cylinder_x_or_y=m.coord_cylinder_x_or_y,
             coord_cylinder_z=m.coord_cylinder_z,
             coord_apert_z1=m.coord_apert_z1,
@@ -106,5 +108,5 @@ class Okayama_quad():
             MeshSizeMin=m.MeshSizeMin, MeshSizeMax=m.MeshSizeMax,
             MeshSizeFromCurvature=m.MeshSizeFromCurvature
         )
-        print(f" Fichier sauvegardé pour Extracted_data : {save_path}")
+        print(f" File saved for Extracted_data : {save_path}")
         return save_path

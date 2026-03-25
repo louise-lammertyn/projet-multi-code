@@ -5,7 +5,7 @@ from Extraction_data import Extracted_data
 from Fit_functions import Fit_constants
 from Graphs import Graphs
 from Multipolar_decomposition import Decomposition
-from Paraxial import Paraxial_trajectories, Ion, Trajectoire
+from Paraxial import Paraxial_trajectories, Ion, Trajectory
 from Field_calculation import Calculation_field
 from Reconstruction import Reconstruction
 
@@ -55,30 +55,29 @@ class Potential_extraction:
 
 class Generation_quad():
     """
-    class qui fait la reconstruction du potentiel total à partir des pot unitaires et 
-    des tensiosn voulues
-    return le chemin du fichier reconstitué 
+    Class that reconstructs the global potential by summing unitary potentials
     """
     def __init__(self, tension_dico : dict,output_dir : str) -> None:
         self.tension_dico = tension_dico
         self.output_dir = output_dir
 
-    def reconstr(self, file_name = "quad_reconstuit.npz") ->  str:
-        self.reconstr = Reconstruction(self.output_dir, self.tension_dico )
-        self.reconstr.derivative()
-        file_path = self.reconstr.save(file_name)
+        self.sum = None
+
+    def reconstruction(self, file_name = "quad_reconstuit.npz") ->  str:
+        self.sum = Reconstruction(self.output_dir, self.tension_dico )
+        self.sum.derivative()
+        file_path = self.sum.save(file_name)
         return file_path
 
 
 class Data_exploitation:
-    """
-    the second stage: 
-    Decomposing the BEM results into multipolar components and comparing with okayama' models.
+    """ 
+    Decomposing the BEM results into multipolar components and comparing with okayama' model
     """
     def __init__(self, extracted_data: Extracted_data, fit_constants: Fit_constants):
         """
-            extracted_data (Extracted_data): Data loaded from the .npz solver output.
-            fit_constants (Fit_constants): The Okayama model parameters for comparison.
+        extracted_data (Extracted_data): Data loaded from the .npz solver output
+        fit_constants (Fit_constants): Okayama model parameters for comparison
         """
         self.extracted_data = extracted_data
         self.fit_constants = fit_constants
@@ -105,13 +104,11 @@ class Data_exploitation:
 
 class Data_exploitation_whitoutfit:
     """
-    the second stage: 
-    Decomposing the BEM results into multipolar components and comparing with okayama' models.
+    Decomposing the BEM results into multipolar components 
     """
     def __init__(self, extracted_data: Extracted_data):
         """
-            extracted_data (Extracted_data): Data loaded from the .npz solver output.
-            fit_constants (Fit_constants): The Okayama model parameters for comparison.
+        extracted_data (Extracted_data): Data loaded from the .npz solver output
         """
         self.extracted_data = extracted_data
         self.decomposition=Decomposition(self.extracted_data)
@@ -132,69 +129,67 @@ class Data_exploitation_whitoutfit:
         self.graphs.graph_fit(False)
 
 
-class SimulationParaxiale:
+class ParaxialSimulation:
     """
-    the third stage: 
-    Simulating ion trajectories through the quadrupole using paraxial approximations.
+    Simulating ion trajectories through quadrupole(s) using paraxial approximations
     """
 
     def __init__(self, extracted: Extracted_data, decomp: Decomposition):
         """"
-            extracted (Extracted_data): Geometry and axis data.
-            decomp (Decomposition): Multipolar components .
+        extracted (Extracted_data): Geometry and axis data
+        decomp (Decomposition): Multipolar components 
         """
     
         self.extracted = extracted
         self.decomp = decomp
         
-        self.traj = Trajectoire()
+        self.traj = Trajectory()
 
-    def run_discret(self, ion_principal: Ion, ion_marginal: Ion):
+    def run_discrete(self, ion_chief: Ion, ion_marginal: Ion):
         """
-        Run a discrete step simulation for two specific ions.
-        
+        Run a discrete step simulation for two specific ions
         Args:
-            ion_principal (Ion)
+            ion_chief (Ion)
             ion_marginal (Ion)
         """
-        ## Run RK4 integration
-        self.traj.simulation(ion_principal, self.extracted, self.decomp)
-        self.traj.simulation(ion_marginal, self.extracted, self.decomp)
+        #Run RK4 integration
+        self.traj.simulation_discrete(ion_chief, self.extracted, self.decomp)
+        self.traj.simulation_discrete(ion_marginal, self.extracted, self.decomp)
 
-        # plot
-        self.traj.plot_discret(ion_principal, ion_marginal, self.extracted)
+        #Plot
+        self.traj.plot_discret(ion_chief, ion_marginal, self.extracted)
 
 
-    def run_convergence(self, ion_principal: Ion, ion_marginal: Ion, n: int):
+    def run_convergence(self, ion_chief: Ion, ion_marginal: Ion, n: int):
         """
-        convergence .
+        Verify the convergence of RK4 method
         
         Args:
-            n (int): Convergence factor.
+            n (int): Convergence factor
         """
 
-        # calcul convergence
+        #Convergence calculus
         self.traj.convergence(self.extracted, self.decomp, n)
 
-        # simulation contnue
-        self.traj.simulationf(ion_principal, self.extracted)
-        self.traj.simulationf(ion_marginal, self.extracted)
+        #Continuus simulation
+        self.traj.simulation_continuus(ion_chief, self.extracted)
+        self.traj.simulation_continuus(ion_marginal, self.extracted)
 
-        # plot
-        self.traj.plot_continu(ion_principal, ion_marginal, self.extracted, n)
+        #Plot
+        self.traj.plot_continuus(ion_chief, ion_marginal, self.extracted, n)
 
 
-    def run_faisceau(self, liste_ions: list):
+    def run_beam(self, ion_list: list):
         """
-        Simulate a full beam  of ions.
+        Simulates a full beam  of ions
 
         Args:
-            liste_ions (list[Ion]): A list of Ion objects with varying initial conditions.
+            ion_list (list[Ion]): A list of Ion objects with varying initial conditions
         """
 
-        for ion in liste_ions:
+        for ion in ion_list:
             ion.history_x = []
             ion.history_y = []
-            self.traj.simulation(ion, self.extracted, self.decomp)
+            self.traj.simulation_discrete(ion, self.extracted, self.decomp)
 
-        self.traj.plot_faisceau(liste_ions, self.extracted)
+        self.traj.plot_ray(ion_list, self.extracted)

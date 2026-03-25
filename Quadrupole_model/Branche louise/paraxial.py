@@ -52,7 +52,7 @@ class Ion(Paraxial_trajectories):
 
 
 #Definition of a class to simulate trajectories
-class Trajectoire(Paraxial_trajectories):
+class Trajectory(Paraxial_trajectories):
     def __init__(self):
         #Use of super() function to give access methods and properties of a parent or sibling class
         super().__init__()
@@ -72,7 +72,7 @@ class Trajectoire(Paraxial_trajectories):
         return np.array([du, dv])
     
     #Function that simulates ions' trajectories
-    def simulation(self, ion : Ion,  data : Extracted_data, decomp : Decomposition )-> None:
+    def simulation_discrete(self, ion : Ion,  data : Extracted_data, decomp : Decomposition )-> None:
         """
         class Ion
         class Data 
@@ -134,7 +134,7 @@ class Trajectoire(Paraxial_trajectories):
 
 
     #To verify that the RK4 method functions and simulates the same way as continuus functions
-    def simulationf(self, ion : Ion, data : Extracted_data ) -> None:
+    def simulation_continuus(self, ion : Ion, data : Extracted_data ) -> None:
         """
         class ion 
         class extraction 
@@ -205,7 +205,7 @@ class Trajectoire(Paraxial_trajectories):
 
 
     # plot pout la convergence 
-    def plot_continu(self, chief_ray: Ion, marginal: Ion, data : Extracted_data, n) -> None:
+    def plot_continuus(self, chief_ray: Ion, marginal: Ion, data : Extracted_data, n) -> None:
         fig, axs = plt.subplots(2, 2, figsize=(15, 10))
         fig.suptitle(f"Paraxial trajectory,  convergence order {n}   ", fontsize=14, fontweight='bold')
         
