@@ -1,0 +1,53 @@
+\babel@toc {french}{}\relax 
+\contentsline {chapter}{Remerciements}{3}{Doc-Start}%
+\contentsline {chapter}{Remerciements}{4}{Doc-Start}%
+\contentsline {chapter}{\numberline {1}Introduction}{6}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Contexte}{6}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Fondemement théorique}{6}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}L'optique des particules chargés}{6}{subsection.1.2.1}%
+\contentsline {section}{\numberline {1.3}Principe de correction d'aberration}{7}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Objectifs du projet}{8}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Objectifs du projet}{8}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Livrables}{8}{section.1.6}%
+\contentsline {chapter}{\numberline {2}Travail Réalisé}{10}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Prérequis mathématique}{10}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Principe de moindre action}{10}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Equations d'Euler-Lagrange}{10}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Décomposition du potentiel}{10}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Décomposition des différentes contributions}{12}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Reconstruction de la décomposition du potentiel}{12}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Extraction du potentiel}{12}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Composantes multipolaires}{12}{subsection.2.3.2}%
+\contentsline {subsubsection}{Equations}{12}{subsubsection*.1}%
+\contentsline {paragraph}{Cas \(\nu = 0\) (monopôle)}{12}{paragraph*.2}%
+\contentsline {paragraph}{Cas \(\nu = 1\) (dipôle)}{13}{paragraph*.3}%
+\contentsline {paragraph}{Cas \(\nu = 2\) (quadrupôle)}{13}{paragraph*.4}%
+\contentsline {paragraph}{Cas \(\nu = 3\) (hexapôle)}{13}{paragraph*.5}%
+\contentsline {paragraph}{Cas \(\nu = 4\) (octopôle)}{13}{paragraph*.6}%
+\contentsline {paragraph}{Cas général}{13}{paragraph*.7}%
+\contentsline {subsubsection}{Applications dans BEMPP}{14}{subsubsection*.8}%
+\contentsline {subsubsection}{Résultats attendus}{15}{subsubsection*.9}%
+\contentsline {subsubsection}{Fonctions de fit}{15}{subsubsection*.10}%
+\contentsline {section}{\numberline {2.4}Trajectoire}{16}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Principe de fermat}{16}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Cas $\nu $ = 2, quadrupole}{16}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Equation d'euler lagrange }{17}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}Résolution equa diff(cas sans polariser les apertures)}{17}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}Vérification des résultats}{17}{subsection.2.4.5}%
+\contentsline {subsubsection}{Cas $\omega _0 > 0$}{17}{subsubsection*.11}%
+\contentsline {subsubsection}{Cas $\omega _0 <0$}{18}{subsubsection*.12}%
+\contentsline {section}{\numberline {2.5}Document Okayama}{19}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Notre production}{20}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Structure globale du code}{20}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Codes utilisateur}{20}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Extraction du potentiel}{20}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Exploitation des données}{21}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Programe principal}{21}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Data}{21}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Geometry}{22}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Field calculation}{26}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Extraction data}{29}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Multipolar decomposition}{31}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Fit functions}{32}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}Graphs}{34}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}Paraxial}{36}{subsection.3.3.8}%
