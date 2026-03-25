@@ -135,25 +135,105 @@ class Trajectoire(Paraxial):
                 
             ion.save_step()
         
-    def solution_analytique(ion,potentiel,quad1, z0): #champ quadrupolaire  uniquement 
+  
+    def solution_analytique2(self, ion : Ion, data : Extracted_data, decomp : Decomposition, z0 = 0) -> None : 
+        z_axes = data.axe_z
+        n = len(z_axes)
+        
+        # Initialisation des tableaux
+        self.xp = np.zeros(n)
+        self.xm = np.zeros(n)
+        self.yp = np.zeros(n)
+        self.ym = np.zeros(n)
+
+        phi0 = abs(data.Vacceleration)
+        print(phi0)
+
+        for i in range(n):
+            dist = z_axes[i] - z0
             
-            xp = np.zeros(len(potentiel.axe_z)-1)
-            xm = np.zeros(len(potentiel.axe_z)-1)
-            yp = np.zeros(len(potentiel.axe_z)-1)
-            ym = np.zeros(len(potentiel.axe_z)-1)
+            val_phi2 = abs(decomp.Phi2_maj[i])
+            print
+            
+            if val_phi2 < 1e-10:
+                # Cas sans champ (k=0) : mouvement rectiligne
+                self.xp[i] = 1.0 
+                self.xm[i] = dist
+                self.yp[i] = 1.0
+                self.ym[i] = dist
+            else:
+                k = np.sqrt(val_phi2 / phi0)
+                
+                self.xp[i] = np.cos(k * dist)
+                self.xm[i] = (1/k) * np.sin(k * dist)
+                
+                self.yp[i] = np.cosh(k * dist)
+                self.ym[i] = (1/k) * np.sinh(k * dist)
 
-            for i in range(len(potentiel.axe_z)-1):
-                z = potentiel.axe_z[i]
-                w0 = np.sqrt(2*ion.charge*potentiel.VQ/ion.masse*(Dimension.radius)**2)
-                xp[i] = np.cos(w0*(z-z0))
-                xm[i] = (1/w0)*np.sin(w0*(z-z0))
-                yp[i] = np.cosh(w0*(z-z0))
-                ym[i] = (1/w0)*np.sinh(w0*(z-z0))
-            return xp,xm, ym, yp
+  
+        
+    def solution_analytique2(self, ion : Ion, data : Extracted_data, decomp : Decomposition, z0 = 0) -> None : 
+        #pour un champs quad unique -> on met les apertures a 0
+        z_axes = data.axe_z
+        n = len(z_axes)
+        self.xp, self.xm = np.zeros(n), np.zeros(n)
+        self.yp, self.ym = np.zeros(n), np.zeros(n)
+        
+      
+
+        for i in range(len(data.axe_z)):
+            z = data.axe_z[i]
+            vz = data.Vacceleration + decomp.Phi0_maj[i]
+            phi2 = decomp.Phi2_maj[i]
+            w0 = np.sqrt(phi2*ion.charge/ion.mass*(vz)**2)
+            self.xp[i] = np.cos(w0*(z-z0))
+            self.xm[i] = (1/w0)*np.sin(w0*(z-z0))
+            self.yp[i] = np.cosh(w0*(z-z0))
+            self.ym[i] = (1/w0)*np.sinh(w0*(z-z0))
+            print(self.xp)
+    
+    def plot_theorique(self, data : Extracted_data, z0 = 0) -> None :
+        fig, axs = plt.subplots(2, 2, figsize=(15, 10))
+        fig.suptitle("Trajectoire theorique d'un quad seul ", fontsize=14, fontweight='bold')
+        
+        ax = axs.flatten()
+
+        # 1. Trajectoire X (Principal vs Marginal)
+        ax[0].plot(data.axe_z, self.xp, 'r-', label="Principal (x)")
+        ax[0].plot(data.axe_z, self.xm, 'b-', label="Marginal (x)")
+        ax[0].set_title("X Trajectories ")
+        ax[0].legend()
+        
+        # 2. Trajectoire Y (Principal vs Marginal)
+        ax[1].plot(data.axe_z, self.yp, 'r-', label="Principal (y)")
+        ax[1].plot(data.axe_z, self.ym, 'b-', label="Marginal (y)")
+        ax[1].set_title("Y Trajectories")
+        ax[1].legend()
+        
+        # 3. Chief Ray seul (X vs Y)
+        ax[2].plot(data.axe_z, self.xp, 'r-', label=" rayon principal ")
+        ax[2].plot(data.axe_z, self.yp, 'b-', label=" rayon principal ")
+        ax[2].set_title("rayon princpal ")
+        ax[2].legend()
+
+        # 4. Marginal Ray seul (X vs Y)
+        ax[3].plot(data.axe_z, self.xm, 'r-', label="rayon marginal")
+        ax[3].plot(data.axe_z,self.ym, 'b-', label="rayon marginal")
+        ax[3].set_title("rayon marginal")
+        ax[3].legend()
+
+     
+
+        
+        plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+        plt.show()
+
+
+        
 
 
 
-    #xp,xm, ym, yp = solution_analytique(Ion,data, 0)  
+    
 
 
 
