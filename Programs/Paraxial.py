@@ -250,7 +250,7 @@ class Trajectory(Paraxial_trajectories):
         plt.y_axis = ("x axis (mm)")
         plt.show()
 
-    def analytical_solution (self, data : Extracted_data):
+    def analytical_solution (self, data: Extracted_data, decomposition : Decomposition):
         """
         for z in data.axe_z: 
             self.x_marginal.append((1/w0_x)*(np.sin(w0_x*(z-z0))))
@@ -258,15 +258,19 @@ class Trajectory(Paraxial_trajectories):
             self.y_marginal.append((1/w0_y)*(np.sinh(w0_y*(z-z0))))
             self.y_chief.append(np.cosh(w0_y*(z-z0)))
         """
+        """
         k0=np.sqrt((data.D2[0])/(data.D0[0]))
         c1=1/k0
         s1=1/k0
+        """
         c2=1
         s2=1
+        i=0
         for z in data.axe_z:
-            k=np.sqrt((data.D2[z])/(data.D0[z]))
-            self.x.append(c1*np.cos(k*z)+s1*np.sin(k*z))
+            k=np.sqrt((decomposition.Phi2_maj[i])/(decomposition.Phi0_maj[i]))
+            self.x.append((1/k)*np.cos(k*z)+(1/k)*np.sin(k*z))
             self.y.append(c2*np.cosh(k*z)+s2*np.sinh(k*z))
+            i=i+1
 
         plt.plot(data.axe_z, self.x)
         plt.show()
