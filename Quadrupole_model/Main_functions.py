@@ -188,6 +188,16 @@ class SimulationParaxiale:
         # plot
         self.traj.plot_continu(ion_principal, ion_marginal, self.extracted, n)
 
+    def  plot_theo(self, ion_principal : Ion , ion_marginal : Ion, data : Extracted_data):
+        """
+        Calcul la trajectoire theorqiue pour un champs quadrupolaire (sans champs rond)
+        """
+
+        self.traj.solution_analytique(ion_marginal, data, self.decomp)
+
+        # plot
+        self.traj.plot_theorique(data)
+
 
     def run_faisceau(self, liste_ions: list):
         """
