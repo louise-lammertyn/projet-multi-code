@@ -67,7 +67,7 @@ class Graphs:
         ax.plot(self.data.axe_z, self.decomposition.Phi1_maj, label=r'$\Phi_1$ $[V/mm^1]$', color='darkviolet')
         ax.plot(self.data.axe_z, self.decomposition.Phi2_maj, label=r'$\Phi_2$ $[V/mm^2]$', color='green')
         ax.plot(self.data.axe_z, self.decomposition.Phi3_maj, label=r'$\Phi_3$ $[V/mm^3]$', color='gold')
-        ax.plot(self.data.axe_z, 10*self.decomposition.Phi4_maj, label=r'$\Phi_4 \times 10$ $[V/mm^4]$', color='royalblue')
+        ax.plot(self.data.axe_z, 1000*self.decomposition.Phi4_maj, label=r'$\Phi_4 \times 10$ $[V/mm^4]$', color='royalblue')
 
         # 4.Labels and style
         ax.set_xlabel("z (mm)")
