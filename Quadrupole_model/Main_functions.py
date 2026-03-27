@@ -99,6 +99,7 @@ class Data_exploitation:
     def decomposition_graph(self):
         """Visualize the calculated multipolar components overlaid with geometry."""
         self.graphs.graphe_composantes()
+        self.graphs.graphe_zoom()
 
     def fit_calculation(self):
         """Generate the theoretical Okayama fit curves."""
@@ -130,6 +131,7 @@ class Data_exploitation_whitoutfit:
     def decomposition_graph(self):
         """Visualize the calculated multipolar components overlaid with geometry."""
         self.graphs.graphe_composantes()
+        self.graphs.graphe_zoom()
 
     
     def fit_graph(self):

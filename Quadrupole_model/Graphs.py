@@ -61,6 +61,7 @@ class Graphs:
         # 2. Trace the background geometry
         self.trace_geo(ax)
         # Plot Calculated decomposition data and Okayam'a model 
+        
 
         ax.plot(self.data.axe_z, self.decomposition.Phi0_maj, label=r'$\Phi_0 $ $[V]$', color='crimson')
         ax.plot(self.data.axe_z, self.decomposition.Phi1_maj, label=r'$\Phi_1$ $[V/mm^1]$', color='darkviolet')
@@ -75,6 +76,40 @@ class Graphs:
         ax.grid(True)
         
         ax.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), borderaxespad=0.)
+        
+        plt.tight_layout()
+        plt.show()
+
+    def graphe_zoom(self, z_range=(-5, 20)) -> None:
+        """
+        
+        """
+        fig, ax = plt.subplots(figsize=(10, 5))
+        
+        # 1. Tracer la géométrie en arrière-plan
+        self.trace_geo(ax)
+        
+        # 2. Tracer Phi0 (le champ rond)
+        # On regarde Phi0_maj car c'est lui qui contient la réalité physique du BEM
+        ax.plot(self.data.axe_z, self.decomposition.Phi0_maj, 
+                label=r'$\Phi_0$ (Champ rond)', color='crimson', lw=2)
+        
+        ax.axhline(0, color='black', linestyle='-', alpha=0.5)
+
+        ax.set_xlim(z_range)
+        
+        # Ajustement dynamique de l'échelle Y pour voir les détails près de 0
+        mask = (self.data.axe_z >= z_range[0]) & (self.data.axe_z <= z_range[1])
+        if any(mask):
+            y_data = self.decomposition.Phi0_maj[mask]
+            ax.set_ylim(min(y_data) - 5, max(y_data) + 5)
+
+        # 5. Style et labels
+        ax.set_xlabel("z (mm)")
+        ax.set_ylabel("Potentiel $\Phi_0$ (V)")
+        ax.set_title("Zoom")
+        ax.grid(True, which='both', linestyle='--', alpha=0.5)
+        ax.legend()
         
         plt.tight_layout()
         plt.show()
