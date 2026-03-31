@@ -122,7 +122,7 @@ class Calculation_field:
 
         #Resolution of the linear system
         self.neumann_fun, _ = bempp.linalg.cg(self.slp, rhs, tol=1e-8) #1e-5 à tester
-
+##Ici faire une autre fonction car neumann fun est le plus long à calculer donc on peut agrandir z 
         #Creation of the tracing of the solution
         n_grid_points = 100
         self.points = np.stack((np.zeros(n_grid_points), np.zeros(n_grid_points), (np.linspace(0, self.data.total_length, n_grid_points)))) #x=y=0 and z changes from 0 to elec_id[7][11]=total_length
