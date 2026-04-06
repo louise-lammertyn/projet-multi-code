@@ -156,6 +156,258 @@ class Mesh_Generation:
 
         self.objects = aperture1, aperture2, cylinder1, cylinder2, cylinder3, cylinder4, shield
 
+    def geometry_system(self) -> None :
+        #-----First quadrupole-----
+        cylinder1_1 = Cylinder(self.data.length_cylinder, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_1)
+        Cylinder.add(cylinder1_1)
+
+        cylinder2_1 = Cylinder(self.data.length_cylinder, self.data.radius_axis, -self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_1)
+        Cylinder.add(cylinder2_1)
+
+        cylinder3_1 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, self.data.coord_cylinder_x_or_y, self.data.start_cyl_1)
+        Cylinder.add(cylinder3_1)
+
+        cylinder4_1 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, -self.data.coord_cylinder_x_or_y, self.data.start_cyl_1)
+        Cylinder.add(cylinder4_1)
+
+
+        aperture1_1 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert1_1)
+        Aperture.add(aperture1_1)
+
+        aperture2_1 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert2_1)
+        Aperture.add(aperture2_1)
+
+
+        shield_1 = Shield(self.data.length_shield_1, self.data.radius_ext_shield, self.data.radius_in_shield, self.data.radius_axis, self.data.thickness_shield, 0, 0, self.data.start_shield1_1)
+        Shield.add(shield_1)
+
+        #-----Second quadrupole-----
+        cylinder1_2 = Cylinder(self.data.length_cylinder, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_2)
+        Cylinder.add(cylinder1_2)
+
+        cylinder2_2 = Cylinder(self.data.length_cylinder, self.data.radius_axis, -self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_2)
+        Cylinder.add(cylinder2_2)
+
+        cylinder3_2 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, self.data.coord_cylinder_x_or_y, self.data.start_cyl_2)
+        Cylinder.add(cylinder3_2)
+
+        cylinder4_2 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, -self.data.coord_cylinder_x_or_y, self.data.start_cyl_2)
+        Cylinder.add(cylinder4_2)
+
+
+        aperture1_2 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert1_2)
+        Aperture.add(aperture1_2)
+
+        aperture2_2 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert2_2)
+        Aperture.add(aperture2_2)
+
+
+        shield_2 = Shield(self.data.length_shield_2, self.data.radius_ext_shield, self.data.radius_in_shield, self.data.radius_axis, self.data.thickness_shield, 0, 0, self.data.start_shield1_2)
+        Shield.add(shield_2)
+
+        #-----Third quadrupole-----
+        cylinder1_3 = Cylinder(self.data.length_cylinder, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_3)
+        Cylinder.add(cylinder1_3)
+
+        cylinder2_3 = Cylinder(self.data.length_cylinder, self.data.radius_axis, -self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_3)
+        Cylinder.add(cylinder2_3)
+
+        cylinder3_3 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, self.data.coord_cylinder_x_or_y, self.data.start_cyl_3)
+        Cylinder.add(cylinder3_3)
+
+        cylinder4_3 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, -self.data.coord_cylinder_x_or_y, self.data.start_cyl_3)
+        Cylinder.add(cylinder4_3)
+
+
+        aperture1_3 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert1_3)
+        Aperture.add(aperture1_3)
+
+        aperture2_3 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert2_3)
+        Aperture.add(aperture2_3)
+
+
+        shield_3 = Shield(self.data.length_shield_3, self.data.radius_ext_shield, self.data.radius_in_shield, self.data.radius_axis, self.data.thickness_shield, 0, 0, self.data.start_shield1_3)
+        Shield.add(shield_3)
+
+        #-----Fourth quadrupole-----
+        cylinder1_4 = Cylinder(self.data.length_cylinder, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_4)
+        Cylinder.add(cylinder1_4)
+
+        cylinder2_4 = Cylinder(self.data.length_cylinder, self.data.radius_axis, -self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_4)
+        Cylinder.add(cylinder2_4)
+
+        cylinder3_4 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, self.data.coord_cylinder_x_or_y, self.data.start_cyl_4)
+        Cylinder.add(cylinder3_4)
+
+        cylinder4_4 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, -self.data.coord_cylinder_x_or_y, self.data.start_cyl_4)
+        Cylinder.add(cylinder4_4)
+
+
+        aperture1_4 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert1_4)
+        Aperture.add(aperture1_4)
+
+        aperture2_4 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert2_4)
+        Aperture.add(aperture2_4)
+
+
+        shield_4 = Shield(self.data.length_shield_4, self.data.radius_ext_shield, self.data.radius_in_shield, self.data.radius_axis, self.data.thickness_shield, 0, 0, self.data.start_shield1_4)
+        Shield.add(shield_4)
+
+        self.objects_system = aperture1_1, aperture2_1, cylinder1_1, cylinder2_1, cylinder3_1, cylinder4_1, shield_1, aperture1_2, aperture2_2, cylinder1_2, cylinder2_2, cylinder3_2, cylinder4_2, shield_2, aperture1_3, aperture2_3, cylinder1_3, cylinder2_3, cylinder3_3, cylinder4_3, shield_3, aperture1_4, aperture2_4, cylinder1_4, cylinder2_4, cylinder3_4, cylinder4_4, shield_4  
+
+    def geometry_quad1 (self) -> None:
+        cylinder1_1 = Cylinder(self.data.length_cylinder, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_1)
+        Cylinder.add(cylinder1_1)
+
+        cylinder2_1 = Cylinder(self.data.length_cylinder, self.data.radius_axis, -self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_1)
+        Cylinder.add(cylinder2_1)
+
+        cylinder3_1 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, self.data.coord_cylinder_x_or_y, self.data.start_cyl_1)
+        Cylinder.add(cylinder3_1)
+
+        cylinder4_1 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, -self.data.coord_cylinder_x_or_y, self.data.start_cyl_1)
+        Cylinder.add(cylinder4_1)
+
+
+        aperture1_1 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert1_1)
+        Aperture.add(aperture1_1)
+
+        aperture2_1 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert2_1)
+        Aperture.add(aperture2_1)
+
+
+        shield_1 = Shield(self.data.length_shield_1, self.data.radius_ext_shield, self.data.radius_in_shield, self.data.radius_axis, self.data.thickness_shield, 0, 0, self.data.start_shield1_1)
+        Shield.add(shield_1)
+
+        self.objects_quad1 = aperture1_1, aperture2_1, cylinder1_1, cylinder2_1, cylinder3_1, cylinder4_1, shield_1
+
+    def geometry_quad2 (self) -> None:
+        cylinder1_2 = Cylinder(self.data.length_cylinder, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_2)
+        Cylinder.add(cylinder1_2)
+
+        cylinder2_2 = Cylinder(self.data.length_cylinder, self.data.radius_axis, -self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_2)
+        Cylinder.add(cylinder2_2)
+
+        cylinder3_2 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, self.data.coord_cylinder_x_or_y, self.data.start_cyl_2)
+        Cylinder.add(cylinder3_2)
+
+        cylinder4_2 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, -self.data.coord_cylinder_x_or_y, self.data.start_cyl_2)
+        Cylinder.add(cylinder4_2)
+
+
+        aperture1_2 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert1_2)
+        Aperture.add(aperture1_2)
+
+        aperture2_2 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert2_2)
+        Aperture.add(aperture2_2)
+
+
+        shield_2 = Shield(self.data.length_shield_2, self.data.radius_ext_shield, self.data.radius_in_shield, self.data.radius_axis, self.data.thickness_shield, 0, 0, self.data.start_shield1_2)
+        Shield.add(shield_2)
+
+        self.objects_quad2 = aperture1_2, aperture2_2, cylinder1_2, cylinder2_2, cylinder3_2, cylinder4_2, shield_2
+
+    def geometry_quad3 (self) -> None:
+        cylinder1_3 = Cylinder(self.data.length_cylinder, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_3)
+        Cylinder.add(cylinder1_3)
+
+        cylinder2_3 = Cylinder(self.data.length_cylinder, self.data.radius_axis, -self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_3)
+        Cylinder.add(cylinder2_3)
+
+        cylinder3_3 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, self.data.coord_cylinder_x_or_y, self.data.start_cyl_3)
+        Cylinder.add(cylinder3_3)
+
+        cylinder4_3 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, -self.data.coord_cylinder_x_or_y, self.data.start_cyl_3)
+        Cylinder.add(cylinder4_3)
+
+
+        aperture1_3 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert1_3)
+        Aperture.add(aperture1_3)
+
+        aperture2_3 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert2_3)
+        Aperture.add(aperture2_3)
+
+
+        shield_3 = Shield(self.data.length_shield_3, self.data.radius_ext_shield, self.data.radius_in_shield, self.data.radius_axis, self.data.thickness_shield, 0, 0, self.data.start_shield1_3)
+        Shield.add(shield_3)
+
+        self.objects_quad3 = aperture1_3, aperture2_3, cylinder1_3, cylinder2_3, cylinder3_3, cylinder4_3, shield_3
+
+    def geometry_quad4 (self) -> None:
+        cylinder1_4 = Cylinder(self.data.length_cylinder, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_4)
+        Cylinder.add(cylinder1_4)
+
+        cylinder2_4 = Cylinder(self.data.length_cylinder, self.data.radius_axis, -self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_4)
+        Cylinder.add(cylinder2_4)
+
+        cylinder3_4 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, self.data.coord_cylinder_x_or_y, self.data.start_cyl_4)
+        Cylinder.add(cylinder3_4)
+
+        cylinder4_4 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, -self.data.coord_cylinder_x_or_y, self.data.start_cyl_4)
+        Cylinder.add(cylinder4_4)
+
+
+        aperture1_4 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert1_4)
+        Aperture.add(aperture1_4)
+
+        aperture2_4 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert2_4)
+        Aperture.add(aperture2_4)
+
+
+        shield_4 = Shield(self.data.length_shield_4, self.data.radius_ext_shield, self.data.radius_in_shield, self.data.radius_axis, self.data.thickness_shield, 0, 0, self.data.start_shield1_4)
+        Shield.add(shield_4)
+
+        self.objects_quad4 = aperture1_4, aperture2_4, cylinder1_4, cylinder2_4, cylinder3_4, cylinder4_4, shield_4
+
+    def geometry_doublet (self) -> None:
+        cylinder1_2 = Cylinder(self.data.length_cylinder, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_2)
+        Cylinder.add(cylinder1_2)
+
+        cylinder2_2 = Cylinder(self.data.length_cylinder, self.data.radius_axis, -self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_2)
+        Cylinder.add(cylinder2_2)
+
+        cylinder3_2 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, self.data.coord_cylinder_x_or_y, self.data.start_cyl_2)
+        Cylinder.add(cylinder3_2)
+
+        cylinder4_2 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, -self.data.coord_cylinder_x_or_y, self.data.start_cyl_2)
+        Cylinder.add(cylinder4_2)
+
+
+        aperture1_2 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert1_2)
+        Aperture.add(aperture1_2)
+
+        aperture2_2 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert2_2)
+        Aperture.add(aperture2_2)
+
+
+        shield_2 = Shield(self.data.length_shield_2, self.data.radius_ext_shield, self.data.radius_in_shield, self.data.radius_axis, self.data.thickness_shield, 0, 0, self.data.start_shield1_2)
+        Shield.add(shield_2)
+
+        
+        cylinder1_3 = Cylinder(self.data.length_cylinder, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_3)
+        Cylinder.add(cylinder1_3)
+
+        cylinder2_3 = Cylinder(self.data.length_cylinder, self.data.radius_axis, -self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl_3)
+        Cylinder.add(cylinder2_3)
+
+        cylinder3_3 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, self.data.coord_cylinder_x_or_y, self.data.start_cyl_3)
+        Cylinder.add(cylinder3_3)
+
+        cylinder4_3 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, -self.data.coord_cylinder_x_or_y, self.data.start_cyl_3)
+        Cylinder.add(cylinder4_3)
+
+
+        aperture1_3 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert1_3)
+        Aperture.add(aperture1_3)
+
+        aperture2_3 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert2_3)
+        Aperture.add(aperture2_3)
+
+
+        shield_3 = Shield(self.data.length_shield_3, self.data.radius_ext_shield, self.data.radius_in_shield, self.data.radius_axis, self.data.thickness_shield, 0, 0, self.data.start_shield1_3)
+        Shield.add(shield_3)
+
+        self.objects_doublet = aperture1_2, aperture2_2, cylinder1_2, cylinder2_2, cylinder3_2, cylinder4_2, shield_2, aperture1_3, aperture2_3, cylinder1_3, cylinder2_3, cylinder3_3, cylinder4_3, shield_3
 
     def creation_mesh(self) -> None:
         """Synchronizes the OpenCASCADE internal CAD representation with the GMSH model."""
@@ -187,6 +439,228 @@ class Mesh_Generation:
 
         self.data.group_id = group_id_apert1, group_id_apert2, group_id_cyl1, group_id_cyl2, group_id_cyl3, group_id_cyl4, group_id_shield
 
+    def surfaces_system(self) -> None:
+        """
+        Defines physical groups for the surfaces. 
+        """
+        aperture1_1, aperture2_1, cylinder1_1, cylinder2_1, cylinder3_1, cylinder4_1, shield_1, aperture1_2, aperture2_2, cylinder1_2, cylinder2_2, cylinder3_2, cylinder4_2, shield_2, aperture1_3, aperture2_3, cylinder1_3, cylinder2_3, cylinder3_3, cylinder4_3, shield_3, aperture1_4, aperture2_4, cylinder1_4, cylinder2_4, cylinder3_4, cylinder4_4, shield_4 = self.objects_system
+
+        #Sets an outward orientation of the surfaces' normals
+        gmsh.model.mesh.setOutwardOrientation(aperture1_1.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(aperture2_1.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder1_1.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder2_1.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder3_1.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder4_1.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(shield_1.shield_tag)
+
+        gmsh.model.mesh.setOutwardOrientation(aperture1_2.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(aperture2_2.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder1_2.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder2_2.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder3_2.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder4_2.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(shield_2.shield_tag)
+
+        gmsh.model.mesh.setOutwardOrientation(aperture1_3.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(aperture2_3.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder1_3.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder2_3.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder3_3.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder4_3.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(shield_3.shield_tag)
+
+        gmsh.model.mesh.setOutwardOrientation(aperture1_4.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(aperture2_4.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder1_4.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder2_4.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder3_4.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder4_4.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(shield_4.shield_tag)
+
+        #Adds surfaces on top of the volumes created 
+        group_id_apert1_1 = gmsh.model.addPhysicalGroup(2, aperture1_1.apert_surf)
+        group_id_apert2_1 = gmsh.model.addPhysicalGroup(2, aperture2_1.apert_surf)
+        group_id_cyl1_1 = gmsh.model.addPhysicalGroup(2, cylinder1_1.cyl_surf)
+        group_id_cyl2_1 = gmsh.model.addPhysicalGroup(2, cylinder2_1.cyl_surf)
+        group_id_cyl3_1 = gmsh.model.addPhysicalGroup(2, cylinder3_1.cyl_surf)
+        group_id_cyl4_1 = gmsh.model.addPhysicalGroup(2, cylinder4_1.cyl_surf)
+        group_id_shield_1 = gmsh.model.addPhysicalGroup(2, shield_1.shield_surf)
+
+        group_id_apert1_2 = gmsh.model.addPhysicalGroup(2, aperture1_2.apert_surf)
+        group_id_apert2_2 = gmsh.model.addPhysicalGroup(2, aperture2_2.apert_surf)
+        group_id_cyl1_2 = gmsh.model.addPhysicalGroup(2, cylinder1_2.cyl_surf)
+        group_id_cyl2_2 = gmsh.model.addPhysicalGroup(2, cylinder2_2.cyl_surf)
+        group_id_cyl3_2 = gmsh.model.addPhysicalGroup(2, cylinder3_2.cyl_surf)
+        group_id_cyl4_2 = gmsh.model.addPhysicalGroup(2, cylinder4_2.cyl_surf)
+        group_id_shield_2 = gmsh.model.addPhysicalGroup(2, shield_2.shield_surf)
+
+        group_id_apert1_3 = gmsh.model.addPhysicalGroup(2, aperture1_3.apert_surf)
+        group_id_apert2_3 = gmsh.model.addPhysicalGroup(2, aperture2_3.apert_surf)
+        group_id_cyl1_3 = gmsh.model.addPhysicalGroup(2, cylinder1_3.cyl_surf)
+        group_id_cyl2_3 = gmsh.model.addPhysicalGroup(2, cylinder2_3.cyl_surf)
+        group_id_cyl3_3 = gmsh.model.addPhysicalGroup(2, cylinder3_3.cyl_surf)
+        group_id_cyl4_3 = gmsh.model.addPhysicalGroup(2, cylinder4_3.cyl_surf)
+        group_id_shield_3 = gmsh.model.addPhysicalGroup(2, shield_3.shield_surf)
+
+        group_id_apert1_4 = gmsh.model.addPhysicalGroup(2, aperture1_4.apert_surf)
+        group_id_apert2_4 = gmsh.model.addPhysicalGroup(2, aperture2_4.apert_surf)
+        group_id_cyl1_4 = gmsh.model.addPhysicalGroup(2, cylinder1_4.cyl_surf)
+        group_id_cyl2_4 = gmsh.model.addPhysicalGroup(2, cylinder2_4.cyl_surf)
+        group_id_cyl3_4 = gmsh.model.addPhysicalGroup(2, cylinder3_4.cyl_surf)
+        group_id_cyl4_4 = gmsh.model.addPhysicalGroup(2, cylinder4_4.cyl_surf)
+        group_id_shield_4 = gmsh.model.addPhysicalGroup(2, shield_4.shield_surf)
+
+        self.data.group_id_system = group_id_apert1_1, group_id_apert2_1, group_id_cyl1_1, group_id_cyl2_1, group_id_cyl3_1, group_id_cyl4_1, group_id_shield_1, group_id_apert1_2, group_id_apert2_2, group_id_cyl1_2, group_id_cyl2_2, group_id_cyl3_2, group_id_cyl4_2, group_id_shield_2, group_id_apert1_3, group_id_apert2_3, group_id_cyl1_3, group_id_cyl2_3, group_id_cyl3_3, group_id_cyl4_3, group_id_shield_3, group_id_apert1_4, group_id_apert2_4, group_id_cyl1_4, group_id_cyl2_4, group_id_cyl3_4, group_id_cyl4_4, group_id_shield_4
+
+    def surfaces_quad1(self) -> None:
+        """
+        Defines physical groups for the surfaces. 
+        """
+        aperture1_1, aperture2_1, cylinder1_1, cylinder2_1, cylinder3_1, cylinder4_1, shield_1 = self.objects_quad1
+
+        #Sets an outward orientation of the surfaces' normals
+        gmsh.model.mesh.setOutwardOrientation(aperture1_1.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(aperture2_1.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder1_1.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder2_1.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder3_1.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder4_1.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(shield_1.shield_tag)
+
+        #Adds surfaces on top of the volumes created 
+        group_id_apert1_1 = gmsh.model.addPhysicalGroup(2, aperture1_1.apert_surf)
+        group_id_apert2_1 = gmsh.model.addPhysicalGroup(2, aperture2_1.apert_surf)
+        group_id_cyl1_1 = gmsh.model.addPhysicalGroup(2, cylinder1_1.cyl_surf)
+        group_id_cyl2_1 = gmsh.model.addPhysicalGroup(2, cylinder2_1.cyl_surf)
+        group_id_cyl3_1 = gmsh.model.addPhysicalGroup(2, cylinder3_1.cyl_surf)
+        group_id_cyl4_1 = gmsh.model.addPhysicalGroup(2, cylinder4_1.cyl_surf)
+        group_id_shield_1 = gmsh.model.addPhysicalGroup(2, shield_1.shield_surf)
+
+        self.data.group_id_quad1 = group_id_apert1_1, group_id_apert2_1, group_id_cyl1_1, group_id_cyl2_1, group_id_cyl3_1, group_id_cyl4_1, group_id_shield_1
+
+    def surfaces_quad2(self) -> None:
+        """
+        Defines physical groups for the surfaces. 
+        """
+        aperture1_2, aperture2_2, cylinder1_2, cylinder2_2, cylinder3_2, cylinder4_2, shield_2 = self.objects_quad2
+
+        #Sets an outward orientation of the surfaces' normals
+        gmsh.model.mesh.setOutwardOrientation(aperture1_2.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(aperture2_2.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder1_2.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder2_2.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder3_2.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder4_2.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(shield_2.shield_tag)
+
+        #Adds surfaces on top of the volumes created 
+        group_id_apert1_2 = gmsh.model.addPhysicalGroup(2, aperture1_2.apert_surf)
+        group_id_apert2_2 = gmsh.model.addPhysicalGroup(2, aperture2_2.apert_surf)
+        group_id_cyl1_2 = gmsh.model.addPhysicalGroup(2, cylinder1_2.cyl_surf)
+        group_id_cyl2_2 = gmsh.model.addPhysicalGroup(2, cylinder2_2.cyl_surf)
+        group_id_cyl3_2 = gmsh.model.addPhysicalGroup(2, cylinder3_2.cyl_surf)
+        group_id_cyl4_2 = gmsh.model.addPhysicalGroup(2, cylinder4_2.cyl_surf)
+        group_id_shield_2 = gmsh.model.addPhysicalGroup(2, shield_2.shield_surf)
+
+        self.data.group_id_quad2 = group_id_apert1_2, group_id_apert2_2, group_id_cyl1_2, group_id_cyl2_2, group_id_cyl3_2, group_id_cyl4_2, group_id_shield_2
+
+    def surfaces_quad3(self) -> None:
+        """
+        Defines physical groups for the surfaces. 
+        """
+        aperture1_3, aperture2_3, cylinder1_3, cylinder2_3, cylinder3_3, cylinder4_3, shield_3 = self.objects_quad3
+
+        #Sets an outward orientation of the surfaces' normals
+        gmsh.model.mesh.setOutwardOrientation(aperture1_3.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(aperture2_3.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder1_3.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder2_3.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder3_3.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder4_3.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(shield_3.shield_tag)
+
+        #Adds surfaces on top of the volumes created 
+        group_id_apert1_3 = gmsh.model.addPhysicalGroup(2, aperture1_3.apert_surf)
+        group_id_apert2_3 = gmsh.model.addPhysicalGroup(2, aperture2_3.apert_surf)
+        group_id_cyl1_3 = gmsh.model.addPhysicalGroup(2, cylinder1_3.cyl_surf)
+        group_id_cyl2_3 = gmsh.model.addPhysicalGroup(2, cylinder2_3.cyl_surf)
+        group_id_cyl3_3 = gmsh.model.addPhysicalGroup(2, cylinder3_3.cyl_surf)
+        group_id_cyl4_3 = gmsh.model.addPhysicalGroup(2, cylinder4_3.cyl_surf)
+        group_id_shield_3 = gmsh.model.addPhysicalGroup(2, shield_3.shield_surf)
+
+        self.data.group_id_quad3 = group_id_apert1_3, group_id_apert2_3, group_id_cyl1_3, group_id_cyl2_3, group_id_cyl3_3, group_id_cyl4_3, group_id_shield_3
+
+    def surfaces_quad4(self) -> None:
+        """
+        Defines physical groups for the surfaces. 
+        """
+        aperture1_4, aperture2_4, cylinder1_4, cylinder2_4, cylinder3_4, cylinder4_4, shield_4 = self.objects_quad4
+
+        #Sets an outward orientation of the surfaces' normals
+        gmsh.model.mesh.setOutwardOrientation(aperture1_4.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(aperture2_4.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder1_4.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder2_4.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder3_4.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder4_4.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(shield_4.shield_tag)
+
+        #Adds surfaces on top of the volumes created 
+        group_id_apert1_4 = gmsh.model.addPhysicalGroup(2, aperture1_4.apert_surf)
+        group_id_apert2_4 = gmsh.model.addPhysicalGroup(2, aperture2_4.apert_surf)
+        group_id_cyl1_4 = gmsh.model.addPhysicalGroup(2, cylinder1_4.cyl_surf)
+        group_id_cyl2_4 = gmsh.model.addPhysicalGroup(2, cylinder2_4.cyl_surf)
+        group_id_cyl3_4 = gmsh.model.addPhysicalGroup(2, cylinder3_4.cyl_surf)
+        group_id_cyl4_4 = gmsh.model.addPhysicalGroup(2, cylinder4_4.cyl_surf)
+        group_id_shield_4 = gmsh.model.addPhysicalGroup(2, shield_4.shield_surf)
+
+        self.data.group_id_quad4 = group_id_apert1_4, group_id_apert2_4, group_id_cyl1_4, group_id_cyl2_4, group_id_cyl3_4, group_id_cyl4_4, group_id_shield_4
+
+    def surfaces_doublet(self) -> None:
+        """
+        Defines physical groups for the surfaces. 
+        """
+        aperture1_2, aperture2_2, cylinder1_2, cylinder2_2, cylinder3_2, cylinder4_2, shield_2, aperture1_3, aperture2_3, cylinder1_3, cylinder2_3, cylinder3_3, cylinder4_3, shield_3 = self.objects_doublet
+
+        #Sets an outward orientation of the surfaces' normals
+        gmsh.model.mesh.setOutwardOrientation(aperture1_2.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(aperture2_2.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder1_2.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder2_2.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder3_2.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder4_2.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(shield_2.shield_tag)
+
+        #Adds surfaces on top of the volumes created 
+        group_id_apert1_2 = gmsh.model.addPhysicalGroup(2, aperture1_2.apert_surf)
+        group_id_apert2_2 = gmsh.model.addPhysicalGroup(2, aperture2_2.apert_surf)
+        group_id_cyl1_2 = gmsh.model.addPhysicalGroup(2, cylinder1_2.cyl_surf)
+        group_id_cyl2_2 = gmsh.model.addPhysicalGroup(2, cylinder2_2.cyl_surf)
+        group_id_cyl3_2 = gmsh.model.addPhysicalGroup(2, cylinder3_2.cyl_surf)
+        group_id_cyl4_2 = gmsh.model.addPhysicalGroup(2, cylinder4_2.cyl_surf)
+        group_id_shield_2 = gmsh.model.addPhysicalGroup(2, shield_2.shield_surf)
+
+        #Sets an outward orientation of the surfaces' normals
+        gmsh.model.mesh.setOutwardOrientation(aperture1_3.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(aperture2_3.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder1_3.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder2_3.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder3_3.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder4_3.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(shield_3.shield_tag)
+
+        #Adds surfaces on top of the volumes created 
+        group_id_apert1_3 = gmsh.model.addPhysicalGroup(2, aperture1_3.apert_surf)
+        group_id_apert2_3 = gmsh.model.addPhysicalGroup(2, aperture2_3.apert_surf)
+        group_id_cyl1_3 = gmsh.model.addPhysicalGroup(2, cylinder1_3.cyl_surf)
+        group_id_cyl2_3 = gmsh.model.addPhysicalGroup(2, cylinder2_3.cyl_surf)
+        group_id_cyl3_3 = gmsh.model.addPhysicalGroup(2, cylinder3_3.cyl_surf)
+        group_id_cyl4_3 = gmsh.model.addPhysicalGroup(2, cylinder4_3.cyl_surf)
+        group_id_shield_3 = gmsh.model.addPhysicalGroup(2, shield_3.shield_surf)
+
+        self.data.group_id_doublet = group_id_apert1_2, group_id_apert2_2, group_id_cyl1_2, group_id_cyl2_2, group_id_cyl3_2, group_id_cyl4_2, group_id_shield_2, group_id_apert1_3, group_id_apert2_3, group_id_cyl1_3, group_id_cyl2_3, group_id_cyl3_3, group_id_cyl4_3, group_id_shield_3
+
 
     def mesh(self) -> None:
         """Configures mesh size  and generates the surface mesh.
@@ -205,6 +679,96 @@ class Mesh_Generation:
 
         #Creates a file .msh
         mesh_path = os.path.join(self.data.output_dir, "mesh_quadrupole.msh")
+
+        gmsh.write(mesh_path)
+        print("Mesh saved to:", mesh_path)
+
+        if self.visual == True:
+            #Opens a terminal to see the geometry 
+            gmsh.fltk.run()
+
+        gmsh.finalize()
+
+    def finalize_system(self) -> None:
+        """Closes correctly Gmsh and exports a file with all the datas."""
+
+        #Creates a file .msh
+        mesh_path = os.path.join(self.data.output_dir, "mesh_system.msh")
+
+        gmsh.write(mesh_path)
+        print("Mesh saved to:", mesh_path)
+
+        if self.visual == True:
+            #Opens a terminal to see the geometry 
+            gmsh.fltk.run()
+
+        gmsh.finalize()
+    
+    def finalize_quad1(self) -> None:
+        """Closes correctly Gmsh and exports a file with all the datas."""
+
+        #Creates a file .msh
+        mesh_path = os.path.join(self.data.output_dir, "mesh_quadrupole1.msh")
+
+        gmsh.write(mesh_path)
+        print("Mesh saved to:", mesh_path)
+
+        if self.visual == True:
+            #Opens a terminal to see the geometry 
+            gmsh.fltk.run()
+
+        gmsh.finalize()
+
+    def finalize_quad2(self) -> None:
+        """Closes correctly Gmsh and exports a file with all the datas."""
+
+        #Creates a file .msh
+        mesh_path = os.path.join(self.data.output_dir, "mesh_quadrupole2.msh")
+
+        gmsh.write(mesh_path)
+        print("Mesh saved to:", mesh_path)
+
+        if self.visual == True:
+            #Opens a terminal to see the geometry 
+            gmsh.fltk.run()
+
+        gmsh.finalize()
+    
+    def finalize_quad3(self) -> None:
+        """Closes correctly Gmsh and exports a file with all the datas."""
+
+        #Creates a file .msh
+        mesh_path = os.path.join(self.data.output_dir, "mesh_quadrupole3.msh")
+
+        gmsh.write(mesh_path)
+        print("Mesh saved to:", mesh_path)
+
+        if self.visual == True:
+            #Opens a terminal to see the geometry 
+            gmsh.fltk.run()
+
+        gmsh.finalize()
+    
+    def finalize_quad4(self) -> None:
+        """Closes correctly Gmsh and exports a file with all the datas."""
+
+        #Creates a file .msh
+        mesh_path = os.path.join(self.data.output_dir, "mesh_quadrupole4.msh")
+
+        gmsh.write(mesh_path)
+        print("Mesh saved to:", mesh_path)
+
+        if self.visual == True:
+            #Opens a terminal to see the geometry 
+            gmsh.fltk.run()
+
+        gmsh.finalize()
+
+    def finalize_doublet(self) -> None:
+        """Closes correctly Gmsh and exports a file with all the datas."""
+
+        #Creates a file .msh
+        mesh_path = os.path.join(self.data.output_dir, "mesh_doublet.msh")
 
         gmsh.write(mesh_path)
         print("Mesh saved to:", mesh_path)

@@ -66,3 +66,72 @@ class Data:
         self.end_apert2 = self.start_apert2 + self.thickness_apert
         self.start_shield2 = self.end_apert2 + self.dist_shield_apert
         self.end_shield2 = self.start_shield2 + self.thickness_shield
+
+        #-----Global system-----
+        self.dist_quad_12 = 10
+        self.dist_quad_23 = 28.5
+        self.dist_quad_34 = 10 #peut être 9
+
+        ##First quadrupole
+        self.start_shield1_1 = 0 
+        self.end_shield1_1 = self.start_shield1_1 + self.thickness_shield
+        self.start_apert1_1 = self.start_shield1_1
+        self.end_apert1_1 = self.start_apert1_1 + self.thickness_apert
+
+        self.start_cyl_1 = self.end_apert1_1 + self.dist_apert_quad
+        self.end_cyl_1 = self.start_cyl_1 + self.length_cylinder
+
+        self.start_apert2_1 = self.end_cyl_1 + self.dist_apert_quad
+        self.end_apert2_1 = self.start_apert2_1 + self.thickness_apert
+        self.start_shield2_1 = self.start_apert2_1
+        self.end_shield2_1 = self.start_shield2_1 + self.thickness_shield
+
+        self.length_shield_1 = self.end_shield2_1 - self.start_shield1_1
+
+        ##Second quadrupole
+        self.start_shield1_2 = self.start_shield2_1 
+        self.end_shield1_2 = self.start_shield1_2 + self.thickness_shield
+        self.start_apert1_2 = self.start_shield1_2 + self.dist_quad_12
+        self.end_apert1_2 = self.start_apert1_2 + self.thickness_apert
+
+        self.start_cyl_2 = self.end_apert1_2 + self.dist_apert_quad
+        self.end_cyl_2 = self.start_cyl_2 + self.length_cylinder
+
+        self.start_apert2_2 = self.end_cyl_2 + self.dist_apert_quad
+        self.end_apert2_2 = self.start_apert2_2 + self.thickness_apert
+        self.start_shield2_2 = self.dist_quad_12 + self.dist_quad_23 + self.dist_quad_34 + 4*self.thickness_apert + 2*length_cylinder + 4*dist_apert_quad
+        self.end_shield2_2 = self.start_shield2_2 + self.thickness_shield
+
+        self.length_shield_2 = self.end_shield2_2 - self.start_shield1_2
+
+        ##Third quadrupole
+        self.start_shield1_3 = self.start_shield1_2
+        self.end_shield1_3 = self.start_shield1_3 + self.thickness_shield
+        self.start_apert1_3 = self.end_apert2_2 + self.dist_apert_quad
+        self.end_apert1_3 = self.start_apert1_3 + self.thickness_apert
+
+        self.start_cyl_3 = self.end_apert1_3 + self.dist_apert_quad
+        self.end_cyl_3 = self.start_cyl_3 + self.length_cylinder
+
+        self.start_apert2_3 = self.end_cyl_3 + self.dist_apert_quad
+        self.end_apert2_3 = self.start_apert2_3 + self.thickness_apert
+        self.start_shield2_3 = self.start_shield2_2
+        self.end_shield2_3 = self.start_shield2_3 + self.thickness_shield
+
+        self.length_shield_3 = self.end_shield2_3 - self.start_shield1_3
+
+        ##Fourth quadrupole
+        self.start_shield1_4 = self.start_shield2_2
+        self.end_shield1_4 = self.start_shield1_4 + self.thickness_shield
+        self.start_apert1_4 = self.start_shield1_4 
+        self.end_apert1_4 = self.start_apert1_4 + self.thickness_apert
+
+        self.start_cyl_4 = self.end_apert1_4 + self.dist_apert_quad
+        self.end_cyl_4 = self.start_cyl_4 + self.length_cylinder
+
+        self.start_apert2_4 = self.end_cyl_4 + self.dist_apert_quad
+        self.end_apert2_4 = self.start_apert2_4 + self.thickness_apert
+        self.start_shield2_4 = self.start_apert2_4
+        self.end_shield2_4 = self.start_shield2_4 + self.thickness_shield
+
+        self.length_shield_4 = self.end_shield2_4 - self.start_shield1_4

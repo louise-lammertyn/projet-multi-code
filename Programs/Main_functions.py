@@ -36,6 +36,60 @@ class Potential_extraction:
         self.mesh_generation.mesh()
         self.mesh_generation.finalize()
 
+    def mesh_system(self):
+        """Execute ull GMSH """
+        self.mesh_generation.initialisation()
+        self.mesh_generation.geometry_system()
+        self.mesh_generation.creation_mesh()
+        self.mesh_generation.surfaces_system()
+        self.mesh_generation.mesh()
+        self.mesh_generation.finalize_system()
+
+    def mesh_quad1(self):
+        """Execute ull GMSH """
+        self.mesh_generation.initialisation()
+        self.mesh_generation.geometry_quad1()
+        self.mesh_generation.creation_mesh()
+        self.mesh_generation.surfaces_quad1()
+        self.mesh_generation.mesh()
+        self.mesh_generation.finalize_quad1()
+
+    def mesh_quad2(self):
+        """Execute ull GMSH """
+        self.mesh_generation.initialisation()
+        self.mesh_generation.geometry_quad2()
+        self.mesh_generation.creation_mesh()
+        self.mesh_generation.surfaces_quad2()
+        self.mesh_generation.mesh()
+        self.mesh_generation.finalize_quad2()
+
+    def mesh_quad3(self):
+        """Execute ull GMSH """
+        self.mesh_generation.initialisation()
+        self.mesh_generation.geometry_quad3()
+        self.mesh_generation.creation_mesh()
+        self.mesh_generation.surfaces_quad3()
+        self.mesh_generation.mesh()
+        self.mesh_generation.finalize_quad3()
+
+    def mesh_quad4(self):
+        """Execute ull GMSH """
+        self.mesh_generation.initialisation()
+        self.mesh_generation.geometry_quad4()
+        self.mesh_generation.creation_mesh()
+        self.mesh_generation.surfaces_quad4()
+        self.mesh_generation.mesh()
+        self.mesh_generation.finalize_quad4()
+
+    def mesh_doublet(self):
+        """Execute ull GMSH """
+        self.mesh_generation.initialisation()
+        self.mesh_generation.geometry_doublet()
+        self.mesh_generation.creation_mesh()
+        self.mesh_generation.surfaces_doublet()
+        self.mesh_generation.mesh()
+        self.mesh_generation.finalize_doublet()   
+
     def potential_extraction(self):
         """Solve the Laplace equation on the mesh and extract axial potential/derivatives."""
         self.calculation_field.mesh_importation()
