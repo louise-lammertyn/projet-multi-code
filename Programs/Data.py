@@ -48,6 +48,11 @@ class Data:
             
         self.group_id = None
 
+        self.group_id_quad1 = None
+        self.group_id_quad2 = None
+        self.group_id_quad3 = None
+        self.group_id_quad4 = None
+
         self.total_length = 2*self.dist_shield_apert + 2*self.thickness_shield + 2*self.dist_apert_quad + 2*self.thickness_apert + self.length_cylinder
 
         self.coord_cylinder_x_or_y = 2*self.radius_axis
