@@ -55,8 +55,12 @@
 \lstset{style=pythonstyle}
 
 % --- CONFIGURATION DES TITRES ---
-\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
-\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titlespacing*{\chapter}{0pt}{-20pt}{30pt}
+\titleformat{\chapter}[display]
+  {\normalfont\Huge\bfseries} % Taille pour "Chapitre X"
+  {\chaptertitlename\ \thechapter}
+  {10pt}                      % Espace entre le numéro et le titre (réduit ici)
+  {\huge}                     % Taille pour le nom du titre (modifié de \Huge à \huge)
 
 \renewcommand{\contentsname}{Table des matières}
 
@@ -105,5 +109,122 @@ Ce document est le rapport final du projet...
 \chapter{Introduction}
 \section{Contexte}
 Le projet porte sur le quadrupôle d'Okayama...
+
+\chapter{Théorie physique}
+\section{Principe de moindre action}
+En optique des particules chargées, l'équivalent du principe de Fermat est le principe de moindre action.
+Celui-ci s'exprime comme 
+\[
+\delta S = \int_{S0}^{S1} \vec{p}\,\frac{\vec{r}}{dS} \, \mathrm{d}s = 0
+\]
+\\
+Ce principe peut être réecrit en utilisant l'indice optique. On a alors 
+\[
+\delta S = \int_{S0}^{S1} \mu\,\mathrm{d}z = 0
+\]
+\\
+Comme le quadrupole que nous utilisons est composé UNIQUEMENT de lentilles électrostatiques, on peut écrire
+\[
+\mu = \sqrt{\phi(1+(x')^2 + (y')^2)}
+\]
+avec $\mu$ l'indice optique, $\phi$ le potentiel électrostatique et x' et y' les dérivées de x et y par
+rapport à z.
+\\
+\\
+Afin de pouvoir retrouver la trajectoire des particules chargées qui passent à travers le système, il faut 
+retrouver l'indice optique du système. Cela est faisable en retrouvant le potentiel électrostatique dans tout le volume du
+système et la vitesse des particules dans les directions x et y. 
+
+\section{Equations d'Euler-Lagrange}
+Les équations d'Euler-Lagrange sont des équations équivalentes au principe de moindre action, sous forme 
+différentielle. On peut ainsi noter 
+\[
+\frac{\partial \mu }{\partial x}-\frac{d}{dz}\left(\frac{\partial \mu }{\partial x'}\right)=0
+\]
+\[
+\frac{\partial \mu }{\partial y}-\frac{d}{dz}\left(\frac{\partial \mu }{\partial y'}\right)=0
+\]
+
+\section{Extraction du potentiel}
+Afin de pouvoir retrouver le potentiel électrostatique en tout point du volume du système, on utilise une 
+méthode mathématique: la méthode des éléments de frontières. En anglais, cette méthode se nomme Boundary 
+Element Method (BEM). 
+\\
+\\
+{\color{red}
+--> Il faut détailler mais je sais pas quoi dire }
+\\
+\\
+Une fois le potentiel extrait en tout point de l'espace, il est utile de décomposer celui-ci afin de pouvoir séparer les 
+différentes composantes en fonction de leur dépendance aux différents ordres de x et y. On peut montrer que le potentiel s'exprime 
+alors comme 
+
+\[
+\boxed{
+\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})= \sum\limits_{\nu =0}^{\infty}
+\sum\limits_{\lambda=0}^{\infty} \frac{(-1)^{\lambda}\times (\nu !)}{4^{\lambda}\times \lambda !\times (\lambda +\nu)!}
+\times {\color{red}r}^{\nu +2\lambda} \times \left(\Phi_{\nu {r}}^{[2\lambda]}({\color{green}z})\times cos(\nu{\color{blue}\theta}) \right)
+}
+\]
+\\
+En injectant l'expression précédente dans les équations d'Euler-Lagrange, on obtient les équations différentielles suivantes, appelées équations de la trajectoire
+\[
+x''(z) + \frac{\phi'_0(z)}{2\phi_0}x'(z) + \left( \frac{\phi_0''(z)}{4\phi_0(z)} -
+\frac{\phi_2(z)}{\phi_0(z)}\right) x(z) = 0
+\]
+
+\[
+y''(z) + \frac{\phi'_0(z)}{2\phi_0}y'(z) + \left(\frac{\phi_0''(z)}{4\phi_0(z)} +
+\frac{\phi_2(z)}{\phi_0(z)}\right) y(z) = 0
+\]
+\\
+\\
+Comme leur nom l'indique, la  résolution des équations suivantes à l'aide de la méthode mathématique Runge-Kutta 4, on retrouve la trajectoire des 
+particules chargées à travers le système. 
+
+\chapter{Application}
+Le but de ce projet multidisciplinaire est de modéliser un quadrupole électrostatique. Pour cela, plusieurs étapes clés sont nécessaires: modélisation de la géométrie, extraction du 
+potentiel électrostatique, décomposition du potentiel et résolution des équations de la trajectoire. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{images/Logigramme.png} 
+\caption{Logigramme présentant les différentes étapes du projet}
+\label{fig:Logigramme}
+\end{figure}
+\section{Modélisation du quadrupole d'Okayama}
+Afin de pouvoir utiliser la méthode des éléments de frontière, il faut mailler la géométrie du quadrupole que nous souhaitons modéliser. Ce maillage est fait en utilisant une
+extension en bibliothèque Python du générateur de maillage open-source Gmsh.
+\\
+\\
+{\color{red}
+--> Penser à créditer}
+\\
+\\
+Au début du projet, nous nous sommes appuyées sur le projet multidisciplinaire de Niels BRUN et Paul BESNARD. Le but de ce projet était de modéliser 
+des lentilles de Einzel. Ces lentilles sont trois électrodes circulaires trouées au centre. Les électrodes extérieures sont à la masse tandis que 
+l'électrode du centre est polarisée. Ces lentilles servent dans le système de lentilles condenseurs. 
+Afin de prendre en main la bibliothèque Gmsh, nous avons modélisé des lentilles de Einzel.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\linewidth]{images/Maillage Einzel.png} 
+\caption{Maillage de lentille de Einzel avec Gmsh}
+\label{fig:maillage_einzel}
+\end{figure}
+
+Une fois cette bibliothèque Pyhton maitrisée, nous avons pu passer à la modélisation et au maillage du quadrupole d'Okayama. Celui-ci est composé
+de trois parties différentes: les électrodes cylindriques, les apertures circulaires et le shield. {(\color{red} doit on mettre ces mots en français?)}
+Au centre du quadrupole se situent les quatres électrodes cylindriques. Celle-ci sont polarisées inversement polarisée par paires: toutes les électrodes
+ont le même potentiel à un signe près. Ces électrodes permettent de focaliser le rayon selon une direction et le défocaliser selon une autre.
+Les apertures servent à {(\color{red} je sais pas quoi dire ici)}
+Le shield quand à lui sert à isoler le quadrupole afin de représenter un système réaliste car le quadrupole est toujours enfermé dans la colonne de 
+l'intrument sur lequel il est installé. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\linewidth]{images/Maillage Einzel.png} 
+\caption{Maillage de lentille de Einzel avec Gmsh}
+\label{fig:maillage_einzel}
+\end{figure}
 
 \end{document}

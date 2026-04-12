@@ -409,6 +409,28 @@ class Mesh_Generation:
 
         self.objects_doublet = aperture1_2, aperture2_2, cylinder1_2, cylinder2_2, cylinder3_2, cylinder4_2, shield_2, aperture1_3, aperture2_3, cylinder1_3, cylinder2_3, cylinder3_3, cylinder4_3, shield_3
 
+    def geometry_without_shield (self) -> None:
+        cylinder1 = Cylinder(self.data.length_cylinder, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl)
+        Cylinder.add(cylinder1)
+
+        cylinder2 = Cylinder(self.data.length_cylinder, self.data.radius_axis, -self.data.coord_cylinder_x_or_y, 0, self.data.start_cyl)
+        Cylinder.add(cylinder2)
+
+        cylinder3 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, self.data.coord_cylinder_x_or_y, self.data.start_cyl)
+        Cylinder.add(cylinder3)
+
+        cylinder4 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, -self.data.coord_cylinder_x_or_y, self.data.start_cyl)
+        Cylinder.add(cylinder4)
+
+
+        aperture1 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert1)
+        Aperture.add(aperture1)
+
+        aperture2 = Aperture(self.data.radius_apert, self.data.radius_axis, self.data.thickness_apert, 0, 0, self.data.start_apert2)
+        Aperture.add(aperture2)
+
+        self.objects_doublet = aperture1, aperture2, cylinder1, cylinder2, cylinder3, cylinder4
+
     def creation_mesh(self) -> None:
         """Synchronizes the OpenCASCADE internal CAD representation with the GMSH model."""
         gmsh.model.occ.synchronize()
@@ -661,6 +683,29 @@ class Mesh_Generation:
 
         self.data.group_id_doublet = group_id_apert1_2, group_id_apert2_2, group_id_cyl1_2, group_id_cyl2_2, group_id_cyl3_2, group_id_cyl4_2, group_id_shield_2, group_id_apert1_3, group_id_apert2_3, group_id_cyl1_3, group_id_cyl2_3, group_id_cyl3_3, group_id_cyl4_3, group_id_shield_3
 
+    def surfaces_without_shield(self) -> None:
+        """
+        Defines physical groups for the surfaces. 
+        """
+        aperture1, aperture2, cylinder1, cylinder2, cylinder3, cylinder4 = self.objects
+
+        #Sets an outward orientation of the surfaces' normals
+        gmsh.model.mesh.setOutwardOrientation(aperture1.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(aperture2.apert_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder1.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder2.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder3.cyl_tag)
+        gmsh.model.mesh.setOutwardOrientation(cylinder4.cyl_tag)
+
+        #Adds surfaces on top of the volumes created 
+        group_id_apert1 = gmsh.model.addPhysicalGroup(2, aperture1.apert_surf)
+        group_id_apert2 = gmsh.model.addPhysicalGroup(2, aperture2.apert_surf)
+        group_id_cyl1 = gmsh.model.addPhysicalGroup(2, cylinder1.cyl_surf)
+        group_id_cyl2 = gmsh.model.addPhysicalGroup(2, cylinder2.cyl_surf)
+        group_id_cyl3 = gmsh.model.addPhysicalGroup(2, cylinder3.cyl_surf)
+        group_id_cyl4 = gmsh.model.addPhysicalGroup(2, cylinder4.cyl_surf)
+
+        self.data.group_id = group_id_apert1, group_id_apert2, group_id_cyl1, group_id_cyl2, group_id_cyl3, group_id_cyl4
 
     def mesh(self) -> None:
         """Configures mesh size  and generates the surface mesh.
@@ -778,3 +823,16 @@ class Mesh_Generation:
             gmsh.fltk.run()
 
         gmsh.finalize()
+
+    def finalize_without_shield(self) -> None:
+        """Closes correctly Gmsh and exports a file with all the datas."""
+
+        #Creates a file .msh
+        mesh_path = os.path.join(self.data.output_dir, "mesh_quadrupole_without_shield.msh")
+
+        gmsh.write(mesh_path)
+        print("Mesh saved to:", mesh_path)
+
+        if self.visual == True:
+            #Opens a terminal to see the geometry 
+            gmsh.fltk.run()

@@ -88,7 +88,16 @@ class Potential_extraction:
         self.mesh_generation.creation_mesh()
         self.mesh_generation.surfaces_doublet()
         self.mesh_generation.mesh()
-        self.mesh_generation.finalize_doublet()   
+        self.mesh_generation.finalize_doublet()
+
+    def mesh_without_shield(self):
+        """Execute ull GMSH """
+        self.mesh_generation.initialisation()
+        self.mesh_generation.geometry_without_shield()
+        self.mesh_generation.creation_mesh()
+        self.mesh_generation.surfaces_without_shield()
+        self.mesh_generation.mesh()
+        self.mesh_generation.finalize_without_shield()     
 
     def potential_extraction(self):
         """Solve the Laplace equation on the mesh and extract axial potential/derivatives."""
