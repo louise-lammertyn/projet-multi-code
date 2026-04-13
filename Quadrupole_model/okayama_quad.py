@@ -55,8 +55,6 @@ class Okayama_quad():
                 self.axe_zt, 
                 local_z + offset, 
                 local_array[j, :], 
-                left=0, 
-                right=0
             )
             total_array[j, :] += valeurs_interpolees
 

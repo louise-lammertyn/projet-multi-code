@@ -62,11 +62,22 @@ class Graphs:
         self.trace_geo(ax)
         # Plot Calculated decomposition data and Okayam'a model 
 
-        ax.plot(self.data.axe_z, self.decomposition.Phi0_maj, label=r'$\Phi_0 $ $[V]$', color='crimson')
-        ax.plot(self.data.axe_z, self.decomposition.Phi1_maj, label=r'$\Phi_1$ $[V/mm^1]$', color='darkviolet')
-        ax.plot(self.data.axe_z, self.decomposition.Phi2_maj, label=r'$\Phi_2$ $[V/mm^2]$', color='green')
-        ax.plot(self.data.axe_z, self.decomposition.Phi3_maj, label=r'$\Phi_3$ $[V/mm^3]$', color='gold')
-        ax.plot(self.data.axe_z, 10*self.decomposition.Phi4_maj, label=r'$\Phi_4 \times 10$ $[V/mm^4]$', color='royalblue')
+       
+        ax.plot(self.data.axe_z, self.decomposition.Phi0_maj/50, 
+                label=r'$\Phi_0 / 50$ $[V]$', color='deepskyblue')
+        
+        ax.plot(self.data.axe_z, self.decomposition.Phi1_maj, 
+                label=r'$\Phi_1$ $[V/mm]$', color='darkviolet')
+        
+        ax.plot(self.data.axe_z, 15*self.decomposition.Phi2_maj, 
+                label=r'$15 \times \Phi_2$ $[V/mm^2]$', color='red')
+        
+        ax.plot(self.data.axe_z, self.decomposition.Phi3_maj, 
+                label=r'$\Phi_3$ $[V/mm^3]$', color='pink')
+        
+        ax.plot(self.data.axe_z, 1000*self.decomposition.Phi4_maj, 
+                label=r'$1000 \times \Phi_4$ $[V/mm^4]$', color='green')
+        
 
         # 4. label and style
         ax.set_xlabel("z (mm)")
@@ -78,6 +89,40 @@ class Graphs:
         
         plt.tight_layout()
         plt.show()
+
+    def graphe_zoom(self, z_range=(-5, 20)) -> None:
+        """
+        
+        """
+        fig, ax = plt.subplots(figsize=(10, 5))
+        
+        # 1. Tracer la géométrie en arrière-plan
+        self.trace_geo(ax)
+        
+        # 2. Tracer Phi0 (le champ rond)
+        # On regarde Phi0_maj car c'est lui qui contient la réalité physique du BEM
+        ax.plot(self.data.axe_z, self.decomposition.Phi0_maj, 
+                label=r'$\Phi_0$ (Champ rond)', color='crimson', lw=2)
+        
+        ax.axhline(0, color='black', linestyle='-', alpha=0.5)
+
+        ax.set_xlim(z_range)
+        
+        # Ajustement dynamique de l'échelle Y pour voir les détails près de 0
+        mask = (self.data.axe_z >= z_range[0]) & (self.data.axe_z <= z_range[1])
+        if any(mask):
+            y_data = self.decomposition.Phi0_maj[mask]
+            ax.set_ylim(min(y_data) - 5, max(y_data) + 5)
+
+        # 5. Style et labels
+        ax.set_xlabel("z (mm)")
+        ax.set_ylabel("Potentiel $\Phi_0$ (V)")
+        ax.set_title("Zoom")
+        ax.grid(True, which='both', linestyle='--', alpha=0.5)
+        ax.legend()
+        
+        plt.tight_layout()
+        plt.show()
     
     #same but with fitting potential componant  
     def graphe_fit(self, bool_fit = True ) -> None:
@@ -86,14 +131,14 @@ class Graphs:
 
         #Printing of the different composants of the potential
        
-        ax.plot(self.data.axe_z, self.decomposition.Phi0_fit, label=r'$\Phi_0 $ $[V]$', color='crimson')
-        ax.plot(self.data.axe_z, self.decomposition.Phi2_fit, label=r'$\Phi_2$ $[V/mm^2]$', color='green')
-        plt.plot(self.data.axe_z, 10*self.decomposition.Phi4_fit, label=r'$\Phi_4 *10$ $[V/mm^4]$', color='royalblue')
+        ax.plot(self.data.axe_z, self.decomposition.Phi0_fit, label=r'$\Phi_0 $ $[V]$', color='deepskyblue')
+        ax.plot(self.data.axe_z, self.decomposition.Phi2_fit, label=r'$\Phi_2$ $[V/mm^2]$', color='red')
+        plt.plot(self.data.axe_z, 10*self.decomposition.Phi4_fit, label=r'$\Phi_4 *10$ $[V/mm^4]$', color='green')
         
         if (bool_fit == True ):
-            ax.plot(self.data.axe_z, self.fit.k0, label=r'k0', color='crimson', linestyle='dashed')
-            ax.plot(self.data.axe_z, self.fit.k2, label=r'k2', color='green', linestyle='dashed')
-            ax.plot(self.data.axe_z, 10*self.fit.k4, label=r'k4 *10', color='royalblue', linestyle='dashed')
+            ax.plot(self.data.axe_z, self.fit.k0, label=r'k0', color='skyblue', linestyle='dashed')
+            ax.plot(self.data.axe_z, self.fit.k2, label=r'k2', color='salmon', linestyle='dashed')
+            ax.plot(self.data.axe_z, 10*self.fit.k4, label=r'k4 *10', color='darkgreen', linestyle='dashed')
 
         ax.set_xlabel("z (mm)")
         ax.set_ylabel("Potentiel")
