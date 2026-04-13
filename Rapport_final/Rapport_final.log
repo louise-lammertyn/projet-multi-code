@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.12)  12 APR 2026 19:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.12)  13 APR 2026 10:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final/Rapport_final.tex"
-(c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final/Rapport_final.tex
+**"c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Rapport_final/Rapport_final.tex"
+(c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Rapport_final/Rapport_final.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
 (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
@@ -669,10 +669,6 @@ File: lstlang1.sty 2025/11/14 1.11b listings language file
 ) (Rapport_final.aux
 Package babel Info: 'french' activates 'french' shorthands.
 (babel)             Reported on input line 12.
-
-
-LaTeX Warning: Label `fig:maillage_einzel' multiply defined.
-
 )
 \openout1 = `Rapport_final.aux'.
 
@@ -906,10 +902,11 @@ File: images/Maillage Einzel.png Graphic file (type png)
 <use images/Maillage Einzel.png>
 Package pdftex.def Info: images/Maillage Einzel.png  used on input line 210.
 (pdftex.def)             Requested size: 182.09486pt x 132.11382pt.
-File: images/Maillage Einzel.png Graphic file (type png)
-<use images/Maillage Einzel.png>
-Package pdftex.def Info: images/Maillage Einzel.png  used on input line 225.
-(pdftex.def)             Requested size: 182.09486pt x 132.11382pt.
+<images/Maillage de biais incliné.png, id=156, 653.44125pt x 612.78937pt>
+File: images/Maillage de biais incliné.png Graphic file (type png)
+<use images/Maillage de biais incliné.png>
+Package pdftex.def Info: images/Maillage de biais incliné.png  used on input line 225.
+(pdftex.def)             Requested size: 136.57462pt x 128.07243pt.
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 229.
@@ -917,34 +914,40 @@ Package pdftex.def Info: images/pattern.png  used on input line 229.
 [9
 
  <./images/Logigramme.png> <./images/Maillage Einzel.png>]
+<images/Coupe en longueur.png, id=166, 636.87938pt x 568.37344pt>
+File: images/Coupe en longueur.png Graphic file (type png)
+<use images/Coupe en longueur.png>
+Package pdftex.def Info: images/Coupe en longueur.png  used on input line 235.
+(pdftex.def)             Requested size: 182.09486pt x 162.50847pt.
+<images/Coupe de face.png, id=167, 619.56468pt x 621.07031pt>
+File: images/Coupe de face.png Graphic file (type png)
+<use images/Coupe de face.png>
+Package pdftex.def Info: images/Coupe de face.png  used on input line 242.
+(pdftex.def)             Requested size: 182.09486pt x 182.53181pt.
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 230.
+Package pdftex.def Info: images/pattern.png  used on input line 249.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
- [10] (Rapport_final.aux)
+ [10 <./images/Maillage de biais incliné.png> <./images/Coupe en longueur.png> <./images/Coupe de face.png>] (Rapport_final.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `Rapport_final.out' has not changed.
 (rerunfilecheck)             Checksum: 5F1E0A1007B74BC843EA27A1D2311853;1417.
  ) 
 Here is how much of TeX's memory you used:
- 26131 strings out of 467871
- 483474 string characters out of 5418376
+ 26159 strings out of 467871
+ 484241 string characters out of 5418376
  1159232 words of memory out of 5000000
- 54555 multiletter control sequences out of 15000+600000
+ 54581 multiletter control sequences out of 15000+600000
  634254 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,17n,95p,537b,1215s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,17n,95p,523b,1215s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Rapport_final.pdf (10 pages, 1749771 bytes).
+Output written on Rapport_final.pdf (10 pages, 2931797 bytes).
 PDF statistics:
- 410 PDF objects out of 1000 (max. 8388607)
- 22 named destinations out of 1000 (max. 500000)
- 128 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 421 PDF objects out of 1000 (max. 8388607)
+ 24 named destinations out of 1000 (max. 500000)
+ 143 words of extra memory for PDF output out of 10000 (max. 10000000)
 
