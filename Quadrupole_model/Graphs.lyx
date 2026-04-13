@@ -1,0 +1,623 @@
+#LyX file created by tex2lyx 2.5
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /Users/louise/Documents/insa/insa4/projet/projet-multi-code/Quadrupole_model/
+\textclass report
+\use_default_options false
+\maintain_unincluded_children no
+\language french
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 1
+\pdf_backref false
+\pdf_pdfusetitle 0
+\pdf_quoted_options "linkcolor=blue,citecolor=green"
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\crossref_package prettyref
+\use_minted 0
+\use_lineno false
+\customcolor backcolour f2f2eb
+\customcolor codegray 7f7f7f
+\customcolor codegreen 009900
+\customcolor codepurple 9300d1
+\fontcolor codepurple
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\lang french
+from matplotlib import pylab as plt import matplotlib.pyplot from Extractiondata import Extracteddata from Multipolardecomposition import Decomposition from Fitfunctions import Fitconstants
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+class Graphs: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ A class to handle the visualization of multipolar decomposition data and the quadrupole geometry. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ def init(self, data: Extracteddata, decomposition: Decomposition, fit : Fitconstants = None) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ data (Extracteddata): Object containing axis coordinates and geometry boundaries. decomposition (Decomposition): Object containing multipolar component values. fit (Fitconstants): Object containing Okayama fitting function constants. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ self.data = data self.decomposition = decomposition self.fit = fit
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.ax = None
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def tracegeo(self, ax) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Overlay the physical geometry of the system. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ if self.data.zoff is not None : offset = self.data.zoff print(offset)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# On utilise un drapeau pour ne mettre les labels qu'une seule fois for i, z in enumerate(offset): labels = 'Shield' if i == 0 else 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+ labela = 'Aperture' if i == 0 else 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+ labele = 'Electrodes' if i == 0 else 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+ax.axvspan(z + self.data.startshield1, z + self.data.endshield1, color='red', alpha=0.15, label=labels) ax.axvspan(z + self.data.startapert1, z + self.data.endapert1, color='blue', alpha=0.15, label=labela) ax.axvspan(z + self.data.startcyl, z + self.data.endcyl, color='green', alpha=0.15, label=labele) ax.axvspan(z + self.data.startapert2, z + self.data.endapert2, color='blue', alpha=0.15) ax.axvspan(z + self.data.startshield2, z + self.data.endshield2, color='red', alpha=0.15) else : # Cas d'un seul quadrupole ax.axvspan(self.data.startshield1, self.data.endshield1, color='red', alpha=0.15, label='Shield') ax.axvspan(self.data.startapert1, self.data.endapert1, color='blue', alpha=0.15, label='Aperture') ax.axvspan(self.data.startcyl, self.data.endcyl, color='green', alpha=0.15, label='Electrodes') ax.axvspan(self.data.startapert2, self.data.endapert2, color='blue', alpha=0.15) ax.axvspan(self.data.startshield2, self.data.endshield2, color='red', alpha=0.15)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def graphecomposantes(self) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Plot the multipolar components (Phi0 to Phi4) along the Z-axis overlaid with the system geometry. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ # 1. Initialize figure and axis fig, ax = plt.subplots(figsize=(9, 5))
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# 2. Trace the background geometry self.tracegeo(ax) # Plot Calculated decomposition data and Okayam'a model
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+ax.plot(self.data.axez, self.decomposition.Phi0maj, label=r'
+\begin_inset Formula $\Phi_0 $
+\end_inset
+
+ 
+\begin_inset Formula $[V]$
+\end_inset
+
+', color='crimson') ax.plot(self.data.axez, self.decomposition.Phi1maj, label=r'
+\begin_inset Formula $\Phi_1$
+\end_inset
+
+ 
+\begin_inset Formula $[V/mm^1]$
+\end_inset
+
+', color='darkviolet') ax.plot(self.data.axez, self.decomposition.Phi2maj, label=r'
+\begin_inset Formula $\Phi_2$
+\end_inset
+
+ 
+\begin_inset Formula $[V/mm^2]$
+\end_inset
+
+', color='green') ax.plot(self.data.axez, self.decomposition.Phi3maj, label=r'
+\begin_inset Formula $\Phi_3$
+\end_inset
+
+ 
+\begin_inset Formula $[V/mm^3]$
+\end_inset
+
+', color='gold') ax.plot(self.data.axez, 10*self.decomposition.Phi4maj, label=r'
+\begin_inset Formula $\Phi_4 \times 10$
+\end_inset
+
+ 
+\begin_inset Formula $[V/mm^4]$
+\end_inset
+
+', color='royalblue')
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# 4. label and style ax.setxlabel(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+z (mm)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) ax.setylabel(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Potentiel
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) ax.settitle(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Multipolaire decomposition 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) ax.grid(True)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+ax.legend(loc=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+center left
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+, bboxtoanchor=(1.02, 0.5), borderaxespad=0.)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+plt.tightlayout() plt.show()
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#same but with fitting potential componant def graphefit(self, boolfit = True ) -> None: fig, ax = plt.subplots(figsize=(9, 5)) self.tracegeo(ax)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Printing of the different composants of the potential
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+ax.plot(self.data.axez, self.decomposition.Phi0fit, label=r'
+\begin_inset Formula $\Phi_0 $
+\end_inset
+
+ 
+\begin_inset Formula $[V]$
+\end_inset
+
+', color='crimson') ax.plot(self.data.axez, self.decomposition.Phi2fit, label=r'
+\begin_inset Formula $\Phi_2$
+\end_inset
+
+ 
+\begin_inset Formula $[V/mm^2]$
+\end_inset
+
+', color='green') plt.plot(self.data.axez, 10*self.decomposition.Phi4fit, label=r'
+\begin_inset Formula $\Phi_4 *10$
+\end_inset
+
+ 
+\begin_inset Formula $[V/mm^4]$
+\end_inset
+
+', color='royalblue')
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+if (boolfit == True ): ax.plot(self.data.axez, self.fit.k0, label=r'k0', color='crimson', linestyle='dashed') ax.plot(self.data.axez, self.fit.k2, label=r'k2', color='green', linestyle='dashed') ax.plot(self.data.axez, 10*self.fit.k4, label=r'k4 *10', color='royalblue', linestyle='dashed')
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+ax.setxlabel(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+z (mm)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) ax.setylabel(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Potentiel
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) ax.settitle(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Décomposition multipolaire sur l’axe et fonctions de fit
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) ax.grid() ax.legend() ax.legend(loc=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+center left
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+, bboxtoanchor=(1.02, 0.5), borderaxespad=0.) plt.tightlayout() plt.show()
+\end_layout
+
+\end_body
+\end_document

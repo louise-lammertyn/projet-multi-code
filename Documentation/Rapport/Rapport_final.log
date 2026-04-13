@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.3.2)  25 MAR 2026 20:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.3.2)  6 APR 2026 10:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -853,41 +853,34 @@ Package pdftex.def Info: images/Schema_Colonne_FIB_OP.png  used on input line 25
 <aberation_spherique.png, id=295, 1204.5pt x 725.71124pt>
 File: aberation_spherique.png Graphic file (type png)
 <use aberation_spherique.png>
-Package pdftex.def Info: aberation_spherique.png  used on input line 306.
+Package pdftex.def Info: aberation_spherique.png  used on input line 282.
 (pdftex.def)             Requested size: 136.57462pt x 82.28679pt.
-
-
-File: images/pattern.png Graphic file (type png)
-<use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 310.
-(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[7 <./images/Schema_Colonne_FIB_OP.png>]
-<images/Quadrupole_CEOS.png, id=304, 313.17pt x 245.41687pt>
+<images/Quadrupole_CEOS.png, id=296, 313.17pt x 245.41687pt>
 File: images/Quadrupole_CEOS.png Graphic file (type png)
 <use images/Quadrupole_CEOS.png>
-Package pdftex.def Info: images/Quadrupole_CEOS.png  used on input line 320.
+Package pdftex.def Info: images/Quadrupole_CEOS.png  used on input line 302.
 (pdftex.def)             Requested size: 182.09486pt x 142.70511pt.
 
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 362.
+Package pdftex.def Info: images/pattern.png  used on input line 306.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[8 <./aberation_spherique.png> <./images/Quadrupole_CEOS.png>]
+[7 <./images/Schema_Colonne_FIB_OP.png> <./aberation_spherique.png>]
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 362.
+Package pdftex.def Info: images/pattern.png  used on input line 342.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[9]
+[8 <./images/Quadrupole_CEOS.png>]
 Chapitre 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--404
+Underfull \hbox (badness 10000) in paragraph at lines 373--384
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--404
+Underfull \hbox (badness 10000) in paragraph at lines 373--384
 
  []
 
@@ -895,28 +888,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 393--404
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 418.
+Package pdftex.def Info: images/pattern.png  used on input line 398.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[10
+[9
 
 ]
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 503.
+Package pdftex.def Info: images/pattern.png  used on input line 483.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 491--519
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--519
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 538--543
+
+ []
+
+
+
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 557.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 511--539
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 511--539
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 558--563
+Underfull \hbox (badness 10000) in paragraph at lines 599--604
 
  []
 
@@ -924,10 +928,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 558--563
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 577.
+Package pdftex.def Info: images/pattern.png  used on input line 621.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 619--624
+Underfull \hbox (badness 10000) in paragraph at lines 621--625
 
  []
 
@@ -935,10 +939,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 619--624
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 641.
+Package pdftex.def Info: images/pattern.png  used on input line 667.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 641--645
+Underfull \hbox (badness 10000) in paragraph at lines 667--670
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 671--673
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 674--684
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 692--701
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 704--707
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 716--719
 
  []
 
@@ -946,35 +975,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 641--645
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 687.
+Package pdftex.def Info: images/pattern.png  used on input line 736.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 687--690
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 691--693
-
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 748.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 694--704
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 712--721
-
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\nu' on input line 748.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 724--727
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 748.
 
- []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 736--739
+Underfull \hbox (badness 10000) in paragraph at lines 753--755
 
  []
 
@@ -982,53 +999,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 736--739
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 756.
+Package pdftex.def Info: images/pattern.png  used on input line 815.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [15]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 768.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\nu' on input line 768.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 768.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 773--775
-
- []
-
-
-
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 835.
+Package pdftex.def Info: images/pattern.png  used on input line 908.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [16]
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 928.
+Package pdftex.def Info: images/pattern.png  used on input line 1014.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [17]
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 1034.
+Package pdftex.def Info: images/pattern.png  used on input line 1014.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [18]
-
-File: images/pattern.png Graphic file (type png)
-<use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 1034.
-(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[19]
 Chapitre 3.
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 1055.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 1035.
 (../../Quadrupole_model/Potential_extraction
 Overfull \hbox (36.39072pt too wide) in paragraph at lines 15--16
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
@@ -1040,7 +1033,7 @@ File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 20.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[20
+[19
 
 ]) (../../Quadrupole_model/Data.py
 
@@ -1048,37 +1041,37 @@ File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 20.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[21]) (../../Quadrupole_model/Geometry.py
+[20]) (../../Quadrupole_model/Geometry.py
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 11.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[22]
+[21]
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 79.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[23]
+[22]
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 143.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[24])
-<images/Coupe_quadrupole.png, id=668, 615.80063pt x 524.71031pt>
+[23])
+<images/Coupe_quadrupole.png, id=664, 615.80063pt x 524.71031pt>
 File: images/Coupe_quadrupole.png Graphic file (type png)
 <use images/Coupe_quadrupole.png>
-Package pdftex.def Info: images/Coupe_quadrupole.png  used on input line 1084.
+Package pdftex.def Info: images/Coupe_quadrupole.png  used on input line 1064.
 (pdftex.def)             Requested size: 182.09486pt x 155.15648pt.
-<images/Quadrupole_shield.png, id=669, 820.56563pt x 666.23906pt>
+<images/Quadrupole_shield.png, id=665, 820.56563pt x 666.23906pt>
 File: images/Quadrupole_shield.png Graphic file (type png)
 <use images/Quadrupole_shield.png>
-Package pdftex.def Info: images/Quadrupole_shield.png  used on input line 1091.
+Package pdftex.def Info: images/Quadrupole_shield.png  used on input line 1071.
 (pdftex.def)             Requested size: 182.09486pt x 147.84378pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1076--1096
+Underfull \hbox (badness 10000) in paragraph at lines 1056--1076
 
  []
 
@@ -1086,143 +1079,143 @@ Underfull \hbox (badness 10000) in paragraph at lines 1076--1096
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 1097.
+Package pdftex.def Info: images/pattern.png  used on input line 1077.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[25] (../../Quadrupole_model/Field_calculation.py
+[24] (../../Quadrupole_model/Field_calculation.py
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 46.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[26 <./images/Coupe_quadrupole.png> <./images/Quadrupole_shield.png>]
+[25 <./images/Coupe_quadrupole.png> <./images/Quadrupole_shield.png>]
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 118.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[27]
+[26]
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 186.
+Package pdftex.def Info: images/pattern.png  used on input line 185.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[28]) (../../Quadrupole_model/Extraction_data.py
+[27])
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 4.
+Package pdftex.def Info: images/pattern.png  used on input line 1085.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[29]
+[28] (../../Quadrupole_model/Extraction_data.py
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 76.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[30]) (../../Quadrupole_model/Multipolar_decomposition.py)
-<images/décomposition_multipolaire.png, id=1089, 714.0276pt x 426.393pt>
-File: images/décomposition_multipolaire.png Graphic file (type png)
-<use images/décomposition_multipolaire.png>
-Package pdftex.def Info: images/décomposition_multipolaire.png  used on input line 1113.
-(pdftex.def)             Requested size: 455.24411pt x 271.8626pt.
-
+[29]) (../../Quadrupole_model/Multipolar_decomposition.py)
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 1117.
+Package pdftex.def Info: images/pattern.png  used on input line 1090.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[31] (../../Quadrupole_model/Fit_functions.py
+[30]
+<images/décomposition_multipolaire.png, id=1153, 714.0276pt x 426.393pt>
+File: images/décomposition_multipolaire.png Graphic file (type png)
+<use images/décomposition_multipolaire.png>
+Package pdftex.def Info: images/décomposition_multipolaire.png  used on input line 1093.
+(pdftex.def)             Requested size: 455.24411pt x 271.8626pt.
+ (../../Quadrupole_model/Fit_functions.py
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 30.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[32 <./images/décomposition_multipolaire.png>])
-<images/fonction_fit.png, id=1193, 641.7576pt x 354.123pt>
+[31 <./images/décomposition_multipolaire.png>])
+<images/fonction_fit.png, id=1190, 641.7576pt x 354.123pt>
 File: images/fonction_fit.png Graphic file (type png)
 <use images/fonction_fit.png>
-Package pdftex.def Info: images/fonction_fit.png  used on input line 1127.
+Package pdftex.def Info: images/fonction_fit.png  used on input line 1107.
 (pdftex.def)             Requested size: 455.24411pt x 251.20213pt.
 
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 1131.
+Package pdftex.def Info: images/pattern.png  used on input line 1111.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[33] (../../Quadrupole_model/Graphs.py
+[32] (../../Quadrupole_model/Graphs.py
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 34.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[34 <./images/fonction_fit.png>]
+[33 <./images/fonction_fit.png>]
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 82.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[35]) (../../Quadrupole_model/paraxial.py
+[34]) (../../Quadrupole_model/paraxial.py
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 29.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[36]
+[35]
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 89.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[37]
+[36]
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 149.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[38]
+[37]
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 211.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[39]
+[38]
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 274.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[40]
+[39]
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
 Package pdftex.def Info: images/pattern.png  used on input line 337.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[41])
+[40])
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 1144.
+Package pdftex.def Info: images/pattern.png  used on input line 1124.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[42] (./Rapport_final.aux)
+[41] (./Rapport_final.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `Rapport_final.out' has not changed.
-(rerunfilecheck)             Checksum: 929F7081DE13E9405974F38DFA75CFDF;6632.
+(rerunfilecheck)             Checksum: C815D0721677889866F12D92F5ABA841;6666.
  ) 
 Here is how much of TeX's memory you used:
- 28684 strings out of 473190
- 517815 string characters out of 5715801
+ 28680 strings out of 473190
+ 517758 string characters out of 5715801
  1494105 words of memory out of 5000000
- 50116 multiletter control sequences out of 15000+600000
+ 50112 multiletter control sequences out of 15000+600000
  575780 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,17n,93p,497b,3038s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0500.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on Rapport_final.pdf (42 pages, 2955289 bytes).
+Output written on Rapport_final.pdf (41 pages, 2952593 bytes).
 PDF statistics:
- 2124 PDF objects out of 2487 (max. 8388607)
- 1983 compressed objects within 20 object streams
+ 2121 PDF objects out of 2487 (max. 8388607)
+ 1981 compressed objects within 20 object streams
  1344 named destinations out of 1440 (max. 500000)
  393 words of extra memory for PDF output out of 10000 (max. 10000000)
 

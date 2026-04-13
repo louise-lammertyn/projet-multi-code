@@ -1,0 +1,4630 @@
+#LyX file created by tex2lyx 2.5
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /Users/louise/Documents/insa/insa4/projet/projet-multi-code/Documentation/Rapport/
+\textclass report
+\begin_preamble
+
+
+% Packages nécessaires
+\PassOptionsToPackage{french}{babel}
+\usepackage{babel}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{lipsum}% Package de remplissage de texte (à retirer dans le rapport final)
+% pour l'option de placement [H]
+\usepackage{lipsum}
+\usepackage{wrapfig}% Pour l'enroulement du texte autour des images
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{background}
+%permet de commenter des codes entiers
+\usepackage{listings}
+\usepackage{listings}
+% Aide à la gestion des caractères européens
+
+\lstset{
+  language=Python,
+  inputencoding=utf8,       % On essaie l'utf8
+  extendedchars=true,
+  % Cette ligne ci-dessous est MAGIQUE : elle remplace les caractères problématiques 
+  % par leur version LaTeX sans faire planter le moteur
+  literate={é}{{\'e}}1 {è}{{\`e}}1 {à}{{\`a}}1 {ç}{{\c{c}}}1 {œ}{{\oe}}1 {ù}{{\`u}}1 {É}{{\'E}}1 {È}{{\`E}}1 {À}{{\`A}}1 {°}{{$^\circ$}}1,
+  breaklines=true,
+  breakatwhitespace=true,
+  basicstyle=\small\ttfamily,
+  columns=fullflexible,
+  keepspaces=true
+}
+
+%Permet de définir les codes en couleur
+
+
+
+
+
+%Pour que les codes soient en couleur
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=,
+    commentstyle=,
+    keywordstyle=,
+    numberstyle=\tiny,
+    stringstyle=,
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    language=Python
+}
+%Indique que la coloration des codes doit suivre celle d'un code Python
+\lstset{style=pythonstyle}
+
+% Configuration de la page
+
+
+% Configuration des titres des sections et sous-sections
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% Configuration de la table des matières
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\bfseries}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\renewcommand{\cftsubsecpagefont}{\normalfont}
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{10pt}
+\renewcommand{\contentsname}{Table des matières}
+
+
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children no
+\language french
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 1
+\pdf_backref false
+\pdf_pdfusetitle 0
+\pdf_quoted_options "linkcolor=blue,citecolor=green"
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\crossref_package prettyref
+\use_minted 0
+\use_lineno false
+\customcolor backcolour f2f2eb
+\customcolor codegray 7f7f7f
+\customcolor codegreen 009900
+\customcolor codepurple 9300d1
+\fontcolor codepurple
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Désactiver le fond
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+backgroundsetup
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+contents=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Insérer le PDF
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset External
+	template PDFPages
+	filename Template.pdf
+	extra LaTeX "pages=-"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Réactiver le fond
+\end_layout
+
+\begin_layout Plain Layout
+% Pour avoir le petit dessin de l'INSA en bas à droite de chaque page
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+backgroundsetup
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ scale=1, angle=0, opacity=1, color=black, contents=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tikzpicture}[remember picture,overlay]
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+node at ([xshift=-0.8in,yshift=0.8in] current page.south east)
+\end_layout
+
+\begin_layout Plain Layout
+{
+\backslash
+includegraphics[scale=0.8]{images/pattern.png}};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% --- PAGE DE TITRE ---
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{titlepage}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Box Frameless
+position "c"
+hor_pos "l"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "45text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics 
+	filename images/logo_INSA.png
+	width 80line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "l"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "45text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+flushright
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename images/tescan_logo.png
+	width 80line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace 2cm*
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+Huge
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+bfseries
+\end_layout
+
+\end_inset
+
+ Rapport de Projet Multidisciplinaire 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 1cm
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+huge
+\end_layout
+
+\end_inset
+
+ Modélisation du Quadrupôle d'Okayama par BEM 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.4cm
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+large
+\end_layout
+
+\end_inset
+
+ (
+\shape italic
+Boundary Element Method
+\shape default
+) 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 2cm
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+Large
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Zoé 
+\shape smallcaps
+Nonon
+\shape default
+ — Louise 
+\shape smallcaps
+Lammertyn
+\shape default
+
+\series default
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.2cm
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+large
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $4^{\text{ème}}$
+\end_inset
+
+ année Génie Physique 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace 2.5cm
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+large
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Tuteurs :
+\series default
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace 0.5cm
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+large
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Tabular 
+<lyxtabular version="3" rows="4" columns="1">
+<features tabularvalignment="middle" tabularwidth="0pt">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\lang french
+Florent 
+\shape smallcaps
+Houdellier
+\shape default
+ - Insa Toulouse 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\lang french
+Lucile 
+\shape smallcaps
+Berdoux Durieux
+\shape default
+ - Tescan 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\lang french
+Jean-Baptiste 
+\shape smallcaps
+Mellier
+\shape default
+ - Tescan
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\lang french
+Pier-Francesco 
+\shape smallcaps
+Fazzini
+\shape default
+ - Insa Toulouse 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace vfill
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+large
+\end_layout
+
+\end_inset
+
+ Année universitaire 2025-2026 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.8cm
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+Large
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Institut National des Sciences Appliquées de Toulouse
+\series default
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.5cm
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+large
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{titlepage}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%Pour les remerciements
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Pas de numéro de page sur cette page
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace vfill*
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section*
+
+\lang french
+Remerciements
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+addcontentsline{toc}{chapter}{Remerciements}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang french
+Ce projet multidisciplinaire n'aurait pu voir le jour sans l'aide de...
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang french
+
+\begin_inset VSpace vfill*
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Résumé concis, souvent utilisé pour donner un aperçu rapide du contenu d'une recherche ou d'un article académique.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Pas de numéro de page sur cette page
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace vfill*
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section*
+
+\lang french
+Abstract
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+addcontentsline{toc}{chapter}{Remerciements}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang french
+Ce document est le rapport final du projet multidisciplinaire de 4ème année en Génie Physique de l'INSA Toulouse. Il a pour but d'expliquer en détail la démarche que nous avons suivit afin de mener à bien ce projet. Ce document retrace donc le contexte, l'organisation mais aussi toutes les équations que nous avons dû étudier.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang french
+
+\begin_inset VSpace vfill*
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Table des matières
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+
+\lang french
+Introduction
+\end_layout
+
+\begin_layout Section
+
+\lang french
+Contexte
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Dans le cadre du projet multidisciplinaire de 4ème du Génie physique de l'INSA Toulouse, nous devons modéliser les lentilles électrostatiques quadrupolaires d'un FIB (Focused Ion Beam) en utilisant une méthode mathématique appelée la méthode des éléments de frontière. Pour ce faire, nous devons écrire un code Python en utilisant notamment la bibliothèque BEMPP. Afin de pouvoir réaliser cette entreprise, il est nécessaire de comprendre l'optique des particules chargées dans le contexte de lentilles quadrupolaires.
+\end_layout
+
+\begin_layout Section
+
+\lang french
+Fondemement théorique
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+L'optique des particules chargés
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+L'optique est une science divisée en deux domaines majeurs. L'optique photonique étudie le comportement de la lumière à travers des lentilles ou des miroirs. Cette technologie est ulisé dans les microscopes classiques, les télescopes ou les apareils photos. Cependant, la résolution de ces systèmes rencontre une limite physique : la diffraction.
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+En effet la résolution d'un systeme optique définit la capacité à distinguer deux points à distance proche.La résolution peut s'exprmier avec le critère dritère de Rayleigh 
+\begin_inset Formula \[
+d = \frac{1.22 \times \Lambda}{n\sin(\alpha)}
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+avec :
+\end_layout
+
+\begin_layout Itemize
+
+\lang french
+
+\begin_inset Formula $\lambda$
+\end_inset
+
+ est la longueur d'onde de la particule. 
+\end_layout
+
+\begin_layout Itemize
+
+\lang french
+
+\begin_inset Formula $n$
+\end_inset
+
+ est l'indice de réfraction du milieu. 
+\end_layout
+
+\begin_layout Itemize
+
+\lang french
+
+\begin_inset Formula $\alpha$
+\end_inset
+
+ est l'angle de demi-ouverture du faisceau. 
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Or la lumière possède une longueur d'onde entre 400 et 800 nm, paramètre limitant la résolution des systèmes optiques.
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+L'optique des particules chargé permet de s'affranchir de cette limite. Selon de Broglie, la longueur d'onde d'une particule chargé depend de sa quantité de mouvement :
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+\lambda = \frac{h}{mv}
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Pour des particules accélérées, la longueur d'onde devient extrêmement petite. Cette propriété permet de réduire les effets de la diffraction.
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Applications et instrumentation
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+LL'optique des particules chargées permet de maîtriser la trajectoire de faisceaux d'électrons ou d'ions. Des champs électrostatiques ou magnétiques agissent comme des lentilles. Cette discipline a permis de créer de nombreux instruments comme les SEM (Scanning electron microscop = microscope électronique à balayage) et les FIB (focused ion beam = faisceau d’ions focalisé). Ces outils sont utilisés dans de nombreuses disciplines comme la médecine ou la microélectronique. Plus spécifiquement, un FIB est composé de plusieurs étages dont notamment des lentilles. En effet, celles-ci permettent de guider la trajectoire du faisceau ionique au sein de l’instrument et de corriger les différentes aberrations de celui-ci. Il est donc primordial de comprendre et maîtriser ces objets afin de rendre le FIB le plus performant possible.
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename images/Schema_Colonne_FIB_OP.png
+	width 30line%
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schéma d’un FIB
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fib"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Comme évoqué précédemment, les lentilles permettent de guider la trajectoire du faisceau ionique. Il existe plusieurs types de lentilles: les lentilles électrostatiques et les lentilles magnétiques. Dans le cas que nous étudions, le FIB est composé de lentilles électrostatiques. Ces lentilles électrostatiques peuvent présenter différentes configurations. On parle en effet de lentilles rondes/monopolaires (un seul potentiel), de lentilles dipolaires (deux potentiels), de lentilles quadrupolaires (quatres potentiels), etc.
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Principe de correction d'aberration
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+L'usage de particules chargées réduit l'impact de la diffraction. Cependant, la résolution reste limitée par des aberrations liées aux imperfections des champs. On distingue deux types principaux d'aberrations : les aberrations chromatiques, liées à la dispersion en énergie des particules, et les aberrations géométriques.
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Parmi les aberrations géométriques, on trouve notamment l'aberration sphérique, le coma, l'astigmatisme ou la distorsion. Ce rapport se concentre sur l'aberration sphérique. Ce défaut traduit le fait que les particules s'éloignant de l'axe optique sont focalisées plus fortement que les particules centrales. Il en résulte un élargissement du point focal dans le plan image,
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename aberation_spherique.png
+	width 30line%
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+abérration sphérique 
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:abberation"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+La méthode classique pour corriger l'aberration sphérique utilise des correcteurs multipolaires. La superposition de champs quadrupolaires et octopolaires permet de compenser ce défaut.(mettre pourquoi) Cependant, l'alignement de ces nombreux étages représente un défi technique majeur.
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Le quadrupole d'okayama
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+L'équipe de S. Okayama a travailler sur nouveau moyen de correction. Ce système évite l'utilisation d'électrodes octopolaires dédiées. En combinant un champ rond créer par une aperture et un champ quadrupolaire, un champ octopolaire apparaît naturellement. Ce champ est dit « auto-aligné », ce qui simplifie grandement la conception et le réglage du correcteur.
+\end_layout
+
+\begin_layout Section
+
+\lang french
+Objectifs du projet
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename images/Quadrupole_CEOS.png
+	width 40line%
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modélisation d’une lentille quadrupolaire électrostatique
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:quad"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Cependant, la fabrication de ces instruments peut parfois être longue et coûteuse. Pour pallier ce problème, l’utilisation de modèles s’avère utile. C’est dans ce cadre que notre projet multidisciplinaire s’inscrit et est intitulé: “Modélisation de lentilles multipolaires électrostatiques par Boundary Element Method”. Comme évoqué précédemment, les lentilles permettent de guider la trajectoire du faisceau ionique. Il existe plusieurs types de lentilles: les lentilles électrostatiques et les lentilles magnétiques. Dans le cas que nous étudions, le FIB est composé de lentilles électrostatiques. Ces lentilles électrostatiques peuvent présenter différentes configurations. On parle en effet de lentilles rondes/monopolaires (un seul potentiel), de lentilles dipolaires (deux potentiels), de lentilles quadrupolaires (quatres potentiels), etc. Notre étude portera plus particulièrement sur les lentilles quadrupolaires.
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Le principe de ce projet multidisciplinaire est de créer un code python pour faire la décomposition multipolaire d'un quadrupole électrostatique. Cette étude s’inscrit dans la continuité de deux projets multidisciplinaires précédents. Le premier projet consistait à prendre en main un code déjà existant permettant de modéliser un cas simple de lentilles électrostatiques (les lentilles de Einzel). Le second avait pour but de créer un algorithme permettant d’optimiser ces lentilles. Notre objectif est donc de continuer ce projet en l’adaptant aux lentilles quadrupolaires.
+\end_layout
+
+\begin_layout Section
+
+\lang french
+Livrables
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Le premier livrable sera un algorithme de décomposition du potentiel. Le livrable suivant sera un code fonctionnel de modélisation de lentilles quadrupolaires électrostatiques, accompagné d’un manuel d’explication, détaillant le fonctionnement de chaque fonction, des classes et leur utilisation. Dans un dernier temps, nous fournirons une comparaison des résultats de notre code avec ceux du quadrupôle d’Okayama, dont nous connaissons déjà les résultats. De plus, notre code étant open-source, nous fournirons un dépôt GitHub regroupant le code et toute la documentation associée pour qu’il puisse être utilisé.
+\end_layout
+
+\begin_layout Chapter
+
+\lang french
+Travail Réalisé
+\end_layout
+
+\begin_layout Section
+
+\lang french
+Prérequis mathématique
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Principe de moindre action
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Le commencement de ce raisonnement est le principe de moindre action qui s'exprime comme 
+\begin_inset Formula \[
+\delta S = \int_{S0}^{S1} \vec{p}\,\frac{\vec{r}}{dS} \, \mathrm{d}s = 0
+\]
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On peut alors montrer que 
+\begin_inset Formula \[
+\delta S = \int_{S0}^{S1} \mu\,\mathrm{d}z = 0
+\]
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ Comme le quadrupole que nous utilisons est composé UNIQUEMENT de lentilles électrostatiques, on peut écrire 
+\begin_inset Formula \[
+\mu = \sqrt{\phi \, (1+x'^2+y'2)}
+\]
+\end_inset
+
+avec 
+\begin_inset Formula $\mu$
+\end_inset
+
+ l'indice optique, 
+\begin_inset Formula $\phi$
+\end_inset
+
+ le potentiel électrostatique et x' et y' les dérivées de x et y par rapport à z.
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Equations d'Euler-Lagrange
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Les équations d'Euler-Lagrange sont des équations équivalentes au principe de moindre action, sous forme différentielle. On peut ainsi noter 
+\begin_inset Formula \[
+\frac{\partial \mu }{\partial x}-\frac{d}{dz}\left(\frac{\partial \mu }{\partial x'}\right)=0
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial \mu }{\partial y}-\frac{d}{dz}\left(\frac{\partial \mu }{\partial y'}\right)=0
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Décomposition du potentiel
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Une fois les équations d'Euler-Lagrange exprimées, il est utile de décomposer le potentiel 
+\begin_inset Formula $\phi$
+\end_inset
+
+ afin de séparer les solutions de ces équations en fonction de leur dépendance aux différents ordres de x et y. 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ On peut ainsi décomposer ce potentiel en série de Fourrier et en série de Taylor. 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ Dans le cadre de notre étude, c'est-à-dire dans le cadre d'un quadrupole, on observe une 2
+\begin_inset Formula $\pi$
+\end_inset
+
+ périodicité du potentiel selon 
+\begin_inset Formula $\theta$
+\end_inset
+
+. On peut donc décomposer le potentiel comme une série de Fourrier. Celle-ci, de part sa périodicité, représente donc les symétries du système. On obtient alors
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})=\sum\limits_{\nu =0}^{\infty} \phi_\nu ({\color{red}r},{\color{blue}\theta},{\color{green}z})
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+avec
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+\phi_\nu ({\color{red}r},{\color{blue}\theta},{\color{green}z})=a_\nu cos(\nu{\color{blue}\theta})+b_\nu sin(\nu {\color{blue}\theta})
+\]
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ Ainsi, le potentiel 
+\begin_inset Formula $\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})$
+\end_inset
+
+ est composé d'une somme de fonctions dépendantes de 
+\begin_inset Formula ${\color{red}r}$
+\end_inset
+
+, 
+\begin_inset Formula ${\color{blue}\theta}$
+\end_inset
+
+ et 
+\begin_inset Formula ${\color{green}z}$
+\end_inset
+
+. On remarque alors que les variables (
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{red}
+\end_layout
+
+\end_inset
+
+r
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+color{green}
+\end_layout
+
+\end_inset
+
+z
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+) et 
+\begin_inset Formula ${\color{blue}\theta}$
+\end_inset
+
+ sont séparées sous la forme suivante: 
+\begin_inset Formula \[
+\phi_\nu ({\color{red}r},{\color{blue}\theta},{\color{green}z})=f({\color{red}r},{\color{green}z})\times g({\color{blue}\theta})
+\]
+\end_inset
+
+Il est nécessaire que le potentiel électrostatique satisfasse l'équation de Laplace 
+\begin_inset Formula $\Delta \phi(\vec{r})=0$
+\end_inset
+
+. On peut exprimer cette même équation en coordonnées cylindriques comme 
+\begin_inset Formula \[
+\frac{1}{r} \frac{\partial}{\partial r} \left(r \frac{\partial \phi}{\partial r} \right) + \frac{1}{r^2} \frac{\partial^{2}}{\partial \theta ^2}
++ \frac{1}{r^2} \frac{\partial^{2}}{\partial z ^2}=0
+\]
+\end_inset
+
+En injectant 
+\begin_inset Formula $\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})=\sum\limits_{\nu =0}^{\infty} \phi_\nu ({\color{red}r},{\color{blue}\theta},{\color{green}z})$
+\end_inset
+
+ dans l'équation précédente, on obtient l'équation suivante
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+\sum\limits_{\nu =0}^{\infty} \left(cos(\nu {\color{blue}\theta}) \left(\frac{\partial^{2} a_\nu}{\partial {\color{red}r}^2} + \frac{1}{{\color{red}r}} 
+\frac{\partial a_\nu}{\partial {\color{red}r}} + \frac{\partial^{2} a_\nu}{\partial {\color{green}z}^2} - a_\nu \frac{\nu ^2}{{\color{red}r}^2}\right) 
++ sin(\nu {\color{blue}\theta}) \left(\frac{\partial^{2} b_\nu}{\partial {\color{red}r}^2} + \frac{1}{{\color{red}r}} \frac{\partial b_\nu}{\partial {\color{red}r}} 
++ \frac{\partial^{2} b_\nu}{\partial {\color{green}z}^2}- b_\nu \frac{\nu ^2}{{\color{red}r}^2}\right)\right) = 0
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On peut alors montrer que cette équation peut être résolue 
+\begin_inset Formula $\forall {\color{red}r}$
+\end_inset
+
+, si on vérifie 
+\begin_inset Formula \[
+\frac{\partial^{2} a_\nu}{\partial {\color{red}r}^2} + \frac{1}{{\color{red}r}} 
+\frac{\partial a_\nu}{\partial {\color{red}r}} + \frac{\partial^{2} a_\nu}{\partial {\color{green}z}^2} - a_\nu \frac{\nu ^2}{{\color{red}r}^2}=0
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+et 
+\begin_inset Formula \[
+\frac{\partial^{2} b_\nu}{\partial {\color{red}r}^2} + \frac{1}{{\color{red}r}} \frac{\partial b_\nu}{\partial {\color{red}r}} 
++ \frac{\partial^{2} b_\nu}{\partial {\color{green}z}^2}- b_\nu \frac{\nu ^2}{{\color{red}r}^2}=0 
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ Il est maintenant utile de développer les fonctions 
+\begin_inset Formula $a_\nu ({\color{red}r},{\color{green}z})$
+\end_inset
+
+ et 
+\begin_inset Formula $b_\nu ({\color{red}r},{\color{green}z})$
+\end_inset
+
+ en série de Taylor, dans le but de séparer la dépendance des variables 
+\begin_inset Formula ${\color{red}r}$
+\end_inset
+
+ et 
+\begin_inset Formula ${\color{green}z}$
+\end_inset
+
+. Dans le cadre de notre étude, on considère des conditions paraxiales, c'est-à-dire des conditions où les rayons sont proches de l'axe optique. On effectue donc le développement en série de Taylor pour 
+\begin_inset Formula ${\color{red}r}=0$
+\end_inset
+
+. 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\shape italic
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+underline{Rappel:}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ Une série de Taylor 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ en 
+\begin_inset Formula $x=b$
+\end_inset
+
+ s'exprime comme 
+\begin_inset Formula $f(x)=\sum\limits_{n=0}^{\infty} a_n(x-b)^n$
+\end_inset
+
+. 
+\shape default
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On peut ainsi écrire 
+\begin_inset Formula \[
+A_\nu ({\color{red}r},{\color{green}z})=\sum\limits_{i=0}^{\infty} a_{i\nu} ({\color{green}z}) \times ({\color{red}r})^{\nu + i}
+\]
+\end_inset
+
+et 
+\begin_inset Formula \[
+B_\nu ({\color{red}r},{\color{green}z})=\sum\limits_{i=0}^{\infty} b_{i\nu} ({\color{green}z}) \times ({\color{red}r})^{\nu + i}
+\]
+\end_inset
+
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On pose alors 
+\begin_inset Formula $A_{\nu 0} ({\color{green}z})=\Phi_{\nu {\color{red}r}}$
+\end_inset
+
+ et 
+\begin_inset Formula $B_{\nu 0} ({\color{green}z})=\Phi_{\nu i}$
+\end_inset
+
+, les composantes de Fourrier du potentiel sur l'axe. On peut alors insérer les coefficients de la série de Taylor dans les composantes de la série de Fourrier. On obtient alors 
+\begin_inset Formula \[
+A_\nu ({\color{red}r},{\color{green}z})=\sum\limits_{\lambda=0}^{\infty} \frac{(-1)^{\lambda}\times (\nu !)}{4^{\lambda}\times \lambda !\times (\lambda +\nu)!}
+\times {\color{red}r}^{\nu +2\lambda} \times \Phi_{\nu {\color{red}r}}^{[2\lambda]}({\color{green}z}) 
+\]
+\end_inset
+
+et 
+\begin_inset Formula \[
+B_\nu ({\color{red}r},{\color{green}z})=\sum\limits_{\lambda=0}^{\infty} \frac{(-1)^{\lambda}\times (\nu !)}{4^{\lambda}\times \lambda !\times (\lambda +\nu)!}
+\times {\color{red}r}^{\nu +2\lambda} \times \Phi_{\nu i}^{[2\lambda]}({\color{green}z}) 
+\]
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% dans les deux expression précédentes, quelles sont les bornes des sommes: i ou lambda? 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On peut alors écrire le potentiel 
+\begin_inset Formula $\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})$
+\end_inset
+
+ comme une somme polynomiale avec les dérivées du potentiel pris sur l'axe optique comme coefficients des polynômes. On a alors
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})= \sum\limits_{\nu =0}^{\infty}
+\sum\limits_{\lambda=0}^{\infty} \frac{(-1)^{\lambda}\times (\nu !)}{4^{\lambda}\times \lambda !\times (\lambda +\nu)!}
+\times {\color{red}r}^{\nu +2\lambda} \times \left(\Phi_{\nu {\color{red}r}}^{[2\lambda]}({\color{green}z})\times cos(\nu{\color{blue}\theta}) + 
+\Phi_{\nu i}^{[2\lambda]}({\color{green}z})\times sin(\nu{\color{blue}\theta}) \right)
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang french
+Décomposition des différentes contributions
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Une fois le potentiel 
+\begin_inset Formula $\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})$
+\end_inset
+
+ décomposé, on peut l'injecter dans l'équation 
+\begin_inset Formula \[
+\mu = \sqrt{\phi \, (1+x'^2+y'2)}=\sqrt{\phi} \, \sqrt{1+x'^2+y'2}
+\]
+\end_inset
+
+afin de déterminer les différentes contributions qui composent l'indice optique. 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ Cependant, on remarque que l'indice optique 
+\begin_inset Formula $\nu$
+\end_inset
+
+ dépend à l'ordre 2 des dérivées de x et y. Dans la démarche de décomposer les différentes contributions de l'indice optique, il est nécessaire d'effectuer un développement limité de 
+\begin_inset Formula \[
+\sqrt{1+x'^2+y'2}
+\]
+\end_inset
+
+
+\begin_inset space \space{}
+
+\end_inset
+
+On pose X=
+\begin_inset Formula $x'^2$
+\end_inset
+
+ +
+\begin_inset Formula $y'^2$
+\end_inset
+
+ afin d'effectuer un changement de variable. 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\shape italic
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+underline{Rappel:}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ Le développement limité d'une racine carrée est 
+\begin_inset Formula $\sqrt{1+X}=1+\frac{x}{2}-\frac{x^2}{8}+...$
+\end_inset
+
+. 
+\shape default
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ On obtient ainsi les différentes contributions de l'indice optique 
+\begin_inset Formula $\mu=\mu_0+\mu_1+\mu_2+\mu_3+\mu_4+\mu_5+...$
+\end_inset
+
+. 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ Les composantes 
+\begin_inset Formula $\mu_0$
+\end_inset
+
+, 
+\begin_inset Formula $\mu_1$
+\end_inset
+
+ et 
+\begin_inset Formula $\mu_2$
+\end_inset
+
+ composent la partie paraxiale de l'équation tandis que les termes d'ordres supérieurs correspondent aux aberrations. 
+\begin_inset Formula $\mu_0$
+\end_inset
+
+ correspond à l'axe optique du système. 
+\begin_inset Formula $\mu_2$
+\end_inset
+
+ correspond au paraxial du système optique. 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On note que la paraxialité a une dépendance à l'ordre 2 des variable x et y car en optique, le front d'onde est sphérique. Le front d'onde est une surface d'égale phase d'une onde, c'est-à-dire que les points qui composent cette sphère ont mis le même temps de parcours depuis la source. Ainsi, dans des conditions parfaites, où les aberrations de front d'onde n'existent pas, le front d'onde est parfaitement sphérique, ce qui explique la dépendance d'ordre 2 des variables x et y. 
+\begin_inset Newline newline
+\end_inset
+
+ Lorsque le front d'onde n'est plus parfaitement sphérique, autrement dit quand le système connait une perturbation, tous les points du front d'onde ne vont plus focaliser au même endroit. On obtient ainsi des aberrations. Ces dernières correspondent à tous les termes d'ordres supérieurs à 2 de la somme infini de 
+\begin_inset Formula $\nu$
+\end_inset
+
+. b 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang french
+Reconstruction de la décomposition du potentiel
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Extraction du potentiel
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+A l'aide de la bibliothèque Python BEMPP 
+\begin_inset Formula $(Boundary Element Method Python Package)$
+\end_inset
+
+, on peut extraire le potentiel 
+\begin_inset Formula $\phi ({\color{red}r},{\color{blue}\theta},{\color{green}z})$
+\end_inset
+
+ en tout point de l'espace. Comme vu dans la partie précédente, il est important de décomposer le potentiel afin de pouvoir séparer la contribution des différents ordres. Une fois le potentiel extrait, il faut donc trouver les différentes composantes de la décomposition du potentiel.
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Composantes multipolaires
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang french
+Equations
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On peut retouver les composantes multipolaires à l'aide de la formule 
+\begin_inset Formula \[
+\Phi_{\nu}= \frac{2-\delta_{0\nu}}{\nu!}\left.
+(\frac{\partial^{\nu} \phi}{\partial \bar w^{\nu}})
+\right|_{ w=0}.
+\]
+\end_inset
+
+où 
+\begin_inset Formula $\nu$
+\end_inset
+
+ est l'ordre du terme multipolaire et 
+\begin_inset Formula $\delta_{0\nu}$
+\end_inset
+
+ le symbole de Kronecker. 
+\begin_inset Newline newline
+\end_inset
+
+ Pour un développement limité à l'ordre 
+\begin_inset Formula $N$
+\end_inset
+
+ en 
+\begin_inset Formula ${\color{red}r}$
+\end_inset
+
+, les valeurs admissibles de 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ sont déterminées par la condition 
+\begin_inset Formula \[
+2\lambda + \nu \le N
+\]
+\end_inset
+
+Dans le cadre de ce travail, on se limite à 
+\begin_inset Formula $N=4$
+\end_inset
+
+ et 
+\begin_inset Formula $\nu \le 2$
+\end_inset
+
+, ce qui conduit aux valeurs suivantes : 
+\begin_inset Formula $\lambda = 0,1,2$
+\end_inset
+
+ pour 
+\begin_inset Formula $\nu=0$
+\end_inset
+
+ et 
+\begin_inset Formula $\lambda = 0,1$
+\end_inset
+
+ pour 
+\begin_inset Formula $\nu=1,2$
+\end_inset
+
+. 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ On peut alors calculer les différents ordres des composantes multipolaires: 
+\end_layout
+
+\begin_layout Paragraph
+
+\lang french
+Cas 
+\begin_inset Formula \(\nu = 0\)
+\end_inset
+
+ (monopôle)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On a 
+\begin_inset Formula \(\delta_{00} = 1\)
+\end_inset
+
+, d'où 
+\begin_inset Formula \[
+\Phi_0(z) = \frac{2 - \delta_{00}}{0!} \left. \frac{\partial^{0} \phi}{\partial \bar{w}^{0}} \right|_{w=0} = \phi(x, y, z)\big|_{w=0}.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\lang french
+Cas 
+\begin_inset Formula \(\nu = 1\)
+\end_inset
+
+ (dipôle)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On a 
+\begin_inset Formula \(\delta_{01} = 0\)
+\end_inset
+
+, d'où 
+\begin_inset Formula \[
+\Phi_1(z) = \frac{2 - \delta_{01}}{1!} \left. \left( \frac{\partial \phi}{\partial \bar{w}} \right) \right|_{w=0} = 2 \left. \frac{\partial \phi}{\partial \bar{w}} \right|_{w=0}.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\lang french
+Cas 
+\begin_inset Formula \(\nu = 2\)
+\end_inset
+
+ (quadrupôle)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On a 
+\begin_inset Formula \(\delta_{02} = 0\)
+\end_inset
+
+, d'où 
+\begin_inset Formula \[
+\Phi_2(z) = \frac{2 - \delta_{02}}{2!} \left. \frac{\partial^{2} \phi}{\partial \bar{w}^{2}} \right|_{w=0} = \frac{1}{2} \left. \frac{\partial^{2} \phi}{\partial \bar{w}^{2}} \right|_{w=0}.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\lang french
+Cas 
+\begin_inset Formula \(\nu = 3\)
+\end_inset
+
+ (hexapôle)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On a 
+\begin_inset Formula \(\delta_{03} = 0\)
+\end_inset
+
+, d'où 
+\begin_inset Formula \[
+\Phi_3(z) = \frac{2 - \delta_{03}}{3!} \left. \frac{\partial^{3} \phi}{\partial \bar{w}^{3}} \right|_{w=0} = \frac{1}{3} \left. \frac{\partial^{3} \phi}{\partial \bar{w}^{3}} \right|_{w=0}.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\lang french
+Cas 
+\begin_inset Formula \(\nu = 4\)
+\end_inset
+
+ (octopôle)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On a 
+\begin_inset Formula \(\delta_{04} = 0\)
+\end_inset
+
+, d'où 
+\begin_inset Formula \[
+\Phi_4(z) = \frac{2 - \delta_{04}}{4!} \left. \frac{\partial^{4} \phi}{\partial \bar{w}^{4}} \right|_{w=0} = \frac{1}{12} \left. \frac{\partial^{4} \phi}{\partial \bar{w}^{4}} \right|_{w=0}.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\lang french
+Cas général
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On obtient finalement avec 
+\begin_inset Formula \(\bar{w} = x - iy\)
+\end_inset
+
+ et 
+\begin_inset Formula \(\frac{\partial}{\partial \bar{w}} = \frac{1}{2}\left(\frac{\partial}{\partial x} + i\frac{\partial}{\partial y}\right)\)
+\end_inset
+
+ que
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+\begin{aligned}
+\Phi_0(z) &= \phi(x, y, z)\big|_{x=y=0}, \\[0.4em]
+\Phi_1(z) &= \left. \left( \frac{\partial \phi}{\partial x} + i \frac{\partial \phi}{\partial y} \right) \right|_{x=y=0}, \\[0.6em]
+\Phi_2(z) &= \left. \frac{1}{8} \left( \frac{\partial^{2} \phi}{\partial x^{2}} - \frac{\partial^{2} \phi}{\partial y^{2}} - 2i \frac{\partial^{2} \phi}{\partial x \partial y} \right) \right|_{x=y=0}, \\[0.6em]
+\Phi_3(z) &= \left. \frac{1}{24} \left( \frac{\partial^{3} \phi}{\partial x^{3}} - 3 \frac{\partial^{3} \phi}{\partial x \partial y^{2}} - 3i \frac{\partial^{3} \phi}{\partial x^{2} \partial y} + i \frac{\partial^{3} \phi}{\partial y^{3}} \right) \right|_{x=y=0}, \\[0.6em]
+\Phi_4(z) &= \left. \frac{1}{192} \left( \frac{\partial^{4} \phi}{\partial x^{4}} - 6 \frac{\partial^{4} \phi}{\partial x^{2} \partial y^{2}} + \frac{\partial^{4} \phi}{\partial y^{4}} - 4i \frac{\partial^{4} \phi}{\partial x^{3} \partial y} + 4i \frac{\partial^{4} \phi}{\partial x \partial y^{3}} \right) \right|_{x=y=0}.
+\end{aligned}
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Ici, 
+\begin_inset Formula $\frac{\partial^{\nu} \phi}{\partial \bar w^{\nu}}$
+\end_inset
+
+ représente la dérivée d'ordre 
+\begin_inset Formula $\nu$
+\end_inset
+
+ du potentiel par rapport à la coordonnée transverse 
+\begin_inset Formula $w$
+\end_inset
+
+ évaluée sur l'axe central 
+\begin_inset Formula $w=0$
+\end_inset
+
+. 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ Comme dans le cas de notre code, on choisit le référentiel (x,y) tel qu'un cosinus décrit le quadrupole. On peut donc écrire: 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Formula \[
+\begin{aligned}
+\Phi_0(z) &= \phi(x,y,z)\big|_{x=y=0} \\[1em]
+\Phi_1(z) &=\left.\left(\frac{\partial \phi}{\partial x}\right)\right|_{x=y=0} \\[1em]
+\Phi_2(z) &=\left.\frac{1}{8}\left(\frac{\partial^{2} \phi}{\partial x^{2}}-\frac{\partial^{2} \phi}{\partial y^{2}}\right)\right|_{x=y=0} \\[1em]
+\Phi_3(z) &=\left.\frac{1}{24}\left(\frac{\partial^{3} \phi}{\partial x^{3}}-3 \frac{\partial^{3} \phi}{\partial x \partial y^{2}}\right)\right|_{x=y=0} \\[1em]
+\Phi_4(z) &=\left.\frac{1}{192}\left(\frac{\partial^{4} \phi}{\partial x^{4}}-6 \frac{\partial^{4} \phi}{\partial x^{2} \partial y^{2}}+\frac{\partial^{4} \phi}{\partial y^{4}}\right)\right|_{x=y=0}
+\end{aligned}
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang french
+Applications dans BEMPP
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ Les dérivées d’ordre supérieur du potentiel par rapport à la coordonnée transverse 
+\begin_inset Formula $w$
+\end_inset
+
+, à savoir 
+\begin_inset Formula \[
+\frac{\partial \phi}{\partial \bar w}
+\quad \text{et} \quad
+\frac{\partial^2 \phi}{\partial \bar w^2},
+\]
+\end_inset
+
+sont obtenues directement à l’aide des dérivées de BEMPP. 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\lang french
+le gradient du potentiel via 
+\family typewriter
+single_layer_gradient
+\family default
+, correspondant à 
+\begin_inset Formula $\nabla \phi$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\lang french
+la dérivée seconde via 
+\family typewriter
+single_layer_2nd_deriv
+\family default
+. 
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On a pour le terme dipolaire
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \begin{align*}
+E\_eval[0, :]  &= -\frac{\partial \phi}{\partial x} \\
+E\_eval[1, :]  &= -\frac{\partial \phi}{\partial y }\\
+E\_eval[2, :]  &= -\frac{\partial \phi}{\partial x }\\
+\end{align*}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On a pour le terme quadripolaire: 
+\begin_inset Formula \begin{align*}
+D2\_eval[0, :] &= \frac{\partial^{2} \phi}{\partial x^{2}} \\
+D2\_eval[3, :] &= \frac{\partial^{2} \phi}{\partial y^{2}} \\
+D2\_eval[1, :] &= \frac{\partial^{2} \phi}{\partial x \partial y}\\
+D2\_eval[5, :] &= \frac{\partial^{2} \phi}{\partial z^2}\\
+\end{align*}
+\end_inset
+
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On a pour le terme hexapolaire :
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \begin{align*}
+D3\_eval[0, :] &= \frac{\partial^{3} \phi}{\partial x^{3}} \\
+D3\_eval[4, :] &= \frac{\partial^{3} \phi}{\partial x\partial y^{2}} \\
+D3\_eval[1, :] &= \frac{\partial^{3} \phi}{\partial x^{2} \partial y}\\
+D3\_eval[6, :] &= \frac{\partial^{3} \phi}{\partial y^{3}} \\
+\end{align*}
+\end_inset
+
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ On a pour le terme octopolaire 
+\begin_inset Formula \begin{align*}
+D4\_eval[0, :] &= \frac{\partial^{4} \phi}{\partial x^{4}} \\
+D4\_eval[4, :] &= \frac{\partial^{4} \phi}{\partial x^{2}\partial y^{2}} \\
+D4\_eval[10, :] &= \frac{\partial^{4} \phi}{\partial y^{4}}\\
+D4\_eval[1, :] &= \frac{\partial^{4} \phi}{\partial x^{3}\partial y }\\
+D4\_eval[7, :] &= \frac{\partial^{4} \phi}{\partial x\partial y^{3}}\\
+\end{align*}
+\end_inset
+
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang french
+Résultats attendus
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang french
+Fonctions de fit
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Afin de vérifier résultats que nous obtenons, il est utile de comparer ces derniers aux résultats publiés par S.Okayama dans son papier; 
+\shape italic
+[S. Okayama et H. Kawakatsu, «Potential distribution and focal properties of electrostatic quadrupole lenses », Journal of Physics E: Scientific Instruments, vol. 11, no 3, p. 211, 1978]
+\shape default
+. Dans cet article, des fonctions de fit sont utilisées. Il est donc intéressant d'exprimer ces mêmes fonctions dans le cadre de notre étude afin de pouvoir s'assurer de la fiabilité des résultats. 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ Dans le papier d'Okayama, les fonctions de fit sont exprimmées comme: 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Formula \[
+\Phi_0(Z)=V_A k_0 (Z) 
+\]
+\end_inset
+
+
+\begin_inset Formula \[ 
+\Phi_2(Z)=\frac{V_Q}{a^2} k_2 (Z) 
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+\Phi_4(Z)=\frac{V_A}{a^4} k_4 (Z)
+\]
+\end_inset
+
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ avec 
+\begin_inset Formula $\Phi_0(Z)$
+\end_inset
+
+, 
+\begin_inset Formula $\Phi_2(Z)$
+\end_inset
+
+ et 
+\begin_inset Formula $\Phi_4(Z)$
+\end_inset
+
+ les composantes du potentiel sur l'axe, 
+\begin_inset Formula $k_0(z)$
+\end_inset
+
+, 
+\begin_inset Formula $k_2(z)$
+\end_inset
+
+ et 
+\begin_inset Formula $k_4(z)$
+\end_inset
+
+ les fonctions de fit, 
+\begin_inset Formula $V_A$
+\end_inset
+
+ le potentiel des apertures et 
+\begin_inset Formula $V_Q$
+\end_inset
+
+ la valeur absolue du potentiel des quadrupoles. 
+\begin_inset Newline newline
+\end_inset
+
+ De plus, les fonctions de fit sont définies comme 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+k_0 (Z)=a_0 \exp{\left(- \frac{Z^2}{b^2}\right)}
+\]
+\end_inset
+
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Formula \[
+\left\{
+  \begin{array} {ll}
+    k_2 (Z)=1 \quad & \mbox{pour } (-Z_0\leq Z\leq Z_0)
+    \     \\
+    k_2 (Z)=\exp{\left(- \frac{(Z-Z_0)^2}{b^2}\right)} \quad & \mbox{pour } (Z<-Z_0, Z>Z_0)
+  \end{array}
+\right.
+\]
+\end_inset
+
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Formula \[
+\left\{
+  \begin{array} {ll}
+    k_4 (Z)=\frac{a_4}{\left(1+\frac{Z^2}{b_1 ^2}\right)^2} \quad & \mbox{pour } (Z\leq 0)
+    \     \\
+    k_4 (Z)=a_4 \exp{\left(- \frac{Z^2}{b_2 ^2}\right)} \quad & \mbox{pour } (Z < 0)
+  \end{array}
+\right.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang french
+Trajectoire
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Principe de fermat
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Pour obtenir l'équation de la trajectoire on peut partir du principe de fermat 
+\begin_inset Formula \[
+\delta \int \mu ds = 0
+\]
+\end_inset
+
+Dans le cas de l'optique des particules chargés l'indice optique s'écrit comme 
+\begin_inset Formula \[
+\mu = \sqrt{\phi(1+x'^2 + y'2}
+\]
+\end_inset
+
+On a donc notre Lagrangian de notre systeme 
+\begin_inset Formula \[
+L(x,y,x',y',z)= \sqrt{{\phi(1+x'^2 + y'2}}
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Cas 
+\begin_inset Formula $\nu$
+\end_inset
+
+ = 2, quadrupole
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Si on prend le cas 
+\begin_inset Formula $\nu$
+\end_inset
+
+ = 2, notre potentiel devient : 
+\begin_inset Formula \[
+\phi_2(r,\theta,z) = r^{2}\times(\phi_2(z)\times \cos(2\theta))
++ \frac{r^{4}}{12} \times (\phi_2''(z)\times \cos(4\theta))
+\]
+\end_inset
+
+avec 
+\begin_inset Formula $r^2\cos(2\theta)=x^2-y^2$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On a donc dans l'approximation paraxiale 
+\begin_inset Formula $\phi_2(r, \theta, z) =\phi_2(z)(x^2 -y^2)$
+\end_inset
+
+ et donc dans la cas paraxiale :
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+\phi(x,y,z) = \phi_0(z) - \frac{1}{4}\phi_0''(z)(x^2+y^2) + \phi_2(z)(x^2 - y^2)
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On peut ensuite injecter ce potentiel dans notre indice optique 
+\begin_inset Formula $\mu = \sqrt{\phi(1+x'^2+ y'2}$
+\end_inset
+
+, aprés développement on retrouve les equations d'euler lagrange dans le cas d'un quadrupole)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On peut écrire notre indice optique comme 
+\begin_inset Formula $\mu = \sqrt{\phi(1+\epsilon}$
+\end_inset
+
+ avec 
+\begin_inset Formula $\epsilon : x'^2 +y'^2$
+\end_inset
+
+. d'après Taylor on a 
+\begin_inset Formula $\sqrt{1+\epsilon} = 1 +\frac{\epsilon}{2}$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ En remplacant 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ on peut donc développer l'indice optique comme 
+\begin_inset Formula \[
+\mu = \sqrt{\phi}\times \sqrt{1+x'^2+y'^2} = \sqrt{\phi}\times(1+\frac{1}{2}(x'^2
++ y'^2)  = \sqrt{\phi} + \frac{\sqrt{\phi}}{2}(x'^2+y'2)
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+En remplacant 
+\begin_inset Formula $\phi$
+\end_inset
+
+ par son approximation paraxiale on a :
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+\mu \approx \sqrt{\phi_0 - \frac{1}{4}\phi_0''(x^2+y^2) + \phi_2(x^2-y^2)} + \frac{\sqrt{\phi_0 + \dots}}{2}(x'^2+y'^2)
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+avec
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+\sqrt{\phi_0 - \frac{1}{4}\phi_0'' (x^2+y^2) + \phi_2(x^2-y^2)} = \sqrt{\phi_0} \sqrt{1 -\frac{\phi_0''}{4\phi_0}(x^2+y^2) + \frac{\phi_2}{\phi_0}(x^2-y^2)}
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+En utilisant 
+\begin_inset Formula $\sqrt{1+\epsilon} \approx 1 + \frac{\epsilon}{2}$
+\end_inset
+
+, on obtient : 
+\begin_inset Formula \[
+\sqrt{\phi_0} \left( 1 - \frac{\phi_0''}{8\phi_0}(x^2+y^2) + \frac{\phi_2}{2\phi_0}(x^2-y^2) \right) = \sqrt{\phi_0} - \frac{\phi_0''}{8\sqrt{\phi_0}}(x^2+y^2) + \frac{\phi_2}{2\sqrt{\phi_0}}(x^2-y^2)
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+\mu = \sqrt{\phi_0}- \frac{\phi_0''}{8\sqrt{\phi_0}}(x^2+y^2) + \frac{\phi_2}{2\sqrt{\phi_0}}(x^2-y^2) + \frac{\sqrt{\phi_0}}{2}(x'^2+y'^2)
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On peut injecter 
+\begin_inset Formula $\mu$
+\end_inset
+
+ dans les equations d'euler lagrange pour retrouver l
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+\frac{\partial \mu }{\partial x}-\frac{d}{dz}\left(\frac{\partial \mu }{\partial x'}\right)=0
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial \mu }{\partial y}-\frac{d}{dz}\left(\frac{\partial \mu }{\partial y'}\right)=0
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Avec : 
+\begin_inset Formula \[
+\frac{\partial \mu }{\partial x} = -\frac{\phi_0''}{4\sqrt{\phi_0}}x + \frac{\phi_2}{\sqrt{\phi_0}}x = \left(- \frac{\phi_0''}{4\sqrt{\phi_0}} + \frac{\phi_2}{\sqrt{\phi_0}} \right) x
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{\partial \mu }{\partial x'} = \sqrt{\phi_0}x'
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+\frac{d}{dz} \left( \frac{\partial \mu}{\partial x'} \right) = \sqrt{\phi_0}x'' + \frac{\phi_0'}{2\sqrt{\phi_0}}x'
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On obtient finalement l'équation :
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+\left( -\frac{\phi_0''}{4\sqrt{\phi_0}} + \frac{\phi_2}{\sqrt{\phi_0}} \right) x - \left( \sqrt{\phi_0}x'' + \frac{\phi_0'}{2\sqrt{\phi_0}}x' \right) = 0
+\]
+\end_inset
+
+En multipliant par 
+\begin_inset Formula $-\frac{1}{\sqrt{\phi_0}}$
+\end_inset
+
+, on retrouve la forme : 
+\begin_inset Formula \[
+x'' + \frac{\phi_0'}{2\phi_0}x' + \left( \frac{\phi_0''}{4\phi_0} - \frac{\phi_2}{\phi_0} \right)x = 0
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Equation d'euler lagrange 
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Il nous reste donc à resoudre les equations différentiels suivante à l'aide de la méthode Runge kutta 4 afin d'obtenir les trajectoires
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+x''(z) + \frac{\phi'_0(z)}{2\phi_0}x'(z) + \left( \frac{\phi_0''(z)}{4\phi_0(z)} -
+\frac{\phi_2(z)}{\phi_0(z)}\right) x(z) = 0
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+y''(z) + \frac{\phi'_0(z)}{2\phi_0}y'(z) + \left(\frac{\phi_0''(z)}{4\phi_0(z)} +
+\frac{\phi_2(z)}{\phi_0(z)}\right) y(z) = 0
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On peut trouver les solutions tq : 
+\begin_inset Newline newline
+\end_inset
+
+ rayon principal : 
+\begin_inset Formula $x(z_0) = 1, x'(z_0) = 0$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ rayon marginal : 
+\begin_inset Formula $ x(z_0) = 0, x'(z_0) = 1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Résolution equa diff(cas sans polariser les apertures)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Dans les deux cas à é résoudre une équation différentiel de type 
+\begin_inset Formula \[
+x''(z) + \omega_0^2 x = 0
+\]
+\end_inset
+
+On résout cette équation avec la methode Runge Kutta 4 avec les condtions initales :
+\begin_inset Newline newline
+\end_inset
+
+ Pour le rayon principal :
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula $x(z_0) = 1$
+\end_inset
+
+ et 
+\begin_inset Formula $x'(z_0) = 0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Pour le rayon marginal :
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula $x(z_0) = 0$
+\end_inset
+
+ et 
+\begin_inset Formula $x'(z_0) = 1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On peut verifier le résultat analtyqiuement
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Vérification des résultats
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang french
+Cas 
+\begin_inset Formula $\omega_0 > 0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On verifie les résultats analatiquement
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Dans le cas où 
+\begin_inset Formula $\omega_0^2 > 0$
+\end_inset
+
+, on a (focalisation direction x): 
+\begin_inset Formula \[
+x''(z) + \omega_0^2 x(z) = 0 .
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+La solution générale est alors : 
+\begin_inset Formula \[
+x_m(z) = A \cos\!\left(\omega_0 (z - z_0)\right)
++ B \sin\!\left(\omega_0 (z - z_0)\right).
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On considère le cas du rayon marginal : 
+\begin_inset Formula \[
+x(z_0) = 0, \qquad x'(z_0) = 1 .
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+x(z_0) = A = 0 .
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+x'(z) =
+- \omega_0 A \sin\!\left(\omega_0 (z - z_0)\right)
++ \omega_0 B \cos\!\left(\omega_0 (z - z_0)\right).
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Ainsi : 
+\begin_inset Formula \[
+x'(z_0) = \omega_0 B = 1 ,
+\qquad \Rightarrow \qquad
+B = \frac{1}{\omega_0}.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On obtient finalement la solution analytique du rayon marginal : 
+\begin_inset Formula \[
+\boxed{
+x_m(z) = \frac{1}{\omega_0}
+\sin\!\left(\omega_0 (z - z_0)\right)
+}
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On considère le cas du rayon principal: 
+\begin_inset Formula \[
+x(z_0) = 1, \qquad x'(z_0) = 0 .
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+x(z_0) = A = 1 .
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+x'(z) =
+- \omega_0 A \sin\!\left(\omega_0 (z - z_0)\right)
++ \omega_0 B \cos\!\left(\omega_0 (z - z_0)\right).
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+x'(z_0) = \omega_0 B = 0 , \qquad \Rightarrow \qquad B = 0 .
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On obtient finalement la solution du rayon principal : 
+\begin_inset Formula \[
+\boxed{
+x_p(z) = \cos\!\left(\omega_0 (z - z_0)\right)
+}
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang french
+Cas 
+\begin_inset Formula $\omega_0 <0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Dans le cas ou 
+\begin_inset Formula $\omega_0$
+\end_inset
+
+ est inférieur à 0 (dans la direction y) on obtient la trajectoire de défocalisation on a 
+\begin_inset Formula \[
+y''(z) + \omega_0^2 y(z) = 0 .
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+La solution générale est alors : 
+\begin_inset Formula \[
+y_m(z) = A \cosh\!\left(\omega_0 (z - z_0)\right)
++ B \sinh\!\left(\omega_0 (z - z_0)\right).
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On considère le cas du rayon marginal : 
+\begin_inset Formula \[
+y(z_0) = 0, \qquad y'(z_0) = 1 .
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+y(z_0) = A = 0 .
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+y'(z) =
+- \omega_0 A \sinh\!\left(\omega_0 (z - z_0)\right)
++ \omega_0 B \cosh\!\left(\omega_0 (z - z_0)\right).
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Ainsi : 
+\begin_inset Formula \[
+y'(z_0) = \omega_0 B = 1 ,
+\qquad \Rightarrow \qquad
+B = \frac{1}{\omega_0}.
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On obtient finalement la solution analytique du rayon marginal : 
+\begin_inset Formula \[
+\boxed{
+y_m(z) = \frac{1}{\omega_0}
+\sinh\!\left(\omega_0 (z - z_0)\right)
+}
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On considère le cas du rayon principal: 
+\begin_inset Formula \[
+y(z_0) = 1, \qquad y'(z_0) = 0 .
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+y(z_0) = A = 1 .
+\]
+\end_inset
+
+
+\begin_inset Formula \[
+y'(z) =
+- \omega_0 A \sinh\!\left(\omega_0 (z - z_0)\right)
++ \omega_0 B \cosh\!\left(\omega_0 (z - z_0)\right).
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Formula \[
+y'(z_0) = \omega_0 B = 0 , \qquad \Rightarrow \qquad B = 0 .
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+On obtient finalement la solution du rayon principal : 
+\begin_inset Formula \[
+\boxed{
+y_p(z) = \cosh\!\left(\omega_0 (z - z_0)\right)
+}
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang french
+Document Okayama
+\end_layout
+
+\begin_layout Chapter
+
+\lang french
+Notre production
+\end_layout
+
+\begin_layout Section
+
+\lang french
+Structure globale du code
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Comme évoqué dans l'introduction, le rendu final de ce projet est un code Python permettant la modélisation du quadrupole d'Okayama et du comportement des rayons d'électrons à l'intérieur de celui-ci. Ce code étant assez long, nous avons décidé de le fragmenter en plusieurs codes en utilisant la programmation orientée objet. La programmation orientée objet tend à représenter un système en utilisant différents objets qui représentent chaque aspect du système. 
+\begin_inset space \space{}
+
+\end_inset
+
+Le code est structuré en trois étage. Le premier étage est composé des objets qui vont définir toutes les variables et les fonctions que nous utilisons dans le code. Il regroupe les codes suivants: 
+\begin_inset Formula $Data.py$
+\end_inset
+
+, 
+\begin_inset Formula $Geometry.py$
+\end_inset
+
+, 
+\begin_inset Formula $Field_calculation.py$
+\end_inset
+
+, 
+\begin_inset Formula $Extraction_data.py$
+\end_inset
+
+, 
+\begin_inset Formula $Multipolar_decomposition.py$
+\end_inset
+
+, 
+\begin_inset Formula $Fit_functions.py$
+\end_inset
+
+, 
+\begin_inset Formula $Graphs.py$
+\end_inset
+
+ et 
+\begin_inset Formula $paraxial.py$
+\end_inset
+
+. Le deuxième étage est composé d'un unique programme intitulé 
+\begin_inset Formula $Main_functions.py$
+\end_inset
+
+ qui crée des objets qui regroupent toutes les objets de l'étage précédent et permet de les appeler dans l'ordre. Le troisième étage, quant à lui, est l'étage utilisateur. Il appelle les objets crées dans l'étage précédent et permet de les exécuter.
+\end_layout
+
+\begin_layout Section
+
+\lang french
+Codes utilisateur
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Cette partie correspond aux deux codes composant le troisième étage. C'est l'interface utilisateur du programme. Nous avons décidé de séparer ce code en deux codes. Le premier code permet d'extraire le potentiel et de l'exporter dans un fichier, étape assez chronophage. Le deuxième code permet d'importer les données extraites par le premier code et de les traiter.
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Extraction du potentiel
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Ce code permet de créer la géométrie du quadrupole que l'on cherche à modéliser, le mailler et exporter le maillage. Ensuite, le code permet d'extraire le potentiel en utilisant le maillage et la méthode des éléments de frontière (BEM) puis exporte ces données dans un fichier. 
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+preview false
+filename "../../Quadrupole_model/Potential_extraction.lyx"
+lstparams "language=python"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Exploitation des données
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Ce code permet d'importer les données extraites du codes précédents. Il permet ensuite de les traiter notamment en effectuant la décomposition du potentiel, en créant des fonctions de fit et en retrouvant les équations paraxiales. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%LaTeX ne comprend pas les notebooks, il faudra rajouter le code dans un fichier .py pour l'exporter en LaTeX
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang french
+Programe principal
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Ce programme comporte les codes du premier étage, soit les codes permettant la définition de toutes les variables et l'appel de toutes les fonctions nécessaires; ce sont les foncdements de notre code. 
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Data
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Ce code permet de définir toutes les variables que l'on utilise à travers ce programme, on peut notamment citer les dimensions du quadrupole, les tensions appliquées aux différents éléments du quadrupole et la taille du maillage. 
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+preview false
+filename "../../Quadrupole_model/Data.lyx"
+lstparams "language=python"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Geometry
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Ce code définit plusieurs classes qui permettent de modéliser les différents éléments qui composent un quadrupole (aperture, électrodes, shield). Une autre classe permet de générer un maillage sur la surface du quadrupole. Ce maillage est ensuite exporté et utilisé afin d'appliquer la méthode des éléments de frontière (BEM). La génération du maillage se fait à l'aide de la bibliothèque Python intitulée gmsh. 
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+preview false
+filename "../../Quadrupole_model/Geometry.lyx"
+lstparams "language=python"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Voici une représentation du maillage crée par le code précédent: 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "l"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "40text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename images/Coupe_quadrupole.png
+	width 100line%
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Vue en coupe du maillage du quadrupole
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:coupe_quad"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 2cm
+\end_inset
+
+ 
+\begin_inset Box Frameless
+position "c"
+hor_pos "l"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "40text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename images/Quadrupole_shield.png
+	width 100line%
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Vue du maillage du quadrupole
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:shield_quad"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Field calculation
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Ce code permet d'importer le maillage et d'extraire le potentiel électrostatique en tout point du volume en utilisant la méthode des éléments de frontière (BEM). L'application de cette méthode se fait à l'aide de la bibliothèque Python nommée BEMPP (Boundary Element Method Python Package). 
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+preview false
+filename "../../Quadrupole_model/Field_calculation.lyx"
+lstparams "language=python"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Extraction data
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Ce code permet de récupérer toutes les variables créees dans le code Data.py et les données exportées lors de l'extraction du potentiel. 
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+preview false
+filename "../../Quadrupole_model/Extraction_data.lyx"
+lstparams "language=python"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Multipolar decomposition
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Ce code permet de calculer les différentes composantes de la décomposition du potentiel. 
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+preview false
+filename "../../Quadrupole_model/Multipolar_decomposition.lyx"
+lstparams "language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true"
+literal "true"
+
+\end_inset
+
+ Voici un graphique représentant les différentes composantes multipolaires le long de l'axe z: 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename images/décomposition_multipolaire.png
+	width 100line%
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Graphique de la décomposition multipolaire
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:decomposition"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Fit functions
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Ce code permet d'implémenter les fonctions de fit présentent dans le papier d'Okayama (Okayama et Kawakatsu, 1978) afin de vérifier si nos codes fonctionnent correctement. 
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+preview false
+filename "../../Quadrupole_model/Fit_functions.lyx"
+lstparams "language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true"
+literal "true"
+
+\end_inset
+
+ Voici un graphique représentant les différentes composantes multipolaires normées ainsi que les fonctions de fit d'Okayam, le long de l'axe z: 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename images/fonction_fit.png
+	width 100line%
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Graphique de la décomposition multipolaire et des fonctions de fit
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fitfunction"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Graphs
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Ce code permet d'afficher différents graphiques tels que la valeur des différentes composantes du potentiels le long de l'axe z. 
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+preview false
+filename "../../Quadrupole_model/Graphs.lyx"
+lstparams "language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang french
+Paraxial
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Ce code permet de résoudre les équations de la trajectoire et donc d'obtenir le comportement des rayons d'électrons à travers le quadrupole. 
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+preview false
+filename "../../Quadrupole_model/paraxial.lyx"
+lstparams "language=Python, extendedchars=false, inputencoding=utf8, literate=, basicstyle=\small\ttfamily, breaklines=true"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

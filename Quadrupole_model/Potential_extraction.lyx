@@ -1,0 +1,663 @@
+#LyX file created by tex2lyx 2.5
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /Users/louise/Documents/insa/insa4/projet/projet-multi-code/Quadrupole_model/
+\textclass report
+\use_default_options false
+\maintain_unincluded_children no
+\language french
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 1
+\pdf_backref false
+\pdf_pdfusetitle 0
+\pdf_quoted_options "linkcolor=blue,citecolor=green"
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\crossref_package prettyref
+\use_minted 0
+\use_lineno false
+\customcolor backcolour f2f2eb
+\customcolor codegray 7f7f7f
+\customcolor codegreen 009900
+\customcolor codepurple 9300d1
+\fontcolor codepurple
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\lang french
+from Mainfunctions import Potentialextraction from Data import Data import os from bemppcl.core import openclkernels from Fieldcalculation import Calculationfield import gc
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+openclkernels.showavailableplatformsanddevices() openclkernels.setdefaultcpudevice(0,1)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+os.environ['PYOPENCLCOMPILEROUTPUT']='1' os.environ['PYOPENCLNOCACHE'] = '1'
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#OUTPUTDIR = r
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+C:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+Users
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+zoeno
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+OneDrive
+\end_layout
+
+\end_inset
+
+ - INSA Toulouse
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+Documents
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+INSA
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+4
+\end_layout
+
+\end_inset
+
+GP
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+Projet
+\end_layout
+
+\end_inset
+
+ multi
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+projet
+\end_layout
+
+\end_inset
+
+-multi-code
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+Quadrupole
+\end_layout
+
+\end_inset
+
+model
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+Files
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ OUTPUTDIR = r
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+C:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+Users
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+llamm
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+OneDrive
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+Documents
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+Projet
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+BEMPP
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+okayama
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+projet
+\end_layout
+
+\end_inset
+
+multi
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+projet
+\end_layout
+
+\end_inset
+
+-multi-code
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+Quadrupole
+\end_layout
+
+\end_inset
+
+model
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+Files
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"-
+\end_layout
+
+\end_inset
+
+0.0299087*Va, -0.18808*Va, +0.18808*Va
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ #tension qui fit
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# Dico pour faire étape par étape
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+quad = 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+aperture1
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+":
+\end_layout
+
+\end_inset
+
+ [0, 0, 1, 0], 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+aperture2
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+":
+\end_layout
+
+\end_inset
+
+ [0, 0, 0, 1], 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+quad13
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+":
+\end_layout
+
+\end_inset
+
+ [1, 0, 0, 0], 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+quad24
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+":
+\end_layout
+
+\end_inset
+
+ [0, 1, 0, 0] 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# Générer le maillage une fois datainitial = Data(4, 5, 21, 19, 2, 15, 2, 13, 3.4934, 0, 0, 0, 0, 0, 1.5, 0.9, 2, 30, OUTPUTDIR) funinitial = Potentialextraction(datainitial, True, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+temp.npz
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) funinitial.mesh() savedgroupids = datainitial.groupid
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# On fait élément par élément for element, tensions in quad.items(): vq13, vq24, va1, va2 = tensions
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+filename = f
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+element
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+.npz
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+data = Data(4, 5, 21, 19, 2, 15, 2, 13, 3.4934, vq13, vq24, va1, va2, 0, 1.5, 0.9, 2, 30, OUTPUTDIR) data.groupid = savedgroupids
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+fun = Potentialextraction(data, False, filename)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+fun.potentialextraction() # Résolution BEM fun.potentialvisualisation()
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+fun.graphpotentialaxis() del fun gc.collect()
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#data = Data(4, 5, 21, 19, 2, 15, 2, 13, 3.4934,1, -0.18808*Va, +0.18808*Va, 0, Va, 0.9, 3, 20, OUTPUTDIR)
+\end_layout
+
+\end_body
+\end_document

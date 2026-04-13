@@ -256,50 +256,26 @@ comprendre et maîtriser ces objets afin de rendre le FIB le plus performant pos
 \end{figure}
 
 
-Cependant, la fabrication de ces instruments peut parfois être longue et coûteuse. Pour 
-pallier ce problème, l’utilisation de modèles s’avère utile. C’est dans ce cadre que notre 
-projet multidisciplinaire s’inscrit et est intitulé: “Modélisation de lentilles multipolaires 
-électrostatiques par Boundary Element Method”.  
 Comme évoqué précédemment, les lentilles permettent de guider la trajectoire du faisceau 
 ionique. Il existe plusieurs types de lentilles: les lentilles électrostatiques et les lentilles 
 magnétiques. Dans le cas que nous étudions, le FIB est composé de lentilles 
 électrostatiques.  
 Ces lentilles électrostatiques peuvent présenter différentes configurations. On parle en effet 
 de lentilles rondes/monopolaires (un seul potentiel), de lentilles dipolaires (deux potentiels), 
-de lentilles quadrupolaires (quatres potentiels), etc. Notre étude portera plus particulièrement 
-sur les lentilles quadrupolaires.  
+de lentilles quadrupolaires (quatres potentiels), etc. 
 
-\section{Principe de correction d'aberration}
-L'utilisation de particules chargées réduit l'impact de la diffraction. 
-Cependant, la résolution  des instruments reste limitée par des aberrations. 
-On distingue principalement deux types d’aberrations :
-\begin{itemize}
-    \item les aberrations chromatiques, liées à la dispersion en énergie des particules,
-    \item les aberrations géométriques.
-\end{itemize}
+\subsection{Principe de correction d'aberration}
+L'usage de particules chargées réduit l'impact de la diffraction.
+ Cependant, la résolution reste limitée par des aberrations liées aux imperfections des champs. 
+ On distingue deux types principaux d'aberrations : les aberrations chromatiques, liées à la dispersion en énergie des particules, 
+ et les aberrations géométriques.
 
-Parmi les aberrations géométriques, on trouve notamment :
-\begin{itemize}
-    \item l’aberration sphérique,
-    \item le coma,
-    \item la courbure de champ,
-    \item l’astigmatisme,
-    \item la distorsion.
-\end{itemize}
-
-Ce rapport se concentre sur l’aberration sphérique.
-
-L’aberration sphérique traduit le fait que les particules passant loin de l’axe optique sont focalisées différemment de celles proches de l’axe. Il en résulte un élargissement du point focal, ce qui limite directement la résolution de l’instrument.
-
-La correction de cette aberration est donc essentielle pour atteindre des performances élevées en optique des particules chargées.
+Parmi les aberrations géométriques, on trouve notamment l'aberration sphérique, 
+le coma, l'astigmatisme ou la distorsion. Ce rapport se concentre sur l'aberration sphérique.
+ Ce défaut traduit le fait que les particules s'éloignant de l'axe optique sont focalisées plus fortement que les particules centrales.
+  Il en résulte un élargissement du point focal dans le plan image,
 
 
-
- Ce rapport se concentrera à l'abbération shérique. 
- L'abbération spérique traduit le fait les particules passant loin de l’axe sont focalisées
-  différemment de celles proches de l’axe. La correction
-de ces aberrations est essentielle pour améliorer la
-résolution d'instruments.
 
 \begin{figure}[H]
 \centering
@@ -308,9 +284,15 @@ résolution d'instruments.
 \label{fig:abberation}
 \end{figure}
 
-la méthode utilisé pour corrigr l'abbération sphérique est l'uilisation de correcteur multipolaire. 
-La supersposition des systeme octopolaire et octopolaire permet la reductiobn de l'abbération sphérique. 
-Cependant un defi vient sur l'aligment des different étages. 
+La méthode classique pour corriger l'aberration sphérique utilise des correcteurs multipolaires.
+ La superposition de champs quadrupolaires et octopolaires permet de compenser ce défaut.(mettre pourquoi)
+ Cependant, l'alignement de ces nombreux étages représente un défi technique majeur.
+
+\subsection{Le quadrupole d'okayama}
+
+L'équipe de S. Okayama a travailler sur nouveau moyen de correction. Ce système évite l'utilisation d'électrodes octopolaires dédiées. 
+En combinant un champ rond créer par une aperture et un champ quadrupolaire, un champ octopolaire apparaît naturellement. 
+Ce champ est dit « auto-aligné », ce qui simplifie grandement la conception et le réglage du correcteur.
 
 
 
@@ -343,8 +325,6 @@ cas simple de lentilles électrostatiques (les lentilles de Einzel). Le second a
 créer un algorithme permettant d’optimiser ces lentilles.  
 Notre objectif est donc de continuer ce projet en l’adaptant aux lentilles quadrupolaires.  
    
-
-\section{Objectifs du projet}
 
 
 
