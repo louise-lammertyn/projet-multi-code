@@ -1,0 +1,943 @@
+#LyX file created by tex2lyx 2.5
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /Users/louise/Documents/insa/insa4/projet/projet-multi-code/Quadrupole_model/
+\textclass report
+\use_default_options false
+\maintain_unincluded_children no
+\language french
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 1
+\pdf_backref false
+\pdf_pdfusetitle 0
+\pdf_quoted_options "linkcolor=blue,citecolor=green"
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\crossref_package prettyref
+\use_minted 0
+\use_lineno false
+\customcolor backcolour f2f2eb
+\customcolor codegray 7f7f7f
+\customcolor codegreen 009900
+\customcolor codepurple 9300d1
+\fontcolor codepurple
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\lang french
+import gmsh import os from Data import Data
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Definition of classes to describe the geometry class Cylinder: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Represents a cylindrical electrode in the GMSH geometry. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ def init(self, length: int, radius: int, coordx: int, coordy: int, coordz: int) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Initialize cylinder parameters.
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Args: length: Length of the cylinder along the Z-axis. radius: Radius of the cylinder. coordx, coordy, coordz: Starting position of the cylinder. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ self.length = length self.radius = radius self.coordx = coordx self.coordy = coordy self.coordz = coordz
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.cyltag = None self.cylsurf = None
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def add(self) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Add the cylinder to the OpenCASCADE model and extract its surface loop.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ self.cyltag = gmsh.model.occ.addCylinder(self.coordx, self.coordy, self.coordz, 0, 0, self.length, self.radius) self.cylsurf = gmsh.model.occ.getsurfaceloops(self.cyltag)[1][0]
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+class Aperture: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Represents an aperture in the GMSH geometry. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ def init(self, radiusext: int, radiusin: int, thickness: int, coordx: int, coordy: int, coordz: int) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Initialize aperture parameters.
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Args: radiusext: Outer radius of the aperture disc. radiusin: Inner radius (hole) of the aperture. thickness: Thickness of the disc. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ self.radiusext = radiusext self.radiusin = radiusin self.thickness = thickness self.coordx = coordx self.coordy = coordy self.coordz = coordz
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.aperttag = None self.apertsurf = None
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def add (self) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Create the aperture 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ apertureout = gmsh.model.occ.addCylinder(self.coordx, self.coordy, self.coordz, 0, 0, self.thickness, self.radiusext) aperturein = gmsh.model.occ.addCylinder(self.coordx, self.coordy, self.coordz, 0, 0, self.thickness, self.radiusin) apertvol , = gmsh.model.occ.cut([(3,apertureout)],[(3,aperturein)]) self.aperttag=apertvol[0][1] self.apertsurf = gmsh.model.occ.getsurfaceloops(self.aperttag)[1][0]
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+class Shield: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Represents the shield to fixe the potential ot 0 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ def init(self, length: int, radiusext: int, radiusin: int, radiushole: int, thickness: int, coordx: int, coordy: int, coordz: int) -> None: self.length = length self.radiusext = radiusext self.radiusin = radiusin self.radiushole = radiushole self.thickness = thickness self.coordx = coordx self.coordy = coordy self.coordz = coordz
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.shieldtag = None self.shieldsurf = None
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def add(self) -> None: shieldin = gmsh.model.occ.addCylinder(self.coordx, self.coordy, self.coordz + self.thickness, 0, 0, self.length -2*self.thickness, self.radiusin) shieldout = gmsh.model.occ.addCylinder(self.coordx, self.coordy, self.coordz, 0, 0, self.length, self.radiusext) shield , = gmsh.model.occ.cut([(3,shieldout)],[(3,shieldin)]) shieldhole1 = gmsh.model.occ.addCylinder(self.coordx, self.coordy, self.length - self.thickness, 0, 0, self.thickness, self.radiushole) shieldhole2 = gmsh.model.occ.addCylinder(self.coordx, self.coordy, self.coordz, 0, 0, self.thickness, self.radiushole) shieldvol1, = gmsh.model.occ.cut([(3,shield[0][1])],[(3,shieldhole1)]) shieldvol2, = gmsh.model.occ.cut([(3,shieldvol1[0][1])],[(3,shieldhole2)]) self.shieldtag=shieldvol2[0][1] self.shieldsurf = gmsh.model.occ.getsurfaceloops(self.shieldtag)[1][0]
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+class MeshGeneration: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Manages the full GMSH workflow: initialization, geometry construction, physical grouping, and mesh generation. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ def init(self, data: Data, visual: bool) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ data (Data): Object containing all geometric dimensions and mesh settings. visual (bool): If True, launches the GMSH GUI after generation. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ self.data = data self.visual = visual
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.objects = None
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def initialisation(self) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Initialize GMSH and create a new model.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+gmsh.initialize() gmsh.clear() gmsh.model.add(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Quadrupole lens
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def geometry(self) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Instantiate and add all geometric components (electrodes, apertures, shield).
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+cylinder1 = Cylinder(self.data.lengthcylinder, self.data.radiusaxis, self.data.coordcylinderxory, 0, self.data.coordcylinderz) Cylinder.add(cylinder1)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+cylinder2 = Cylinder(self.data.lengthcylinder, self.data.radiusaxis, -self.data.coordcylinderxory, 0, self.data.coordcylinderz) Cylinder.add(cylinder2)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+cylinder3 = Cylinder(self.data.lengthcylinder, self.data.radiusaxis, 0, self.data.coordcylinderxory, self.data.coordcylinderz) Cylinder.add(cylinder3)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+cylinder4 = Cylinder(self.data.lengthcylinder, self.data.radiusaxis, 0, -self.data.coordcylinderxory, self.data.coordcylinderz) Cylinder.add(cylinder4)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+aperture1 = Aperture(self.data.radiusapert, self.data.radiusaxis, self.data.thicknessapert, 0, 0, self.data.coordapertz1) Aperture.add(aperture1)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+aperture2 = Aperture(self.data.radiusapert, self.data.radiusaxis, self.data.thicknessapert, 0, 0, self.data.coordapertz2) Aperture.add(aperture2)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+shield = Shield(self.data.totallength, self.data.radiusextshield, self.data.radiusinshield, self.data.radiusaxis, self.data.thicknessshield, 0, 0, 0) Shield.add(shield)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.objects = aperture1, aperture2, cylinder1, cylinder2, cylinder3, cylinder4, shield
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def creationmesh(self) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Synchronize the OpenCASCADE internal CAD representation with the GMSH model.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ gmsh.model.occ.synchronize()
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def surfaces(self) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Define physical groups for the surfaces. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ aperture1, aperture2, cylinder1, cylinder2, cylinder3, cylinder4, shield = self.objects
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Outwards orientation of the surfaces' normals gmsh.model.mesh.setOutwardOrientation(aperture1.aperttag) gmsh.model.mesh.setOutwardOrientation(aperture2.aperttag) gmsh.model.mesh.setOutwardOrientation(cylinder1.cyltag) gmsh.model.mesh.setOutwardOrientation(cylinder2.cyltag) gmsh.model.mesh.setOutwardOrientation(cylinder3.cyltag) gmsh.model.mesh.setOutwardOrientation(cylinder4.cyltag) gmsh.model.mesh.setOutwardOrientation(shield.shieldtag)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Adds surfaces on top of the volumes created groupidapert1 = gmsh.model.addPhysicalGroup(2, aperture1.apertsurf) groupidapert2 = gmsh.model.addPhysicalGroup(2, aperture2.apertsurf) groupidcyl1 = gmsh.model.addPhysicalGroup(2, cylinder1.cylsurf) groupidcyl2 = gmsh.model.addPhysicalGroup(2, cylinder2.cylsurf) groupidcyl3 = gmsh.model.addPhysicalGroup(2, cylinder3.cylsurf) groupidcyl4 = gmsh.model.addPhysicalGroup(2, cylinder4.cylsurf) groupidshield = gmsh.model.addPhysicalGroup(2, shield.shieldsurf)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.data.groupid = groupidapert1, groupidapert2, groupidcyl1, groupidcyl2, groupidcyl3, groupidcyl4, groupidshield
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def mesh(self) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Configure mesh size and generate the surface mesh.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ #Size of the mesh #ATTENTION, MeshSizeMin and MeshSizeMax need to be equal gmsh.option.setnumber('Mesh.MeshSizeMin', self.data.MeshSizeMin) gmsh.option.setnumber('Mesh.MeshSizeMax', self.data.MeshSizeMax) gmsh.option.setnumber('Mesh.MeshSizeFromCurvature', self.data.MeshSizeFromCurvature)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+gmsh.model.mesh.generate(2)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def finalize(self) -> None: #Creates a file .msh meshpath = os.path.join(self.data.outputdir, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+meshquadrupole.msh
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+gmsh.write(meshpath) print(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Mesh saved to:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+, meshpath)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+if self.visual == True: #Opens a terminal to see the geometry gmsh.fltk.run()
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+gmsh.finalize() 
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,1049 @@
+#LyX file created by tex2lyx 2.5
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /Users/louise/Documents/insa/insa4/projet/projet-multi-code/Quadrupole_model/
+\textclass report
+\use_default_options false
+\maintain_unincluded_children no
+\language french
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 1
+\pdf_backref false
+\pdf_pdfusetitle 0
+\pdf_quoted_options "linkcolor=blue,citecolor=green"
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\crossref_package prettyref
+\use_minted 0
+\use_lineno false
+\customcolor backcolour f2f2eb
+\customcolor codegray 7f7f7f
+\customcolor codegreen 009900
+\customcolor codepurple 9300d1
+\fontcolor codepurple
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\lang french
+import os import bemppcl.api as bempp import numpy as np from matplotlib import pylab as plt from Data import Data
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+class Calculationfield: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Handles the electrostatic field calculation using the Boundary Element Method (BEM). It manages mesh importation, potential settings, matrix inversion, and derivative calculations for a quadrupole geometry. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ def init(self, data: Data , filename : str) -> None:
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Initialize the calculation field with geometry data and BEM spaces.
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Args: data (Data): Object containing physical dimensions, potentials, and mesh paths. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ self.data = data self.filename = filename
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Importation of the mesh self.meshpath = os.path.join(self.data.outputdir, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+meshquadrupole.msh
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) self.grid = bempp.importgrid(self.meshpath)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# Functions spaces self.dp0space = bempp.functionspace(self.grid, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+DP
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+, 0) self.p1space = bempp.functionspace(self.grid, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+P
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+, 1)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# — operators — self.identity = bempp.operators.boundary.sparse.identity(self.p1space, self.p1space, self.dp0space)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.dlp = bempp.operators.boundary.laplace.doublelayer(self.p1space, self.p1space, self.dp0space)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.slp = bempp.operators.boundary.laplace.singlelayer(self.dp0space, self.p1space, self.dp0space)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Initial our variable to store the results
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.dirichletfun = None self.neumannfun = None self.uevaluated = None self.points = None
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Potenital derivative
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.Eeval = None self.D2eval = None self.D3eval = None self.D4eval = None
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def meshImportation(self) -> None: plt.clf()
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def potentialssettings(self) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Map physical potentials to the corresponding geometric domain indices. Defines the Dirichlet boundary conditions for the BEM problem. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Settings of the potentials potapert1 = self.data.potapert1 potapert2 = self.data.potapert2 potelectrode13 = self.data.potelectrode13 potelectrode24 = self.data.potelectrode24 potshield = self.data.potshield
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+apert1=self.data.groupid[0] apert2=self.data.groupid[1] elec1=self.data.groupid[2] elec2=self.data.groupid[3] elec3=self.data.groupid[4] elec4=self.data.groupid[5] shield=self.data.groupid[6]
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+@bempp.realcallable #Setting of the potential on the different elements of the geometry #electrode 1 and 2 are coupled and 3 and 4 are coupled def dirichletdata(x, n, domainindex, result): if domainindex == apert1: #potential of the 1st aperture result[0]=potapert1
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+elif domainindex == apert2: #potential of the 2nd aperture result[0]=potapert2
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+elif domainindex == elec1: #potential of the 1st electrode result[0]=potelectrode13
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+elif domainindex == elec2: #potential of the 2nd electrode result[0]=potelectrode13
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+elif domainindex == elec3: #potential of the 3rd electrode result[0]=potelectrode24
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+elif domainindex == elec4: #potential of the 4th electrode result[0]=potelectrode24
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+elif domainindex == shield: #potential of the shield result[0]=potshield
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# Create the GridFunction representing the boundary potential self.dirichletfun = bempp.GridFunction(self.p1space, fun=dirichletdata) # Après avoir créé self.dirichletfun vmax = np.max(self.dirichletfun.coefficients) vmin = np.min(self.dirichletfun.coefficients) print(f
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Potentiel Max sur le maillage : 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+vmax
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ V
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) print(f
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Potentiel Min sur le maillage : 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+vmin
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ V
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def visualisation(self) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Visualize the Dirichlet potential mapped onto the 3D geometry.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ self.dirichletfun.plot()
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def matrixinversion(self) -> None: #Sum of the right part of the integral rhs = (-0.5 * self.identity + self.dlp) * self.dirichletfun
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Resolution of the linear system self.neumannfun,  = bempp.linalg.cg(self.slp, rhs, tol=1e-8) #1e-5 à tester # mettre function ici -> utiliser resultat de neuman fun #Creation of the tracing of the solution #à changer ici pour verifier ngridpoints = 100 self.points = np.stack((np.zeros(ngridpoints), np.zeros(ngridpoints), (np.linspace(0, 10*self.data.totallength, ngridpoints)))) #x=y=0 and z changes from 0 to elecid[7][11]=totallength
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Green's representation slppot = bempp.operators.potential.laplace.singlelayer(self.dp0space, self.points) #total matrix self.uevaluated = -slppot * self.neumannfun
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def derivatives(self) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Calculate the 1st to 4th order derivatives of the potential at the evaluation points. Uses OpenCL for hardware acceleration. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ #Field E = bempp.operators.potential.laplace.singlelayergradient(self.dp0space, self.points, deviceinterface=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+opencl
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) self.Eeval = -E * self.neumannfun
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Field's 2nd derivative D2 = bempp.operators.potential.laplace.singlelayer2ndderiv(self.dp0space, self.points, deviceinterface=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+opencl
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) self.D2eval = D2 * self.neumannfun
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Field's 3rd derivative D3 = bempp.operators.potential.laplace.singlelayer3rdderiv(self.dp0space, self.points, deviceinterface=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+opencl
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) self.D3eval = D3 * self.neumannfun
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Field's 4th derivative D4 = bempp.operators.potential.laplace.singlelayer4thderiv(self.dp0space, self.points, deviceinterface=
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+opencl
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) self.D4eval = D4 * self.neumannfun
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def potentialexportation(self) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Export all calculated potentials, derivatives, and geometric parameters to a compressed .npz file for post-processing. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ try: from IPython import getipython ipython = getipython() if ipython is not None: ipython.runlinemagic(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+matplotlib
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+inline
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) ipython = True
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+except NameError: ipython = False
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+savefile = os.path.join(self.data.outputdir, self.filename)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Creation of a .npz file with the extracted potential if 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+savefile
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ is not None: np.savezcompressed( savefile, #Points points=self.points,
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Extracted potential potential=self.uevaluated,
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Geometry identification groupidap1=self.data.groupid[0], groupidap2=self.data.groupid[1], groupidcyl1=self.data.groupid[2], groupidcyl2=self.data.groupid[3], groupidcyl3=self.data.groupid[4], groupidcyl4=self.data.groupid[5], groupidshield=self.data.groupid[6],
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Mesh parameters MeshSizeMin = self.data.MeshSizeMin, MeshSizeMax = self.data.MeshSizeMax, MeshSizeFromCurvature = self.data.MeshSizeFromCurvature,
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Output directory outputdir = self.data.outputdir,
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Dimensions distshieldapert = self.data.distshieldapert, distapertquad = self.data.distapertquad, radiusextshield = self.data.radiusextshield, radiusinshield = self.data.radiusinshield, thicknessshield = self.data.thicknessshield, radiusapert = self.data.radiusapert, thicknessapert = self.data.thicknessapert, lengthcylinder = self.data.lengthcylinder, radiusaxis = self.data.radiusaxis, totallength = self.data.totallength,
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Coordinates coordcylinderxory = self.data.coordcylinderxory, coordcylinderz = self.data.coordcylinderz, coordapertz1 = self.data.coordapertz1, coordapertz2 = self.data.coordapertz2, startshield1 = self.data.startshield1, endshield1 = self.data.endshield1, startapert1 = self.data.startapert1, endapert1 = self.data.endapert1, startcyl = self.data.startcyl, endcyl = self.data.endcyl, startapert2 = self.data.startapert2, endapert2 = self.data.endapert2, startshield2 = self.data.startshield2, endshield2 = self.data.endshield2,
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Potentials potelectrode13 = self.data.potelectrode13, potelectrode24 = self.data.potelectrode24, potapert1 = self.data.potapert1, potapert2 = self.data.potapert2, potshield = self.data.potshield, potacceleration = self.data.potacceleration,
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Derivatives Eeval=self.Eeval, D2eval=self.D2eval, D3eval=self.D3eval, D4eval=self.D4eval,)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+print(f
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Saved potential to 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+savefile
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+.npz
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def potentialaxisprinting(self) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Plot the calculated potential along the Z-axis.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ plt.plot(self.points[2], self.uevaluated[0]) plt.title(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Potentiel du quadrupole d'Okayama le long de l'axe Z
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) plt.xlabel(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Position en z (mm)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) plt.ylabel(
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+Potentiel (V)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+) plt.show()
+\end_layout
+
+\end_body
+\end_document

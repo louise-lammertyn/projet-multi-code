@@ -1,0 +1,329 @@
+#LyX file created by tex2lyx 2.5
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /Users/louise/Documents/insa/insa4/projet/projet-multi-code/Quadrupole_model/
+\textclass report
+\use_default_options false
+\maintain_unincluded_children no
+\language french
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 1
+\pdf_backref false
+\pdf_pdfusetitle 0
+\pdf_quoted_options "linkcolor=blue,citecolor=green"
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\crossref_package prettyref
+\use_minted 0
+\use_lineno false
+\customcolor backcolour f2f2eb
+\customcolor codegray 7f7f7f
+\customcolor codegreen 009900
+\customcolor codepurple 9300d1
+\fontcolor codepurple
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\lang french
+import numpy as np from Extractiondata import Extracteddata
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+#Creation of a class that describes characteristic values for the fit function class Fitconstants: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Defines and calculates the characteristic fitting functions (k0, k2, k4) for multipolar components based on the Okayama model. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ def init(self, a0: int, b0: int, b2: int, a4: int, b41: int, b42: int, z0: int, a: int, data: Extracteddata) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Initialize fit parameters for round lens, quadrupole, and octupole components.
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Args: a0, b0: the round lens component (k0). b2: the quadrupole component (k2). a4, b41, b42: the octupole component (k4). z0: Half-length of the plateau for the quadrupole field. a: electrode radius. data (Extracteddata): Object containing axis and geometry information. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# Round lens (k0) parameters # k0(Z) = a0 * exp[-(Z/b0)2] self.a0 = a0 self.b0 = b0 # Quadrupole (k2) parameters self.b2 = b2
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# Octupole (k4) parameters self.a4 = a4 self.b41 = b41 self.b42 = b42 self.z0 = z0
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# Geometry self.a = a
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.data = data
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# Resulting function arrays
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.k0 = None self.k2 = None self.k4 = None
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def fonctionfit(self) -> None: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ Calculate the axial distributions for k0, k2, and k4 by shifting the coordinate system to the relevant geometric centers. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+milieucyl = 0.5 * (self.data.startcyl + self.data.endcyl)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# Translate the Z-axis relative to the cylinder center zref = self.data.axez - milieucyl
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# Define reference points for each component zquadcenter = 0 # Center of cylinder zquadedge = self.data.lengthcylinder / 2 # Edge of cylinder zapcenter = zquadedge + self.data.distapertquad + self.data.thicknessapert / 2 # Milieu ouverture
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Zk2 = zref - zquadcenter # pour le quadrupôle Zk4 = zref - zquadedge # pour l'octupôle Zk0 = zref - zapcenter # pour la lentille ronde (aperture)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# k0 (Lentille ronde) a0, b = 0.80751, 5.08 self.k0 = a0 * np.exp(-(Zk0**2) / b**2)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# k2 (Quadrupôle) Z0, b2 = 5, 2.54 self.k2 = np.where(np.abs(Zk2) <= Z0, 1, np.exp(-(np.abs(Zk2) - Z0)**2 / b2**2))
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+# k4 (Octupôle) a4, b1, b2k4 = 0.03891461, 3.113, 2.015 self.k4 = np.where(Zk4 <= 0, a4 / (1 + (Zk4**2 / b1**2))**2, a4 * np.exp(-(Zk4**2) / b2k4**2)) 
+\end_layout
+
+\end_body
+\end_document
