@@ -24,11 +24,18 @@ class Potential_extraction:
         self.mesh_visual = mesh_visual
         self.file_name = file_name
 
+        
+
         self.mesh_generation=Mesh_Generation(self.data, self.mesh_visual)
-        self.calculation_field=Calculation_field(self.data, self.file_name)
+        self.calculation_field = None
+
+    def _init_calc(self):
+        if self.calculation_field is None:
+            self.calculation_field = Calculation_field(self.data, self.file_name)
 
     def mesh(self):
         """Execute ull GMSH """
+        
         self.mesh_generation.initialisation()
         self.mesh_generation.geometry()
         self.mesh_generation.creation_mesh()
@@ -38,6 +45,7 @@ class Potential_extraction:
 
     def potential_extraction(self):
         """Solve the Laplace equation on the mesh and extract axial potential/derivatives."""
+        self._init_calc()
         self.calculation_field.mesh_Importation()
         self.calculation_field.potentials_settings()
         self.calculation_field.matrix_inversion()
@@ -95,6 +103,8 @@ class Data_exploitation:
     def decomposition_calculation(self):
         """Compute the multipolar expansion (Phi0, Phi2, Phi4) ."""
         self.decomposition.composantes()
+        self.decomposition.comparaison()
+        
 
     def decomposition_graph(self):
         """Visualize the calculated multipolar components overlaid with geometry."""
@@ -108,6 +118,36 @@ class Data_exploitation:
     def fit_graph(self):
         """Compare the BEM decomposition with the theoretical fitting functions."""
         self.graphs.graphe_fit()
+
+class Data_exploitation_1982:
+    """
+    the second stage: 
+    Decomposing the BEM results into multipolar components and comparing with okayama' models.
+    """
+    def __init__(self, extracted_data: Extracted_data):
+        """
+            extracted_data (Extracted_data): Data loaded from the .npz solver output.
+    
+        """
+        self.extracted_data = extracted_data
+        self.decomposition=Decomposition(self.extracted_data)
+
+        self.graphs=Graphs(self.extracted_data, self.decomposition)
+
+    def decomposition_calculation(self):
+        """Compute the multipolar expansion (Phi0, Phi2, Phi4) ."""
+        self.decomposition.composantes()
+
+    def decomposition_graph(self):
+        """Visualize the calculated multipolar components overlaid with geometry."""
+        self.graphs.graphe_composantes()
+        self.graphs.graphe_k1982()
+
+    
+    def fit_graph(self):
+        """Compare the BEM decomposition with the theoretical fitting functions."""
+        self.graphs.graphe_fit(False)
+
 
 class Data_exploitation_whitoutfit:
     """
@@ -130,7 +170,7 @@ class Data_exploitation_whitoutfit:
 
     def decomposition_graph(self):
         """Visualize the calculated multipolar components overlaid with geometry."""
-        self.graphs.graphe_composantes()
+        self.graphs.graphe_quads()
         self.graphs.graphe_zoom()
 
     

@@ -4,6 +4,8 @@ from Extraction_data import Extracted_data
 class Decomposition:
     def __init__(self, data: Extracted_data) -> None:
         self.data = data 
+        self.Vacceleration= data.Vacceleration
+        self.axe_z = data.axe_z
 
         self.Phi0_maj = None
         self.Phi1_maj = None
@@ -35,3 +37,5 @@ class Decomposition:
         self.Phi0_fit = self.Phi0_fit/Phi2_max
         self.Phi2_fit = self.Phi2_fit/Phi2_max
         self.Phi4_fit = self.Phi4_fit/Phi2_max
+    
+   

@@ -8,7 +8,7 @@ class Data:
     #6 - Radius of the aperture 
     #7 - Thickness of the aperture 
     #8 - Length of the cylinder (l in Okayama's paper)
-    #9 - Radius of the elements around the axis (a in Okayama's paper)
+    #9 - Radius of the elements around the axis 
     """
     def __init__(self, 
                 dist_shield_apert: int, dist_apert_quad: int,
