@@ -27,11 +27,19 @@ class Potential_extraction:
         self.mesh_generation=Mesh_Generation(self.data, self.mesh_visual)
         self.calculation_field=Calculation_field(self.data, self.file_name)
 
+    def _apply_colors_to_list(self, obj_list):
+        """Méthode interne pour appliquer les couleurs à une liste d'objets"""
+        for obj in obj_list:
+            # S'assure que l'objet a bien une méthode apply_color
+            if hasattr(obj, 'apply_color'):
+                obj.apply_color()
+
     def mesh(self):
         """Execute ull GMSH """
         self.mesh_generation.initialisation()
         self.mesh_generation.geometry()
         self.mesh_generation.creation_mesh()
+        self._apply_colors_to_list(self.mesh_generation.objects)
         self.mesh_generation.surfaces()
         self.mesh_generation.mesh()
         self.mesh_generation.finalize()

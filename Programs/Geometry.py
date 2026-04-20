@@ -21,6 +21,7 @@ class Cylinder:
         self.coord_x = coord_x
         self.coord_y = coord_y
         self.coord_z = coord_z
+        self.color_electrode = (0, 0, 255)
 
         self.cyl_tag = None
         self.cyl_surf = None
@@ -30,6 +31,11 @@ class Cylinder:
         """Add the cylinder to the OpenCASCADE model and extract its surface loop."""
         self.cyl_tag = gmsh.model.occ.addCylinder(self.coord_x, self.coord_y, self.coord_z, 0, 0, self.length, self.radius)
         self.cyl_surf = gmsh.model.occ.get_surface_loops(self.cyl_tag)[1][0]
+
+    def apply_color(self) -> None:
+        """Applique la couleur après synchronisation"""
+        if self.cyl_tag is not None:
+            gmsh.model.setColor([(2, self.cyl_tag)], *self.color_electrode)
 
 
 class Aperture: 
@@ -52,6 +58,7 @@ class Aperture:
         self.coord_x = coord_x
         self.coord_y = coord_y
         self.coord_z = coord_z
+        self.color_apert = (0, 255, 0)
 
         self.apert_tag = None
         self.apert_surf = None
@@ -64,6 +71,19 @@ class Aperture:
         apert_vol , _=  gmsh.model.occ.cut([(3,aperture_out)],[(3,aperture_in)])
         self.apert_tag=apert_vol[0][1]
         self.apert_surf = gmsh.model.occ.get_surface_loops(self.apert_tag)[1][0]
+
+    def apply_color(self) -> None:
+        """Applique la couleur après synchronisation"""
+        if self.tag is not None:
+        # Couleur du volume (3D)
+        gmsh.model.setColor([(3, self.tag)], *self.color)
+        
+        # RÉCUPÉRATION ET COLORATION DES SURFACES (2D)
+        # combined=False permet d'avoir chaque face individuellement
+        boundary = gmsh.model.getBoundary([(3, self.tag)], combined=False)
+        for dim_tag in boundary:
+            if dim_tag[0] == 2: # On ne colorie que les surfaces
+                gmsh.model.setColor([dim_tag], *self.color)
 
 
 class Shield:
@@ -87,9 +107,11 @@ class Shield:
         self.coord_x = coord_x
         self.coord_y = coord_y
         self.coord_z = coord_z
+        self.color_shield = (255, 0, 0)
 
         self.shield_tag = None
         self.shield_surf = None
+        
 
 
     def add(self) -> None:
@@ -102,7 +124,13 @@ class Shield:
         shield_vol_1, _=  gmsh.model.occ.cut([(3,shield[0][1])],[(3,shield_hole1)])
         shield_vol_2, _=  gmsh.model.occ.cut([(3,shield_vol_1[0][1])],[(3,shield_hole2)])
         self.shield_tag=shield_vol_2[0][1]
+        gmsh.model.setColor([(2, self.shield_tag)], self.color_shield[0], self.color_shield[1], self.color_shield[2])
         self.shield_surf = gmsh.model.occ.get_surface_loops(self.shield_tag)[1][0]
+
+    def apply_color(self) -> None:
+        """Applique la couleur après synchronisation"""
+        if self.shield_tag is not None:
+            gmsh.model.setColor([(3, self.shield_tag)], *self.color_shield)
 
 
 class Mesh_Generation: 
@@ -126,6 +154,9 @@ class Mesh_Generation:
         gmsh.initialize()
         gmsh.clear()
         gmsh.model.add("Quadrupole lens")
+        gmsh.option.setNumber("Mesh.ColorCarousel", 0)
+        gmsh.option.setNumber("Geometry.Surfaces", 1) 
+        gmsh.option.setNumber("Mesh.SurfaceFaces", 1)
 
 
     def geometry(self) -> None:

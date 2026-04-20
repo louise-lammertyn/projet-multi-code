@@ -26,7 +26,7 @@ quad = {
 #Generates the mesh
 data_initial = Data(4, 5, 21, 19, 2, 15, 2, 13, 3.4934, 0, 0, 0, 0, 0, 1.5, 0.1, 0.5, 30, OUTPUT_DIR)
 fun_initial = Potential_extraction(data_initial, True, "temp.npz")
-fun_initial.mesh_without_shield() 
+fun_initial.mesh() 
 """
 fun_initial.mesh_quad2() 
 fun_initial.mesh_quad3() 
