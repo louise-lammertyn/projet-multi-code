@@ -1,0 +1,8 @@
+%0 Journal Article
+%T Méthode des éléments de frontière pour la mécanique des failles et le contrôle sismique
+%G fr
+%A Bagur, Laura
+%A Chaillat, Stéphanie
+%A Semblat, Jean-François
+%A Stefanou, Ioannis
+
