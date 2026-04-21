@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.12)  21 APR 2026 14:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.12)  21 APR 2026 14:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1170,10 +1170,10 @@ Package pdftex.def Info: images/Coupe de face.png  used on input line 258.
 (pdftex.def)             Requested size: 182.09486pt x 182.53181pt.
 
 
-LaTeX Warning: Citation 'Bagur et al.' on page 10 undefined on input line 270.
+LaTeX Warning: Citation '' on page 10 undefined on input line 270.
 
 
-Overfull \hbox (7.3202pt too wide) in paragraph at lines 270--271
+Overfull \hbox (38.63895pt too wide) in paragraph at lines 270--271
 []\T1/cmr/m/n/10 La "Boun-dary Ele-ment Me-thod" ou bien en fran-çais la Mé-thode des élé-ments de fron-tière [[]] 
  []
 
@@ -1221,9 +1221,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  84i,17n,95p,822b,1874s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Rapport_final.pdf (11 pages, 2939983 bytes).
+Output written on Rapport_final.pdf (11 pages, 2940427 bytes).
 PDF statistics:
- 456 PDF objects out of 1000 (max. 8388607)
+ 457 PDF objects out of 1000 (max. 8388607)
  33 named destinations out of 1000 (max. 500000)
  159 words of extra memory for PDF output out of 10000 (max. 10000000)
 
