@@ -1213,10 +1213,10 @@ Package logreq Info: Writing requests to 'Rapport_final.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33381 strings out of 467871
- 630817 string characters out of 5418376
- 1544860 words of memory out of 5000000
- 61747 multiletter control sequences out of 15000+600000
+ 33379 strings out of 467871
+ 630780 string characters out of 5418376
+ 1544830 words of memory out of 5000000
+ 61745 multiletter control sequences out of 15000+600000
  634254 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,17n,95p,822b,1874s stack positions out of 10000i,1000n,20000p,200000b,200000s
