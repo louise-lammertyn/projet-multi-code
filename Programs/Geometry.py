@@ -72,20 +72,6 @@ class Aperture:
         self.apert_tag=apert_vol[0][1]
         self.apert_surf = gmsh.model.occ.get_surface_loops(self.apert_tag)[1][0]
 
-    def apply_color(self) -> None:
-        """Applique la couleur après synchronisation"""
-        if self.tag is not None:
-        # Couleur du volume (3D)
-        gmsh.model.setColor([(3, self.tag)], *self.color)
-        
-        # RÉCUPÉRATION ET COLORATION DES SURFACES (2D)
-        # combined=False permet d'avoir chaque face individuellement
-        boundary = gmsh.model.getBoundary([(3, self.tag)], combined=False)
-        for dim_tag in boundary:
-            if dim_tag[0] == 2: # On ne colorie que les surfaces
-                gmsh.model.setColor([dim_tag], *self.color)
-
-
 class Shield:
     """
     Represents the shield to fix the potential at 0V
