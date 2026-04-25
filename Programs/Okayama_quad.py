@@ -43,7 +43,7 @@ class Okayama_quad():
             self.add_matrix(self.D4_total, quad_i.D4,quad_i.axe_z, z_off)
 
     #Interpolation of every quadrupole's potential to obtain the global potential because 
-    #we cannot sum discrte functions because the steps need to be aligned
+    #we cannot sum discrete functions because the steps need to be aligned
     def add_matrix(self, total_array, local_array, local_z, offset):
         for j in range(total_array.shape[0]):
             interpolation = np.interp(self.axe_zt, local_z + offset, local_array[j, :], left=0, right=0)

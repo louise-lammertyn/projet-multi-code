@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.12)  21 APR 2026 14:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.12)  25 APR 2026 17:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -854,25 +854,41 @@ Package biblatex Info: ... and expl3
 Package: xparse 2025-10-09 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
+)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.sty
+Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
+\csq@reset=\count482
+\csq@gtype=\count483
+\csq@glevel=\count484
+\csq@qlevel=\count485
+\csq@maxlvl=\count486
+\csq@tshold=\count487
+\csq@ltx@everypar=\toks52
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.def
+File: csquotes.def 2024-04-04 v5.2o csquotes generic definitions (JAW)
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+ (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.cfg
+File: csquotes.cfg 
 )) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count482
+\lst@mode=\count488
 \lst@gtempboxa=\box76
-\lst@token=\toks52
-\lst@length=\count483
+\lst@token=\toks53
+\lst@length=\count489
 \lst@currlwidth=\dimen304
-\lst@column=\count484
-\lst@pos=\count485
+\lst@column=\count490
+\lst@pos=\count491
 \lst@lostspace=\dimen305
 \lst@width=\dimen306
-\lst@newlines=\count486
-\lst@lineno=\count487
+\lst@newlines=\count492
+\lst@lineno=\count493
 \lst@maxwidth=\dimen307
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
 File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-\c@lstnumber=\count488
-\lst@skipnumbers=\count489
+\c@lstnumber=\count494
+\lst@skipnumbers=\count495
 \lst@framebox=\box77
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
 File: listings.cfg 2025/11/14 1.11b listings configuration
@@ -888,37 +904,35 @@ Package: listings 2025/11/14 1.11b (Carsten Heinz)
 (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
-
-Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
-(biblatex)                Loading 'csquotes' recommended.
-
-\@quotelevel=\count490
-\@quotereset=\count491
-(Rapport_final.aux
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... found 'babel' package.
+Package csquotes Info: Adjusting default style.
+Package csquotes Info: Redefining alias 'default' -> 'french'.
+ (Rapport_final.aux
 Package babel Info: 'french' activates 'french' shorthands.
 (babel)             Reported on input line 13.
 )
 \openout1 = `Rapport_final.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Info: Redefining \degres on input line 72.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Info: Redefining \degres on input line 73.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -956,17 +970,17 @@ LaTeX Info: Redefining \degres on input line 72.
 
 (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count492
+\scratchcounter=\count496
 \scratchdimen=\dimen308
 \scratchbox=\box78
-\nofMPsegments=\count493
-\nofMParguments=\count494
-\everyMPshowfont=\toks53
-\MPscratchCnt=\count495
+\nofMPsegments=\count497
+\nofMParguments=\count498
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count499
 \MPscratchDim=\dimen309
-\MPnumerator=\count496
-\makeMPintoPDFobject=\count497
-\everyMPtoPDFconversion=\toks54
+\MPnumerator=\count500
+\makeMPintoPDFobject=\count501
+\everyMPtoPDFconversion=\toks55
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -981,7 +995,7 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-Package hyperref Info: Link coloring ON on input line 72.
+Package hyperref Info: Link coloring ON on input line 73.
  (Rapport_final.out) (Rapport_final.out)
 \@outlinefile=\write5
 \openout5 = `Rapport_final.out'.
@@ -1000,16 +1014,16 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Rapport_final.bbl' not found.
 
 No file Rapport_final.bbl.
-Package biblatex Info: Reference section=0 on input line 72.
-Package biblatex Info: Reference segment=0 on input line 72.
-\c@lstlisting=\count498
+Package biblatex Info: Reference section=0 on input line 73.
+Package biblatex Info: Reference segment=0 on input line 73.
+\c@lstlisting=\count502
 
 
 pdfTeX warning: pdflatex (file ./Template.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Template.pdf, id=53, 597.432pt x 845.07718pt>
+<Template.pdf, id=57, 597.432pt x 845.07718pt>
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf>
-Package pdftex.def Info: Template.pdf  used on input line 76.
+Package pdftex.def Info: Template.pdf  used on input line 77.
 (pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
 
 
@@ -1017,26 +1031,26 @@ pdfTeX warning: pdflatex (file ./Template.pdf): PDF inclusion: found PDF version
 
 
 pdfTeX warning: pdflatex (file ./Template.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Template.pdf, id=55, page=1, 597.432pt x 845.07718pt>
+<Template.pdf, id=59, page=1, 597.432pt x 845.07718pt>
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 1>
-Package pdftex.def Info: Template.pdf , page1 used on input line 76.
+Package pdftex.def Info: Template.pdf , page1 used on input line 77.
 (pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 1>
-Package pdftex.def Info: Template.pdf , page1 used on input line 76.
+Package pdftex.def Info: Template.pdf , page1 used on input line 77.
 (pdftex.def)             Requested size: 597.47612pt x 845.13959pt.
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 1>
-Package pdftex.def Info: Template.pdf , page1 used on input line 76.
+Package pdftex.def Info: Template.pdf , page1 used on input line 77.
 (pdftex.def)             Requested size: 597.47612pt x 845.13959pt.
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 1>
-Package pdftex.def Info: Template.pdf , page1 used on input line 76.
+Package pdftex.def Info: Template.pdf , page1 used on input line 77.
 (pdftex.def)             Requested size: 597.47612pt x 845.13959pt.
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 1>
-Package pdftex.def Info: Template.pdf , page1 used on input line 76.
+Package pdftex.def Info: Template.pdf , page1 used on input line 77.
 (pdftex.def)             Requested size: 597.47612pt x 845.13959pt.
 [1
 
@@ -1044,33 +1058,33 @@ Package pdftex.def Info: Template.pdf , page1 used on input line 76.
  <./Template.pdf>]
 
 pdfTeX warning: pdflatex (file ./Template.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Template.pdf, id=101, page=2, 597.432pt x 845.07718pt>
+<Template.pdf, id=105, page=2, 597.432pt x 845.07718pt>
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 2>
-Package pdftex.def Info: Template.pdf , page2 used on input line 76.
+Package pdftex.def Info: Template.pdf , page2 used on input line 77.
 (pdftex.def)             Requested size: 597.47612pt x 845.13959pt.
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 2>
-Package pdftex.def Info: Template.pdf , page2 used on input line 76.
+Package pdftex.def Info: Template.pdf , page2 used on input line 77.
 (pdftex.def)             Requested size: 597.47612pt x 845.13959pt.
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 2>
-Package pdftex.def Info: Template.pdf , page2 used on input line 76.
+Package pdftex.def Info: Template.pdf , page2 used on input line 77.
 (pdftex.def)             Requested size: 597.47612pt x 845.13959pt.
 [2
 
  <./Template.pdf>]
-<images/pattern.png, id=112, 74.52844pt x 73.77562pt>
+<images/pattern.png, id=116, 74.52844pt x 73.77562pt>
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 101.
+Package pdftex.def Info: images/pattern.png  used on input line 102.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
  [3
 
 {C:/Users/zoeno/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./images/pattern.png>]
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 110.
+Package pdftex.def Info: images/pattern.png  used on input line 111.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
  [4
 
@@ -1080,7 +1094,7 @@ Package pdftex.def Info: images/pattern.png  used on input line 110.
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 113.
+Package pdftex.def Info: images/pattern.png  used on input line 114.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
  [5
 
@@ -1088,109 +1102,107 @@ Package pdftex.def Info: images/pattern.png  used on input line 113.
 Chapitre 1.
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 117.
+Package pdftex.def Info: images/pattern.png  used on input line 118.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [6
 
 ]
 Chapitre 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--151
+Underfull \hbox (badness 10000) in paragraph at lines 145--152
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--177
+Underfull \hbox (badness 10000) in paragraph at lines 166--178
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--177
+Underfull \hbox (badness 10000) in paragraph at lines 166--178
 
  []
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 195.
+Package pdftex.def Info: images/pattern.png  used on input line 196.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [7
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 195--200
+Underfull \hbox (badness 10000) in paragraph at lines 196--201
 
  []
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 201.
+Package pdftex.def Info: images/pattern.png  used on input line 202.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [8]
 Chapitre 3.
-<images/Logigramme.png, id=170, 845.26315pt x 95.51474pt>
+<images/Logigramme.png, id=175, 845.26315pt x 95.51474pt>
 File: images/Logigramme.png Graphic file (type png)
 <use images/Logigramme.png>
-Package pdftex.def Info: images/Logigramme.png  used on input line 206.
+Package pdftex.def Info: images/Logigramme.png  used on input line 207.
 (pdftex.def)             Requested size: 455.24411pt x 51.44308pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 211--223
+Underfull \hbox (badness 10000) in paragraph at lines 212--224
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 211--223
+Underfull \hbox (badness 10000) in paragraph at lines 212--224
 
  []
 
-<images/Maillage Einzel.png, id=171, 1130.2225pt x 820.06375pt>
+<images/Maillage Einzel.png, id=176, 1130.2225pt x 820.06375pt>
 File: images/Maillage Einzel.png Graphic file (type png)
 <use images/Maillage Einzel.png>
-Package pdftex.def Info: images/Maillage Einzel.png  used on input line 226.
+Package pdftex.def Info: images/Maillage Einzel.png  used on input line 227.
 (pdftex.def)             Requested size: 182.09486pt x 132.11382pt.
-<images/Maillage de biais inclin√©.png, id=172, 653.44125pt x 612.78937pt>
+<images/Maillage de biais inclin√©.png, id=177, 653.44125pt x 612.78937pt>
 File: images/Maillage de biais inclin√©.png Graphic file (type png)
 <use images/Maillage de biais inclin√©.png>
-Package pdftex.def Info: images/Maillage de biais inclin√©.png  used on input line 241.
+Package pdftex.def Info: images/Maillage de biais inclin√©.png  used on input line 242.
 (pdftex.def)             Requested size: 136.57462pt x 128.07243pt.
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 245.
+Package pdftex.def Info: images/pattern.png  used on input line 246.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
 [9
 
  <./images/Logigramme.png> <./images/Maillage Einzel.png>]
-<images/Coupe en longueur.png, id=182, 636.87938pt x 568.37344pt>
+<images/Coupe en longueur.png, id=187, 636.87938pt x 568.37344pt>
 File: images/Coupe en longueur.png Graphic file (type png)
 <use images/Coupe en longueur.png>
-Package pdftex.def Info: images/Coupe en longueur.png  used on input line 251.
+Package pdftex.def Info: images/Coupe en longueur.png  used on input line 252.
 (pdftex.def)             Requested size: 182.09486pt x 162.50847pt.
-<images/Coupe de face.png, id=183, 619.56468pt x 621.07031pt>
+<images/Coupe de face.png, id=188, 619.56468pt x 621.07031pt>
 File: images/Coupe de face.png Graphic file (type png)
 <use images/Coupe de face.png>
-Package pdftex.def Info: images/Coupe de face.png  used on input line 258.
+Package pdftex.def Info: images/Coupe de face.png  used on input line 259.
 (pdftex.def)             Requested size: 182.09486pt x 182.53181pt.
-
-
-LaTeX Warning: Citation '' on page 10 undefined on input line 270.
-
-
-Overfull \hbox (38.63895pt too wide) in paragraph at lines 270--271
-[]\T1/cmr/m/n/10 La "Boun-dary Ele-ment Me-thod" ou bien en fran-Áais la MÈ-thode des ÈlÈ-ments de fron-tiËre [[]] 
- []
-
+<images/Organigramme_code.png, id=189, 1146.53343pt x 341.77687pt>
+File: images/Organigramme_code.png Graphic file (type png)
+<use images/Organigramme_code.png>
+Package pdftex.def Info: images/Organigramme_code.png  used on input line 286.
+(pdftex.def)             Requested size: 455.24411pt x 135.70702pt.
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 272.
+Package pdftex.def Info: images/pattern.png  used on input line 290.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[10 <./images/Maillage de biais inclin√©.png> <./images/Coupe en longueur.png> <./images/Coupe de face.png>]
+ [10 <./images/Maillage de biais inclin√©.png> <./images/Coupe en longueur.png> <./images/Coupe de face.png>]
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 291.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+ [11 <./images/Organigramme_code.png>]
 Chapitre 4.
-
-LaTeX Warning: Empty bibliography on input line 273.
-
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 275.
+Package pdftex.def Info: images/pattern.png  used on input line 292.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[11
+[12
 
 ] (Rapport_final.aux)
  ***********
@@ -1202,7 +1214,7 @@ L3 programming layer <2025-11-06>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Rapport_final.out' has not changed.
-(rerunfilecheck)             Checksum: 66D0DCA9B0C232D5C3BD447CA0194581;1770.
+(rerunfilecheck)             Checksum: 288C0D8EB0C183B4F65C755F957B8EDA;1931.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                Rapport_final
@@ -1213,17 +1225,17 @@ Package logreq Info: Writing requests to 'Rapport_final.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33379 strings out of 467871
- 630780 string characters out of 5418376
- 1544830 words of memory out of 5000000
- 61745 multiletter control sequences out of 15000+600000
+ 33777 strings out of 467871
+ 637237 string characters out of 5418376
+ 1565284 words of memory out of 5000000
+ 62132 multiletter control sequences out of 15000+600000
  634254 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,17n,95p,822b,1874s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Rapport_final.pdf (11 pages, 2940427 bytes).
+Output written on Rapport_final.pdf (12 pages, 2983643 bytes).
 PDF statistics:
- 457 PDF objects out of 1000 (max. 8388607)
- 33 named destinations out of 1000 (max. 500000)
- 159 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 466 PDF objects out of 1000 (max. 8388607)
+ 36 named destinations out of 1000 (max. 500000)
+ 172 words of extra memory for PDF output out of 10000 (max. 10000000)
 

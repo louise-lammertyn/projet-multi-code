@@ -29,6 +29,7 @@
 % --- BIBLIOGRAPHIE ---
 \usepackage[backend=biber, style=numeric]{biblatex} 
 \addbibresource{references.bib}
+\usepackage{csquotes}
 
 % --- CONFIGURATION LISTINGS (CODE) ---
 \usepackage{listings}
@@ -267,9 +268,25 @@ Une fois la modélisation de la géométrie effectuée, la bibliothèque Python 
 il permet d'appliquer la méthode des éléments de frontières. 
 
 \section{Méthode des éléments de frontière}
-La "Boundary Element Method" ou bien en français la Méthode des éléments de frontière \cite{}
+La "Boundary Element Method" ou bien en français la Méthode des éléments de frontière est une méthode mathématique permettant de 
+
+\section{Organigramme du code}
+Le rendu de ce projet se présente sous la forme d'un programme python ayant pour but de modéliser des lentilles quadrupolaires électrostatiques 
+en utilisant la méthode des éléments de frontière. Ce programme est composé de différents fichiers séparés en trois étages. L'étage le plus bas 
+correspond au codes contenant toutes les fonctions de base. L'étage supérieure est composé d'un unique fichier rassemblant dans des fonctions plus 
+larges toutes les fonctions contenues dans les fichiers de l'étage inférieur. Enfin, l'étage le plus haut correspond aux codes utilisateurs. Le premier
+code de cet étage permet de créer la géométrie des lentilles et d'extraire le potentiel dans tout le volume. Le deuxième code permet quant a lui 
+d'exploiter les données extraites à l'aide du code précédent, il permet notamment de retrouver les équations paraxiales dictant la trajectoire des 
+particules chargées. La séparation de ces deux codes permet un gain de temps. En effet, l'extraction du potentiel est une étape assez chronophage. 
+Ainsi, séparer l'extraction du potentiel et l'exploitation des données permet d'étudier les données sans avoir à recalculer à l'aide de la méthode 
+du BEM.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{images/Organigramme_code.png} 
+\caption{Organigramme des différents codes}
+\label{fig:organigramme_code}
+\end{figure}
 
 \chapter{Bibliographie}
-\printbibliography
-
 \end{document}
