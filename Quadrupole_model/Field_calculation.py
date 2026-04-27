@@ -123,7 +123,7 @@ class Calculation_field:
         #Creation of the tracing of the solution
         #à changer ici pour verifier 
         n_grid_points = 300
-        self.points = np.stack((np.zeros(n_grid_points), np.zeros(n_grid_points), (np.linspace(-10, 10+10*self.data.total_length, n_grid_points)))) #x=y=0 and z changes from 0 to elec_id[7][11]=total_length
+        self.points = np.stack((np.zeros(n_grid_points), np.zeros(n_grid_points), (np.linspace(-10, 10+self.data.total_length, n_grid_points)))) #x=y=0 and z changes from 0 to elec_id[7][11]=total_length
 
         #Green's representation
         slp_pot = bempp.operators.potential.laplace.single_layer(self.dp0_space, self.points) #total matrix

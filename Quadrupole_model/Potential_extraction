@@ -16,7 +16,7 @@ os.environ['PYOPENCL_NO_CACHE'] = '1'
 "-0.0299087*Va, -0.18808*Va, +0.18808*Va" #tension qui fit
 
 # Dossier de sortie
-OUTPUT_DIR = r"C\Quadrupole_model\Files1992.2"
+OUTPUT_DIR = "projet-multi-code\Quadrupole_model\Filesshield3"
 if not os.path.exists(OUTPUT_DIR):
     os.makedirs(OUTPUT_DIR)
 
@@ -56,11 +56,11 @@ data_initial =  Data(
 
     30,         # length_cylinder = l
 
-    5.62,       # radius_axis = 
+    5.22,       # radius_axis = 
 
     1, 0, 0, 0, 0, 1.5,
 
-    0.9, 3.5, 30, #mesh size
+    0.9, 3.5, 25, #mesh size
 
     OUTPUT_DIR
     )
@@ -90,12 +90,12 @@ for element, tensions in quad.items():
 
     30,         # length_cylinder = l
 
-    5.62,       # radius_axis = 
+    5.22,       # radius_axis = 
 
 
     vq13, vq24, va1, va2, 0, 1.5,
 
-    0.9, 3.5, 30, #mesh size
+    0.9, 3.5, 25, #mesh size
 
     OUTPUT_DIR
     )

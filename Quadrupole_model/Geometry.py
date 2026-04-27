@@ -72,7 +72,7 @@ class Shield:
         self.length = length
         self.radius_ext = radius_ext
         self.radius_in = radius_in
-        self.radius_hole = radius_hole
+        self.radius_hole = 3
         self.thickness = thickness
         self.coord_x = coord_x
         self.coord_y = coord_y
@@ -91,6 +91,8 @@ class Shield:
         shield_vol_1, _=  gmsh.model.occ.cut([(3,shield[0][1])],[(3,shield_hole1)])
         shield_vol_2, _=  gmsh.model.occ.cut([(3,shield_vol_1[0][1])],[(3,shield_hole2)])
         self.shield_tag=shield_vol_2[0][1]
+        self.shield_tag2=shield[0][1]
+
         self.shield_surf = gmsh.model.occ.get_surface_loops(self.shield_tag)[1][0]
 
 
