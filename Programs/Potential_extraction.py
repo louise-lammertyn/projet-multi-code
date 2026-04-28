@@ -24,9 +24,16 @@ quad = {
 }
 
 #Generates the mesh
-data_initial = Data(4, 5, 21, 19, 2, 15, 2, 13, 3.4934, 0, 0, 0, 0, 0, 1.5, 0.1, 0.5, 30, OUTPUT_DIR)
+data_initial = Data(4, 5, 21, 19, 2, 15, 2, 13, 3.4934, 1, 1, 2, 2, 0, 1.5, 0.9, 2, 0, OUTPUT_DIR)
 fun_initial = Potential_extraction(data_initial, True, "temp.npz")
 fun_initial.mesh() 
+
+fun = Potential_extraction(data_initial, True, "mesh_quadrupole1.msh")
+
+fun.potential_extraction() #BEM resolution
+fun.potential_visualisation()
+
+fun.graph_potential_axis()
 """
 fun_initial.mesh_quad2() 
 fun_initial.mesh_quad3() 

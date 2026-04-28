@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.12)  25 APR 2026 17:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.12)  28 APR 2026 17:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -7,20 +7,19 @@ entering extended mode
 (c:/Users/zoeno/OneDrive - INSA Toulouse/Documents/INSA/4GP/Projet multi/projet-multi-code/Documentation/Rapport_final/Rapport_final.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
-(C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
-Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
 (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
 File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count275
-\c@chapter=\count276
-\c@section=\count277
-\c@subsection=\count278
-\c@subsubsection=\count279
-\c@paragraph=\count280
-\c@subparagraph=\count281
-\c@figure=\count282
-\c@table=\count283
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen148
@@ -32,7 +31,7 @@ Package: inputenc 2024/02/08 v1.3d Input encoding file
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2025/11/09 v25.15 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
-\babel@savecnt=\count284
+\babel@savecnt=\count283
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2050.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2052.
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2054.
@@ -44,7 +43,7 @@ LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) o
 \l@unhyphenated=\language79
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count285
+\bbl@dirlevel=\count284
 Package babel Info: Configuration files are deprecated, as
 (babel)             they can break document portability.
 (babel)             Reported on input line 4175.
@@ -61,19 +60,19 @@ Package babel Info: Importing font and identification data for french
 Language: french 2025-08-15 v4.0e French support from the babel system
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/babel-french\french3.ldf
 Language: french 2025-08-15 v3.7e French support from the babel system
-\FB@stdchar=\count286
+\FB@stdchar=\count285
 Package babel Info: Making : an active character on input line 273.
 Package babel Info: Making ; an active character on input line 274.
 Package babel Info: Making ! an active character on input line 275.
 Package babel Info: Making ? an active character on input line 276.
-\FBguill@level=\count287
+\FBguill@level=\count286
 \FBold@everypar=\toks19
 \FB@Mht=\dimen150
-\mc@charclass=\count288
-\mc@charfam=\count289
-\mc@charslot=\count290
-\std@mcc=\count291
-\dec@mcc=\count292
+\mc@charclass=\count287
+\mc@charfam=\count288
+\mc@charslot=\count289
+\std@mcc=\count290
+\dec@mcc=\count291
 \FB@pardim=\dimen151
 \listindentFB=\dimen152
 \descindentFB=\dimen153
@@ -92,9 +91,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
-\Gm@cnth=\count293
-\Gm@cntv=\count294
-\c@Gm@tempcnt=\count295
+\Gm@cnth=\count292
+\Gm@cntv=\count293
+\c@Gm@tempcnt=\count294
 \Gm@bindingoffset=\dimen159
 \Gm@wd@mp=\dimen160
 \Gm@odd@mp=\dimen161
@@ -121,7 +120,7 @@ File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 \Gin@req@width=\dimen168
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count296
+\c@float@type=\count295
 \float@exts=\toks22
 \float@box=\box53
 \@float@everytoks=\toks23
@@ -172,14 +171,14 @@ Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@yd=\dimen180
 \w@pgf@writea=\write3
 \r@pgf@reada=\read3
-\c@pgf@counta=\count297
-\c@pgf@countb=\count298
-\c@pgf@countc=\count299
-\c@pgf@countd=\count300
+\c@pgf@counta=\count296
+\c@pgf@countb=\count297
+\c@pgf@countc=\count298
+\c@pgf@countd=\count299
 \t@pgf@toka=\toks28
 \t@pgf@tokb=\toks29
 \t@pgf@tokc=\toks30
-\pgf@sys@id@count=\count301
+\pgf@sys@id@count=\count300
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cfg
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
@@ -190,21 +189,21 @@ File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
 File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
 ))) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfsyssoftpath@smallbuffer@items=\count302
-\pgfsyssoftpath@bigbuffer@items=\count303
+\pgfsyssoftpath@smallbuffer@items=\count301
+\pgfsyssoftpath@bigbuffer@items=\count302
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore.code.tex
 Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser.code.tex
 \pgfmath@dimen=\dimen181
-\pgfmath@count=\count304
+\pgfmath@count=\count303
 \pgfmath@box=\box56
 \pgfmath@toks=\toks31
 \pgfmath@stack@operand=\toks32
 \pgfmath@stack@operation=\toks33
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.trigonometric.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.random.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.comparison.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.base.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.round.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmetics.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count305
+\c@pgfmathroundto@lastzeros=\count304
 )) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.tex) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@picminx=\dimen182
@@ -234,7 +233,7 @@ File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfpic=\box57
 \pgf@hbox=\box58
 \pgf@layerbox@main=\box59
-\pgf@picture@serial@count=\count306
+\pgf@picture@serial@count=\count305
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgflinewidth=\dimen256
@@ -255,8 +254,8 @@ File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@max=\dimen261
-\pgf@sys@shading@range@num=\count307
-\pgf@shadingcount=\count308
+\pgf@sys@shading@range@num=\count306
+\pgf@shadingcount=\count307
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
@@ -291,7 +290,7 @@ Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
 Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@plot@mark@count=\count309
+\pgf@plot@mark@count=\count308
 \pgfplotmarksize=\dimen266
 )
 \tikz@lastx=\dimen267
@@ -306,17 +305,17 @@ File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \tikz@figbox@bg=\box63
 \tikz@tempbox=\box64
 \tikz@tempbox@bg=\box65
-\tikztreelevel=\count310
-\tikznumberofchildren=\count311
-\tikznumberofcurrentchild=\count312
-\tikz@fig@count=\count313
+\tikztreelevel=\count309
+\tikznumberofchildren=\count310
+\tikznumberofcurrentchild=\count311
+\tikz@fig@count=\count312
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfmatrixcurrentrow=\count314
-\pgfmatrixcurrentcolumn=\count315
-\pgf@matrix@numberofcolumns=\count316
+\pgfmatrixcurrentrow=\count313
+\pgfmatrixcurrentcolumn=\count314
+\pgf@matrix@numberofcolumns=\count315
 )
-\tikz@expandcount=\count317
+\tikz@expandcount=\count316
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/background\background.sty
@@ -327,7 +326,7 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks36
 \XKV@tempa@toks=\toks37
 )
-\XKV@depth=\count318
+\XKV@depth=\count317
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/everypage\everypage.sty
 Package: everypage 2020/10/17 R2.0b Hooks to run on every page
@@ -358,15 +357,15 @@ Package: pdfpages 2025/07/23 v0.6g Insert pages of external PDF documents (AM)
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
-\calc@Acount=\count319
-\calc@Bcount=\count320
+\calc@Acount=\count318
+\calc@Bcount=\count319
 \calc@Adimen=\dimen275
 \calc@Bdimen=\dimen276
 \calc@Askip=\skip51
 \calc@Bskip=\skip52
 LaTeX Info: Redefining \setlength on input line 86.
 LaTeX Info: Redefining \addtolength on input line 87.
-\calc@Ccount=\count321
+\calc@Ccount=\count320
 \calc@Cskip=\skip53
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
 Package: eso-pic 2025/12/10 v3.0d eso-pic (RN)
@@ -374,7 +373,7 @@ Package: eso-pic 2025/12/10 v3.0d eso-pic (RN)
 \ESO@tempdimb=\dimen278
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count322
+\etb@tempcnta=\count321
 )
 \AM@pagewidth=\dimen279
 \AM@pageheight=\dimen280
@@ -382,18 +381,18 @@ Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def
 File: pppdftex.def 2025/07/23 v0.6g Pdfpages driver for pdfTeX (AM)
 )
-\pdfpages@includegraphics@status=\count323
+\pdfpages@includegraphics@status=\count322
 \AM@pagebox=\box68
 \AM@global@opts=\toks39
-\AM@pagecnt=\count324
+\AM@pagecnt=\count323
 \AM@toc@title=\toks40
 \AM@lof@heading=\toks41
-\c@AM@survey=\count325
+\c@AM@survey=\count324
 \AM@templatesizebox=\box69
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
 \wrapoverhang=\dimen282
 \WF@size=\dimen283
-\c@WF@wrappedlines=\count326
+\c@WF@wrappedlines=\count325
 \WF@box=\box70
 \WF@everypar=\toks42
 Package: wrapfig 2003/01/31  v 3.6
@@ -419,46 +418,43 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \titlewidthfirst=\dimen290
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/tocloft\tocloft.sty
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
-Package tocloft Info: The document has chapter divisions on input line 51.
+Package tocloft Info: The document has section divisions on input line 51.
 \cftparskip=\skip58
 \cftbeforetoctitleskip=\skip59
 \cftaftertoctitleskip=\skip60
 \cftbeforepartskip=\skip61
 \cftpartnumwidth=\skip62
 \cftpartindent=\skip63
-\cftbeforechapskip=\skip64
-\cftchapindent=\skip65
-\cftchapnumwidth=\skip66
-\cftbeforesecskip=\skip67
-\cftsecindent=\skip68
-\cftsecnumwidth=\skip69
-\cftbeforesubsecskip=\skip70
-\cftsubsecindent=\skip71
-\cftsubsecnumwidth=\skip72
-\cftbeforesubsubsecskip=\skip73
-\cftsubsubsecindent=\skip74
-\cftsubsubsecnumwidth=\skip75
-\cftbeforeparaskip=\skip76
-\cftparaindent=\skip77
-\cftparanumwidth=\skip78
-\cftbeforesubparaskip=\skip79
-\cftsubparaindent=\skip80
-\cftsubparanumwidth=\skip81
-\cftbeforeloftitleskip=\skip82
-\cftafterloftitleskip=\skip83
-\cftbeforefigskip=\skip84
-\cftfigindent=\skip85
-\cftfignumwidth=\skip86
-\c@lofdepth=\count327
-\c@lotdepth=\count328
-\cftbeforelottitleskip=\skip87
-\cftafterlottitleskip=\skip88
-\cftbeforetabskip=\skip89
-\cfttabindent=\skip90
-\cfttabnumwidth=\skip91
+\cftbeforesecskip=\skip64
+\cftsecindent=\skip65
+\cftsecnumwidth=\skip66
+\cftbeforesubsecskip=\skip67
+\cftsubsecindent=\skip68
+\cftsubsecnumwidth=\skip69
+\cftbeforesubsubsecskip=\skip70
+\cftsubsubsecindent=\skip71
+\cftsubsubsecnumwidth=\skip72
+\cftbeforeparaskip=\skip73
+\cftparaindent=\skip74
+\cftparanumwidth=\skip75
+\cftbeforesubparaskip=\skip76
+\cftsubparaindent=\skip77
+\cftsubparanumwidth=\skip78
+\cftbeforeloftitleskip=\skip79
+\cftafterloftitleskip=\skip80
+\cftbeforefigskip=\skip81
+\cftfigindent=\skip82
+\cftfignumwidth=\skip83
+\c@lofdepth=\count326
+\c@lotdepth=\count327
+\cftbeforelottitleskip=\skip84
+\cftafterlottitleskip=\skip85
+\cftbeforetabskip=\skip86
+\cfttabindent=\skip87
+\cfttabnumwidth=\skip88
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
-\@mathmargin=\skip92
+\@mathmargin=\skip89
 
 For additional information on amsmath, use the `?' option.
 (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
@@ -473,14 +469,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count329
+\inf@bad=\count328
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count330
-\leftroot@=\count331
+\uproot@=\count329
+\leftroot@=\count330
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count332
-\DOTSCASE@=\count333
+\classnum@=\count331
+\DOTSCASE@=\count332
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
@@ -493,20 +489,20 @@ LaTeX Info: Redefining \Bigg on input line 724.
 \big@size=\dimen293
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count334
+\macc@depth=\count333
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count335
+\c@MaxMatrixCols=\count334
 \dotsspace@=\muskip17
-\c@parentequation=\count336
-\dspbrk@lvl=\count337
+\c@parentequation=\count335
+\dspbrk@lvl=\count336
 \tag@help=\toks46
-\row@=\count338
-\column@=\count339
-\maxfields@=\count340
+\row@=\count337
+\column@=\count338
+\maxfields@=\count339
 \andhelp@=\toks47
 \eqnshift@=\dimen294
 \alignsep@=\dimen295
@@ -515,8 +511,8 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \totwidth@=\dimen298
 \lineht@=\dimen299
 \@envbody=\toks48
-\multlinegap=\skip93
-\multlinetaggap=\skip94
+\multlinegap=\skip90
+\multlinetaggap=\skip91
 \mathdisplay@stack=\toks49
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
@@ -524,14 +520,14 @@ LaTeX Info: Redefining \] on input line 2951.
 Package: expl3 2025-11-06 L3 programming layer (loader) 
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count341
+\l__color_backend_stack_int=\count340
 ))
 Package: l3keys2e 2025-10-09 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count342
-\l__lipsum_a_int=\count343
-\l__lipsum_b_int=\count344
+\g__lipsum_par_int=\count341
+\l__lipsum_a_int=\count342
+\l__lipsum_b_int=\count343
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex)) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks50
@@ -566,13 +562,13 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count345
+\c@section@level=\count344
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
 \@linkdim=\dimen300
-\Hy@linkcounter=\count346
-\Hy@pagecounter=\count347
+\Hy@linkcounter=\count345
+\Hy@pagecounter=\count346
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -580,7 +576,7 @@ Now handling font encoding PD1 ...
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count348
+\Hy@SavedSpaceFactor=\count347
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -594,7 +590,7 @@ Package hyperref Info: Plain pages OFF on input line 4210.
 Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count349
+\c@Hy@tempcnt=\count348
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -606,7 +602,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count350
+\Fld@menulength=\count349
 \Field@Width=\dimen302
 \Fld@charsize=\dimen303
 Package hyperref Info: Hyper figures OFF on input line 6078.
@@ -616,15 +612,15 @@ Package hyperref Info: backreferencing OFF on input line 6093.
 Package hyperref Info: Link coloring ON on input line 6096.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count351
-\c@Item=\count352
-\c@Hfootnote=\count353
+\Hy@abspage=\count350
+\c@Item=\count351
+\c@Hfootnote=\count352
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count354
-\c@bookmark@seq@number=\count355
+\Fld@listcount=\count353
+\c@bookmark@seq@number=\count354
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
 Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
@@ -632,72 +628,72 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
-\Hy@SectionHShift=\skip95
+\Hy@SectionHShift=\skip92
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
 Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count356
+\lrq@indent=\count355
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count357
-\c@listtotal=\count358
-\c@listcount=\count359
-\c@liststart=\count360
-\c@liststop=\count361
-\c@citecount=\count362
-\c@citetotal=\count363
-\c@multicitecount=\count364
-\c@multicitetotal=\count365
-\c@instcount=\count366
-\c@maxnames=\count367
-\c@minnames=\count368
-\c@maxitems=\count369
-\c@minitems=\count370
-\c@citecounter=\count371
-\c@maxcitecounter=\count372
-\c@savedcitecounter=\count373
-\c@uniquelist=\count374
-\c@uniquename=\count375
-\c@refsection=\count376
-\c@refsegment=\count377
-\c@maxextratitle=\count378
-\c@maxextratitleyear=\count379
-\c@maxextraname=\count380
-\c@maxextradate=\count381
-\c@maxextraalpha=\count382
-\c@abbrvpenalty=\count383
-\c@highnamepenalty=\count384
-\c@lownamepenalty=\count385
-\c@maxparens=\count386
-\c@parenlevel=\count387
-\blx@tempcnta=\count388
-\blx@tempcntb=\count389
-\blx@tempcntc=\count390
-\c@blx@maxsection=\count391
-\blx@maxsegment@0=\count392
-\blx@notetype=\count393
-\blx@parenlevel@text=\count394
-\blx@parenlevel@foot=\count395
-\blx@sectionciteorder@0=\count396
-\blx@sectionciteorderinternal@0=\count397
-\blx@entrysetcounter=\count398
-\blx@biblioinstance=\count399
-\labelnumberwidth=\skip96
-\labelalphawidth=\skip97
-\biblabelsep=\skip98
-\bibitemsep=\skip99
-\bibnamesep=\skip100
-\bibinitsep=\skip101
-\bibparsep=\skip102
-\bibhang=\skip103
+\c@tabx@nest=\count356
+\c@listtotal=\count357
+\c@listcount=\count358
+\c@liststart=\count359
+\c@liststop=\count360
+\c@citecount=\count361
+\c@citetotal=\count362
+\c@multicitecount=\count363
+\c@multicitetotal=\count364
+\c@instcount=\count365
+\c@maxnames=\count366
+\c@minnames=\count367
+\c@maxitems=\count368
+\c@minitems=\count369
+\c@citecounter=\count370
+\c@maxcitecounter=\count371
+\c@savedcitecounter=\count372
+\c@uniquelist=\count373
+\c@uniquename=\count374
+\c@refsection=\count375
+\c@refsegment=\count376
+\c@maxextratitle=\count377
+\c@maxextratitleyear=\count378
+\c@maxextraname=\count379
+\c@maxextradate=\count380
+\c@maxextraalpha=\count381
+\c@abbrvpenalty=\count382
+\c@highnamepenalty=\count383
+\c@lownamepenalty=\count384
+\c@maxparens=\count385
+\c@parenlevel=\count386
+\blx@tempcnta=\count387
+\blx@tempcntb=\count388
+\blx@tempcntc=\count389
+\c@blx@maxsection=\count390
+\blx@maxsegment@0=\count391
+\blx@notetype=\count392
+\blx@parenlevel@text=\count393
+\blx@parenlevel@foot=\count394
+\blx@sectionciteorder@0=\count395
+\blx@sectionciteorderinternal@0=\count396
+\blx@entrysetcounter=\count397
+\blx@biblioinstance=\count398
+\labelnumberwidth=\skip93
+\labelalphawidth=\skip94
+\biblabelsep=\skip95
+\bibitemsep=\skip96
+\bibnamesep=\skip97
+\bibinitsep=\skip98
+\bibparsep=\skip99
+\bibhang=\skip100
 \blx@bcfin=\read5
 \blx@bcfout=\write4
 \blx@langwohyphens=\language80
-\c@mincomprange=\count400
-\c@maxcomprange=\count401
-\c@mincompwidth=\count402
+\c@mincomprange=\count399
+\c@maxcomprange=\count400
+\c@mincompwidth=\count401
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.def
@@ -707,88 +703,88 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'numeric.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count403
-\c@savedafterword=\count404
-\c@annotator=\count405
-\c@savedannotator=\count406
-\c@author=\count407
-\c@savedauthor=\count408
-\c@bookauthor=\count409
-\c@savedbookauthor=\count410
-\c@commentator=\count411
-\c@savedcommentator=\count412
-\c@editor=\count413
-\c@savededitor=\count414
-\c@editora=\count415
-\c@savededitora=\count416
-\c@editorb=\count417
-\c@savededitorb=\count418
-\c@editorc=\count419
-\c@savededitorc=\count420
-\c@foreword=\count421
-\c@savedforeword=\count422
-\c@holder=\count423
-\c@savedholder=\count424
-\c@introduction=\count425
-\c@savedintroduction=\count426
-\c@namea=\count427
-\c@savednamea=\count428
-\c@nameb=\count429
-\c@savednameb=\count430
-\c@namec=\count431
-\c@savednamec=\count432
-\c@translator=\count433
-\c@savedtranslator=\count434
-\c@shortauthor=\count435
-\c@savedshortauthor=\count436
-\c@shorteditor=\count437
-\c@savedshorteditor=\count438
-\c@labelname=\count439
-\c@savedlabelname=\count440
-\c@institution=\count441
-\c@savedinstitution=\count442
-\c@lista=\count443
-\c@savedlista=\count444
-\c@listb=\count445
-\c@savedlistb=\count446
-\c@listc=\count447
-\c@savedlistc=\count448
-\c@listd=\count449
-\c@savedlistd=\count450
-\c@liste=\count451
-\c@savedliste=\count452
-\c@listf=\count453
-\c@savedlistf=\count454
-\c@location=\count455
-\c@savedlocation=\count456
-\c@organization=\count457
-\c@savedorganization=\count458
-\c@origlocation=\count459
-\c@savedoriglocation=\count460
-\c@origpublisher=\count461
-\c@savedorigpublisher=\count462
-\c@publisher=\count463
-\c@savedpublisher=\count464
-\c@language=\count465
-\c@savedlanguage=\count466
-\c@origlanguage=\count467
-\c@savedoriglanguage=\count468
-\c@pageref=\count469
-\c@savedpageref=\count470
-\shorthandwidth=\skip104
-\shortjournalwidth=\skip105
-\shortserieswidth=\skip106
-\shorttitlewidth=\skip107
-\shortauthorwidth=\skip108
-\shorteditorwidth=\skip109
-\locallabelnumberwidth=\skip110
-\locallabelalphawidth=\skip111
-\localshorthandwidth=\skip112
-\localshortjournalwidth=\skip113
-\localshortserieswidth=\skip114
-\localshorttitlewidth=\skip115
-\localshortauthorwidth=\skip116
-\localshorteditorwidth=\skip117
+\c@afterword=\count402
+\c@savedafterword=\count403
+\c@annotator=\count404
+\c@savedannotator=\count405
+\c@author=\count406
+\c@savedauthor=\count407
+\c@bookauthor=\count408
+\c@savedbookauthor=\count409
+\c@commentator=\count410
+\c@savedcommentator=\count411
+\c@editor=\count412
+\c@savededitor=\count413
+\c@editora=\count414
+\c@savededitora=\count415
+\c@editorb=\count416
+\c@savededitorb=\count417
+\c@editorc=\count418
+\c@savededitorc=\count419
+\c@foreword=\count420
+\c@savedforeword=\count421
+\c@holder=\count422
+\c@savedholder=\count423
+\c@introduction=\count424
+\c@savedintroduction=\count425
+\c@namea=\count426
+\c@savednamea=\count427
+\c@nameb=\count428
+\c@savednameb=\count429
+\c@namec=\count430
+\c@savednamec=\count431
+\c@translator=\count432
+\c@savedtranslator=\count433
+\c@shortauthor=\count434
+\c@savedshortauthor=\count435
+\c@shorteditor=\count436
+\c@savedshorteditor=\count437
+\c@labelname=\count438
+\c@savedlabelname=\count439
+\c@institution=\count440
+\c@savedinstitution=\count441
+\c@lista=\count442
+\c@savedlista=\count443
+\c@listb=\count444
+\c@savedlistb=\count445
+\c@listc=\count446
+\c@savedlistc=\count447
+\c@listd=\count448
+\c@savedlistd=\count449
+\c@liste=\count450
+\c@savedliste=\count451
+\c@listf=\count452
+\c@savedlistf=\count453
+\c@location=\count454
+\c@savedlocation=\count455
+\c@organization=\count456
+\c@savedorganization=\count457
+\c@origlocation=\count458
+\c@savedoriglocation=\count459
+\c@origpublisher=\count460
+\c@savedorigpublisher=\count461
+\c@publisher=\count462
+\c@savedpublisher=\count463
+\c@language=\count464
+\c@savedlanguage=\count465
+\c@origlanguage=\count466
+\c@savedoriglanguage=\count467
+\c@pageref=\count468
+\c@savedpageref=\count469
+\shorthandwidth=\skip101
+\shortjournalwidth=\skip102
+\shortserieswidth=\skip103
+\shorttitlewidth=\skip104
+\shortauthorwidth=\skip105
+\shorteditorwidth=\skip106
+\locallabelnumberwidth=\skip107
+\locallabelalphawidth=\skip108
+\localshorthandwidth=\skip109
+\localshortjournalwidth=\skip110
+\localshortserieswidth=\skip111
+\localshorttitlewidth=\skip112
+\localshortauthorwidth=\skip113
+\localshorteditorwidth=\skip114
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-compat.def
@@ -798,19 +794,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
 File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
-\c@textcitecount=\count471
-\c@textcitetotal=\count472
-\c@textcitemaxnames=\count473
-\c@biburlbigbreakpenalty=\count474
-\c@biburlbreakpenalty=\count475
-\c@biburlnumpenalty=\count476
-\c@biburlucpenalty=\count477
-\c@biburllcpenalty=\count478
+\c@textcitecount=\count470
+\c@textcitetotal=\count471
+\c@textcitemaxnames=\count472
+\c@biburlbigbreakpenalty=\count473
+\c@biburlbreakpenalty=\count474
+\c@biburlnumpenalty=\count475
+\c@biburlucpenalty=\count476
+\c@biburllcpenalty=\count477
 \biburlbigskip=\muskip19
 \biburlnumskip=\muskip20
 \biburlucskip=\muskip21
 \biburllcskip=\muskip22
-\c@smartand=\count479
+\c@smartand=\count478
 )
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
@@ -820,8 +816,8 @@ Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.bbx
 File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count480
-\c@bbx:relatedtotal=\count481
+\c@bbx:relatedcount=\count479
+\c@bbx:relatedtotal=\count480
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -856,12 +852,12 @@ Package: xparse 2025-10-09 L3 Experimental document command parser
 Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 )) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.sty
 Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
-\csq@reset=\count482
-\csq@gtype=\count483
-\csq@glevel=\count484
-\csq@qlevel=\count485
-\csq@maxlvl=\count486
-\csq@tshold=\count487
+\csq@reset=\count481
+\csq@gtype=\count482
+\csq@glevel=\count483
+\csq@qlevel=\count484
+\csq@maxlvl=\count485
+\csq@tshold=\count486
 \csq@ltx@everypar=\toks52
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.def
 File: csquotes.def 2024-04-04 v5.2o csquotes generic definitions (JAW)
@@ -871,24 +867,24 @@ Package csquotes Info: ... configuration file loaded successfully.
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.cfg
 File: csquotes.cfg 
 )) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count488
+\lst@mode=\count487
 \lst@gtempboxa=\box76
 \lst@token=\toks53
-\lst@length=\count489
+\lst@length=\count488
 \lst@currlwidth=\dimen304
-\lst@column=\count490
-\lst@pos=\count491
+\lst@column=\count489
+\lst@pos=\count490
 \lst@lostspace=\dimen305
 \lst@width=\dimen306
-\lst@newlines=\count492
-\lst@lineno=\count493
+\lst@newlines=\count491
+\lst@lineno=\count492
 \lst@maxwidth=\dimen307
  (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
 File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-\c@lstnumber=\count494
-\lst@skipnumbers=\count495
+\c@lstnumber=\count493
+\lst@skipnumbers=\count494
 \lst@framebox=\box77
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
 File: listings.cfg 2025/11/14 1.11b listings configuration
@@ -914,25 +910,25 @@ Package babel Info: 'french' activates 'french' shorthands.
 )
 \openout1 = `Rapport_final.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Info: Redefining \degres on input line 73.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Info: Redefining \degres on input line 66.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -970,16 +966,16 @@ LaTeX Info: Redefining \degres on input line 73.
 
 (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count496
+\scratchcounter=\count495
 \scratchdimen=\dimen308
 \scratchbox=\box78
-\nofMPsegments=\count497
-\nofMParguments=\count498
+\nofMPsegments=\count496
+\nofMParguments=\count497
 \everyMPshowfont=\toks54
-\MPscratchCnt=\count499
+\MPscratchCnt=\count498
 \MPscratchDim=\dimen309
-\MPnumerator=\count500
-\makeMPintoPDFobject=\count501
+\MPnumerator=\count499
+\makeMPintoPDFobject=\count500
 \everyMPtoPDFconversion=\toks55
 ) (C:\Users\zoeno\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -995,7 +991,7 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-Package hyperref Info: Link coloring ON on input line 73.
+Package hyperref Info: Link coloring ON on input line 66.
  (Rapport_final.out) (Rapport_final.out)
 \@outlinefile=\write5
 \openout5 = `Rapport_final.out'.
@@ -1014,16 +1010,16 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Rapport_final.bbl' not found.
 
 No file Rapport_final.bbl.
-Package biblatex Info: Reference section=0 on input line 73.
-Package biblatex Info: Reference segment=0 on input line 73.
-\c@lstlisting=\count502
+Package biblatex Info: Reference section=0 on input line 66.
+Package biblatex Info: Reference segment=0 on input line 66.
+\c@lstlisting=\count501
 
 
 pdfTeX warning: pdflatex (file ./Template.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Template.pdf, id=57, 597.432pt x 845.07718pt>
+<Template.pdf, id=101, 597.432pt x 845.07718pt>
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf>
-Package pdftex.def Info: Template.pdf  used on input line 77.
+Package pdftex.def Info: Template.pdf  used on input line 70.
 (pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
 
 
@@ -1031,26 +1027,26 @@ pdfTeX warning: pdflatex (file ./Template.pdf): PDF inclusion: found PDF version
 
 
 pdfTeX warning: pdflatex (file ./Template.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Template.pdf, id=59, page=1, 597.432pt x 845.07718pt>
+<Template.pdf, id=103, page=1, 597.432pt x 845.07718pt>
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 1>
-Package pdftex.def Info: Template.pdf , page1 used on input line 77.
+Package pdftex.def Info: Template.pdf , page1 used on input line 70.
 (pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 1>
-Package pdftex.def Info: Template.pdf , page1 used on input line 77.
+Package pdftex.def Info: Template.pdf , page1 used on input line 70.
 (pdftex.def)             Requested size: 597.47612pt x 845.13959pt.
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 1>
-Package pdftex.def Info: Template.pdf , page1 used on input line 77.
+Package pdftex.def Info: Template.pdf , page1 used on input line 70.
 (pdftex.def)             Requested size: 597.47612pt x 845.13959pt.
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 1>
-Package pdftex.def Info: Template.pdf , page1 used on input line 77.
+Package pdftex.def Info: Template.pdf , page1 used on input line 70.
 (pdftex.def)             Requested size: 597.47612pt x 845.13959pt.
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 1>
-Package pdftex.def Info: Template.pdf , page1 used on input line 77.
+Package pdftex.def Info: Template.pdf , page1 used on input line 70.
 (pdftex.def)             Requested size: 597.47612pt x 845.13959pt.
 [1
 
@@ -1058,33 +1054,33 @@ Package pdftex.def Info: Template.pdf , page1 used on input line 77.
  <./Template.pdf>]
 
 pdfTeX warning: pdflatex (file ./Template.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Template.pdf, id=105, page=2, 597.432pt x 845.07718pt>
+<Template.pdf, id=149, page=2, 597.432pt x 845.07718pt>
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 2>
-Package pdftex.def Info: Template.pdf , page2 used on input line 77.
+Package pdftex.def Info: Template.pdf , page2 used on input line 70.
 (pdftex.def)             Requested size: 597.47612pt x 845.13959pt.
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 2>
-Package pdftex.def Info: Template.pdf , page2 used on input line 77.
+Package pdftex.def Info: Template.pdf , page2 used on input line 70.
 (pdftex.def)             Requested size: 597.47612pt x 845.13959pt.
 File: Template.pdf Graphic file (type pdf)
 <use Template.pdf, page 2>
-Package pdftex.def Info: Template.pdf , page2 used on input line 77.
+Package pdftex.def Info: Template.pdf , page2 used on input line 70.
 (pdftex.def)             Requested size: 597.47612pt x 845.13959pt.
 [2
 
  <./Template.pdf>]
-<images/pattern.png, id=116, 74.52844pt x 73.77562pt>
+<images/pattern.png, id=160, 74.52844pt x 73.77562pt>
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 102.
+Package pdftex.def Info: images/pattern.png  used on input line 95.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
  [3
 
 {C:/Users/zoeno/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./images/pattern.png>]
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 111.
+Package pdftex.def Info: images/pattern.png  used on input line 104.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
  [4
 
@@ -1094,117 +1090,89 @@ Package pdftex.def Info: images/pattern.png  used on input line 111.
 
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 114.
+Package pdftex.def Info: images/pattern.png  used on input line 137.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
  [5
 
 ]
-Chapitre 1.
-File: images/pattern.png Graphic file (type png)
-<use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 118.
-(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[6
-
-]
-Chapitre 2.
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--152
+Underfull \hbox (badness 10000) in paragraph at lines 139--146
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--178
+Underfull \hbox (badness 10000) in paragraph at lines 160--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--178
+Underfull \hbox (badness 10000) in paragraph at lines 160--172
 
  []
 
-File: images/pattern.png Graphic file (type png)
-<use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 196.
-(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[7
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 196--201
+Underfull \hbox (badness 10000) in paragraph at lines 190--195
 
  []
 
-File: images/pattern.png Graphic file (type png)
-<use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 202.
-(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[8]
-Chapitre 3.
-<images/Logigramme.png, id=175, 845.26315pt x 95.51474pt>
+<images/Logigramme.png, id=210, 845.26315pt x 95.51474pt>
 File: images/Logigramme.png Graphic file (type png)
 <use images/Logigramme.png>
-Package pdftex.def Info: images/Logigramme.png  used on input line 207.
+Package pdftex.def Info: images/Logigramme.png  used on input line 204.
 (pdftex.def)             Requested size: 455.24411pt x 51.44308pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 212--224
+File: images/pattern.png Graphic file (type png)
+<use images/pattern.png>
+Package pdftex.def Info: images/pattern.png  used on input line 207.
+(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 209--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--224
+Underfull \hbox (badness 10000) in paragraph at lines 209--221
 
  []
 
-<images/Maillage Einzel.png, id=176, 1130.2225pt x 820.06375pt>
+<images/Maillage Einzel.png, id=221, 1130.2225pt x 820.06375pt>
 File: images/Maillage Einzel.png Graphic file (type png)
 <use images/Maillage Einzel.png>
-Package pdftex.def Info: images/Maillage Einzel.png  used on input line 227.
+Package pdftex.def Info: images/Maillage Einzel.png  used on input line 224.
 (pdftex.def)             Requested size: 182.09486pt x 132.11382pt.
-<images/Maillage de biais incliné.png, id=177, 653.44125pt x 612.78937pt>
+<images/Maillage de biais incliné.png, id=222, 653.44125pt x 612.78937pt>
 File: images/Maillage de biais incliné.png Graphic file (type png)
 <use images/Maillage de biais incliné.png>
-Package pdftex.def Info: images/Maillage de biais incliné.png  used on input line 242.
+Package pdftex.def Info: images/Maillage de biais incliné.png  used on input line 239.
 (pdftex.def)             Requested size: 136.57462pt x 128.07243pt.
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 246.
+Package pdftex.def Info: images/pattern.png  used on input line 243.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[9
-
- <./images/Logigramme.png> <./images/Maillage Einzel.png>]
-<images/Coupe en longueur.png, id=187, 636.87938pt x 568.37344pt>
+[7 <./images/Logigramme.png> <./images/Maillage Einzel.png>]
+<images/Coupe en longueur.png, id=233, 636.87938pt x 568.37344pt>
 File: images/Coupe en longueur.png Graphic file (type png)
 <use images/Coupe en longueur.png>
-Package pdftex.def Info: images/Coupe en longueur.png  used on input line 252.
+Package pdftex.def Info: images/Coupe en longueur.png  used on input line 249.
 (pdftex.def)             Requested size: 182.09486pt x 162.50847pt.
-<images/Coupe de face.png, id=188, 619.56468pt x 621.07031pt>
+<images/Coupe de face.png, id=234, 619.56468pt x 621.07031pt>
 File: images/Coupe de face.png Graphic file (type png)
 <use images/Coupe de face.png>
-Package pdftex.def Info: images/Coupe de face.png  used on input line 259.
+Package pdftex.def Info: images/Coupe de face.png  used on input line 256.
 (pdftex.def)             Requested size: 182.09486pt x 182.53181pt.
-<images/Organigramme_code.png, id=189, 1146.53343pt x 341.77687pt>
+<images/Organigramme_code.png, id=235, 1146.53343pt x 341.77687pt>
 File: images/Organigramme_code.png Graphic file (type png)
 <use images/Organigramme_code.png>
-Package pdftex.def Info: images/Organigramme_code.png  used on input line 286.
+Package pdftex.def Info: images/Organigramme_code.png  used on input line 283.
 (pdftex.def)             Requested size: 455.24411pt x 135.70702pt.
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 290.
+Package pdftex.def Info: images/pattern.png  used on input line 287.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
- [10 <./images/Maillage de biais incliné.png> <./images/Coupe en longueur.png> <./images/Coupe de face.png>]
+ [8 <./images/Maillage de biais incliné.png> <./images/Coupe en longueur.png> <./images/Coupe de face.png>]
 File: images/pattern.png Graphic file (type png)
 <use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 291.
+Package pdftex.def Info: images/pattern.png  used on input line 295.
 (pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
- [11 <./images/Organigramme_code.png>]
-Chapitre 4.
-File: images/pattern.png Graphic file (type png)
-<use images/pattern.png>
-Package pdftex.def Info: images/pattern.png  used on input line 292.
-(pdftex.def)             Requested size: 59.62282pt x 59.02055pt.
-[12
-
-] (Rapport_final.aux)
+ [9 <./images/Organigramme_code.png>] (Rapport_final.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
@@ -1214,7 +1182,7 @@ L3 programming layer <2025-11-06>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Rapport_final.out' has not changed.
-(rerunfilecheck)             Checksum: 288C0D8EB0C183B4F65C755F957B8EDA;1931.
+(rerunfilecheck)             Checksum: 5DC9597D9715D09695EDAAAFFB2BC60F;4309.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                Rapport_final
@@ -1225,17 +1193,17 @@ Package logreq Info: Writing requests to 'Rapport_final.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33777 strings out of 467871
- 637237 string characters out of 5418376
- 1565284 words of memory out of 5000000
- 62132 multiletter control sequences out of 15000+600000
- 634254 words of font info for 50 fonts, out of 8000000 for 9000
+ 33763 strings out of 467871
+ 637020 string characters out of 5418376
+ 1565274 words of memory out of 5000000
+ 62111 multiletter control sequences out of 15000+600000
+ 633470 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,17n,95p,822b,1874s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Rapport_final.pdf (12 pages, 2983643 bytes).
+ 84i,17n,95p,822b,1885s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\zoeno\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/zoeno/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on Rapport_final.pdf (9 pages, 2985677 bytes).
 PDF statistics:
- 466 PDF objects out of 1000 (max. 8388607)
- 36 named destinations out of 1000 (max. 500000)
- 172 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 511 PDF objects out of 1000 (max. 8388607)
+ 44 named destinations out of 1000 (max. 500000)
+ 260 words of extra memory for PDF output out of 10000 (max. 10000000)
 

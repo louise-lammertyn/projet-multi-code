@@ -1,4 +1,4 @@
-\documentclass[a4paper]{report}
+\documentclass[a4paper]{article} % Au lieu de {report}
 
 % --- PACKAGES DE BASE ---
 \usepackage[utf8]{inputenc}
@@ -59,13 +59,6 @@
 }
 \lstset{style=pythonstyle}
 
-% --- CONFIGURATION DES TITRES ---
-\titlespacing*{\chapter}{0pt}{-20pt}{30pt}
-\titleformat{\chapter}[display]
-  {\normalfont\Huge\bfseries} % Taille pour "Chapitre X"
-  {\chaptertitlename\ \thechapter}
-  {10pt}                      % Espace entre le numéro et le titre (réduit ici)
-  {\huge}                     % Taille pour le nom du titre (modifié de \Huge à \huge)
 
 \renewcommand{\contentsname}{Table des matières}
 
@@ -111,12 +104,13 @@ Ce document est le rapport final du projet...
 \clearpage
 \tableofcontents
 
-\chapter{Introduction}
-\section{Contexte}
+\section{Introduction}
+\subsection{L'optique de particules chargées}
 Le projet porte sur le quadrupôle d'Okayama...
-
-\chapter{Théorie physique}
-\section{Principe de moindre action}
+\subsection{Exemples d'application}
+\subsection{Projets précédents}
+\section{Théorie physique}
+\subsection{Principe de moindre action}
 En optique des particules chargées, l'équivalent du principe de Fermat est le principe de moindre action.
 Celui-ci s'exprime comme 
 
@@ -150,7 +144,7 @@ Afin de pouvoir retrouver la trajectoire des particules chargées qui passent à
 retrouver l'indice optique du système. Cela est faisable en retrouvant le potentiel électrostatique dans tout le volume du
 système et la vitesse des particules dans les directions x et y. 
 
-\section{Equations d'Euler-Lagrange}
+\subsection{Equations d'Euler-Lagrange}
 Les équations d'Euler-Lagrange sont des équations équivalentes au principe de moindre action, sous forme 
 différentielle. On peut ainsi noter 
 
@@ -162,7 +156,7 @@ différentielle. On peut ainsi noter
 \end{equation}
 
 
-\section{Extraction du potentiel}
+\subsection{Extraction du potentiel}
 Afin de pouvoir retrouver le potentiel électrostatique en tout point du volume du système, on utilise une 
 méthode mathématique: la méthode des éléments de frontières. En anglais, cette méthode se nomme Boundary 
 Element Method (BEM). 
@@ -198,8 +192,11 @@ y''(z) + \frac{\phi'_0(z)}{2\phi_0}y'(z) + \left(\frac{\phi_0''(z)}{4\phi_0(z)} 
 \\
 Comme leur nom l'indique, la  résolution des équations suivantes à l'aide de la méthode mathématique Runge-Kutta 4, on retrouve la trajectoire des 
 particules chargées à travers le système. 
-
-\chapter{Application}
+\section{Méthodes numériques de calcul}
+\subsection{Différentes méthodes}
+\subsection{Principe du BEM}
+\subsection{Intérêt pour notre domaine d'étude}
+\section{Application du BEM à un système électrostatique quadrupole-octopole auto-centré}
 Le but de ce projet multidisciplinaire est de modéliser un quadrupole électrostatique. Pour cela, plusieurs étapes clés sont nécessaires: modélisation de la géométrie, extraction du 
 potentiel électrostatique, décomposition du potentiel et résolution des équations de la trajectoire. 
 \begin{figure}[H]
@@ -208,7 +205,7 @@ potentiel électrostatique, décomposition du potentiel et résolution des équa
 \caption{Logigramme présentant les différentes étapes du projet}
 \label{fig:Logigramme}
 \end{figure}
-\section{Modélisation du quadrupole d'Okayama}
+\subsection{Modélisation du quadrupole d'Okayama}
 Afin de pouvoir utiliser la méthode des éléments de frontière, il faut mailler la géométrie du quadrupole que nous souhaitons modéliser. Ce maillage est fait en utilisant une
 extension en bibliothèque Python du générateur de maillage open-source Gmsh.
 \\
@@ -267,10 +264,13 @@ l'intrument sur lequel il est installé.
 Une fois la modélisation de la géométrie effectuée, la bibliothèque Python maille les surfaces de cette géométrie. Le maillage est nécessaire car
 il permet d'appliquer la méthode des éléments de frontières. 
 
-\section{Méthode des éléments de frontière}
-La "Boundary Element Method" ou bien en français la Méthode des éléments de frontière est une méthode mathématique permettant de 
+\subsection{Extraction du potentiel}
+Comme vu dans le paragraphe 2.3, l'une des étapes majeures de ce projet est d'extraire le potentiel électrostatique dans tout le volume. Pour cela, 
+nous utilisons la bibliothèque python BEMPP (Boundary Element Method Python Package), qui permet d'implémenter la méthode du BEM dans un code python. 
 
-\section{Organigramme du code}
+\subsection{Résolution des équations paraxiales}
+
+\subsection{Organigramme du code}
 Le rendu de ce projet se présente sous la forme d'un programme python ayant pour but de modéliser des lentilles quadrupolaires électrostatiques 
 en utilisant la méthode des éléments de frontière. Ce programme est composé de différents fichiers séparés en trois étages. L'étage le plus bas 
 correspond au codes contenant toutes les fonctions de base. L'étage supérieure est composé d'un unique fichier rassemblant dans des fonctions plus 
@@ -288,5 +288,11 @@ du BEM.
 \label{fig:organigramme_code}
 \end{figure}
 
-\chapter{Bibliographie}
+\section{Validation du code}
+\subsection{Papier d'Okayama}
+\subsection{Effet du shield}
+
+\section{Aberrations}
+
+\section{Bibliographie}
 \end{document}
