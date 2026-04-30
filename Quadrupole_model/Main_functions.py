@@ -103,7 +103,7 @@ class Data_exploitation:
     def decomposition_calculation(self):
         """Compute the multipolar expansion (Phi0, Phi2, Phi4) ."""
         self.decomposition.composantes()
-        self.decomposition.comparaison()
+        
         
 
     def decomposition_graph(self):
@@ -142,6 +142,8 @@ class Data_exploitation_1982:
         """Visualize the calculated multipolar components overlaid with geometry."""
         self.graphs.graphe_composantes()
         self.graphs.graphe_k1982()
+    def zoom_y(self, ymin : float, ymax : float):
+        self.graphs.graphe_zoom_y(ymin, ymax)
 
     
     def fit_graph(self):
@@ -170,7 +172,7 @@ class Data_exploitation_whitoutfit:
 
     def decomposition_graph(self):
         """Visualize the calculated multipolar components overlaid with geometry."""
-        self.graphs.graphe_quads()
+        self.graphs.graphe_quad()
         self.graphs.graphe_zoom()
 
     

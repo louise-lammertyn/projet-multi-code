@@ -60,11 +60,16 @@ class Trajectoire(Paraxial):
         class ion
         class Data 
         """
+
+        ion.history_x = []
+        ion.history_y = []
+        
         V_acc = data.Vacceleration
         print(V_acc)
         
         dz_mm = data.axe_z[1] - data.axe_z[0] 
         ion.save_step()
+        
         
         for i in range(len(data.axe_z) - 1):
             phi_total = V_acc + decomp.Phi0_maj[i]
@@ -200,26 +205,26 @@ class Trajectoire(Paraxial):
         ax = axs.flatten()
 
         # 1. Trajectoire X (Principal vs Marginal)
-        ax[0].plot(data.axe_z, self.xp, 'r-', label="Principal (x)")
-        ax[0].plot(data.axe_z, self.xm, 'b-', label="Marginal (x)")
-        ax[0].set_title("X Trajectories ")
+        ax[0].plot(data.axe_z, self.xp, 'r-', label=" Rayon Principal (x)")
+        ax[0].plot(data.axe_z, self.xm, 'b-', label="Rayon Marginal (x)")
+        ax[0].set_title("Trajectoire selon la direction x ")
         ax[0].legend()
         
         # 2. Trajectoire Y (Principal vs Marginal)
-        ax[1].plot(data.axe_z, self.yp, 'r-', label="Principal (y)")
-        ax[1].plot(data.axe_z, self.ym, 'b-', label="Marginal (y)")
-        ax[1].set_title("Y Trajectories")
+        ax[1].plot(data.axe_z, self.yp, 'r-', label="Rayon Principal (y)")
+        ax[1].plot(data.axe_z, self.ym, 'b-', label="Rayon Marginal (y)")
+        ax[1].set_title("Trajectoire selon la direction y ")
         ax[1].legend()
         
         # 3. Chief Ray seul (X vs Y)
-        ax[2].plot(data.axe_z, self.xp, 'r-', label=" rayon principal ")
-        ax[2].plot(data.axe_z, self.yp, 'b-', label=" rayon principal ")
+        ax[2].plot(data.axe_z, self.xp, 'r-', label=" Rayon principal (x)")
+        ax[2].plot(data.axe_z, self.yp, 'b-', label=" Rayon principal(y) ")
         ax[2].set_title("rayon princpal ")
         ax[2].legend()
 
         # 4. Marginal Ray seul (X vs Y)
-        ax[3].plot(data.axe_z, self.xm, 'r-', label="rayon marginal")
-        ax[3].plot(data.axe_z,self.ym, 'b-', label="rayon marginal")
+        ax[3].plot(data.axe_z, self.xm, 'r-', label="rayon marginal (x)")
+        ax[3].plot(data.axe_z,self.ym, 'b-', label="rayon marginal (y)")
         ax[3].set_title("rayon marginal")
         ax[3].legend()
 

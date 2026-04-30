@@ -7,7 +7,7 @@ class Cylinder:
     """
     Represents a cylindrical electrode in the GMSH geometry.
     """
-    def __init__(self, length: int, radius: int, coord_x: int, coord_y: int, coord_z: int) -> None:
+    def __init__(self, length: int, radius_aperture: int, radius_axis : int, coord_x: int, coord_y: int, coord_z: int) -> None:
         """
         Initialize cylinder parameters.
 
@@ -17,7 +17,7 @@ class Cylinder:
             coord_x, coord_y, coord_z: Starting position of the cylinder.
         """
         self.length = length
-        self.radius = radius
+        self.radius = radius_axis
         self.coord_x = coord_x
         self.coord_y = coord_y
         self.coord_z = coord_z
@@ -72,7 +72,7 @@ class Shield:
         self.length = length
         self.radius_ext = radius_ext
         self.radius_in = radius_in
-        self.radius_hole = 3
+        self.radius_hole = 2.61
         self.thickness = thickness
         self.coord_x = coord_x
         self.coord_y = coord_y
@@ -122,16 +122,16 @@ class Mesh_Generation:
     def geometry(self) -> None:
         """Instantiate and add all geometric components (electrodes, apertures, shield)."""
 
-        cylinder1 = Cylinder(self.data.length_cylinder, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.coord_cylinder_z)
+        cylinder1 = Cylinder(self.data.length_cylinder, self.data.radius_apert, self.data.radius_axis, self.data.coord_cylinder_x_or_y, 0, self.data.coord_cylinder_z)
         Cylinder.add(cylinder1)
 
-        cylinder2 = Cylinder(self.data.length_cylinder, self.data.radius_axis, -self.data.coord_cylinder_x_or_y, 0, self.data.coord_cylinder_z)
+        cylinder2 = Cylinder(self.data.length_cylinder,self.data.radius_apert, self.data.radius_axis, -self.data.coord_cylinder_x_or_y, 0, self.data.coord_cylinder_z)
         Cylinder.add(cylinder2)
 
-        cylinder3 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, self.data.coord_cylinder_x_or_y, self.data.coord_cylinder_z)
+        cylinder3 = Cylinder(self.data.length_cylinder,self.data.radius_apert, self.data.radius_axis, 0, self.data.coord_cylinder_x_or_y, self.data.coord_cylinder_z)
         Cylinder.add(cylinder3)
 
-        cylinder4 = Cylinder(self.data.length_cylinder, self.data.radius_axis, 0, -self.data.coord_cylinder_x_or_y, self.data.coord_cylinder_z)
+        cylinder4 = Cylinder(self.data.length_cylinder, self.data.radius_apert,self.data.radius_axis, 0, -self.data.coord_cylinder_x_or_y, self.data.coord_cylinder_z)
         Cylinder.add(cylinder4)
 
 

@@ -17,6 +17,13 @@ class Decomposition:
         self.Phi2_fit = None
         self.Phi4_fit = None
 
+        self.psi0 = None
+        self.psi2 = None
+
+        self.ko = None
+        self.k2 = None
+        self.k4 = None
+
 
     def composantes(self) -> None:
         # Force le potentiel à 0 loin de l'entrée (z_min)
@@ -37,5 +44,16 @@ class Decomposition:
         self.Phi0_fit = self.Phi0_fit/Phi2_max
         self.Phi2_fit = self.Phi2_fit/Phi2_max
         self.Phi4_fit = self.Phi4_fit/Phi2_max
+
+
+        self.psi0 = self.data.Velectrode13
+        self.psi2 = self.data.Vapert1
+        self.a = self.data.radius_axis
+
+        self.k0 = self.Phi0_maj/ self.psi0
+        self.k2 = self.Phi2_maj*(self.a)**2/self.psi2
+        self.k4 = self.Phi4_maj*(self.a)**4/self.psi0
+
+
     
    

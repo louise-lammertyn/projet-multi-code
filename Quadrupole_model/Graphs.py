@@ -40,18 +40,18 @@ class Graphs:
 
                     ax.axvspan(z + self.data.start_shield1, z + self.data.end_shield1, color='red', alpha=0.15, label=label_s)
                     ax.axvspan(z + self.data.start_apert1, z + self.data.end_apert1, color='blue', alpha=0.15, label=label_a)
-                    ax.axvspan(z + self.data.start_cyl, z + self.data.end_cyl, color='green', alpha=0.15, label=label_e)
+                    ax.axvspan(z + self.data.start_cyl, z + self.data.end_cyl, color='yellow', alpha=0.15, label=label_e)
                     ax.axvspan(z + self.data.start_apert2, z + self.data.end_apert2, color='blue', alpha=0.15)
                     ax.axvspan(z + self.data.start_shield2, z + self.data.end_shield2, color='red', alpha=0.15)
             else :
                 # Cas d'un seul quadrupole
                 ax.axvspan(self.data.start_shield1, self.data.end_shield1, color='red', alpha=0.15, label='Shield')
                 ax.axvspan(self.data.start_apert1, self.data.end_apert1, color='blue', alpha=0.15, label='Aperture')
-                ax.axvspan(self.data.start_cyl, self.data.end_cyl, color='green', alpha=0.15, label='Electrodes')
+                ax.axvspan(self.data.start_cyl, self.data.end_cyl, color='yellow', alpha=0.15, label='Electrodes')
                 ax.axvspan(self.data.start_apert2, self.data.end_apert2, color='blue', alpha=0.15)
                 ax.axvspan(self.data.start_shield2, self.data.end_shield2, color='red', alpha=0.15)
 
-##uilisé pour les trecaer de tamura
+##tracer les phi reel 
     def graphe_composantes(self) -> None:
         """
         Plot the multipolar components (Phi0 to Phi4) along the Z-axis 
@@ -75,10 +75,10 @@ class Graphs:
                 label=r'$ \Phi_2$ $[V/mm^2]$', color='red')
         
         ax.plot(self.data.axe_z, self.decomposition.Phi3_maj, 
-                label=r'$$[V/mm^3]$', color='pink')
+                label=r'$\Phi_3$ [V/mm$^3$]', color='pink')
         
         ax.plot(self.data.axe_z, self.decomposition.Phi4_maj, 
-                label=r'\Phi_4$ $[V/mm^4]$', color='green')
+                label=r'$\Phi_4$ [V/mm$^4$]', color='green')
         
 
         # 4. label and style
@@ -97,11 +97,12 @@ class Graphs:
         print("valeur theroqie de phi2 max Vq/a2 =", V)
         print("valeur de phi2 max",np.max(self.decomposition.Phi2_maj) )
 
-        ##uilisé pour les trecaer de l'article 1982
+        ##uilisé pour les tracer de l'article 1982
+        ## utilisé pour les k
 
     def graphe_k1982(self) -> None:
                 """
-                Plot the multipolar components (Phi0 to Phi4) along the Z-axis 
+                Plot the k(z) along the Z-axis 
                 overlaid with the system geometry.
                 """
                 # 1. Initialize figure and axis
@@ -110,35 +111,31 @@ class Graphs:
                 # 2. Trace the background geometry
                 self.trace_geo(ax1)
                 # Plot Calculated decomposition data and Okayam'a model 
-                self.psi0 = self.data.Velectrode13
-                self.psi2 = self.data.Vapert1
-                self.a = self.data.radius_axis 
-
-                self.k0 = self.decomposition.Phi0_maj/ self.psi0
-                self.k2 = self.decomposition.Phi2_maj*(self.a)**2/self.psi2
-                self.k4 = self.decomposition.Phi4_maj*(self.a)**4/self.psi0
         
-                ax1.plot(self.data.axe_z,self.k0, 
+        
+                ax1.plot(self.data.axe_z,np.abs(self.decomposition.k0), 
                         label=r'k0(z)', color='deepskyblue')
                 
-                ax1.plot(self.data.axe_z, self.k2, 
-                        label=r'k2(z)', color='darkviolet')
+                ax1.plot(self.data.axe_z, self.decomposition.k2, 
+                        label=r'k2(z)', color='red')
                 ax2 = ax1.twinx()  # Créer un second axe partageant l'axe X
 
                 
-                ax2.plot(self.data.axe_z, self.k4, 
-                        label=r'k4(z)', color='red')
+                ax2.plot(self.data.axe_z, np.abs(self.decomposition.k4), 
+                        label=r'k4(z)', color='green')
                 
 
 
 
             # 4. label and style
+                ax1.set_xlim(30,60)
+            
                 ax1.set_xlabel("z (mm)")
                 ax1.set_ylabel("k0(z), k2(z)")
                 ax2.set_ylabel("k(4)")
                 ax1.set_title("potentiel function of the new correction lens k0,k2,K4 ")
-                ax1.set_ylim(-1, 1)
-                ax2.set_ylim(-0.05, 0.05)
+                ax1.set_ylim(0, 1)
+                ax2.set_ylim(0, 0.05)
 
                 ax1.grid(True)
 
@@ -151,29 +148,48 @@ class Graphs:
                 
                 
                 plt.show()
-                
-
-    def comparaison(self):
-        """Calcule les écarts entre le BEM et la théorie pour Phi0, Phi2, Phi4."""
-        # --- ORDRE 0 (Lentille ronde) ---
-       
-        phi0_max_bem = np.max(np.abs(self.decomposition.Phi0_maj))
-        phi0_max_th = self.data.Vacceleration # À ajuster selon ta tension réelle Va
-        err_0 = abs(phi0_max_bem - phi0_max_th) / phi0_max_th * 100
-
-        # --- ORDRE 2 (Quadrupôle) ---
-        phi2_max_bem = np.max(self.decomposition.Phi2_maj)
-        phi2_max_th = self.data.Vacceleration / (self.data.radius_elements)**2
-        err_2 = abs(phi2_max_bem - phi2_max_th) / phi2_max_th * 100
-
-        # --- ORDRE 4 (Octupôle) ---
-        phi4_max_bem = np.max(np.abs(self.decomposition.Phi4_maj))
-        phi4_max_th = self.data.Vacceleration / (self.data.radius_elements)**4
-
-        print(phi0_max_bem, phi0_max_th)
-        print(phi2_max_bem, phi2_max_th)
-        print(phi4_max_bem, phi4_max_th)
         
+    def graphe_zoom_y(self, ymin = -1, ymax  = 1 ) :
+         """
+         Allow to zoom in the y axis 
+         """
+          # 1. Initialize figure and axis
+         fig, ax = plt.subplots(figsize=(9, 5))
+
+         # 2. Trace the background geometry
+         self.trace_geo(ax)
+         # Plot Calculated decomposition data and Okayam'a model 
+
+       
+         ax.plot(self.data.axe_z, self.decomposition.Phi0_maj, 
+                label=r'$\Phi_0 $ $[V]$', color='deepskyblue')
+        
+         ax.plot(self.data.axe_z, self.decomposition.Phi1_maj, 
+                label=r'$\Phi_1$ $[V/mm]$', color='darkviolet')
+        
+         ax.plot(self.data.axe_z, self.decomposition.Phi2_maj, 
+                label=r'$ \Phi_2$ $[V/mm^2]$', color='red')
+        
+         ax.plot(self.data.axe_z, self.decomposition.Phi3_maj, 
+                label=r'$\Phi_3$ [V/mm$^3$]', color='pink')
+        
+         ax.plot(self.data.axe_z, self.decomposition.Phi4_maj, 
+                label=r'$\Phi_4$ [V/mm$^4$]', color='green')
+        
+
+         # 4. label and style
+         ax.set_xlabel("z (mm)")
+         ax.set_ylabel("Potentiel")
+         ax.set_ylim(ymin, ymax)
+         ax.set_title("Multipolaire decomposition ")
+         ax.grid(True)
+        
+         ax.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), borderaxespad=0.)
+        
+         plt.tight_layout()
+         plt.show()
+        
+         
 
         
 
@@ -208,8 +224,9 @@ class Graphs:
 
         # 4. label and style
         ax.set_xlabel("z (mm)")
+        ax.set_ylim(0, 50)
         ax.set_ylabel("Potentiel")
-        ax.set_title("Multipolaire decomposition ")
+        ax.set_title("Décomposition multipolaire ")
         ax.grid(True)
         
         ax.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), borderaxespad=0.)
@@ -227,7 +244,7 @@ class Graphs:
         self.trace_geo(ax)
         
         # 2. Tracer Phi0 (le champ rond)
-        # On regarde Phi0_maj car c'est lui qui contient la réalité physique du BEM
+       
         ax.plot(self.data.axe_z, self.decomposition.Phi0_maj, 
                 label=r'$\Phi_0$ (Champ rond)', color='crimson', lw=2)
         
@@ -264,7 +281,7 @@ class Graphs:
         
         if (bool_fit == True ):
             ax.plot(self.data.axe_z, self.fit.k0, label=r'k0(Z) fitting function', color='skyblue', linestyle='dashed')
-            ax.plot(self.data.axe_z, self.fit.k2, label=r'k2(Z)fitting function', color='salmon', linestyle='dashed')
+            ax.plot(self.data.axe_z, self.fit.k2, label=r'k2(Z) fitting function', color='salmon', linestyle='dashed')
             ax.plot(self.data.axe_z, 10*self.fit.k4, label=r'10 *k4(z) fitting function ', color='darkgreen', linestyle='dashed')
         
 
@@ -281,8 +298,9 @@ class Graphs:
         plt.subplots_adjust(bottom=0.15, right=0.8) 
         
         ax.set_xlabel("z (mm)")
+        ax.set_xlim(0,50)
         ax.set_ylabel("Potentiel (u.a.)")
-        ax.set_title("Multipolar Decomposition")
+        ax.set_title("Decomposition multipoalaire")
         ax.grid(True, alpha=0.3)
         
         # On place la légende bien à droite sans qu'elle descende trop bas
