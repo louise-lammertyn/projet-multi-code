@@ -11,7 +11,7 @@ class Aberration():
     def __init__(self)-> None:
         self.C30 = None #coéfficient spérique que l'on veut déterminer 
 
-    def coefficient(self, ion : Ion, data : Decomposition, ):
+    def coefficient(self, ion : Ion, ion_grandi : Ion,  data : Decomposition, ):
         """
         Extraction -> accés au donnée de bemmpp
         ion -> accés à la trajectoire
@@ -23,13 +23,14 @@ class Aberration():
 
         
 
-        z = data.axe_z
+        z = data.axe_z 
+        phi_a = data.Vacceleration
         
         dz = data.axe_z[1] - data.axe_z[0]
 
        
 
-        phiA = data.Vacceleration + data.Phi0_maj*data.k0
+        phiA = data.Vacceleration + data.Phi0_maj
 
 
         R = data.Phi0_maj/phiA
@@ -38,8 +39,6 @@ class Aberration():
 
 
         x = np.array(ion.history_y)
-        print(len(z))
-        print(len(x))
         dx = np.gradient(x, z)
 
        
@@ -76,9 +75,13 @@ class Aberration():
         Txx3 = (dR/2) *x*((dx)**3)
 
         I = np.sqrt(phiA/data.Vacceleration)*(Tx4+Tx3x+Tx2x2+Txx3)
-        Mx = x[0] - x[-1]
+
+        xgran = np.array(ion_grandi.history_y)
+
+        Mx = xgran[-1] / xgran[0]
 
         self.C30 = Mx**4*np.trapezoid(I, z)
+        print(Mx)
 
         print(f"Phi0_maj min = {np.min(data.Phi0_maj):.6e}")  
         print(f"Phi0_maj max = {np.max(data.Phi0_maj):.6e}")

@@ -19,6 +19,7 @@ class Decomposition:
 
         self.psi0 = None
         self.psi2 = None
+        
 
         self.ko = None
         self.k2 = None
