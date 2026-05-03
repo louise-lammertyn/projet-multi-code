@@ -255,13 +255,13 @@ class Trajectoire(Paraxial):
         # 1. Trajectoire X (Principal vs Marginal)
         ax[0].plot(data.axe_z, principal.history_x, 'r-', label="Principal (x)")
         ax[0].plot(data.axe_z, marginal.history_x, 'b-', label="Marginal (x)")
-        ax[0].set_title("X Trajectories ")
+        ax[0].set_title(" Trajectoire selon la direction x ")
         ax[0].legend()
         
         # 2. Trajectoire Y (Principal vs Marginal)
         ax[1].plot(data.axe_z, principal.history_y, 'r-', label="Principal (y)")
         ax[1].plot(data.axe_z, marginal.history_y, 'b-', label="Marginal (y)")
-        ax[1].set_title("Y Trajectories")
+        ax[1].set_title("Trajectoire selon la direction y ")
         ax[1].legend()
         
         # 3. Chief Ray seul (X vs Y)
@@ -275,6 +275,20 @@ class Trajectoire(Paraxial):
         ax[3].plot(data.axe_z, marginal.history_y, 'b-', label="rayon marginal")
         ax[3].set_title("rayon marginal")
         ax[3].legend()
+
+        ax[0].set_xlabel("z position (mm)")
+        ax[0].set_ylabel("x position (mm)")
+
+        ax[1].set_xlabel("z position (mm)")
+        ax[1].set_ylabel("y position (mm)")
+
+        ax[2].set_xlabel("z position (mm)")
+        ax[2].set_ylabel("x-y position (mm)")
+
+        ax[3].set_xlabel("z position (mm)")
+        ax[3].set_ylabel("x-y position (mm)")
+
+        
 
      
 
