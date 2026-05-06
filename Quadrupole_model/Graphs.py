@@ -133,7 +133,7 @@ class Graphs:
                 ax1.set_xlabel("z (mm)")
                 ax1.set_ylabel("k0(z), k2(z)")
                 ax2.set_ylabel("k(4)")
-                ax1.set_title("potentiel function of the new correction lens k0,k2,K4 ")
+                ax1.set_title("potentiel function of the correction lens k0,k2,K4 ")
                 ax1.set_ylim(0, 1)
                 ax2.set_ylim(0, 0.05)
 
@@ -269,7 +269,7 @@ class Graphs:
         plt.show()
     
     #same but with fitting potential componant  
-    def graphe_fit(self, bool_fit = True ) -> None:
+    def graphe_fit1(self, bool_fit = True ) -> None:
         fig, ax = plt.subplots(figsize=(9, 5))
         self.trace_geo(ax)
 
@@ -307,5 +307,50 @@ class Graphs:
         ax.legend(loc="upper left", bbox_to_anchor=(1.02, 1), borderaxespad=0.)
         
         
+        
         plt.show()
+
+
+         
+    #same but with fitting potential componant  
+    def graphe_fit(self, bool_fit = True ) -> None:
+        fig, ax = plt.subplots(figsize=(9, 5))
+        self.trace_geo(ax)
+
+        #Printing of the different composants of the potential
+       
+        ax.plot(self.data.axe_z, np.abs(self.decomposition.k0), label=r'$k_0 (Z) $ ', color='deepskyblue')
+        ax.plot(self.data.axe_z, self.decomposition.k2, label=r'$k_2 (z)$ ', color='red')
+        plt.plot(self.data.axe_z, 10*self.decomposition.k4, label=r'$10k_4(Z)$ ', color='green')
+        
+        if (bool_fit == True ):
+            ax.plot(self.data.axe_z, self.fit.k0, label=r'k0(Z) fitting function', color='skyblue', linestyle='dashed')
+            ax.plot(self.data.axe_z, self.fit.k2, label=r'k2(Z) fitting function', color='salmon', linestyle='dashed')
+            ax.plot(self.data.axe_z, 10*self.fit.k4, label=r'10k4(z) fitting function ', color='darkgreen', linestyle='dashed')
+        
+
+        params_text = (
+            f"Quadrupole geometry (mm) :\n"
+            f"Aperture: r={self.data.radius_apert}, t={self.data.thickness_apert} | "
+            f"quadrupole: a ={self.data.radius_axis}, l={self.data.length_cylinder} | "
+            f" shield : rshield ={self.data.radius_in_shield}, d={self.data.dist_apert_quad}")
+
+        plt.figtext(0.5, 0.01, params_text, ha="center", fontsize=8, 
+                    bbox={"facecolor":"white", "alpha":0.8, "edgecolor":"gray", "pad":3})
+
+        
+        plt.subplots_adjust(bottom=0.15, right=0.8) 
+        ax.set_xlim(23,45)
+        ax.set_ylim(0,1.1)
+        ax.set_xlabel("z (mm)")
+        ax.set_ylabel("Potentiel (u.a.)")
+
+        ax.grid(True, alpha=0.3)
+        
+        # On place la légende bien à droite sans qu'elle descende trop bas
+        ax.legend(loc="upper left", bbox_to_anchor=(1.02, 1), borderaxespad=0.)
+        
+        
+        plt.show()
+
 
