@@ -1,5 +1,6 @@
-# Modelisation of Okayama's quadrupole
-This GitHub repository contains all the necessary codes and documents to implement the modelisation of Okayama's quadrupole *[S.OkayamaetH.Kawakatsu, Potential distributionand focal pro
+# Modelisation of an electrostatic quadrupolar lens using BEM
+This GitHub repository contains all the necessary codes and documents to implement the modelisation of an electrostatic quadrupole from the modelisation to the trajectories of the particles.This work is based on this article:
+*[S.OkayamaetH.Kawakatsu, Potential distributionand focal pro
 pertiesofelectrostaticquadrupole lenses ,JournalofPhysicsE:Scienti cInstruments,vol.11,no3,
 p.211,1978]*.\
 \
