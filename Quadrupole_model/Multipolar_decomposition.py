@@ -54,6 +54,7 @@ class Decomposition:
         self.k0 = self.Phi0_maj/ self.psi0
         self.k2 = self.Phi2_maj*(self.a)**2/self.psi2
         self.k4 = self.Phi4_maj*(self.a)**4/self.psi0
+        print(self.data.length_cylinder)
 
 
     

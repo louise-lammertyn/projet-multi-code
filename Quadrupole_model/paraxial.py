@@ -244,66 +244,85 @@ class Trajectoire(Paraxial):
 
 
 
-    #plot de la trajectoire avec les fonctions définit sur N points
-    def plot_discret(self, principal: Ion, marginal: Ion, data : Extracted_data)-> None:
-        
-        fig, axs = plt.subplots(2, 2, figsize=(15, 10))
-        fig.suptitle("Trajectoire paraxiale", fontsize=14, fontweight='bold')
-        
-        ax = axs.flatten()
+        #plot de la trajectoire avec les fonctions définit sur N points
+    def plot_discret2(self, principal: Ion, marginal: Ion, data: Extracted_data) -> None:
 
-        # 1. Trajectoire X (Principal vs Marginal)
-        ax[0].plot(data.axe_z, principal.history_x, 'r-', label="Principal (x)")
-        ax[0].plot(data.axe_z, marginal.history_x, 'b-', label="Marginal (x)")
-        ax[0].set_title(" Trajectoire selon la direction x ")
-        ax[0].legend()
-        
-        # 2. Trajectoire Y (Principal vs Marginal)
-        ax[1].plot(data.axe_z, principal.history_y, 'r-', label="Principal (y)")
-        ax[1].plot(data.axe_z, marginal.history_y, 'b-', label="Marginal (y)")
-        ax[1].set_title("Trajectoire selon la direction y ")
-        ax[1].legend()
-        
-        # 3. Chief Ray seul (X vs Y)
-        ax[2].plot(data.axe_z, principal.history_x, 'r-', label=" rayon principal ")
-        ax[2].plot(data.axe_z, principal.history_y, 'b-', label=" rayon principal ")
-        ax[2].set_title("rayon princpal ")
-        ax[2].legend()
+        fig, axs = plt.subplots(1, 2, figsize=(15, 5))
 
-        # 4. Marginal Ray seul (X vs Y)
-        ax[3].plot(data.axe_z, marginal.history_x, 'r-', label="rayon marginal")
-        ax[3].plot(data.axe_z, marginal.history_y, 'b-', label="rayon marginal")
-        ax[3].set_title("rayon marginal")
-        ax[3].legend()
+        fig.suptitle("Trajectoire paraxiale",
+                    fontsize=14,
+                    fontweight='bold')
 
-        ax[0].set_xlabel("z position (mm)")
-        ax[0].set_ylabel("x position (mm)")
+        # Rayon principal
+        axs[0].plot(data.axe_z, principal.history_x,
+                    'r-', label="rayon principal x")
 
-        ax[1].set_xlabel("z position (mm)")
-        ax[1].set_ylabel("y position (mm)")
+        axs[0].plot(data.axe_z, principal.history_y,
+                    'b-', label="rayon principal y")
 
-        ax[2].set_xlabel("z position (mm)")
-        ax[2].set_ylabel("x-y position (mm)")
+        axs[0].set_title("Rayon principal")
+        axs[0].set_xlabel("z position (mm)")
+        axs[0].set_ylabel("x-y position (mm)")
+        axs[0].legend()
 
-        ax[3].set_xlabel("z position (mm)")
-        ax[3].set_ylabel("x-y position (mm)")
+        # Rayon marginal
+        axs[1].plot(data.axe_z, marginal.history_x,
+                    'r-', label="rayon marginal x")
 
-        
+        axs[1].plot(data.axe_z, marginal.history_y,
+                    'b-', label="rayon marginal y")
 
-     
+        axs[1].set_title("Rayon marginal")
+        axs[1].set_xlabel("z position (mm)")
+        axs[1].set_ylabel("x-y position (mm)")
+        axs[1].legend()
 
-        
         plt.tight_layout(rect=[0, 0.03, 1, 0.95])
         plt.show()
+    # plot pout la convergence 
 
-        plt.figure(2)
-        plt.plot(data.axe_z, marginal.history_x, 'r-', label="rayon marginal")
-        plt.plot(data.axe_z, marginal.history_y, 'b-', label="rayon marginal")
-        plt.xlabel('mm')
+    def plot_discret(self, principal: Ion, marginal: Ion, data: Extracted_data) -> None:
+
+        # On crée un seul graphique (1 ligne, 1 colonne) avec une taille adaptée
+        fig, ax = plt.subplots(figsize=(10, 6))
+
+        fig.suptitle("Trajectoire paraxiale",
+                    fontsize=14,
+                    fontweight='bold')
+
+        # Traçage uniquement du rayon
+        ax.plot(data.axe_z, marginal.history_x,
+                'r-', label="rayon dans le plan x")
+
+        ax.plot(data.axe_z, marginal.history_y,
+                'b-', label="rayon dans le plan y")
+
+       
+        ax.set_xlabel("z position (mm)")
+        ax.set_ylabel("x-y position (mm)")
+        
+        ax.legend()
+
+        plt.tight_layout()
         plt.show()
 
+        # On crée un seul graphique (1 ligne, 1 colonne) avec une taille adaptée
+        fig1, ax1 = plt.subplots(figsize=(10, 6))
 
-    # plot pout la convergence 
+
+        # Traçage uniquement du rayon
+        ax1.plot(data.axe_z, marginal.history_x,
+                'r-', label="rayon dans le plan x")
+
+        ax1.plot(data.axe_z, marginal.history_y,
+                'b-', label="rayon dans le plan y")
+        plt.tight_layout()
+        ax1.legend()
+
+       
+      
+        plt.show()
+
     def plot_continu(self, principal: Ion, marginal: Ion, data : Extracted_data, n) -> None:
         fig, axs = plt.subplots(2, 2, figsize=(15, 10))
         fig.suptitle(f"Trajectoire paraxiale,  convergence ordre {n}   ", fontsize=14, fontweight='bold')
@@ -339,12 +358,15 @@ class Trajectoire(Paraxial):
         plt.tight_layout(rect=[0, 0.03, 1, 0.95])
         plt.show()
 
-    def plot_faisceau(self , Liste_ion,  data : Extracted_data, ):
-        plt.figure(1)
-        plt.title("Faisceau d'ion")
-        for element in Liste_ion :
-            plt.plot(data.axe_z, element.history_x,label=f"x0 = {element.history_x[0]:.2f} mm" )
-            plt.legend()
-        plt.x_axis =("z en mm")
-        plt.y_axis = ("axe x en mm")
+    def plot_faisceau(self, liste_ions, data):
+
+        plt.figure(figsize=(10, 6))
+        plt.title("Faisceau d'ions")
+
+        for ion in liste_ions:
+            plt.plot(data.axe_z, ion.history_y, alpha=0.6)
+
+        plt.xlabel("z (mm)")
+        plt.ylabel("x (mm)")
+        plt.grid()
         plt.show()

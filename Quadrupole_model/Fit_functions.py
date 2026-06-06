@@ -71,6 +71,7 @@ class Fit_constants:
         self.k0 = a0 * np.exp(-(Z_k0**2) / b**2)
 
         # k2 (Quadrupôle)
+        #Z0, b2 = 4.54, 2.4
         Z0, b2 = 5, 2.54
         self.k2 = np.where(np.abs(Z_k2) <= Z0, 1, np.exp(-(np.abs(Z_k2) - Z0)**2 / b2**2))
 

@@ -181,7 +181,7 @@ class Graphs:
          ax.set_xlabel("z (mm)")
          ax.set_ylabel("Potentiel")
          ax.set_ylim(ymin, ymax)
-         ax.set_title("Multipolaire decomposition ")
+         ax.set_title("Décomposition multipolaire ")
          ax.grid(True)
         
          ax.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), borderaxespad=0.)
@@ -202,31 +202,30 @@ class Graphs:
         fig, ax = plt.subplots(figsize=(9, 5))
 
         # 2. Trace the background geometry
-        self.trace_geo(ax)
+       
         # Plot Calculated decomposition data and Okayam'a model 
 
        
-        ax.plot(self.data.axe_z, self.decomposition.Phi0_maj/50, 
-                label=r'$\Phi_0 / 50$ $[V]$', color='deepskyblue')
+        ax.plot(self.data.axe_z, self.decomposition.Phi0_maj/150, 
+                label=r'$\Phi_0$ ', color='deepskyblue')
         
         ax.plot(self.data.axe_z, self.decomposition.Phi1_maj, 
-                label=r'$\Phi_1$ $[V/mm]$', color='darkviolet')
+                label=r'$\Phi_1$ ', color='darkviolet')
         
-        ax.plot(self.data.axe_z, 15*self.decomposition.Phi2_maj, 
-                label=r'$15 \times \Phi_2$ $[V/mm^2]$', color='red')
+        ax.plot(self.data.axe_z,2*self.decomposition.Phi2_maj, 
+                label=r'$\Phi_2$ ', color='red')
         
         ax.plot(self.data.axe_z, self.decomposition.Phi3_maj, 
-                label=r'$\Phi_3$ $[V/mm^3]$', color='pink')
+                label=r'$\Phi_3$ ', color='pink')
         
-        ax.plot(self.data.axe_z, 1000*self.decomposition.Phi4_maj, 
-                label=r'$1000 \times \Phi_4$ $[V/mm^4]$', color='green')
+        ax.plot(self.data.axe_z, self.decomposition.Phi4_maj*130, 
+                label=r' $\Phi_4$ ', color='green')
         
 
         # 4. label and style
         ax.set_xlabel("z (mm)")
-        ax.set_ylim(0, 50)
-        ax.set_ylabel("Potentiel")
-        ax.set_title("Décomposition multipolaire ")
+        
+        
         ax.grid(True)
         
         ax.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), borderaxespad=0.)
@@ -300,7 +299,7 @@ class Graphs:
         ax.set_xlabel("z (mm)")
         ax.set_xlim(0,50)
         ax.set_ylabel("Potentiel (u.a.)")
-        ax.set_title("Decomposition multipoalaire")
+        ax.set_title("Décomposition multipolaire")
         ax.grid(True, alpha=0.3)
         
         # On place la légende bien à droite sans qu'elle descende trop bas
@@ -340,7 +339,7 @@ class Graphs:
 
         
         plt.subplots_adjust(bottom=0.15, right=0.8) 
-        ax.set_xlim(23,45)
+        ax.set_xlim(20,45)
         ax.set_ylim(0,1.1)
         ax.set_xlabel("z (mm)")
         ax.set_ylabel("Potentiel (u.a.)")

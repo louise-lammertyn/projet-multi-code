@@ -72,7 +72,7 @@ class Shield:
         self.length = length
         self.radius_ext = radius_ext
         self.radius_in = radius_in
-        self.radius_hole = 2.61
+        self.radius_hole =2.61
         self.thickness = thickness
         self.coord_x = coord_x
         self.coord_y = coord_y

@@ -16,7 +16,7 @@ os.environ['PYOPENCL_NO_CACHE'] = '1'
 "-0.0299087*Va, -0.18808*Va, +0.18808*Va" #tension qui fit
 
 # Dossier de sortie
-OUTPUT_DIR = "projet-multi-code\Quadrupole_model\Files17053"
+OUTPUT_DIR = "projet-multi-code\Quadrupole_model\Files17.5"
 if not os.path.exists(OUTPUT_DIR):
     os.makedirs(OUTPUT_DIR)
 
@@ -47,23 +47,25 @@ quad = {
 
 # Générer le maillage une fois 
 data_initial =  Data(
-    5,          # dist_shield_apert
-    6,          # dist_apert_quad = d
+    6,          # dist_shield_apert
+    5,          # dist_apert_quad = d
 
     21,         # radius_ext_shield
     19,         # radius_in_shield
     1,          # thickness_shield = t
 
-    17,       # radius_apert
-    1,          # thickness_apert = t
+    15,       # radius_apert
+    2,          # thickness_apert = t
 
-    30,         # length_cylinder = l
+    13,         # length_cylinder = l
 
-    5.22,       # radius_axis 
+    3.4934,       # radius_axis = 
+
+
 
     1, 0, 0, 0, 0, 1.5,
 
-    1, 5, 10, #mesh size
+    3, 7, 10, #mesh size
 
     OUTPUT_DIR
     )
@@ -81,24 +83,24 @@ for element, tensions in quad.items():
     file_name = f"{element}.npz" 
 
     data = Data(
-    5,          # dist_shield_apert
-    6,          # dist_apert_quad = d
+    6,          # dist_shield_apert
+    5,          # dist_apert_quad = d
 
     21,         # radius_ext_shield
     19,         # radius_in_shield
     1,          # thickness_shield = t
 
-    17,       # radius_apert
-    1,          # thickness_apert = t
+    15,       # radius_apert
+    2,          # thickness_apert = t
 
-    30,         # length_cylinder = l
+    13,         # length_cylinder = l
 
-    5.22,       # radius_axis = 
+    3.4934,       # radius_axis = 
 
 
     vq13, vq24, va1, va2, 0, 1.5,
 
-     1, 5, 10, #mesh size
+      3, 7, 10, #mesh size
     OUTPUT_DIR
     )
     data.group_id = saved_group_ids
@@ -106,7 +108,7 @@ for element, tensions in quad.items():
     fun = Potential_extraction(data, False, file_name) 
 
     fun.potential_extraction() # Résolution BEM
-    fun.potential_visualisation()
+    #fun.potential_visualisation()
 
     #fun.graph_potential_axis()
     del fun
