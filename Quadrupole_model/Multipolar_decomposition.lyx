@@ -1,0 +1,155 @@
+#LyX file created by tex2lyx 2.5
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /Users/louise/Documents/insa/insa4/projet/projet-multi-code/Quadrupole_model/
+\textclass report
+\use_default_options false
+\maintain_unincluded_children no
+\language french
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 1
+\pdf_backref false
+\pdf_pdfusetitle 0
+\pdf_quoted_options "linkcolor=blue,citecolor=green"
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\crossref_package prettyref
+\use_minted 0
+\use_lineno false
+\customcolor backcolour f2f2eb
+\customcolor codegray 7f7f7f
+\customcolor codegreen 009900
+\customcolor codepurple 9300d1
+\fontcolor codepurple
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\lang french
+import numpy as np from Extractiondata import Extracteddata
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+class Decomposition: def init(self, data: Extracteddata) -> None: self.data = data
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.Phi0maj = None self.Phi1maj = None self.Phi2maj = None self.Phi3maj = None self.Phi4maj = None
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.Phi0fit = None self.Phi2fit = None self.Phi4fit = None
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+def composantes(self) -> None: self.Phi0maj = -self.data.D0 # potentiel monopolaire sur l’axe self.Phi1maj = self.data.D1[0] # D1 correspond au champs electrostique -> on met un moins self.Phi2maj = (1/4)*(self.data.D2[0] - self.data.D2[3]) self.Phi3maj = (1/24) * (self.data.D3[0] - 3*self.data.D3[3]) self.Phi4maj = (1/192)* (self.data.D4[0] + self.data.D4[10] - 6*self.data.D4[3])
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.Phi0fit = self.Phi0maj / self.data.Vapert1 self.Phi2fit = self.Phi2maj *((self.data.radiusaxis**2)/ self.data.Velectrode13) self.Phi4fit = self.Phi4maj *((self.data.radiusaxis**4)/ self.data.Vapert1)
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Phi2max = np.max(np.abs(self.Phi2fit))
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.Phi0fit = self.Phi0fit/Phi2max self.Phi2fit = self.Phi2fit/Phi2max self.Phi4fit = self.Phi4fit/Phi2max 
+\end_layout
+
+\end_body
+\end_document

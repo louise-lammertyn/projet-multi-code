@@ -1,0 +1,225 @@
+#LyX file created by tex2lyx 2.5
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /Users/louise/Documents/insa/insa4/projet/projet-multi-code/Quadrupole_model/
+\textclass report
+\use_default_options false
+\maintain_unincluded_children no
+\language french
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 1
+\pdf_backref false
+\pdf_pdfusetitle 0
+\pdf_quoted_options "linkcolor=blue,citecolor=green"
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\crossref_package prettyref
+\use_minted 0
+\use_lineno false
+\customcolor backcolour f2f2eb
+\customcolor codegray 7f7f7f
+\customcolor codegreen 009900
+\customcolor codepurple 9300d1
+\fontcolor codepurple
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\lang french
+class Data: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ #1 - Distance between the sield ant the aperture #2 - Distance between the aperture and the cylinders (d in Okayama's paper) #3 - Exterior radius of the shield #4 - Inside radius of the shield #5 - Thickness of the shield #6 - Radius of the aperture #7 - Thickness of the aperture #8 - Length of the cylinder (l in Okayama's paper) #9 - Radius of the elements around the axis (a in Okayama's paper) 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+""
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ def init(self, distshieldapert: int, distapertquad: int, radiusextshield: int, radiusinshield: int, thicknessshield: int, radiusapert: int, thicknessapert: int, lengthcylinder: int, radiusaxis: int, potelectrode13: int,potelectrode24 :int, potapert1: int, potapert2: int, potshield: int, potacceleration: int, MeshSizeMin: int, MeshSizeMax: int, MeshSizeFromCurvature: int, outputdir: str) -> None: self.distshieldapert = distshieldapert self.distapertquad = distapertquad
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.radiusextshield = radiusextshield self.radiusinshield = radiusinshield self.thicknessshield = thicknessshield
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.radiusapert = radiusapert self.thicknessapert = thicknessapert
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.lengthcylinder = lengthcylinder
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.radiusaxis = radiusaxis
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.potelectrode13 = potelectrode13 #quadrupole barreaux 1 et 3 self.potelectrode24 = potelectrode24 #quadrupole barreaux 2 et 4 self.potapert1 = potapert1 #first aperture (pour le champs rond) self.potapert2 = potapert2 #second aperture self.potshield = potshield #shield (0) self.potacceleration = potacceleration #ion acceleration potential
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.MeshSizeMin = MeshSizeMin self.MeshSizeMax = MeshSizeMax self.MeshSizeFromCurvature = MeshSizeFromCurvature
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.outputdir = outputdir
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.groupid = None
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.totallength = 2*self.distshieldapert + 2*self.thicknessshield + 2*self.distapertquad + 2*self.thicknessapert + self.lengthcylinder
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.coordcylinderxory = 2*self.radiusaxis self.coordcylinderz = self.thicknessshield + self.distshieldapert + self.thicknessapert + self.distapertquad
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.coordapertz1 = self.thicknessshield + self.distshieldapert self.coordapertz2 = self.thicknessshield + self.distshieldapert + self.thicknessapert + 2*self.distapertquad + self.lengthcylinder
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+self.startshield1 = 0 self.endshield1 = self.startshield1 + self.thicknessshield self.startapert1 = self.endshield1 + self.distshieldapert self.endapert1 = self.startapert1 + self.thicknessapert self.startcyl = self.endapert1 + self.distapertquad self.endcyl = self.startcyl + self.lengthcylinder self.startapert2 = self.endcyl + self.distapertquad self.endapert2 = self.startapert2 + self.thicknessapert self.startshield2 = self.endapert2 + self.distshieldapert self.endshield2 = self.startshield2 + self.thicknessshield
+\end_layout
+
+\end_body
+\end_document

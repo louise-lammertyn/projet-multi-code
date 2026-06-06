@@ -1,0 +1,117 @@
+from Main_functions import Potential_extraction
+from Data import Data
+import os
+from bempp_cl.core import opencl_kernels
+from Field_calculation import Calculation_field
+import gc
+
+opencl_kernels.show_available_platforms_and_devices()
+opencl_kernels.set_default_cpu_device(0,1)
+
+os.environ['PYOPENCL_COMPILER_OUTPUT']='1'
+os.environ['PYOPENCL_NO_CACHE'] = '1'
+
+#OUTPUT_DIR = r"C:\Users\zoeno\OneDrive - INSA Toulouse\Documents\INSA\4GP\Projet multi\projet-multi-code\Quadrupole_model\Files"
+
+"-0.0299087*Va, -0.18808*Va, +0.18808*Va" #tension qui fit
+
+# Dossier de sortie
+OUTPUT_DIR = "projet-multi-code\Quadrupole_model\Files17.5"
+if not os.path.exists(OUTPUT_DIR):
+    os.makedirs(OUTPUT_DIR)
+
+# Dico pour faire étape par étape
+
+quad = {
+    "aperture1": [0, 0, 1, 0],
+    "aperture2": [0, 0, 0, 1],
+    "quad13":    [1, 0, 0, 0],
+    "quad24":    [0, 1, 0, 0]
+}
+
+# 9 premiere paramètre
+"""
+    #1 - Distance between the sield ant the aperture 
+    #2 - Distance between the aperture and the cylinders (d in Okayama's paper)
+    #3 - Exterior radius of the shield 
+    #4 - Inside radius of the shield 
+    #5 - Thickness of the shield
+    #6 - Radius of the aperture 
+    #7 - Thickness of the aperture 
+    #8 - Length of the cylinder (l in Okayama's paper)
+    #9 - Radius of the elements around the axis 
+"""
+
+
+
+
+# Générer le maillage une fois 
+data_initial =  Data(
+    6,          # dist_shield_apert
+    5,          # dist_apert_quad = d
+
+    21,         # radius_ext_shield
+    19,         # radius_in_shield
+    1,          # thickness_shield = t
+
+    15,       # radius_apert
+    2,          # thickness_apert = t
+
+    13,         # length_cylinder = l
+
+    3.4934,       # radius_axis = 
+
+
+
+    1, 0, 0, 0, 0, 1.5,
+
+    3, 7, 10, #mesh size
+
+    OUTPUT_DIR
+    )
+#5, 6, 21, 19, 2, 10.44, 1, 30, 5.22
+#Create the .msh files
+fun_initial = Potential_extraction(data_initial, True, "temp.npz")
+fun_initial.mesh() # C'est ICI que le fichier mesh_quadrupole.msh est créé
+saved_group_ids = data_initial.group_id
+del fun_initial # On libère la mémoire après le maillage
+
+# Extraction des potentiels unitaires 
+for element, tensions in quad.items():
+    vq13, vq24, va1, va2 = tensions 
+
+    file_name = f"{element}.npz" 
+
+    data = Data(
+    6,          # dist_shield_apert
+    5,          # dist_apert_quad = d
+
+    21,         # radius_ext_shield
+    19,         # radius_in_shield
+    1,          # thickness_shield = t
+
+    15,       # radius_apert
+    2,          # thickness_apert = t
+
+    13,         # length_cylinder = l
+
+    3.4934,       # radius_axis = 
+
+
+    vq13, vq24, va1, va2, 0, 1.5,
+
+      3, 7, 10, #mesh size
+    OUTPUT_DIR
+    )
+    data.group_id = saved_group_ids
+
+    fun = Potential_extraction(data, False, file_name) 
+
+    fun.potential_extraction() # Résolution BEM
+    #fun.potential_visualisation()
+
+    #fun.graph_potential_axis()
+    del fun
+    gc.collect()
+
+#data = Data(4, 5, 21, 19, 2, 15, 2, 13, 3.4934,1, -0.18808*Va, +0.18808*Va, 0, Va, 0.9, 3, 20, OUTPUT_DIR)
