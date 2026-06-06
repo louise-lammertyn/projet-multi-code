@@ -7,6 +7,10 @@ import gc
 
 opencl_kernels.show_available_platforms_and_devices()
 opencl_kernels.set_default_cpu_device(0,1)
+"""
+This code is used to find the total volume potential in a optical systeme and save the result in a file
+The goeometry here is for the 1982 article
+"""
 
 os.environ['PYOPENCL_COMPILER_OUTPUT']='1'
 os.environ['PYOPENCL_NO_CACHE'] = '1'
